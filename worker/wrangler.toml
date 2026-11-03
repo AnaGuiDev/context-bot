@@ -23,11 +23,11 @@ migrations_dir = "migrations"
 
 [[kv_namespaces]]
 binding = "LATEST"
-id = "TODO_KV_LATEST_ID"
+id = "8678c0158a2443faaa89080b27e4fe7f"
 
 [[kv_namespaces]]
 binding = "OAUTH_KV"
-id = "TODO_KV_OAUTH_ID"
+id = "c2ec85d06e4b41a5a821a94a2b056c9e"
 
 [triggers]
 # Cada día a las 03:17 UTC borra el historial de más de 90 días.
