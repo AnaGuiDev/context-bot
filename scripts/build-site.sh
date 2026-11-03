@@ -25,7 +25,7 @@ sed -e 's#\.\./assets/#assets/#g' \
     site/privacidad.html > "$OUT/privacidad.html"
 cp site/404.html site/robots.txt site/sitemap.xml site/_headers "$OUT/"
 # CNAME solo si ya tiene un dominio real
-if ! grep -q "TODO-DOMINIO" site/CNAME; then cp site/CNAME "$OUT/"; fi
+if ! grep -q "TODO-""DOMINIO" site/CNAME; then cp site/CNAME "$OUT/"; fi
 
 # Recursos (solo lo que usa la web; el GIF es para el README)
 cp -r assets/brand assets/fonts "$OUT/assets/"
