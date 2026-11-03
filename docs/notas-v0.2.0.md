@@ -10,4 +10,4 @@ Primera versión pública de **Context Bot**: un kit gratuito y de código abier
 ### Importante
 Proyecto comunitario **no oficial**. No está afiliado a Grok Bot ni a xAI.
 
-Cambios completos en [CHANGELOG.md](https://github.com/ana-gui/context-bot/blob/main/CHANGELOG.md).
+Cambios completos en [CHANGELOG.md](https://github.com/AnaGuiDev/context-bot/blob/main/CHANGELOG.md).

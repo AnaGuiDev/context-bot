@@ -50,7 +50,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 > Un truco sencillo para que tu semana de Grok Bot dure más: no contestes «ok» a cada mensaje. Cada respuesta del bot relee toda la charla.
 >
 > He juntado este y otros trucos, todos con su fuente, aquí 👇
-> https://github.com/ana-gui/context-bot/blob/main/docs/tips-ahorro.md
+> https://github.com/AnaGuiDev/context-bot/blob/main/docs/tips-ahorro.md
 
 ## X posts in English (as Ana Gui)
 
@@ -98,7 +98,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 > A simple way to make your Grok Bot week last longer: don't reply "ok" to every message. Every reply rereads the whole chat.
 >
 > I've collected this and other tips, each with a source 👇
-> https://github.com/ana-gui/context-bot/blob/main/docs/en/tips.md
+> https://github.com/AnaGuiDev/context-bot/blob/main/docs/en/tips.md
 
 ## Descripción corta para directorios
 
