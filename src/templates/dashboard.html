@@ -43,6 +43,8 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .row select{width:auto}
 .empty{text-align:center;padding:40px}
+.live{margin-bottom:20px}.live .row{gap:10px}
+.badge{font-size:.75rem;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);margin-left:6px;vertical-align:middle}
 footer{margin-top:30px;text-align:center;font-size:.88rem;color:var(--muted)}
 footer a{color:var(--accent)}
 .dot{display:inline-block;width:14px;height:14px;border-radius:50%}
@@ -97,6 +99,13 @@ footer a{color:var(--accent)}
   <div class="card"><span class="dot" style="background:var(--r)"></span><div><div class="big" id="n-rojo">0</div><div class="muted">{{d_sum_r}}</div></div></div>
 </div>
 
+<section class="card live" id="live" aria-labelledby="live-h">
+  <div class="row" style="justify-content:space-between">
+    <div><h2 id="live-h" style="margin:0;font-size:1.1rem">📡 {{d_live_h}}</h2><p class="muted" id="live-msg" role="status" aria-live="polite" style="margin:4px 0 0">{{d_live_off}}</p></div>
+    <div class="row"><button type="button" id="live-go">{{d_live_connect}}</button><button type="button" class="ghost" id="live-ref" hidden>{{d_live_refresh}}</button><button type="button" class="ghost" id="live-del" hidden>{{d_live_del}}</button></div>
+  </div>
+</section>
+
 <form class="add card" id="add">
   <input type="text" id="name" placeholder="{{d_name}}" required aria-label="{{d_name}}">
   <input type="text" id="purpose" placeholder="{{d_purpose}}" aria-label="{{d_purpose_label}}">
@@ -147,5 +156,6 @@ footer a{color:var(--accent)}
 </div>
 <script>window.CB_I18N={{DASH_JSON}};</script>
 <script src="{{R}}assets/js/dashboard.js"></script>
+<script src="{{R}}assets/js/live.js"></script>
 </body>
 </html>

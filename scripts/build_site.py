@@ -89,6 +89,7 @@ def main():
         shutil.copy(os.path.join(st, f), OUT)
     os.makedirs(os.path.join(OUT, "assets", "js"))
     shutil.copy(os.path.join(ROOT, "src", "js", "dashboard.js"), os.path.join(OUT, "assets", "js"))
+    shutil.copy(os.path.join(ROOT, "src", "js", "live.js"), os.path.join(OUT, "assets", "js"))
     for d in ("brand", "fonts"):
         shutil.copytree(os.path.join(ROOT, "assets", d), os.path.join(OUT, "assets", d))
     vdir = os.path.join(OUT, "assets", "video"); os.makedirs(vdir)

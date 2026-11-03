@@ -129,4 +129,6 @@ const _render=render;render=function(){_render();
   document.querySelectorAll('#list .del').forEach(d=>{const i=+d.dataset.i;if(bots[i]&&bots[i].color!=='verde')d.insertAdjacentHTML('beforebegin',`<button type="button" class="ho-btn" data-i="${i}">🤝 ${H.btn}</button>`)});
   hoFill()};
 render();
+// Gancho para live.js (estado en directo opcional)
+window.CB={get bots(){return bots},save:()=>save(),stamp};
 })();
