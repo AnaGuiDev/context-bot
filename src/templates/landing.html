@@ -1,33 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{LANG}}">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Control de Contexto · Que tu bot no se vuelva lento</title>
-<meta name="description" content="Kit gratuito y de código abierto para que las conversaciones largas con tu bot de Grok Bot no se vuelvan lentas ni caras.">
-<!-- TODO(PLACEHOLDER): dominio (ver PLACEHOLDERS.md) -->
-<link rel="canonical" href="https://TODO-DOMINIO/">
-<meta name="theme-color" content="#0f1218">
-<meta name="color-scheme" content="dark light">
-<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="Control de Contexto">
-<meta property="og:title" content="Control de Contexto · Que tu bot no se vuelva lento">
-<meta property="og:description" content="Un semáforo para tus conversaciones con Grok Bot: te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada. Gratis y de código abierto.">
-<meta property="og:url" content="https://TODO-DOMINIO/">
-<meta property="og:image" content="https://TODO-DOMINIO/assets/brand/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Semáforo rojo, amarillo y verde junto al texto Control de Contexto">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Control de Contexto · Que tu bot no se vuelva lento">
-<meta name="twitter:description" content="Un semáforo para tus conversaciones con Grok Bot. Gratis y de código abierto.">
-<meta name="twitter:image" content="https://TODO-DOMINIO/assets/brand/og-image.png">
-<link rel="preload" href="../assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+{{>_head}}
 <style>
-@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/nunito-latin.woff2) format("woff2")}
+@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url({{R}}assets/fonts/nunito-latin.woff2) format("woff2")}
 :root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020;--g:#4ade80;--y:#facc15;--r:#f87171;--radius:22px}
 @media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff}}
 *{box-sizing:border-box}
@@ -95,132 +71,134 @@ footer p{margin:4px 0}
 @media (max-width:820px){.tips{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.tips{grid-template-columns:1fr}}
 @media (max-width:420px){.pill{display:none}}
+.right{display:flex;gap:12px;align-items:center}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;font-size:.85rem;font-weight:800}
+.lang a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
+.lang a[aria-current]{background:var(--accent);color:var(--on)}
+.lang a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header class="top">
-  <div class="logo"><span class="dot" aria-hidden="true"></span>Control de Contexto</div>
-  <span class="pill">Gratis · Código abierto · MIT</span>
+  <div class="logo"><span class="dot" aria-hidden="true"></span>Context Bot</div>
+  <div class="right"><span class="pill">{{pill}}</span>{{>_lang}}</div>
 </header>
 
 <main>
-<section class="hero" aria-labelledby="titulo">
+<section class="hero" aria-labelledby="title">
   <div>
-    <h1 id="titulo">Que tu bot siga <span>rápido</span>, aunque la charla sea larga.</h1>
-    <p class="lead">Un kit sencillo para que tus conversaciones con Grok Bot no se vuelvan lentas ni caras.</p>
+    <h1 id="title">{{h1}}</h1>
+    <p class="lead">{{lead}}</p>
     <!-- TODO(PLACEHOLDER): URL del repositorio, confirmar antes de publicar (ver PLACEHOLDERS.md) -->
-    <div class="ctas"><a class="btn" href="https://github.com/ana-gui/control-de-contexto">Conseguirlo gratis →</a>
-    <a class="btn alt" href="../dashboard/index.html?demo">Probar el panel</a></div>
-    <p class="note">Proyecto comunitario no oficial.</p>
+    <div class="ctas"><a class="btn" href="{{REPO}}">{{cta_get}}</a>
+    <a class="btn alt" href="{{L_DASH}}?demo">{{cta_try}}</a></div>
+    <p class="note">{{unofficial_short}}</p>
   </div>
-  <div class="light" role="img" aria-label="Semáforo animado que pasa de verde a amarillo y a rojo">
+  <div class="light" role="img" aria-label="{{light_alt}}">
     <span class="lamp g"></span><span class="lamp y"></span><span class="lamp r"></span>
   </div>
 </section>
 
-<section class="video-sec" aria-labelledby="video-titulo">
-  <h2 id="video-titulo" class="sr">Vídeo de presentación</h2>
+<section class="video-sec" aria-labelledby="video-title">
+  <h2 id="video-title" class="sr">{{video_title}}</h2>
   <div class="player">
-    <!-- Rutas relativas desde landing/ (scripts/build-site.sh las adapta para dist/). El script elige 9:16 en pantallas estrechas. -->
-    <video id="promo" muted loop playsinline preload="metadata" poster="../assets/video/poster.jpg"
-      data-wide="../assets/video/promo-16x9.mp4" data-narrow="../assets/video/promo-9x16.mp4"
-      data-poster-wide="../assets/video/poster.jpg" data-poster-narrow="../assets/video/poster-9x16.jpg"
-      aria-describedby="video-titulo">
-      <source src="../assets/video/promo-16x9.mp4" type="video/mp4">
-      Tu navegador no puede reproducir el vídeo. <a href="../assets/video/promo-16x9.mp4">Descárgalo aquí</a>.
+    <!-- El script elige la versión de este idioma y la orientación: 9:16 en pantallas estrechas, 16:9 en el resto. -->
+    <video id="promo" muted loop playsinline preload="metadata" poster="{{R}}assets/video/poster-{{LANG}}-16x9.jpg"
+      data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4"
+      data-poster-wide="{{R}}assets/video/poster-{{LANG}}-16x9.jpg" data-poster-narrow="{{R}}assets/video/poster-{{LANG}}-9x16.jpg"
+      aria-describedby="video-title">
+      <source src="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" type="video/mp4">
+      {{video_fallback}} <a href="{{R}}assets/video/promo-{{LANG}}-16x9.mp4">{{video_download}}</a>.
     </video>
-    <div class="controls" role="group" aria-label="Controles del vídeo">
-      <button class="cbtn" id="v-play" type="button" aria-label="Reproducir vídeo"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-play-icon" d="M8 5v14l11-7z"/></svg><span id="v-play-txt">Reproducir</span></button>
-      <button class="cbtn" id="v-stop" type="button" aria-label="Parar vídeo y volver al principio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span>Parar</span></button>
-      <button class="cbtn sound" id="v-sound" type="button" aria-pressed="false" aria-label="Activar sonido"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-sound-icon" d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><span id="v-sound-txt">Activar sonido</span></button>
+    <div class="controls" role="group" aria-label="{{v_controls}}">
+      <button class="cbtn" id="v-play" type="button" aria-label="{{v_play_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-play-icon" d="M8 5v14l11-7z"/></svg><span id="v-play-txt">{{v_play}}</span></button>
+      <button class="cbtn" id="v-stop" type="button" aria-label="{{v_stop_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span>{{v_stop}}</span></button>
+      <button class="cbtn sound" id="v-sound" type="button" aria-pressed="false" aria-label="{{v_sound_on}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-sound-icon" d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><span id="v-sound-txt">{{v_sound_on}}</span></button>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="problema">
+<section aria-labelledby="problem">
   <div class="problem">
-    <h2 id="problema">¿Te suena?</h2>
-    <p>Cuanto más larga es la conversación con tu bot, <strong>más tarda en responder y más te cuesta</strong>. Le pasa a mucha gente, y casi nadie se da cuenta hasta que ya va lento.</p>
-    <p>Control de Contexto te avisa a tiempo y te ayuda a seguir <strong>sin perder nada</strong> de lo que llevabas hecho.</p>
+    <h2 id="problem">{{problem_h}}</h2>
+    <p>{{problem_p1}}</p>
+    <p>{{problem_p2}}</p>
   </div>
 </section>
 
-<section aria-labelledby="semaforo">
-  <h2 id="semaforo">Un semáforo, nada más</h2>
-  <p class="sub">Tu bot vigila el tamaño de la conversación y te lo enseña con un color.</p>
+<section aria-labelledby="lights">
+  <h2 id="lights">{{lights_h}}</h2>
+  <p class="sub">{{lights_sub}}</p>
   <div class="grid">
-    <div class="card status"><span class="c" style="background:var(--g)" aria-hidden="true"></span><div><h3>Verde</h3><p>Todo bien. Sigue a lo tuyo.</p></div></div>
-    <div class="card status"><span class="c" style="background:var(--y)" aria-hidden="true"></span><div><h3>Amarillo</h3><p>Buen momento para resumir lo que llevas.</p></div></div>
-    <div class="card status"><span class="c" style="background:var(--r)" aria-hidden="true"></span><div><h3>Rojo</h3><p>Hora de pasar a un bot nuevo, con todo tu trabajo.</p></div></div>
+    <div class="card status"><span class="c" style="background:var(--g)" aria-hidden="true"></span><div><h3>{{green}}</h3><p>{{green_p}}</p></div></div>
+    <div class="card status"><span class="c" style="background:var(--y)" aria-hidden="true"></span><div><h3>{{yellow}}</h3><p>{{yellow_p}}</p></div></div>
+    <div class="card status"><span class="c" style="background:var(--r)" aria-hidden="true"></span><div><h3>{{red}}</h3><p>{{red_p}}</p></div></div>
   </div>
 </section>
 
-<section aria-labelledby="pasos">
-  <h2 id="pasos">Empieza en 3 pasos</h2>
-  <p class="sub">Sin instalar nada raro. Sin programar.</p>
+<section aria-labelledby="steps">
+  <h2 id="steps">{{steps_h}}</h2>
+  <p class="sub">{{steps_sub}}</p>
   <div class="grid">
-    <div class="card"><span class="num">1</span><h3>Dale la skill a tu bot</h3><p>Copia la skill del repositorio y pídele a tu bot que la use.</p></div>
-    <div class="card"><span class="num">2</span><h3>Mira el semáforo</h3><p>Tu bot apunta en qué estáis (STATUS.md) y te dice el color.</p></div>
-    <div class="card"><span class="num">3</span><h3>Cambia de bot si toca</h3><p>Tu bot escribe un archivo de traspaso con su memoria y su estado. El bot nuevo lo lee y sigue donde lo dejaste.</p></div>
+    <div class="card"><span class="num">1</span><h3>{{s1_h}}</h3><p>{{s1_p}}</p></div>
+    <div class="card"><span class="num">2</span><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div>
+    <div class="card"><span class="num">3</span><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div>
   </div>
 </section>
 
-<section aria-labelledby="trucos">
-  <h2 id="trucos">Trucos para gastar menos</h2>
-  <p class="sub">Pequeños hábitos que hacen que tu uso semanal dure más. Todos con su fuente.</p>
+<section aria-labelledby="tips">
+  <h2 id="tips">{{tips_h}}</h2>
+  <p class="sub">{{tips_sub}}</p>
   <div class="tips">
-    <div class="card tip"><span class="ico" aria-hidden="true">🤐</span><h3>No digas «ok» a cada mensaje</h3><p>Cada respuesta del bot relee toda la charla.</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">📦</span><h3>Junta tus peticiones</h3><p>Una lista en un mensaje, mejor que tres mensajes.</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">⏸️</span><h3>Pausa rutinas que no usas</h3><p>Una rutina que no se ejecuta no gasta.</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🕰️</span><h3>Baja la frecuencia</h3><p>De «cada hora» a «cada mañana» suele bastar.</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🧪</span><h3>Ojo con «Test»</h3><p>Probar una rutina gasta como una ejecución real.</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🚚</span><h3>Charla larga, bot nuevo</h3><p>Duplica el bot y sigue desde tu STATUS.md.</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🤐</span><h3>{{t1_h}}</h3><p>{{t1_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">📦</span><h3>{{t2_h}}</h3><p>{{t2_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">⏸️</span><h3>{{t3_h}}</h3><p>{{t3_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🕰️</span><h3>{{t4_h}}</h3><p>{{t4_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🧪</span><h3>{{t5_h}}</h3><p>{{t5_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🚚</span><h3>{{t6_h}}</h3><p>{{t6_p}}</p></div>
   </div>
-  <!-- TODO(PLACEHOLDER): URL del repositorio (ver PLACEHOLDERS.md) -->
-  <p class="tips-more"><a href="https://github.com/ana-gui/control-de-contexto/blob/main/docs/tips-ahorro.md">Ver todos los trucos y sus fuentes →</a></p>
+  <p class="tips-more"><a href="{{TIPS_URL}}">{{tips_more}}</a></p>
 </section>
 
 <section aria-labelledby="faq">
-  <h2 id="faq">Preguntas rápidas</h2>
-  <details><summary>¿Es gratis?</summary><p>Sí. Es gratis y de código abierto, con licencia MIT.</p></details>
-  <details><summary>¿Tengo que saber programar?</summary><p>No. Solo copias, pegas y hablas con tu bot como siempre.</p></details>
-  <details><summary>¿Pierdo mi conversación?</summary><p>No. Tu bot guarda el estado del trabajo y la guía te ayuda a pasarlo todo al bot nuevo.</p></details>
-  <details><summary>¿Es oficial de Grok Bot?</summary><p>No. Es un proyecto de la comunidad, sin relación oficial con Grok Bot ni xAI.</p></details>
+  <h2 id="faq">{{faq_h}}</h2>
+  <details><summary>{{q1}}</summary><p>{{a1}}</p></details>
+  <details><summary>{{q2}}</summary><p>{{a2}}</p></details>
+  <details><summary>{{q3}}</summary><p>{{a3}}</p></details>
+  <details><summary>{{q4}}</summary><p>{{a4}}</p></details>
 </section>
 
 <section aria-labelledby="cta">
   <div class="cta">
-    <h2 id="cta">Charlas largas, bot ligero.</h2>
-    <p class="sub">Skill, panel con semáforo, prompts y guía de migración. Todo en un repositorio.</p>
-    <!-- TODO(PLACEHOLDER): URL del repositorio, confirmar antes de publicar (ver PLACEHOLDERS.md) -->
-    <a class="btn" href="https://github.com/ana-gui/control-de-contexto">Ver en GitHub →</a>
+    <h2 id="cta">{{cta_h}}</h2>
+    <p class="sub">{{cta_sub}}</p>
+    <a class="btn" href="{{REPO}}">{{cta_gh}}</a>
   </div>
 </section>
 
-<section aria-labelledby="apoyo">
+<section aria-labelledby="support">
   <div class="cta">
-    <h2 id="apoyo">¿Te ha ayudado?</h2>
-    <p class="sub">El kit es y seguirá siendo gratis. Si te apetece apoyarlo, elige lo que te resulte más cómodo:</p>
+    <h2 id="support">{{sup_h}}</h2>
+    <p class="sub">{{sup_sub}}</p>
     <div class="support">
-      <!-- TODO(PLACEHOLDER): enlace de donación Buy Me a Coffee (ver PLACEHOLDERS.md) -->
-      <a class="btn" href="https://buymeacoffee.com/TODO_ANA_GUI">☕ Invítame a un café</a>
-      <!-- TODO(PLACEHOLDER): perfil de X (ver PLACEHOLDERS.md) -->
-      <a class="btn alt" href="https://x.com/TODO_ANA_GUI">💸 Propinas en X</a>
+      <!-- TODO(PLACEHOLDER): enlace de Buy Me a Coffee y perfil de X (ver PLACEHOLDERS.md) -->
+      <a class="btn" href="{{BMC}}">{{coffee}}</a>
+      <a class="btn alt" href="{{X}}">{{tips_x}}</a>
     </div>
-    <p class="note">Propinas: desde el perfil de X, botón de Propinas.<br><a href="https://x.com/TODO_ANA_GUI">Seguir a Ana Gui en X</a></p>
+    <p class="note">{{tips_x_note}}<br><a href="{{X}}">{{follow_x}}</a></p>
   </div>
 </section>
 </main>
 
 <footer>
-  <!-- TODO(PLACEHOLDER): URLs del repositorio y de X (ver PLACEHOLDERS.md) -->
-  <p>Hecho con cariño por Ana Gui · Licencia MIT · <a href="https://github.com/ana-gui/control-de-contexto">GitHub</a> · <a href="../dashboard/index.html">Panel</a> · <a href="../site/privacidad.html">Privacidad</a> · <a href="https://x.com/TODO_ANA_GUI">X</a></p>
-  <p>Proyecto comunitario no oficial. No está afiliado a Grok Bot ni a xAI.</p>
+  <p>{{made_by}} · <a href="{{REPO}}">GitHub</a> · <a href="{{L_DASH}}">{{dash_word}}</a> · <a href="{{L_PRIV}}">{{privacy_word}}</a> · <a href="{{X}}">X</a></p>
+  <p>{{unofficial_long}}</p>
 </footer>
 </div>
 <script>
 (function(){
+  var T={{VIDEO_JSON}};
   var v=document.getElementById('promo');if(!v)return;
   var play=document.getElementById('v-play'),stop=document.getElementById('v-stop'),snd=document.getElementById('v-sound');
   var pIcon=document.getElementById('v-play-icon'),pTxt=document.getElementById('v-play-txt');
@@ -237,8 +215,8 @@ footer p{margin:4px 0}
     v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=t}catch(e){}if(was)v.play().catch(function(){})});
   }
   function ui(){
-    var p=v.paused;pIcon.setAttribute('d',p?PLAY:PAUSE);pTxt.textContent=p?'Reproducir':'Pausar';play.setAttribute('aria-label',p?'Reproducir vídeo':'Pausar vídeo');
-    var m=v.muted;sIcon.setAttribute('d',m?MUTED:ON);sTxt.textContent=m?'Activar sonido':'Silenciar';snd.setAttribute('aria-label',m?'Activar sonido':'Silenciar');snd.setAttribute('aria-pressed',String(!m));
+    var p=v.paused;pIcon.setAttribute('d',p?PLAY:PAUSE);pTxt.textContent=p?T.play:T.pause;play.setAttribute('aria-label',p?T.playLabel:T.pauseLabel);
+    var m=v.muted;sIcon.setAttribute('d',m?MUTED:ON);sTxt.textContent=m?T.soundOn:T.soundOff;snd.setAttribute('aria-label',m?T.soundOn:T.soundOff);snd.setAttribute('aria-pressed',String(!m));
   }
   pick();if(narrowQ.addEventListener)narrowQ.addEventListener('change',pick);
   if(!reduce.matches){v.autoplay=true;v.play().catch(function(){})}

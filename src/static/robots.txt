@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO(PLACEHOLDER): dominio (ver PLACEHOLDERS.md)
-Sitemap: https://TODO-DOMINIO/sitemap.xml
+Sitemap: https://contextbot.app/sitemap.xml
