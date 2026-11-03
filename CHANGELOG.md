@@ -50,6 +50,6 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Guías de instalación y de migración con BotDuplicator.
 - Página de presentación (`landing/index.html`).
 
-[Sin publicar]: https://github.com/ana-gui/control-de-contexto/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/ana-gui/control-de-contexto/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/ana-gui/control-de-contexto/releases/tag/v0.1.0
+[Sin publicar]: https://github.com/AnaGuiDev/context-bot/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/AnaGuiDev/context-bot/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/AnaGuiDev/context-bot/releases/tag/v0.1.0

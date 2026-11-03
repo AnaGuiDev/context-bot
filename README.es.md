@@ -10,19 +10,21 @@ Un kit gratuito y de código abierto para que tus conversaciones largas con Grok
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-4ade80.svg)](LICENSE)
 [![Versión](https://img.shields.io/badge/versi%C3%B3n-0.2.0-8fb4ff.svg)](CHANGELOG.md)
 [![Web](https://img.shields.io/badge/web-contextbot.app-4ade80.svg)](https://contextbot.app/es/)
-[![Publicar web](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml)
+[![Publicar web](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml)
 [![Hecho con cariño](https://img.shields.io/badge/hecho%20con-%E2%9D%A4-f87171.svg)](#-créditos)
 [![Sin programar](https://img.shields.io/badge/sin%20programar-s%C3%AD-facc15.svg)](docs/instalacion.md)
 [![Contribuciones bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-8fb4ff.svg)](CONTRIBUTING.md)
-[![Seguir en X](https://img.shields.io/badge/X-seguir-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
+[![Seguir en X](https://img.shields.io/badge/X-seguir-000000.svg?logo=x)](https://x.com/SoyAnaDev)
 
 **[🌐 Ver la web](https://contextbot.app/es/) · [📊 Probar el panel con ejemplos](https://contextbot.app/es/dashboard/?demo)** · [English](README.md)
 
-[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
+[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_BMC)
 
 <a href="assets/video/promo-es-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Vídeo de presentación de Context Bot (pulsa para verlo con sonido)" width="820"></a>
 
 <sub>Pulsa la animación para ver el vídeo completo con sonido.</sub>
+
+**[➕ Añadir Context Bot](TODO_TEMPLATE_URL)** · ⭐ **Dale una estrella** si te ayuda · **[Sigue a @SoyAnaDev](https://x.com/SoyAnaDev)** para enterarte de las novedades
 
 </div>
 
@@ -73,7 +75,10 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 
 ## 🚀 Empieza en 3 pasos
 
-1. **Dale la skill a tu bot.** Copia [`SKILL.md`](skills/context-bot/SKILL.md) y pídele: *«Guarda esta skill y úsala a partir de ahora»*.
+1. **Añade el bot, o solo la skill.**
+   - **Bot nuevo:** abre la [plantilla de Context Bot](TODO_TEMPLATE_URL) y pulsa **Add to Grok Bot**.
+   - **Tu propio bot:** pega esto en su chat:
+     > Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skills, guárdala exactamente como está escrita y confírmamelo.
 2. **Mira el semáforo.** Pregúntale *«¿De qué color estamos?»* o pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).
 3. **Cambia de bot si toca.** En rojo, sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md): la memoria viaja en un archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)). En la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves qué se lleva el bot nuevo.
 
@@ -135,16 +140,18 @@ Ideas para próximas versiones. No hay fechas: dependen del tiempo libre y de lo
 
 - [x] Web y panel en inglés y en español.
 - [x] Pegar un `TRASPASO.md` en el panel para ver qué se lleva el bot nuevo.
-- [ ] Versión en inglés de la skill.
+- [x] Versión en inglés de la skill ([`skills/context-bot/en/SKILL.md`](skills/context-bot/en/SKILL.md), en <https://contextbot.app/skill.md>).
+- [x] Plantilla del bot lista para publicar ([templates/context-bot-template.md](templates/context-bot-template.md)).
+- [ ] Estado en directo opcional en el panel con un conector MCP (código en [`worker/`](worker/), aún sin desplegar).
 - [ ] Que el panel funcione sin conexión (instalable como app).
 - [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.
 - [ ] Más trucos para gastar menos, siempre con fuente.
 
-¿Echas algo en falta? [Propón una idea](https://github.com/ana-gui/context-bot/issues/new?template=idea.yml).
+¿Echas algo en falta? [Propón una idea](https://github.com/AnaGuiDev/context-bot/issues/new?template=idea.yml).
 
 ## 🤝 Contribuir
 
-Las ideas, correcciones y mejoras son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md), abre un [issue](https://github.com/ana-gui/context-bot/issues) y respeta el [Código de conducta](CODE_OF_CONDUCT.md).
+Las ideas, correcciones y mejoras son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md), abre un [issue](https://github.com/AnaGuiDev/context-bot/issues) y respeta el [Código de conducta](CODE_OF_CONDUCT.md).
 
 ## ☕ Apoya el proyecto
 
@@ -152,16 +159,16 @@ Context Bot es y seguirá siendo gratis. Si te ha ahorrado algún rato, puedes:
 
 <div align="center">
 
-[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_ANA_GUI)
-[![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/TODO_ANA_GUI)
+[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_BMC)
+[![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
 
 </div>
 
-- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI).
-- **💸 Propinas en X:** desde el [perfil de X](https://x.com/TODO_ANA_GUI), botón de Propinas.
-- **Sígueme en X** para enterarte de las novedades: [@TODO_ANA_GUI](https://x.com/TODO_ANA_GUI).
+- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/TODO_BMC).
+- **💸 Propinas en X:** desde el [perfil de X](https://x.com/SoyAnaDev), botón de Propinas.
+- **Sígueme en X** para enterarte de las novedades: [@SoyAnaDev](https://x.com/SoyAnaDev).
 
-Darle una ⭐ al repositorio o compartirlo con quien le venga bien también ayuda muchísimo.
+**⭐ [Dale una estrella al repositorio](https://github.com/AnaGuiDev/context-bot)** y **[sígueme en X, @SoyAnaDev](https://x.com/SoyAnaDev)**: es la forma más fácil de ayudar, y te enterarás antes de las novedades. Compartirlo con quien le venga bien también ayuda muchísimo.
 
 ## 🔒 Privacidad
 

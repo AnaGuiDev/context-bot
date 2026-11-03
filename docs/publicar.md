@@ -15,7 +15,7 @@ Abre <http://localhost:8000> (inglés), <http://localhost:8000/es/> (español) y
 
 ## 1. Crear el repositorio en GitHub como Ana Gui
 
-1. Entra en GitHub con la cuenta **ana-gui** (o la que vayas a usar).
+1. Entra en GitHub con la cuenta **AnaGuiDev** (o la que vayas a usar).
 2. Crea un repositorio nuevo: <https://github.com/new>
    - Nombre: `context-bot`
    - Público.
@@ -24,16 +24,16 @@ Abre <http://localhost:8000> (inglés), <http://localhost:8000/es/> (español) y
 
    ```bash
    git config user.name "Ana Gui"
-   git config user.email "ana-gui@users.noreply.github.com"
+   git config user.email "AnaGuiDev@users.noreply.github.com"
    git branch -M main
-   git remote add origin https://github.com/ana-gui/context-bot.git
+   git remote add origin https://github.com/AnaGuiDev/context-bot.git
    git push -u origin main
    ```
 
    Con GitHub CLI es un solo comando (hace lo mismo que los pasos 2 y 3):
 
    ```bash
-   gh repo create ana-gui/context-bot --public --source . --remote origin --push \
+   gh repo create AnaGuiDev/context-bot --public --source . --remote origin --push \
      --description "Keep your bot fast. A traffic light for long Grok Bot chats: know when to summarise and when to move to a new bot without losing anything."
    ```
 
@@ -47,14 +47,35 @@ En la página del repositorio, pulsa el engranaje ⚙️ junto a «About»:
 - **Website:** `https://contextbot.app`.
 - **Topics:** `grok-bot`, `ai-agents`, `context-window`, `productivity`, `spanish`, `skill`, `dashboard`, `open-source`.
 
+### Temas sugeridos (GitHub admite hasta 20)
+
+Los temas ayudan a que te encuentren en la búsqueda de GitHub y en las páginas de cada tema. Por orden de importancia:
+
+| Tema | Para qué |
+|---|---|
+| `grok-bot` | Quien busca cosas para Grok Bot. El más importante. |
+| `ai-agents`, `ai-assistant`, `llm` | Búsquedas generales de agentes e IA. |
+| `context-window`, `context-management` | El problema exacto que resuelve. |
+| `mcp`, `mcp-server` | El conector de estado en directo (`worker/`). |
+| `prompt-engineering`, `skill` | La skill y los prompts. |
+| `productivity`, `token-usage` | Ahorro de uso y de tiempo. |
+| `cloudflare-workers`, `cloudflare-pages` | La parte técnica (web y conector). |
+| `dashboard`, `localstorage` | El panel sin servidor. |
+| `spanish`, `bilingual` | Que es bilingüe, cosa poco habitual. |
+| `open-source` | Genérico, pero suma. |
+
+Son 19. Repasa la lista cada pocos meses: GitHub sugiere temas parecidos en la propia caja de «Topics».
+
 Con GitHub CLI:
 
 ```bash
-gh repo edit ana-gui/context-bot \
+gh repo edit AnaGuiDev/context-bot \
   --homepage "https://contextbot.app" \
-  --add-topic grok-bot --add-topic ai-agents --add-topic context-window \
-  --add-topic productivity --add-topic spanish --add-topic skill \
-  --add-topic dashboard --add-topic open-source
+  --add-topic grok-bot --add-topic ai-agents --add-topic ai-assistant --add-topic llm \
+  --add-topic context-window --add-topic context-management --add-topic mcp --add-topic mcp-server \
+  --add-topic prompt-engineering --add-topic skill --add-topic productivity --add-topic token-usage \
+  --add-topic cloudflare-workers --add-topic cloudflare-pages --add-topic dashboard --add-topic localstorage \
+  --add-topic spanish --add-topic bilingual --add-topic open-source
 ```
 
 ## 2 bis. Avisos de seguridad privados
@@ -112,10 +133,10 @@ Usa **solo una** para el mismo dominio. Todas generan la web con `bash scripts/b
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.** El flujo «Publicar web» (`.github/workflows/pages.yml`) se lanza en cada push a `main`.
 2. **Settings → Pages → Custom domain:** `contextbot.app` → **Save**. `src/static/CNAME` ya lleva `contextbot.app`.
-3. En el DNS de Cloudflare crea los registros de [la documentación de GitHub](https://docs.github.com/es/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site): cuatro `A` (`185.199.108.153` a `185.199.111.153`), cuatro `AAAA` (`2606:50c0:8000::153` a `2606:50c0:8003::153`) y `CNAME www → ana-gui.github.io`, todos con la nube en gris (**DNS only**).
+3. En el DNS de Cloudflare crea los registros de [la documentación de GitHub](https://docs.github.com/es/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site): cuatro `A` (`185.199.108.153` a `185.199.111.153`), cuatro `AAAA` (`2606:50c0:8000::153` a `2606:50c0:8003::153`) y `CNAME www → AnaGuiDev.github.io`, todos con la nube en gris (**DNS only**).
 4. Marca **Enforce HTTPS** en cuanto GitHub lo permita.
 
-> En la dirección provisional `ana-gui.github.io/context-bot/` la 404 y algunos enlaces absolutos fallan porque la web está en una subcarpeta. Con el dominio propio va todo bien.
+> En la dirección provisional `AnaGuiDev.github.io/context-bot/` la 404 y algunos enlaces absolutos fallan porque la web está en una subcarpeta. Con el dominio propio va todo bien.
 
 ### Netlify
 

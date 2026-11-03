@@ -10,18 +10,20 @@ A free, open-source kit that stops your long Grok Bot conversations from getting
 [![MIT licence](https://img.shields.io/badge/licence-MIT-4ade80.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-0.2.0-8fb4ff.svg)](CHANGELOG.md)
 [![Website](https://img.shields.io/badge/web-contextbot.app-4ade80.svg)](https://contextbot.app/)
-[![Publish website](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml)
+[![Publish website](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml)
 [![No coding](https://img.shields.io/badge/no%20coding-needed-facc15.svg)](docs/en/installation.md)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-8fb4ff.svg)](CONTRIBUTING.md)
-[![Follow on X](https://img.shields.io/badge/X-follow-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
+[![Follow on X](https://img.shields.io/badge/X-follow-000000.svg?logo=x)](https://x.com/SoyAnaDev)
 
 **[🌐 Website](https://contextbot.app/) · [📊 Try the dashboard with sample data](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
 
-[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/TODO_ANA_GUI)
+[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/TODO_BMC)
 
 <a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
 <sub>Click the animation to watch the full video with sound.</sub>
+
+**[➕ Add Context Bot](TODO_TEMPLATE_URL)** · ⭐ **Star the repo** if it helps · **[Follow @SoyAnaDev](https://x.com/SoyAnaDev)** for updates
 
 </div>
 
@@ -57,7 +59,10 @@ Your bot estimates how big the conversation is, keeps a `STATUS.md` file with wh
 
 ## 🚀 Get started in 3 steps
 
-1. **Give your bot the skill.** Copy [`SKILL.md`](skills/context-bot/SKILL.md) and say: *"Save this skill and use it from now on."*
+1. **Add the bot, or just the skill.**
+   - **New bot:** open the [Context Bot template](TODO_TEMPLATE_URL) and click **Add to Grok Bot**.
+   - **Your own bot:** paste this into its chat:
+     > Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
 2. **Check the light.** Ask *"What colour are we on?"* or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
 3. **Switch bots when it's time.** On red, follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows you exactly what the new bot takes with it.
 
@@ -117,25 +122,27 @@ Ideas for future versions. No dates: they depend on spare time and on what you a
 
 - [x] Website and dashboard in English and Spanish.
 - [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
-- [ ] English version of the skill.
+- [x] English version of the skill ([`skills/context-bot/en/SKILL.md`](skills/context-bot/en/SKILL.md), served at <https://contextbot.app/skill.md>).
+- [x] Ready-to-publish bot template ([templates/context-bot-template.md](templates/context-bot-template.md)).
+- [ ] Optional live status in the dashboard through an MCP connector (code in [`worker/`](worker/), not deployed yet).
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.
 
-Missing something? [Suggest an idea](https://github.com/ana-gui/context-bot/issues/new?template=idea.yml).
+Missing something? [Suggest an idea](https://github.com/AnaGuiDev/context-bot/issues/new?template=idea.yml).
 
 ## 🤝 Contributing
 
-Ideas, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), open an [issue](https://github.com/ana-gui/context-bot/issues) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Ideas, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), open an [issue](https://github.com/AnaGuiDev/context-bot/issues) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## ☕ Support the project
 
 Context Bot is free and will stay that way. If it's saved you some time, you can:
 
-- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/TODO_ANA_GUI).
-- **💸 Tips on X:** use the Tips button on my [X profile](https://x.com/TODO_ANA_GUI).
-- **Follow me on X** for updates: [@TODO_ANA_GUI](https://x.com/TODO_ANA_GUI).
+- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/TODO_BMC).
+- **💸 Tips on X:** use the Tips button on my [X profile](https://x.com/SoyAnaDev).
+- **Follow me on X** for updates: [@SoyAnaDev](https://x.com/SoyAnaDev).
 
-A ⭐ on the repo, or sharing it with someone who'd find it useful, helps a lot too.
+**⭐ [Star the repo](https://github.com/AnaGuiDev/context-bot)** and **[follow @SoyAnaDev on X](https://x.com/SoyAnaDev)**: it's the easiest way to help, and you'll hear about new versions first. Sharing it with someone who'd find it useful helps a lot too.
 
 ## 🔒 Privacy
 

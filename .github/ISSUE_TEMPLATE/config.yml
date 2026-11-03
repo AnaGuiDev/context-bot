@@ -1,1 +1,11 @@
 blank_issues_enabled: true
+contact_links:
+  - name: 📖 Docs / Guías
+    url: https://github.com/AnaGuiDev/context-bot/tree/main/docs
+    about: Installation, handoff and tips · Instalación, traspaso y trucos.
+  - name: 🌐 Website / Web
+    url: https://contextbot.app/
+    about: Landing page and dashboard · Página y panel.
+  - name: 💬 X · @SoyAnaDev
+    url: https://x.com/SoyAnaDev
+    about: Quick questions and news · Preguntas rápidas y novedades.
