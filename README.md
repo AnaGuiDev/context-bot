@@ -1,4 +1,4 @@
-<!-- TODO(PLACEHOLDER): URL del repositorio, perfil de X y enlace de donación. Ver PLACEHOLDERS.md -->
+<!-- TODO(PLACEHOLDER): dominio, URL del repositorio, perfil de X y enlace de donación. Ver PLACEHOLDERS.md -->
 <div align="center">
 
 # 🚦 Control de Contexto
@@ -8,13 +8,17 @@
 Un kit gratuito y de código abierto para que tus conversaciones largas con Grok Bot no se vuelvan lentas ni caras.
 
 [![Licencia MIT](https://img.shields.io/badge/licencia-MIT-4ade80.svg)](LICENSE)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.1.0-8fb4ff.svg)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.2.0-8fb4ff.svg)](CHANGELOG.md)
+[![Web](https://img.shields.io/badge/web-TODO--DOMINIO-4ade80.svg)](https://TODO-DOMINIO/)
+[![Publicar web](https://github.com/ana-gui/control-de-contexto/actions/workflows/pages.yml/badge.svg)](https://github.com/ana-gui/control-de-contexto/actions/workflows/pages.yml)
 [![Hecho con cariño](https://img.shields.io/badge/hecho%20con-%E2%9D%A4-f87171.svg)](#-créditos)
 [![Sin programar](https://img.shields.io/badge/sin%20programar-s%C3%AD-facc15.svg)](docs/instalacion.md)
 [![Contribuciones bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-8fb4ff.svg)](CONTRIBUTING.md)
 [![Seguir en X](https://img.shields.io/badge/X-seguir-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
 
-[Empezar](#-empieza-en-3-pasos) · [Panel](dashboard/index.html) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
+**[🌐 Ver la web](https://TODO-DOMINIO/) · [📊 Probar el panel con ejemplos](https://TODO-DOMINIO/dashboard/?demo)** · [English](README.en.md)
+
+[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
 
 <a href="assets/video/promo-16x9.mp4"><img src="assets/video/promo.gif" alt="Vídeo de presentación de Control de Contexto (pulsa para verlo con sonido)" width="820"></a>
 
@@ -23,6 +27,21 @@ Un kit gratuito y de código abierto para que tus conversaciones largas con Grok
 </div>
 
 ---
+
+## Índice
+
+- [El problema](#-el-problema)
+- [Cómo funciona](#-cómo-funciona)
+- [Qué incluye](#-qué-incluye)
+- [Empieza en 3 pasos](#-empieza-en-3-pasos)
+- [La página y el panel](#️-la-página-y-el-panel)
+- [Trucos para gastar menos](#-trucos-para-gastar-menos)
+- [Preguntas frecuentes](#-preguntas-frecuentes)
+- [Hoja de ruta](#️-hoja-de-ruta)
+- [Contribuir](#-contribuir)
+- [Apoya el proyecto](#-apoya-el-proyecto)
+- [Privacidad](#-privacidad)
+- [Licencia](#-licencia)
 
 ## 🤔 El problema
 
@@ -38,17 +57,18 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 |---|---|---|---|
 | 🟢 | **Verde** | Todo bien | Seguir a lo tuyo |
 | 🟡 | **Amarillo** | La charla ya pesa | Resumir en `STATUS.md` y trabajar desde ahí |
-| 🔴 | **Rojo** | Va lento y sale caro | Pasar a un bot nuevo con BotDuplicator |
+| 🔴 | **Rojo** | Va lento y sale caro | Escribir el traspaso y pasar a un bot nuevo |
 
 ## 📦 Qué incluye
 
 - **[Skill](skills/control-de-contexto/SKILL.md)** para tu bot: cuándo comprobar, cómo estimar, cuándo avisar y cómo migrar.
-- **[Panel](dashboard/index.html)** con semáforo: un único archivo HTML, sin servidor, guarda en tu navegador.
+- **[Panel](dashboard/index.html)** con semáforo: un único archivo HTML, sin servidor, guarda en tu navegador. [Pruébalo con ejemplos](https://TODO-DOMINIO/dashboard/?demo).
 - **[Prompts](prompts/bot-coordinador.md)**, incluido un bot coordinador que vigila a los demás.
-- **[Ejemplo de STATUS.md](examples/STATUS.md.example)**.
+- **[Ejemplo de STATUS.md](examples/STATUS.md.example)** y **[ejemplo de TRASPASO.md](examples/TRASPASO.md.example)**.
 - **[Guía de migración](docs/integracion-botduplicator.md)** a un bot nuevo con BotDuplicator.
 - **[Trucos para gastar menos](docs/tips-ahorro.md)**, cada uno con su fuente.
 - **Revisión de rutinas** en el panel: te marca en rojo o amarillo las que conviene pausar o espaciar.
+- **Web lista para publicar** (`scripts/build-site.sh` → `dist/`), con guía en [docs/publicar.md](docs/publicar.md).
 
 ## 🚀 Empieza en 3 pasos
 
@@ -90,7 +110,7 @@ No. Copias, pegas y hablas con tu bot como siempre.
 
 <details><summary><b>¿Pierdo mi conversación al migrar?</b></summary>
 
-No. El bot guarda el estado en `STATUS.md` y el bot nuevo continúa desde ahí. El antiguo sigue existiendo para consulta.
+No. Al duplicar un bot, la memoria aprendida no se copia, así que el bot escribe un archivo de traspaso (`TRASPASO.md`) con sus preferencias, decisiones y estado. El bot nuevo lo lee y lo guarda en su memoria. El antiguo sigue existiendo para consulta: ocúltalo, no lo borres.
 </details>
 
 <details><summary><b>¿El tamaño que calcula es exacto?</b></summary>
@@ -107,6 +127,18 @@ Solo en tu navegador (`localStorage`). No hay servidor.
 
 No. Es un proyecto comunitario, sin relación oficial con Grok Bot ni xAI.
 </details>
+
+## 🗺️ Hoja de ruta
+
+Ideas para próximas versiones. No hay fechas: dependen del tiempo libre y de lo que pidáis.
+
+- [ ] Versión en inglés de la skill y del panel.
+- [ ] Importar un `TRASPASO.md` en el panel para ver de un vistazo qué se lleva el bot nuevo.
+- [ ] Que el panel funcione sin conexión (instalable como app).
+- [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.
+- [ ] Más trucos para gastar menos, siempre con fuente.
+
+¿Echas algo en falta? [Propón una idea](https://github.com/ana-gui/control-de-contexto/issues/new?template=idea.yml).
 
 ## 🤝 Contribuir
 
@@ -129,11 +161,15 @@ Control de Contexto es y seguirá siendo gratis. Si te ha ahorrado algún rato, 
 
 Darle una ⭐ al repositorio o compartirlo con quien le venga bien también ayuda muchísimo.
 
+## 🔒 Privacidad
+
+La web no usa cookies ni seguimiento, y la fuente y el vídeo se sirven desde la propia web. El panel guarda tus datos solo en tu navegador (`localStorage`). Más detalle en la [página de privacidad](site/privacidad.html). Para avisar de un fallo de seguridad, lee [SECURITY.md](SECURITY.md).
+
 ## 💛 Créditos
 
 Hecho con cariño por **Ana Gui**. Gracias a quienes prueban, opinan y mejoran el kit.
 
-Iconos de insignias: [shields.io](https://shields.io). Código de conducta basado en el [Contributor Covenant](https://www.contributor-covenant.org/).
+Iconos de insignias: [shields.io](https://shields.io). Fuente [Nunito](https://github.com/googlefonts/nunito) (licencia SIL OFL 1.1). Código de conducta basado en el [Contributor Covenant](https://www.contributor-covenant.org/).
 
 ## 📄 Licencia
 

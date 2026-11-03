@@ -57,6 +57,10 @@ gh repo edit ana-gui/control-de-contexto \
   --add-topic dashboard --add-topic open-source
 ```
 
+## 2 bis. Avisos de seguridad privados
+
+**Settings → Security → Private vulnerability reporting → Enable.** Así funciona el enlace de [`SECURITY.md`](../SECURITY.md).
+
 ## 3. Imagen para redes (social preview)
 
 1. Repositorio → **Settings** → **General** → sección **Social preview**.
