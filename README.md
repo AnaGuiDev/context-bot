@@ -1,0 +1,124 @@
+<!-- TODO(PLACEHOLDER): URL del repositorio, perfil de X y enlace de donación. Ver PLACEHOLDERS.md -->
+<div align="center">
+
+# 🚦 Control de Contexto
+
+**Que tu bot siga rápido, aunque la charla sea larga.**
+
+Un kit gratuito y de código abierto para que tus conversaciones largas con Grok Bot no se vuelvan lentas ni caras.
+
+[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-4ade80.svg)](LICENSE)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.1.0-8fb4ff.svg)](CHANGELOG.md)
+[![Hecho con cariño](https://img.shields.io/badge/hecho%20con-%E2%9D%A4-f87171.svg)](#-créditos)
+[![Sin programar](https://img.shields.io/badge/sin%20programar-s%C3%AD-facc15.svg)](docs/instalacion.md)
+[![Contribuciones bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-8fb4ff.svg)](CONTRIBUTING.md)
+[![Seguir en X](https://img.shields.io/badge/X-seguir-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
+
+[Empezar](#-empieza-en-3-pasos) · [Panel](dashboard/index.html) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
+
+<img src="assets/landing.png" alt="Página de presentación de Control de Contexto" width="820">
+
+</div>
+
+---
+
+## 🤔 El problema
+
+Cuanto más larga es la conversación con tu bot, **más tarda en responder y más te cuesta**: en cada respuesta vuelve a leer todo lo anterior. Casi nadie se da cuenta hasta que ya va lento, y entonces da pereza empezar de cero por miedo a perder lo hecho.
+
+Control de Contexto te avisa a tiempo y te ayuda a seguir **sin perder nada**.
+
+## 🚦 Cómo funciona
+
+Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archivo `STATUS.md` y te lo resume con un color:
+
+| | Color | Qué significa | Qué hacer |
+|---|---|---|---|
+| 🟢 | **Verde** | Todo bien | Seguir a lo tuyo |
+| 🟡 | **Amarillo** | La charla ya pesa | Resumir en `STATUS.md` y trabajar desde ahí |
+| 🔴 | **Rojo** | Va lento y sale caro | Pasar a un bot nuevo con BotDuplicator |
+
+## 📦 Qué incluye
+
+- **[Skill](skills/control-de-contexto/SKILL.md)** para tu bot: cuándo comprobar, cómo estimar, cuándo avisar y cómo migrar.
+- **[Panel](dashboard/index.html)** con semáforo: un único archivo HTML, sin servidor, guarda en tu navegador.
+- **[Prompts](prompts/bot-coordinador.md)**, incluido un bot coordinador que vigila a los demás.
+- **[Ejemplo de STATUS.md](examples/STATUS.md.example)**.
+- **[Guía de migración](docs/integracion-botduplicator.md)** a un bot nuevo con BotDuplicator.
+
+## 🚀 Empieza en 3 pasos
+
+1. **Dale la skill a tu bot.** Copia [`SKILL.md`](skills/control-de-contexto/SKILL.md) y pídele: *«Guarda esta skill y úsala a partir de ahora»*.
+2. **Mira el semáforo.** Pregúntale *«¿De qué color estamos?»* o pega su `STATUS.md` en el [panel](dashboard/index.html).
+3. **Cambia de bot si toca.** En rojo, sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md) y te lo llevas todo.
+
+Más detalle en [docs/instalacion.md](docs/instalacion.md).
+
+## 🖥️ El panel
+
+<div align="center">
+<img src="assets/dashboard.png" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
+</div>
+
+Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Puedes exportar e importar la lista en JSON. Nada sale de tu ordenador.
+
+## ❓ Preguntas frecuentes
+
+<details><summary><b>¿Es gratis?</b></summary>
+
+Sí. Gratis y de código abierto, con licencia MIT.
+</details>
+
+<details><summary><b>¿Tengo que saber programar?</b></summary>
+
+No. Copias, pegas y hablas con tu bot como siempre.
+</details>
+
+<details><summary><b>¿Pierdo mi conversación al migrar?</b></summary>
+
+No. El bot guarda el estado en `STATUS.md` y el bot nuevo continúa desde ahí. El antiguo sigue existiendo para consulta.
+</details>
+
+<details><summary><b>¿El tamaño que calcula es exacto?</b></summary>
+
+No, es una estimación orientativa a partir de la longitud de la charla. Suficiente para saber cuándo conviene actuar.
+</details>
+
+<details><summary><b>¿Dónde se guardan los datos del panel?</b></summary>
+
+Solo en tu navegador (`localStorage`). No hay servidor.
+</details>
+
+<details><summary><b>¿Es oficial de Grok Bot?</b></summary>
+
+No. Es un proyecto comunitario, sin relación oficial con Grok Bot ni xAI.
+</details>
+
+## 🤝 Contribuir
+
+Las ideas, correcciones y mejoras son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md), abre un [issue](https://github.com/ana-gui/control-de-contexto/issues) y respeta el [Código de conducta](CODE_OF_CONDUCT.md).
+
+## ☕ Apoya el proyecto
+
+Control de Contexto es y seguirá siendo gratis. Si te ha ahorrado algún rato, puedes:
+
+<div align="center">
+
+[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_ANA_GUI)
+[![Seguir en X](https://img.shields.io/badge/Seguir%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/TODO_ANA_GUI)
+
+</div>
+
+Darle una ⭐ al repositorio o compartirlo con quien le venga bien también ayuda muchísimo.
+
+## 💛 Créditos
+
+Hecho con cariño por **Ana Gui**. Gracias a quienes prueban, opinan y mejoran el kit.
+
+Iconos de insignias: [shields.io](https://shields.io). Código de conducta basado en el [Contributor Covenant](https://www.contributor-covenant.org/).
+
+## 📄 Licencia
+
+[MIT](LICENSE) © 2026 Ana Gui
+
+> Proyecto comunitario no oficial. No está afiliado a Grok Bot ni a xAI.

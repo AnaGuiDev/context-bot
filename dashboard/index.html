@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel · Control de Contexto</title>
+<style>
+:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--g:#4ade80;--y:#facc15;--r:#f87171;--off:#2b313d}
+@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--off:#e5e7ee}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding:24px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+h1{margin:0;font-size:1.6rem}
+.muted{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+form.add{display:grid;grid-template-columns:1fr 2fr auto;gap:10px;margin-bottom:22px}
+input,textarea,select{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+textarea{min-height:90px;resize:vertical;font-family:ui-monospace,Menlo,monospace;font-size:.88rem}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;background:var(--accent);color:#0b1020;cursor:pointer}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.summary{display:flex;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.summary .card{flex:1;min-width:140px;display:flex;align-items:center;gap:12px;padding:14px 18px}
+.big{font-size:1.6rem;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.bot{display:flex;flex-direction:column;gap:12px}
+.bot-top{display:flex;gap:16px;align-items:center}
+.light{display:flex;flex-direction:column;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:8px}
+.lamp{width:22px;height:22px;border-radius:50%;background:var(--off)}
+.verde .lamp.g{background:var(--g);box-shadow:0 0 12px var(--g)}
+.amarillo .lamp.y{background:var(--y);box-shadow:0 0 12px var(--y)}
+.rojo .lamp.r{background:var(--r);box-shadow:0 0 12px var(--r)}
+.bot h2{margin:0;font-size:1.15rem}
+.advice{margin:2px 0 0;font-size:.95rem}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row select{width:auto}
+.empty{text-align:center;padding:40px}
+footer{margin-top:30px;text-align:center;font-size:.88rem;color:var(--muted)}
+footer a{color:var(--accent)}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%}
+@media (max-width:640px){form.add{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>🚦 Panel de Control de Contexto</h1><p class="muted" style="margin:4px 0 0">Apunta tus bots y mira de un vistazo cuál necesita atención.</p></div>
+  <div class="row"><button class="ghost" id="export">Exportar</button><button class="ghost" id="import">Importar</button></div>
+</header>
+
+<div class="summary" aria-live="polite">
+  <div class="card"><span class="dot" style="background:var(--g)"></span><div><div class="big" id="n-verde">0</div><div class="muted">Verde · todo bien</div></div></div>
+  <div class="card"><span class="dot" style="background:var(--y)"></span><div><div class="big" id="n-amarillo">0</div><div class="muted">Amarillo · resumir</div></div></div>
+  <div class="card"><span class="dot" style="background:var(--r)"></span><div><div class="big" id="n-rojo">0</div><div class="muted">Rojo · migrar</div></div></div>
+</div>
+
+<form class="add card" id="add">
+  <input id="name" placeholder="Nombre del bot" required aria-label="Nombre del bot">
+  <input id="purpose" placeholder="¿Para qué lo usas? (opcional)" aria-label="Para qué lo usas">
+  <button type="submit">Añadir bot</button>
+</form>
+
+<div class="grid" id="list"></div>
+
+<footer>
+  Tus datos se guardan solo en este navegador. Nada sale de tu ordenador.<br>
+  <!-- TODO(PLACEHOLDER): URLs del repositorio y del enlace de donación (ver PLACEHOLDERS.md) -->
+  <a href="https://github.com/ana-gui/control-de-contexto">Control de Contexto</a> · MIT · Proyecto comunitario no oficial, sin relación con Grok Bot ni xAI · <a href="https://buymeacoffee.com/TODO_ANA_GUI">☕ Invítame a un café</a>
+</footer>
+</div>
+
+<script>
+const KEY='control-de-contexto:bots';
+const ADVICE={verde:'Todo bien. Sigue a lo tuyo.',amarillo:'Buen momento para resumir en STATUS.md.',rojo:'Hora de pasar a un bot nuevo con BotDuplicator.'};
+const LABEL={verde:'Verde',amarillo:'Amarillo',rojo:'Rojo'};
+let bots=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return []}}
+function save(){localStorage.setItem(KEY,JSON.stringify(bots));render()}
+function parseStatus(t){
+  const m=t.match(/sem[aá]foro\s*[:=]\s*(verde|amarillo|rojo|green|yellow|red)/i)||t.match(/(🟢|🟡|🔴)/);
+  if(!m)return null;const v=m[1].toLowerCase();
+  return {'green':'verde','yellow':'amarillo','red':'rojo','🟢':'verde','🟡':'amarillo','🔴':'rojo'}[v]||v;
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+  const order={rojo:0,amarillo:1,verde:2};
+  const list=document.getElementById('list');
+  ['verde','amarillo','rojo'].forEach(c=>document.getElementById('n-'+c).textContent=bots.filter(b=>b.color===c).length);
+  if(!bots.length){list.innerHTML='<div class="card empty muted" style="grid-column:1/-1">Aún no hay bots. Añade el primero arriba 👆</div>';return}
+  list.innerHTML=bots.map((b,i)=>({b,i})).sort((a,z)=>order[a.b.color]-order[z.b.color]).map(({b,i})=>`
+  <article class="card bot">
+    <div class="bot-top ${b.color}">
+      <div class="light" role="img" aria-label="Semáforo en ${LABEL[b.color]}"><span class="lamp r"></span><span class="lamp y"></span><span class="lamp g"></span></div>
+      <div><h2>${esc(b.name)}</h2>${b.purpose?`<div class="muted">${esc(b.purpose)}</div>`:''}<p class="advice"><strong>${LABEL[b.color]}:</strong> ${ADVICE[b.color]}</p><div class="muted" style="font-size:.82rem">Revisado: ${esc(b.updated)}</div></div>
+    </div>
+    <textarea data-i="${i}" class="st" placeholder="Pega aquí el STATUS.md del bot (detecta «semaforo: rojo»)" aria-label="STATUS de ${esc(b.name)}">${esc(b.status||'')}</textarea>
+    <div class="row">
+      <select data-i="${i}" class="col" aria-label="Color"><option value="verde"${b.color==='verde'?' selected':''}>🟢 Verde</option><option value="amarillo"${b.color==='amarillo'?' selected':''}>🟡 Amarillo</option><option value="rojo"${b.color==='rojo'?' selected':''}>🔴 Rojo</option></select>
+      <button class="ghost del" data-i="${i}">Quitar</button>
+    </div>
+  </article>`).join('');
+}
+function stamp(){return new Date().toLocaleString('es-ES',{dateStyle:'short',timeStyle:'short'})}
+document.getElementById('add').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('name').value.trim();if(!n)return;bots.push({name:n,purpose:document.getElementById('purpose').value.trim(),color:'verde',status:'',updated:stamp()});e.target.reset();save()});
+document.getElementById('list').addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target.classList.contains('col')){bots[i].color=e.target.value;bots[i].updated=stamp();save()}});
+document.getElementById('list').addEventListener('input',e=>{if(!e.target.classList.contains('st'))return;const i=+e.target.dataset.i;bots[i].status=e.target.value;const c=parseStatus(e.target.value);bots[i].updated=stamp();localStorage.setItem(KEY,JSON.stringify(bots));if(c&&c!==bots[i].color){bots[i].color=c;render()}});
+document.getElementById('list').addEventListener('click',e=>{if(e.target.classList.contains('del')){const i=+e.target.dataset.i;if(confirm('¿Quitar «'+bots[i].name+'» del panel?')){bots.splice(i,1);save()}}});
+document.getElementById('export').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(bots,null,2)],{type:'application/json'}));a.download='mis-bots.json';a.click()};
+document.getElementById('import').onclick=()=>{const t=prompt('Pega aquí el JSON exportado (o el que te dé tu bot coordinador):');if(!t)return;try{const d=JSON.parse(t);if(!Array.isArray(d))throw 0;bots=d.map(b=>({name:String(b.name||'Bot'),purpose:String(b.purpose||''),color:['verde','amarillo','rojo'].includes(b.color)?b.color:'verde',status:String(b.status||''),updated:String(b.updated||stamp())}));save()}catch(e){alert('Ese texto no parece un JSON válido.')}};
+// Demo: ?demo carga ejemplos sin tocar tus datos guardados
+if(location.search.includes('demo')){bots=[{name:'Bot de la web',purpose:'Web de la panadería',color:'amarillo',status:'# STATUS\nsemaforo: amarillo\nmensajes_aprox: 52',updated:'03/11/26 17:30'},{name:'Bot de recetas',purpose:'Ideas para cenar',color:'verde',status:'',updated:'03/11/26 12:10'},{name:'Bot de la tesis',purpose:'Capítulo 3',color:'rojo',status:'# STATUS\nsemaforo: rojo',updated:'02/11/26 20:45'}];save=()=>render()}
+render();
+</script>
+</body>
+</html>

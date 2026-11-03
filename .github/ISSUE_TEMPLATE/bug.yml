@@ -1,0 +1,35 @@
+name: 🐞 Algo no funciona
+description: Cuéntanos qué ha fallado para poder arreglarlo.
+labels: ["error"]
+body:
+  - type: markdown
+    attributes:
+      value: "¡Gracias por avisar! Cuantos más detalles, antes lo arreglamos."
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: ¿Qué ha pasado?
+      placeholder: "Pegué el estado en el panel y el semáforo no cambió de color…"
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: ¿Qué esperabas que pasara?
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: "1. Abro el panel\n2. …"
+  - type: dropdown
+    id: parte
+    attributes:
+      label: ¿En qué parte?
+      options: ["Skill", "Panel", "Prompts", "Guías", "Landing", "Otra"]
+  - type: input
+    id: navegador
+    attributes:
+      label: Navegador y sistema (si es el panel)
+      placeholder: "Firefox 130 en Windows 11"

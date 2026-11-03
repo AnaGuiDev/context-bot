@@ -1,0 +1,21 @@
+name: 💡 Tengo una idea
+description: Propón una mejora o algo nuevo.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: ¿Qué problema resolvería?
+      placeholder: "Cuando tengo muchos bots, me cuesta ver cuál…"
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: ¿Cómo te lo imaginas?
+    validations:
+      required: true
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: ¿Has pensado en otras opciones?

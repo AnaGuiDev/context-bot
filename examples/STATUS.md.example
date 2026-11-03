@@ -1,0 +1,26 @@
+# STATUS
+semaforo: amarillo
+actualizado: 2026-11-03 17:30
+mensajes_aprox: 52
+
+## Objetivo
+Preparar la web de la panadería del barrio: textos, fotos y formulario de pedidos.
+
+## Hecho
+- Textos de portada y «Quiénes somos» aprobados.
+- Paleta de colores elegida (crema y marrón tostado).
+
+## En curso
+- Formulario de pedidos: falta decidir si se paga al recoger o por adelantado.
+
+## Pendiente
+- Página de horarios.
+- Revisar las fotos que enviará la dueña.
+
+## Decisiones y preferencias del usuario
+- Tono cercano, nada de tecnicismos.
+- Nada de cookies de publicidad.
+
+## Archivos y enlaces clave
+- borrador-web.html (espacio de trabajo)
+- textos-aprobados.md
