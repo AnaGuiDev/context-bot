@@ -16,7 +16,9 @@ Un kit gratuito y de código abierto para que tus conversaciones largas con Grok
 
 [Empezar](#-empieza-en-3-pasos) · [Panel](dashboard/index.html) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
 
-<img src="assets/landing.png" alt="Página de presentación de Control de Contexto" width="820">
+<a href="assets/video/promo-16x9.mp4"><img src="assets/video/promo.gif" alt="Vídeo de presentación de Control de Contexto (pulsa para verlo con sonido)" width="820"></a>
+
+<sub>Pulsa la animación para ver el vídeo completo con sonido.</sub>
 
 </div>
 
@@ -54,7 +56,13 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 
 Más detalle en [docs/instalacion.md](docs/instalacion.md).
 
-## 🖥️ El panel
+## 🖥️ La página y el panel
+
+<div align="center">
+<img src="assets/landing.png" alt="Página de presentación de Control de Contexto" width="820">
+</div>
+
+### El panel
 
 <div align="center">
 <img src="assets/dashboard.png" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
@@ -105,9 +113,13 @@ Control de Contexto es y seguirá siendo gratis. Si te ha ahorrado algún rato, 
 <div align="center">
 
 [![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_ANA_GUI)
-[![Seguir en X](https://img.shields.io/badge/Seguir%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/TODO_ANA_GUI)
+[![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/TODO_ANA_GUI)
 
 </div>
+
+- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI).
+- **💸 Propinas en X:** desde el [perfil de X](https://x.com/TODO_ANA_GUI), botón de Propinas.
+- **Sígueme en X** para enterarte de las novedades: [@TODO_ANA_GUI](https://x.com/TODO_ANA_GUI).
 
 Darle una ⭐ al repositorio o compartirlo con quien le venga bien también ayuda muchísimo.
 
