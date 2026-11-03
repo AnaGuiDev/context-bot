@@ -10,7 +10,7 @@ Antes de usar estos textos, ejecuta `scripts/rellenar-placeholders.sh`: los enla
 
 > ¿Tu bot de Grok Bot va cada vez más lento en las charlas largas? 🐢
 >
-> He hecho Control de Contexto: un semáforo 🟢🟡🔴 que te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada.
+> He hecho Context Bot: un semáforo 🟢🟡🔴 que te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada.
 >
 > Gratis y de código abierto 👇
 > https://TODO-DOMINIO/
@@ -25,7 +25,7 @@ Antes de usar estos textos, ejecuta `scripts/rellenar-placeholders.sh`: los enla
 > Casi nadie se da cuenta hasta que ya va lento. Así que he hecho una cosa 🧵
 
 **2/4**
-> Control de Contexto es un semáforo para tu bot:
+> Context Bot es un semáforo para tu bot:
 > 🟢 todo bien
 > 🟡 toca resumir
 > 🔴 mejor pasar a un bot nuevo
@@ -50,7 +50,7 @@ Antes de usar estos textos, ejecuta `scripts/rellenar-placeholders.sh`: los enla
 > Un truco sencillo para que tu semana de Grok Bot dure más: no contestes «ok» a cada mensaje. Cada respuesta del bot relee toda la charla.
 >
 > He juntado este y otros trucos, todos con su fuente, aquí 👇
-> https://github.com/ana-gui/control-de-contexto/blob/main/docs/tips-ahorro.md
+> https://github.com/ana-gui/context-bot/blob/main/docs/tips-ahorro.md
 
 ## Descripción corta para directorios
 
@@ -58,7 +58,7 @@ Antes de usar estos textos, ejecuta `scripts/rellenar-placeholders.sh`: los enla
 > Un semáforo para que tus charlas con Grok Bot no se vuelvan lentas ni caras.
 
 **Párrafo corto:**
-> Control de Contexto es un kit gratuito y de código abierto para Grok Bot. Tu bot vigila el tamaño de la conversación, mantiene un resumen del trabajo y te avisa en verde, amarillo o rojo. Cuando toca, escribe un archivo de traspaso para que un bot nuevo siga sin perder nada. Incluye un panel en el navegador, sin cuentas ni cookies. Proyecto comunitario no oficial.
+> Context Bot es un kit gratuito y de código abierto para Grok Bot. Tu bot vigila el tamaño de la conversación, mantiene un resumen del trabajo y te avisa en verde, amarillo o rojo. Cuando toca, escribe un archivo de traspaso para que un bot nuevo siga sin perder nada. Incluye un panel en el navegador, sin cuentas ni cookies. Proyecto comunitario no oficial.
 
 **Etiquetas:** grok-bot, productividad, agentes de IA, código abierto, español.
 

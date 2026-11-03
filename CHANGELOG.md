@@ -5,6 +5,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 
 ## [Sin publicar]
 
+### Cambiado
+- **Nuevo nombre: Context Bot** (antes «Control de Contexto»), con dominio `contextbot.app`. La carpeta de la skill pasa de `skills/control-de-contexto/` a `skills/context-bot/` y la skill se llama `context-bot`. Si ya la tenías guardada con el nombre anterior, sigue funcionando; puedes volver a guardarla con el nombre nuevo.
+- Web bilingüe: inglés en `/` y español en `/es/`, con `hreflang`, selector EN/ES que se recuerda y detección del idioma del navegador. La web se genera desde `src/` con `scripts/build_site.py`.
+- README principal en inglés (`README.md`) y en español (`README.es.md`). Guías en inglés en `docs/en/`.
+- El panel guarda en `context-bot:*` y recupera los datos guardados con el nombre anterior.
+
+### Añadido
+- Vista **Traspaso / Handoff** en el panel: elige un bot en amarillo o rojo, mira cómo pasan su memoria, tareas, archivos y rutinas al bot nuevo, y copia o descarga el `TRASPASO.md`. También puedes pegar un `TRASPASO.md` para verlo. Respeta «reducir movimiento».
+- Publicaciones de lanzamiento en inglés y en español, y pasos para Cloudflare Registrar + Cloudflare Pages en `docs/publicar.md`.
+
 ## [0.2.0] - AAAA-MM-DD
 
 <!-- TODO(PLACEHOLDER): pon la fecha del día que publiques (ver docs/publicar.md, paso 6) -->

@@ -15,7 +15,7 @@ Eres mi bot coordinador. Tu trabajo es ayudarme a que mis otros bots no se vuelv
 3. Si un bot lleva más de una semana sin revisar, recuérdamelo.
 4. Cuando te pida «resumen», enséñame la lista ordenada: primero los rojos, luego amarillos, luego verdes.
 5. Antes de cualquier migración, recuérdame revisar el TRASPASO.md: sin contraseñas ni credenciales.
-6. Puedes darme la lista en formato JSON para importarla en el panel de Control de Contexto si te lo pido.
+6. Puedes darme la lista en formato JSON para importarla en el panel de Context Bot si te lo pido.
 
 Habla claro y corto. No inventes datos: si no sabes el estado de un bot, dilo.
 ```
@@ -39,11 +39,11 @@ Resume en STATUS.md todo lo que llevamos y, a partir de ahora, trabaja apoyándo
 **Para preparar el traspaso antes de migrar:**
 
 ```text
-Haz el traspaso de Control de Contexto: escribe TRASPASO.md en /workspace/control-de-contexto-traspasos/<tu-nombre>/ con tu memoria duradera, el estado, los archivos clave y las rutinas. Nada de contraseñas.
+Haz el traspaso de Context Bot: escribe TRASPASO.md en /workspace/context-bot-traspasos/<tu-nombre>/ con tu memoria duradera, el estado, los archivos clave y las rutinas. Nada de contraseñas.
 ```
 
 **Primer mensaje en un bot nuevo tras migrar:**
 
 ```text
-Hola. Vienes de una conversación anterior. Haz el arranque de Control de Contexto: lee /workspace/control-de-contexto-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
+Hola. Vienes de una conversación anterior. Haz el arranque de Context Bot: lee /workspace/context-bot-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
 ```

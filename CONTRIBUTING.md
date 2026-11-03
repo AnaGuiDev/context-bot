@@ -4,8 +4,8 @@
 
 ## Formas de ayudar
 
-- **¿Algo no funciona?** Abre un [informe de error](https://github.com/ana-gui/control-de-contexto/issues/new?template=bug.yml).
-- **¿Tienes una idea?** Cuéntala en una [propuesta](https://github.com/ana-gui/control-de-contexto/issues/new?template=idea.yml).
+- **¿Algo no funciona?** Abre un [informe de error](https://github.com/ana-gui/context-bot/issues/new?template=bug.yml).
+- **¿Tienes una idea?** Cuéntala en una [propuesta](https://github.com/ana-gui/context-bot/issues/new?template=idea.yml).
 - **¿Ves una errata o algo confuso en la documentación?** Un cambio pequeño también cuenta.
 
 ## Enviar cambios

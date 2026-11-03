@@ -1,9 +1,9 @@
 ---
-name: control-de-contexto
+name: context-bot
 description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el estado del trabajo y avisa con un semáforo (verde, amarillo, rojo) cuándo conviene resumir o pasar a un bot nuevo con BotDuplicator, con un archivo de traspaso para que la memoria viaje. Úsala al empezar cada sesión, cada 10 mensajes aproximadamente, tras tareas largas y siempre que el usuario pregunte por la lentitud, el coste o el estado.
 ---
 
-# Control de Contexto
+# Context Bot
 
 Las conversaciones largas se vuelven lentas y caras porque, en cada respuesta, el bot vuelve a leer todo lo anterior. Esta skill te ayuda a darte cuenta a tiempo y a que el usuario no pierda nada.
 
@@ -85,7 +85,7 @@ No migres sin que el usuario lo confirme.
 
 Al duplicar un bot, la memoria aprendida no se copia. Por eso, **en amarillo o rojo, y siempre antes de usar BotDuplicator**, escribe un archivo de traspaso.
 
-**Dónde:** en un sitio que el bot nuevo pueda leer. Por ejemplo, en el ordenador compartido de los bots: `/workspace/control-de-contexto-traspasos/<nombre-del-bot>/TRASPASO.md`, o en un almacén persistente compartido. Dile al usuario la ruta exacta.
+**Dónde:** en un sitio que el bot nuevo pueda leer. Por ejemplo, en el ordenador compartido de los bots: `/workspace/context-bot-traspasos/<nombre-del-bot>/TRASPASO.md`, o en un almacén persistente compartido. Dile al usuario la ruta exacta.
 
 **Qué contiene** (plantilla: `examples/TRASPASO.md.example`):
 
@@ -95,7 +95,7 @@ Al duplicar un bot, la memoria aprendida no se copia. Por eso, **en amarillo o r
 4. **Archivos y rutas clave:** dónde está cada cosa.
 5. **Rutinas:** nombre, cuándo se ejecutan y para qué sirven.
 
-**Privacidad:** nunca escribas contraseñas, claves, tokens, números de tarjeta ni códigos de acceso. Si hace falta uno, pon «está en el gestor de credenciales del usuario». Pide al usuario que revise el archivo antes de compartirlo o de dárselo a otro bot.
+**Privacidad:** nunca escribas contraseñas, claves, tokens, números de tarjeta ni códigos de acceso. Si hace falta uno, pon «está en el gestor de credenciales del usuario». Pide al usuario que revise el archivo antes de compartirlo o de dárselo a otro bot. Puede pegarlo en la vista **Traspaso** del panel (https://contextbot.app/es/dashboard/#handoff) para ver de un vistazo qué pasará al bot nuevo.
 
 ## Arranque: el primer turno del bot nuevo
 
@@ -114,7 +114,7 @@ Si el primer mensaje menciona un traspaso, o encuentras un `TRASPASO.md` para tu
 3. Pide al usuario que revise `TRASPASO.md` y que lance BotDuplicator (o hazlo tú si tienes la herramienta y su permiso).
 4. Dale este primer mensaje para el bot nuevo, con la ruta real:
 
-> Hola. Vienes de una conversación anterior. Haz el arranque de Control de Contexto: lee /workspace/control-de-contexto-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
+> Hola. Vienes de una conversación anterior. Haz el arranque de Context Bot: lee /workspace/context-bot-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
 
 5. Cuando el bot nuevo confirme que lo ha entendido, el usuario puede seguir allí y dejar el antiguo oculto para consulta.
 
