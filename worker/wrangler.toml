@@ -1,0 +1,34 @@
+# Context Bot · conector de estado en directo (servidor MCP remoto)
+# Guía de despliegue: ../docs/despliegue-worker.md
+name = "context-bot-mcp"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Dominio propio. Se activa al desplegar (wrangler deploy).
+routes = [{ pattern = "mcp.contextbot.app", custom_domain = true }]
+
+[vars]
+PUBLIC_URL = "https://mcp.contextbot.app"
+# Solo para pruebas locales: "1" permite un inicio de sesión falso en localhost.
+DEV_FAKE_LOGIN = "0"
+
+# Secretos (wrangler secret put …): GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET
+
+[[d1_databases]]
+binding = "DB"
+database_name = "context_bot"
+database_id = "TODO_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[kv_namespaces]]
+binding = "LATEST"
+id = "TODO_KV_LATEST_ID"
+
+[[kv_namespaces]]
+binding = "OAUTH_KV"
+id = "TODO_KV_OAUTH_ID"
+
+[triggers]
+# Cada día a las 03:17 UTC borra el historial de más de 90 días.
+crons = ["17 3 * * *"]

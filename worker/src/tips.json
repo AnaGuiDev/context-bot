@@ -1,0 +1,124 @@
+{
+ "en": [
+  {
+   "title": "🤐 Don't reply \"ok\" or \"thanks\" to every message",
+   "text": "Each message you send makes the bot reply, and each reply rereads the whole conversation. A lone \"ok\" costs almost as much as a real question. If you don't need an answer, don't write.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540",
+    "https://cursor.com/help/grok-bot/plans"
+   ]
+  },
+  {
+   "title": "📦 Batch several requests into one message",
+   "text": "For the same reason, three messages mean three rereads of the conversation. Send one list in a single message instead.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "⏸️ Pause routines you don't need",
+   "text": "A routine that doesn't run doesn't use anything. Pausing (rather than deleting) lets you switch it back on later.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines"
+   ]
+  },
+  {
+   "title": "🕰️ Run routines less often and narrow their triggers",
+   "text": "Go from \"every hour\" to \"weekdays at 9\", and limit Slack triggers to one channel and one specific keyword.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines",
+    "https://docs.x.ai/grok-bot/skills-routines-and-automations"
+   ]
+  },
+  {
+   "title": "🧪 Careful with \"Test\"",
+   "text": "Testing a routine does the real work and uses allowance just like a normal run.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines"
+   ]
+  },
+  {
+   "title": "🚚 When the chat gets very long, move to a duplicated bot",
+   "text": "Ask for a handoff summary, duplicate the bot and start fresh with that summary. Note: according to the team, the copy keeps the name, instructions, skills and routines, but not the conversation or the learned memory. Hide the old bot rather than deleting it.",
+   "sources": [
+    "https://forum.cursor.com/t/trim-the-fat-in-a-chat/171653",
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "🪪 Put standing instructions in the bot's profile, not in the chat",
+   "text": "Whatever you put in *Edit Profile* survives duplication and doesn't need repeating in the conversation.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "🎯 Start with small tasks and watch your usage",
+   "text": "Scope the task tightly, see how much it uses, then widen it. Check your usage before long jobs.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/plans"
+   ]
+  }
+ ],
+ "es": [
+  {
+   "title": "🤐 No respondas «ok» o «gracias» a cada mensaje",
+   "text": "Cada mensaje tuyo hace que el bot responda, y cada respuesta relee toda la conversación. Un «ok» suelto cuesta casi lo mismo que una pregunta. Si no necesitas respuesta, no escribas.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540",
+    "https://cursor.com/help/grok-bot/plans"
+   ]
+  },
+  {
+   "title": "📦 Junta varias peticiones en un solo mensaje",
+   "text": "Por el mismo motivo, tres mensajes son tres relecturas de la conversación. Mejor una lista en un único mensaje.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "⏸️ Pausa las rutinas que no necesitas",
+   "text": "Una rutina que no se ejecuta no gasta. Pausar (en vez de borrar) te permite reactivarla luego.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines"
+   ]
+  },
+  {
+   "title": "🕰️ Baja la frecuencia y estrecha los disparadores",
+   "text": "Pasa de «cada hora» a «días laborables a las 9», y limita los disparadores de Slack a un canal y una palabra concreta.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines",
+    "https://docs.x.ai/grok-bot/skills-routines-and-automations"
+   ]
+  },
+  {
+   "title": "🧪 Cuidado con «Test»",
+   "text": "Probar una rutina hace el trabajo de verdad y gasta uso igual que una ejecución normal.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/routines"
+   ]
+  },
+  {
+   "title": "🚚 Cuando la charla sea muy larga, pasa a un bot duplicado",
+   "text": "Pide un resumen de traspaso (el `STATUS.md`), duplica el bot y empieza de cero con ese resumen. Ojo: según el equipo, la copia mantiene nombre, instrucciones, skills y rutinas, pero no la conversación ni la memoria aprendida. Oculta el bot antiguo en lugar de borrarlo.",
+   "sources": [
+    "https://forum.cursor.com/t/trim-the-fat-in-a-chat/171653",
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "🪪 Deja las instrucciones fijas en el perfil del bot, no en el chat",
+   "text": "Lo que pones en *Edit Profile* se conserva al duplicar y no hay que repetirlo en la conversación.",
+   "sources": [
+    "https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540"
+   ]
+  },
+  {
+   "title": "🎯 Empieza con tareas pequeñas y mira tu uso",
+   "text": "Acota bien la tarea, mira cuánto gasta y luego amplía. Consulta el uso antes de trabajos largos.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/plans"
+   ]
+  }
+ ]
+}

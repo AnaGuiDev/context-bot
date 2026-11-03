@@ -1,0 +1,5 @@
+# Copia a .dev.vars para `npm run dev` (no se sube al repo)
+PUBLIC_URL=http://localhost:8787
+DEV_FAKE_LOGIN=1
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
