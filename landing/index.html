@@ -5,11 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Control de Contexto · Que tu bot no se vuelva lento</title>
 <meta name="description" content="Kit gratuito y de código abierto para que las conversaciones largas con tu bot de Grok Bot no se vuelvan lentas ni caras.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- TODO(PLACEHOLDER): dominio (ver PLACEHOLDERS.md) -->
+<link rel="canonical" href="https://TODO-DOMINIO/">
+<meta name="theme-color" content="#0f1218">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Control de Contexto">
+<meta property="og:title" content="Control de Contexto · Que tu bot no se vuelva lento">
+<meta property="og:description" content="Un semáforo para tus conversaciones con Grok Bot: te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada. Gratis y de código abierto.">
+<meta property="og:url" content="https://TODO-DOMINIO/">
+<meta property="og:image" content="https://TODO-DOMINIO/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Semáforo rojo, amarillo y verde junto al texto Control de Contexto">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Control de Contexto · Que tu bot no se vuelva lento">
+<meta name="twitter:description" content="Un semáforo para tus conversaciones con Grok Bot. Gratis y de código abierto.">
+<meta name="twitter:image" content="https://TODO-DOMINIO/assets/brand/og-image.png">
+<link rel="preload" href="../assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--g:#4ade80;--y:#facc15;--r:#f87171;--radius:22px}
-@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0}}
+@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url(../assets/fonts/nunito-latin.woff2) format("woff2")}
+:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020;--g:#4ade80;--y:#facc15;--r:#f87171;--radius:22px}
+@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff}}
 *{box-sizing:border-box}
 body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:1.06rem}
 a{color:var(--accent)}
@@ -22,8 +42,9 @@ header.top{display:flex;justify-content:space-between;align-items:center;padding
 h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.12;margin:0 0 18px;font-weight:800;letter-spacing:-.02em}
 h1 span{color:var(--accent)}
 .lead{font-size:1.2rem;color:var(--muted);margin:0 0 30px;max-width:34ch}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#0b1020;text-decoration:none;font-weight:800;padding:15px 26px;border-radius:999px;transition:transform .2s}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--on);text-decoration:none;font-weight:800;padding:15px 26px;border-radius:999px;transition:transform .2s}
 .btn:hover,.btn:focus-visible{transform:translateY(-2px)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
 .btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
 @media (prefers-color-scheme: light){.btn{color:#fff}}
 .note{font-size:.92rem;color:var(--muted);margin-top:14px}
@@ -62,7 +83,7 @@ footer p{margin:4px 0}
 .cbtn:hover{transform:translateY(-2px)}
 .cbtn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .cbtn svg{width:20px;height:20px;fill:currentColor;flex:none}
-.cbtn.sound{background:var(--accent);color:#0b1020;border-color:transparent;padding:13px 22px}
+.cbtn.sound{background:var(--accent);color:var(--on);border-color:transparent;padding:13px 22px}
 @media (prefers-color-scheme: light){.cbtn.sound{color:#fff}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:820px){.video-sec{padding:0 0 44px}.player{padding:10px;border-radius:24px}.player video{aspect-ratio:9/16;width:100%;max-width:calc(78vh * 9 / 16);margin:0 auto}}
@@ -89,7 +110,8 @@ footer p{margin:4px 0}
     <h1 id="titulo">Que tu bot siga <span>rápido</span>, aunque la charla sea larga.</h1>
     <p class="lead">Un kit sencillo para que tus conversaciones con Grok Bot no se vuelvan lentas ni caras.</p>
     <!-- TODO(PLACEHOLDER): URL del repositorio, confirmar antes de publicar (ver PLACEHOLDERS.md) -->
-    <a class="btn" href="https://github.com/ana-gui/control-de-contexto">Conseguirlo gratis →</a>
+    <div class="ctas"><a class="btn" href="https://github.com/ana-gui/control-de-contexto">Conseguirlo gratis →</a>
+    <a class="btn alt" href="../dashboard/index.html?demo">Probar el panel</a></div>
     <p class="note">Proyecto comunitario no oficial.</p>
   </div>
   <div class="light" role="img" aria-label="Semáforo animado que pasa de verde a amarillo y a rojo">
@@ -100,11 +122,11 @@ footer p{margin:4px 0}
 <section class="video-sec" aria-labelledby="video-titulo">
   <h2 id="video-titulo" class="sr">Vídeo de presentación</h2>
   <div class="player">
-    <!-- Rutas relativas desde landing/. El script elige 9:16 en pantallas estrechas. -->
+    <!-- Rutas relativas desde landing/ (scripts/build-site.sh las adapta para dist/). El script elige 9:16 en pantallas estrechas. -->
     <video id="promo" muted loop playsinline preload="metadata" poster="../assets/video/poster.jpg"
       data-wide="../assets/video/promo-16x9.mp4" data-narrow="../assets/video/promo-9x16.mp4"
       data-poster-wide="../assets/video/poster.jpg" data-poster-narrow="../assets/video/poster-9x16.jpg"
-      aria-label="Vídeo de presentación de Control de Contexto">
+      aria-describedby="video-titulo">
       <source src="../assets/video/promo-16x9.mp4" type="video/mp4">
       Tu navegador no puede reproducir el vídeo. <a href="../assets/video/promo-16x9.mp4">Descárgalo aquí</a>.
     </video>
@@ -193,7 +215,7 @@ footer p{margin:4px 0}
 
 <footer>
   <!-- TODO(PLACEHOLDER): URLs del repositorio y de X (ver PLACEHOLDERS.md) -->
-  <p>Hecho con cariño por Ana Gui · Licencia MIT · <a href="https://github.com/ana-gui/control-de-contexto">GitHub</a> · <a href="https://github.com/ana-gui/control-de-contexto/tree/main/dashboard">Panel</a> · <a href="https://x.com/TODO_ANA_GUI">X</a></p>
+  <p>Hecho con cariño por Ana Gui · Licencia MIT · <a href="https://github.com/ana-gui/control-de-contexto">GitHub</a> · <a href="../dashboard/index.html">Panel</a> · <a href="../site/privacidad.html">Privacidad</a> · <a href="https://x.com/TODO_ANA_GUI">X</a></p>
   <p>Proyecto comunitario no oficial. No está afiliado a Grok Bot ni a xAI.</p>
 </footer>
 </div>
