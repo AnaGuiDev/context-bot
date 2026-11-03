@@ -1,0 +1,9 @@
+# Netlify: genera dist/ y lo publica. Las cabeceras están en site/_headers.
+[build]
+  command = "bash scripts/build-site.sh"
+  publish = "dist"
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard/"
+  status = 301
