@@ -20,6 +20,20 @@
 5. Buy `contextbot.app` on Cloudflare Registrar and publish on Cloudflare Pages (steps 4–5). **`.app` only works over HTTPS:** wait for the certificate to be Active before announcing anything.
 6. Launch with [docs/lanzamiento.md](docs/lanzamiento.md).
 
+### Live status connector (v1, optional)
+- `worker/`: Cloudflare Worker MCP server with OAuth (GitHub sign-in), D1 + KV and 5 tools including `delete_my_data`, plus a REST API for the dashboard. Locally: tsc is clean, 13/13 tests pass, and the smoke test with a real MCP client against `wrangler dev` passes. The dashboard's **Connect live status** button was tested end to end in Chrome against `wrangler dev`.
+- Docs: [docs/en/connector.md](docs/en/connector.md) and [docs/en/worker-deployment.md](docs/en/worker-deployment.md).
+- **Your turn:**
+  1. Deploy following worker-deployment.md (D1/KV ids, GitHub OAuth app with callback `https://mcp.contextbot.app/callback`, secrets).
+  2. Then change "Coming soon: live status" in `src/i18n.py` (`s4_h`, EN and ES) and rebuild.
+- **Test live before announcing:**
+  - Does Grok Bot's "Add this MCP server" support dynamic client registration and the `resource` parameter?
+  - Does the OAuth redirect come back correctly?
+  - Does the routine report its status without asking you anything?
+- **Known limits:**
+  - Rate limits are per user only.
+  - `/oauth/register` is open (as DCR requires); registered clients expire after 90 days.
+
 ### Known weak spots
 - The handoff with BotDuplicator hasn't been tested end to end yet. Try it once before announcing.
 - Some sources are forum posts from the team, not official docs.
@@ -41,6 +55,20 @@
 4. Crea el repositorio `context-bot` y súbelo ([docs/publicar.md](docs/publicar.md), paso 1).
 5. Compra `contextbot.app` en Cloudflare Registrar y publica en Cloudflare Pages (pasos 4 y 5). **`.app` solo funciona con HTTPS:** espera a que el certificado esté en Active antes de anunciar nada.
 6. Lanza con [docs/lanzamiento.md](docs/lanzamiento.md).
+
+### Conector de estado en directo (v1, opcional)
+- `worker/`: servidor MCP en un Worker de Cloudflare con OAuth (entrada con GitHub), D1 + KV y 5 herramientas, entre ellas `delete_my_data`, más una API REST para el panel. En local: tsc sin errores, 13/13 pruebas superadas y prueba de humo superada con un cliente MCP real contra `wrangler dev`. El botón **Conectar estado en directo** del panel está probado de principio a fin en Chrome contra `wrangler dev`.
+- Guías: [docs/conector.md](docs/conector.md) y [docs/despliegue-worker.md](docs/despliegue-worker.md).
+- **Te toca:**
+  1. Despliega siguiendo despliegue-worker.md (ids de D1/KV, app OAuth de GitHub con callback `https://mcp.contextbot.app/callback`, secretos).
+  2. Después cambia «Muy pronto: estado en directo» en `src/i18n.py` (`s4_h`, EN y ES) y vuelve a generar la web.
+- **Prueba en real antes de anunciarlo:**
+  - ¿El «Add this MCP server» de Grok Bot admite el registro dinámico de clientes y el parámetro `resource`?
+  - ¿La redirección OAuth vuelve bien?
+  - ¿La rutina informa de su estado sin preguntarte nada?
+- **Límites conocidos:**
+  - Los límites de uso son solo por usuario.
+  - `/oauth/register` es abierto (lo exige el registro dinámico de clientes); los clientes registrados caducan a los 90 días.
 
 ### Puntos flojos conocidos
 - El traspaso con BotDuplicator aún no se ha probado de principio a fin. Pruébalo una vez antes de anunciarlo.

@@ -43,7 +43,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .row select{width:auto}
 .empty{text-align:center;padding:40px}
-.live{margin-bottom:20px}.live .row{gap:10px}
+.live{margin-bottom:20px}.live-row{justify-content:space-between}#live-h{margin:0;font-size:1.1rem}#live-msg{margin:4px 0 0}.live .row{gap:10px}
 .badge{font-size:.75rem;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);margin-left:6px;vertical-align:middle}
 footer{margin-top:30px;text-align:center;font-size:.88rem;color:var(--muted)}
 footer a{color:var(--accent)}
@@ -100,8 +100,8 @@ footer a{color:var(--accent)}
 </div>
 
 <section class="card live" id="live" aria-labelledby="live-h">
-  <div class="row" style="justify-content:space-between">
-    <div><h2 id="live-h" style="margin:0;font-size:1.1rem">📡 {{d_live_h}}</h2><p class="muted" id="live-msg" role="status" aria-live="polite" style="margin:4px 0 0">{{d_live_off}}</p></div>
+  <div class="row live-row">
+    <div><h2 id="live-h">📡 {{d_live_h}}</h2><p class="muted" id="live-msg" role="status" aria-live="polite">{{d_live_off}}</p></div>
     <div class="row"><button type="button" id="live-go">{{d_live_connect}}</button><button type="button" class="ghost" id="live-ref" hidden>{{d_live_refresh}}</button><button type="button" class="ghost" id="live-del" hidden>{{d_live_del}}</button></div>
   </div>
 </section>

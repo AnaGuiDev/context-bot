@@ -124,7 +124,7 @@ Ideas for future versions. No dates: they depend on spare time and on what you a
 - [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
 - [x] English version of the skill ([`skills/context-bot/en/SKILL.md`](skills/context-bot/en/SKILL.md), served at <https://contextbot.app/skill.md>).
 - [x] Ready-to-publish bot template ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [ ] Optional live status in the dashboard through an MCP connector (code in [`worker/`](worker/), not deployed yet).
+- [x] Optional live status in the dashboard through an MCP connector: code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Not deployed yet.
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.
 

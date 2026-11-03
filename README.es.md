@@ -142,7 +142,7 @@ Ideas para próximas versiones. No hay fechas: dependen del tiempo libre y de lo
 - [x] Pegar un `TRASPASO.md` en el panel para ver qué se lleva el bot nuevo.
 - [x] Versión en inglés de la skill ([`skills/context-bot/en/SKILL.md`](skills/context-bot/en/SKILL.md), en <https://contextbot.app/skill.md>).
 - [x] Plantilla del bot lista para publicar ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [ ] Estado en directo opcional en el panel con un conector MCP (código en [`worker/`](worker/), aún sin desplegar).
+- [x] Estado en directo opcional en el panel con un conector MCP: código y pruebas en [`worker/`](worker/), ver [docs/conector.md](docs/conector.md). Aún sin desplegar.
 - [ ] Que el panel funcione sin conexión (instalable como app).
 - [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.
 - [ ] Más trucos para gastar menos, siempre con fuente.

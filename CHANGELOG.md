@@ -5,6 +5,10 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 
 ## [Sin publicar]
 
+### Añadido
+- Conector MCP opcional de estado en directo en `worker/` (Cloudflare Workers, OAuth con GitHub, D1/KV), con 5 herramientas, entre ellas `delete_my_data`, y pruebas. Guías: `docs/conector.md` y `docs/despliegue-worker.md`.
+- Panel: botón «Conectar estado en directo». Si no conecta, el panel sigue usando los datos locales.
+
 ### Cambiado
 - **Nuevo nombre: Context Bot** (antes «Control de Contexto»), con dominio `contextbot.app`. La carpeta de la skill pasa de `skills/control-de-contexto/` a `skills/context-bot/` y la skill se llama `context-bot`. Si ya la tenías guardada con el nombre anterior, sigue funcionando; puedes volver a guardarla con el nombre nuevo.
 - Web bilingüe: inglés en `/` y español en `/es/`, con `hreflang`, selector EN/ES que se recuerda y detección del idioma del navegador. La web se genera desde `src/` con `scripts/build_site.py`.
