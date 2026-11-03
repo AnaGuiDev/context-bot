@@ -8,24 +8,25 @@ Cuando el semáforo se pone en 🔴 rojo, lo más cómodo es seguir en un bot nu
 
 Pide a tu bot actual:
 
-> Actualiza STATUS.md con todo lo necesario para que otro bot pueda continuar sin ver esta conversación. Ponlo en rojo.
+> Haz el traspaso de Control de Contexto: actualiza STATUS.md en rojo y escribe TRASPASO.md en /workspace/control-de-contexto-traspasos/<nombre-del-bot>/ con tu memoria duradera, el estado, los archivos clave y las rutinas.
 
-Léelo por encima. Si falta algo importante (una decisión, un archivo, una preferencia tuya), pídele que lo añada.
+**Revisa el archivo antes de seguir.** Comprueba que no hay contraseñas, claves ni datos privados que no quieras compartir. Si falta algo importante (una decisión, un archivo, una preferencia tuya), pídele que lo añada. Plantilla: [`examples/TRASPASO.md.example`](../examples/TRASPASO.md.example).
 
 ## Paso a paso
 
-1. **Duplica el bot.** Usa BotDuplicator sobre tu bot actual. El bot nuevo mantiene nombre, instrucciones, skills y rutinas, pero empieza con la conversación vacía y, según el equipo de Cursor, **sin la memoria aprendida** ([fuente](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Por eso el STATUS es clave.
-2. **Comprueba que el STATUS viaja.** Si `STATUS.md` está en un archivo del espacio de trabajo compartido, el bot nuevo lo verá (la memoria no viaja). Si no, cópialo y pégalo tú en el primer mensaje.
+1. **Duplica el bot.** Usa BotDuplicator sobre tu bot actual. El bot nuevo mantiene nombre, instrucciones, skills y rutinas, pero empieza con la conversación vacía y, según el equipo de Cursor, **sin la memoria aprendida** ([fuente](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Por eso **la memoria viaja en el archivo de traspaso**.
+2. **Comprueba que el traspaso se puede leer.** Los bots de tu cuenta comparten el mismo ordenador, así que una ruta como `/workspace/control-de-contexto-traspasos/...` la ve el bot nuevo. Si no, pega tú el contenido de `TRASPASO.md` en el primer mensaje.
 3. **Primer mensaje al bot nuevo:**
 
-   > Hola. Vienes de una conversación anterior. Lee STATUS.md, dime en tres frases en qué punto estamos y sigue con lo pendiente.
+   > Hola. Vienes de una conversación anterior. Haz el arranque de Control de Contexto: lee /workspace/control-de-contexto-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
 
-4. **Verifica.** Si el resumen del bot nuevo cuadra, ¡listo! Si no, corrige lo que falte.
+4. **Verifica.** Pregúntale algo que solo sabría por la memoria (una preferencia tuya). Si cuadra, ¡listo! Si no, corrige lo que falte.
 5. **Oculta el antiguo, no lo borres.** Borrar es permanente y elimina conversación y memoria.
 6. **Actualiza el panel.** Añade el bot nuevo en verde y marca el antiguo como archivado (o elimínalo de la lista).
 
 ## Problemas habituales
 
-- **El bot nuevo no encuentra STATUS.md:** pégalo directamente en el chat.
+- **El bot nuevo no encuentra el traspaso:** pega el contenido de TRASPASO.md directamente en el chat.
+- **El bot nuevo no recuerda una preferencia:** pídele que la guarde en su memoria y añádela al traspaso para la próxima vez.
 - **Le falta contexto:** pide al bot antiguo que amplíe la sección que falte y pásasela al nuevo.
 - **No quiero duplicar:** también puedes crear un bot desde cero, darle la skill y pegarle el STATUS. Es igual de válido.

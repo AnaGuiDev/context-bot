@@ -6,6 +6,9 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 ## [0.2.0] - Sin publicar
 
 ### Añadido
+- Procedimiento de **Traspaso** y **arranque** en la skill: la memoria viaja en un archivo `TRASPASO.md` (memoria duradera, estado, archivos, rutinas y resumen), sin credenciales.
+- `examples/TRASPASO.md.example`, guía de migración, prompt del coordinador, README y paso 3 de la landing actualizados.
+- Truco pendiente: rutinas con scripts (sin respaldo oficial todavía).
 - Sección «Trucos para gastar menos» en la landing y guía `docs/tips-ahorro.md` con fuentes.
 - `docs/tips-pendientes.md` con ideas aún sin verificar.
 - Panel «Revisa tus rutinas» en el dashboard, con semáforo, sugerencias, datos de ejemplo (`?demo`) y exportación/importación junto a los bots.

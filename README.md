@@ -54,7 +54,7 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 
 1. **Dale la skill a tu bot.** Copia [`SKILL.md`](skills/control-de-contexto/SKILL.md) y pídele: *«Guarda esta skill y úsala a partir de ahora»*.
 2. **Mira el semáforo.** Pregúntale *«¿De qué color estamos?»* o pega su `STATUS.md` en el [panel](dashboard/index.html).
-3. **Cambia de bot si toca.** En rojo, sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md) y te lo llevas todo.
+3. **Cambia de bot si toca.** En rojo, sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md): la memoria viaja en un archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)).
 
 Más detalle en [docs/instalacion.md](docs/instalacion.md).
 

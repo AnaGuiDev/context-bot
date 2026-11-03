@@ -1,6 +1,6 @@
 ---
 name: control-de-contexto
-description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el estado del trabajo y avisa con un semáforo (verde, amarillo, rojo) cuándo conviene resumir o pasar a un bot nuevo con BotDuplicator. Úsala al empezar cada sesión, cada 10 mensajes aproximadamente, tras tareas largas y siempre que el usuario pregunte por la lentitud, el coste o el estado.
+description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el estado del trabajo y avisa con un semáforo (verde, amarillo, rojo) cuándo conviene resumir o pasar a un bot nuevo con BotDuplicator, con un archivo de traspaso para que la memoria viaje. Úsala al empezar cada sesión, cada 10 mensajes aproximadamente, tras tareas largas y siempre que el usuario pregunte por la lentitud, el coste o el estado.
 ---
 
 # Control de Contexto
@@ -73,24 +73,50 @@ Escribe para que otro bot, sin haber visto la conversación, pueda continuar. Na
 
 > 🟡 La conversación ya es bastante larga. He guardado un resumen de lo que llevamos en STATUS.md. Podemos seguir, pero a partir de aquí iré algo más lento.
 
-Ofrece resumir: a partir de ahora trabaja apoyándote en el STATUS y evita volver a pegar material grande.
+Escribe o actualiza también el `TRASPASO.md`. Ofrece resumir: a partir de ahora trabaja apoyándote en el STATUS y evita volver a pegar material grande.
 
-**🔴 Rojo.** Actualiza el STATUS por completo y recomienda cambiar a un bot nuevo:
+**🔴 Rojo.** Actualiza el STATUS por completo, prepara el Traspaso y recomienda cambiar a un bot nuevo:
 
 > 🔴 Esta conversación ya es muy larga y eso la hace lenta y más cara. Te propongo pasar a un bot nuevo: he dejado todo apuntado en STATUS.md para que no se pierda nada. ¿Te ayudo a hacerlo con BotDuplicator?
 
 No migres sin que el usuario lo confirme.
 
+## Traspaso: la memoria viaja en un archivo
+
+Al duplicar un bot, la memoria aprendida no se copia. Por eso, **en amarillo o rojo, y siempre antes de usar BotDuplicator**, escribe un archivo de traspaso.
+
+**Dónde:** en un sitio que el bot nuevo pueda leer. Por ejemplo, en el ordenador compartido de los bots: `/workspace/control-de-contexto-traspasos/<nombre-del-bot>/TRASPASO.md`, o en un almacén persistente compartido. Dile al usuario la ruta exacta.
+
+**Qué contiene** (plantilla: `examples/TRASPASO.md.example`):
+
+1. **Resumen corto:** tres a cinco frases de qué hacemos y en qué punto estamos.
+2. **Memoria duradera:** lo que sabes y debe seguir sabiéndose. Preferencias del usuario, decisiones tomadas, personas y proyectos, forma de trabajar.
+3. **Estado actual:** tareas en curso, pendientes y bloqueos (o copia el `STATUS.md` al día).
+4. **Archivos y rutas clave:** dónde está cada cosa.
+5. **Rutinas:** nombre, cuándo se ejecutan y para qué sirven.
+
+**Privacidad:** nunca escribas contraseñas, claves, tokens, números de tarjeta ni códigos de acceso. Si hace falta uno, pon «está en el gestor de credenciales del usuario». Pide al usuario que revise el archivo antes de compartirlo o de dárselo a otro bot.
+
+## Arranque: el primer turno del bot nuevo
+
+Si el primer mensaje menciona un traspaso, o encuentras un `TRASPASO.md` para tu nombre:
+
+1. Lee el archivo entero.
+2. Guarda en tu propia memoria los hechos de «Memoria duradera» (uno por hecho, sin secretos).
+3. Crea o actualiza tu `STATUS.md` con el estado del traspaso y ponlo en verde.
+4. Comprueba que las rutinas de la lista existen (al duplicar se copian). No crees ni actives nada sin preguntar.
+5. Responde con un resumen de tres frases y pregunta si algo no cuadra.
+
 ## Pasar a un bot nuevo con BotDuplicator
 
-1. Actualiza `STATUS.md` con todo lo necesario y ponlo en `semaforo: rojo`.
-2. Explica al usuario que BotDuplicator crea un bot nuevo con la misma configuración (nombre, instrucciones, skills, rutinas) pero con la conversación vacía y sin la memoria aprendida; por eso el STATUS debe ir en un archivo.
-3. Pide al usuario que lance BotDuplicator (o hazlo tú si tienes la herramienta y te ha dado permiso).
-4. Dale este mensaje para pegar como primer mensaje en el bot nuevo:
+1. Haz el **Traspaso**: actualiza `STATUS.md` (en rojo) y escribe `TRASPASO.md`.
+2. Explica al usuario que BotDuplicator crea un bot nuevo con la misma configuración (nombre, instrucciones, skills, rutinas), pero con la conversación vacía y sin la memoria aprendida. Por eso la memoria viaja en el archivo de traspaso.
+3. Pide al usuario que revise `TRASPASO.md` y que lance BotDuplicator (o hazlo tú si tienes la herramienta y su permiso).
+4. Dale este primer mensaje para el bot nuevo, con la ruta real:
 
-> Hola. Vienes de una conversación anterior. Lee STATUS.md, dime en tres frases en qué punto estamos y sigue con lo pendiente.
+> Hola. Vienes de una conversación anterior. Haz el arranque de Control de Contexto: lee /workspace/control-de-contexto-traspasos/<bot>/TRASPASO.md, guarda los hechos en tu memoria y dime en tres frases en qué punto estamos.
 
-5. Cuando el bot nuevo confirme que lo ha entendido, el usuario puede seguir allí y dejar el antiguo para consulta.
+5. Cuando el bot nuevo confirme que lo ha entendido, el usuario puede seguir allí y dejar el antiguo oculto para consulta.
 
 Guía completa: `docs/integracion-botduplicator.md`.
 
@@ -98,5 +124,6 @@ Guía completa: `docs/integracion-botduplicator.md`.
 
 - Sé breve: el aviso de color es una frase, no un informe.
 - No inventes cifras exactas de tokens; habla de estimaciones.
+- Ni contraseñas ni credenciales en STATUS ni en TRASPASO.
 - No borres nada del usuario. Migrar es copiar, no mover.
 - Si el usuario pregunta «¿qué color estamos?», responde con el color, la estimación y una frase de qué toca hacer.
