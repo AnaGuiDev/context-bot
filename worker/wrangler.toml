@@ -18,16 +18,16 @@ DEV_FAKE_LOGIN = "0"
 [[d1_databases]]
 binding = "DB"
 database_name = "context_bot"
-database_id = "TODO_D1_DATABASE_ID"
+database_id = "508ae401-5107-48cf-8634-128ecc8a30e8"
 migrations_dir = "migrations"
 
 [[kv_namespaces]]
 binding = "LATEST"
-id = "8678c0158a2443faaa89080b27e4fe7f"
+id = "cd89988102b748f09e442f9b0db35e3f"
 
 [[kv_namespaces]]
 binding = "OAUTH_KV"
-id = "c2ec85d06e4b41a5a821a94a2b056c9e"
+id = "0d9d08e98be74510b681b460c7b07c22"
 
 [triggers]
 # Cada día a las 03:17 UTC borra el historial de más de 90 días.
