@@ -3,7 +3,7 @@
 # TODO(PLACEHOLDER): usuario de GitHub, X y Buy Me a Coffee (ver PLACEHOLDERS.md)
 REPO = "https://github.com/AnaGuiDev/context-bot"
 X = "https://x.com/SoyAnaDev"
-BMC = "https://buymeacoffee.com/TODO_BMC"
+BMC = "https://buymeacoffee.com/soyanadev"
 TEMPLATE = "TODO_TEMPLATE_URL"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(

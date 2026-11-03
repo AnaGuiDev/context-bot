@@ -18,7 +18,7 @@ Un kit gratuito y de código abierto para que tus conversaciones largas con Grok
 
 **[🌐 Ver la web](https://contextbot.app/es/) · [📊 Probar el panel con ejemplos](https://contextbot.app/es/dashboard/?demo)** · [English](README.md)
 
-[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_BMC)
+[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/soyanadev)
 
 <a href="assets/video/promo-es-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Vídeo de presentación de Context Bot (pulsa para verlo con sonido)" width="820"></a>
 
@@ -159,12 +159,12 @@ Context Bot es y seguirá siendo gratis. Si te ha ahorrado algún rato, puedes:
 
 <div align="center">
 
-[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_BMC)
+[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
 [![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
 
 </div>
 
-- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/TODO_BMC).
+- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/soyanadev).
 - **💸 Propinas en X:** desde el [perfil de X](https://x.com/SoyAnaDev), botón de Propinas.
 - **Sígueme en X** para enterarte de las novedades: [@SoyAnaDev](https://x.com/SoyAnaDev).
 

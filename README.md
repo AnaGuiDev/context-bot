@@ -17,7 +17,7 @@ A free, open-source kit that stops your long Grok Bot conversations from getting
 
 **[🌐 Website](https://contextbot.app/) · [📊 Try the dashboard with sample data](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
 
-[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/TODO_BMC)
+[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/soyanadev)
 
 <a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
@@ -138,7 +138,7 @@ Ideas, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.m
 
 Context Bot is free and will stay that way. If it's saved you some time, you can:
 
-- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/TODO_BMC).
+- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/soyanadev).
 - **💸 Tips on X:** use the Tips button on my [X profile](https://x.com/SoyAnaDev).
 - **Follow me on X** for updates: [@SoyAnaDev](https://x.com/SoyAnaDev).
 
