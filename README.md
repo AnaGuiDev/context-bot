@@ -47,6 +47,8 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 - **[Prompts](prompts/bot-coordinador.md)**, incluido un bot coordinador que vigila a los demás.
 - **[Ejemplo de STATUS.md](examples/STATUS.md.example)**.
 - **[Guía de migración](docs/integracion-botduplicator.md)** a un bot nuevo con BotDuplicator.
+- **[Trucos para gastar menos](docs/tips-ahorro.md)**, cada uno con su fuente.
+- **Revisión de rutinas** en el panel: te marca en rojo o amarillo las que conviene pausar o espaciar.
 
 ## 🚀 Empieza en 3 pasos
 
@@ -68,7 +70,11 @@ Más detalle en [docs/instalacion.md](docs/instalacion.md).
 <img src="assets/dashboard.png" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
 </div>
 
-Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Puedes exportar e importar la lista en JSON. Nada sale de tu ordenador.
+Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Debajo, **Revisa tus rutinas**: apunta cada rutina (bot, frecuencia, si aún la necesitas) y te sugiere pausarla o bajar su frecuencia. Puedes exportar e importar bots y rutinas en JSON. Nada sale de tu ordenador.
+
+## 💡 Trucos para gastar menos
+
+No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que no uses y espacia las demás. Todos los trucos, con sus fuentes, en [docs/tips-ahorro.md](docs/tips-ahorro.md). Los que aún no hemos podido confirmar están en [docs/tips-pendientes.md](docs/tips-pendientes.md).
 
 ## ❓ Preguntas frecuentes
 

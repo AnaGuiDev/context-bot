@@ -36,7 +36,7 @@ Son umbrales orientativos, no exactos. Ante la duda, elige el color más prudent
 
 ## Mantener STATUS.md
 
-Guarda un archivo `STATUS.md` (en tu espacio de trabajo o memoria persistente) con el estado real del trabajo. Actualízalo cuando cambie algo importante y siempre al pasar a amarillo o rojo. Estructura:
+Guarda un archivo `STATUS.md` (como archivo en tu espacio de trabajo: al duplicar un bot, la memoria no se copia) con el estado real del trabajo. Actualízalo cuando cambie algo importante y siempre al pasar a amarillo o rojo. Estructura:
 
 ```markdown
 # STATUS
@@ -84,7 +84,7 @@ No migres sin que el usuario lo confirme.
 ## Pasar a un bot nuevo con BotDuplicator
 
 1. Actualiza `STATUS.md` con todo lo necesario y ponlo en `semaforo: rojo`.
-2. Explica al usuario que BotDuplicator crea un bot nuevo con la misma configuración (instrucciones, skills, memoria) pero con la conversación vacía.
+2. Explica al usuario que BotDuplicator crea un bot nuevo con la misma configuración (nombre, instrucciones, skills, rutinas) pero con la conversación vacía y sin la memoria aprendida; por eso el STATUS debe ir en un archivo.
 3. Pide al usuario que lance BotDuplicator (o hazlo tú si tienes la herramienta y te ha dado permiso).
 4. Dale este mensaje para pegar como primer mensaje en el bot nuevo:
 
