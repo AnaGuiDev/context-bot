@@ -24,7 +24,7 @@ Un kit gratuito y de código abierto para que tus conversaciones largas con Grok
 
 <sub>Pulsa la animación para ver el vídeo completo con sonido.</sub>
 
-**[➕ Añadir Context Bot](TODO_TEMPLATE_URL)** · ⭐ **Dale una estrella** si te ayuda · **[Sigue a @SoyAnaDev](https://x.com/SoyAnaDev)** para enterarte de las novedades
+**[➕ Instalar Context Bot](#install)** (un solo prompt) · ⭐ **Dale una estrella** si te ayuda · **[Sigue a @SoyAnaDev](https://x.com/SoyAnaDev)** para enterarte de las novedades
 
 </div>
 
@@ -73,10 +73,12 @@ Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archi
 - **Revisión de rutinas** en el panel: te marca en rojo o amarillo las que conviene pausar o espaciar.
 - **Web bilingüe lista para publicar** (`scripts/build-site.sh` → `dist/`), con guía en [docs/publicar.md](docs/publicar.md).
 
+<a id="install"></a>
+
 ## 🚀 Empieza en 3 pasos
 
 1. **Añade el bot, o solo la skill.**
-   - **Bot nuevo:** abre la [plantilla de Context Bot](TODO_TEMPLATE_URL) y pulsa **Add to Grok Bot**.
+   - **Bot nuevo:** pronto habrá una plantilla lista. De momento, crea un bot y pégale el prompt de abajo. <!-- TODO(PLACEHOLDER): enlace de plantilla pendiente (ver PLACEHOLDERS.md) -->
    - **Tu propio bot:** pega esto en su chat:
      > Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skills, guárdala exactamente como está escrita y confírmamelo.
 2. **Mira el semáforo.** Pregúntale *«¿De qué color estamos?»* o pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).

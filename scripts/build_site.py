@@ -18,6 +18,13 @@ PAGES = {  # plantilla: (ruta en inglés, ruta en español, prefijo de claves)
     "privacy": ("/privacy.html", "/es/privacidad.html", "privacy"),
 }
 TPL = os.path.join(ROOT, "src", "templates")
+# Mientras la plantilla del bot no tenga enlace real (TODO_TEMPLATE_URL), no se publica el botón «Add Context Bot»:
+# el botón principal pasa a ser «Copy install prompt». Al rellenarla con scripts/rellenar-placeholders.sh --template,
+# vuelve a salir «Add Context Bot» como principal y «Copy install prompt» como secundario.
+HAS_TPL = i18n.TEMPLATE.startswith("https://")
+COPY_BTN = '<button class="btn{cls}" type="button" id="copy-install" data-prompt="{{{{install_prompt}}}}">{{{{cta_copy}}}}</button>'
+CTAS = (('<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt")) if HAS_TPL
+        else (COPY_BTN.format(cls="") + '<a class="btn alt" href="#video-title">{{cta_demo}}</a>'))
 
 def rel(target, here):
     """Ruta relativa entre dos URL del sitio (las que acaban en / son carpetas)."""
@@ -61,6 +68,9 @@ def main():
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
                 og_description=strings[pre + "_og"],
                 VIDEO_JSON=json.dumps(strings["VIDEO"], ensure_ascii=False),
+                CTAS=CTAS,
+                S1_H=strings["s1_h"] if HAS_TPL else strings["s1_h_notpl"],
+                S1_P=strings["s1_p"] if HAS_TPL else strings["s1_p_notpl"],
                 DASH_JSON=json.dumps(strings["DASH"], ensure_ascii=False).replace("</", "<\\/"),
             )
             html = fill(open(os.path.join(TPL, name + ".html")).read(), ctx)
@@ -96,7 +106,7 @@ def main():
     missing = []
     for lang in ("en", "es"):
         for o in ("16x9", "9x16"):
-            for f in (f"promo-{lang}-{o}.mp4", f"poster-{lang}-{o}.jpg"):
+            for f in (f"promo-{lang}-{o}.mp4", f"poster-ui-{lang}-{o}.jpg"):
                 src = os.path.join(ROOT, "assets", "video", f)
                 if os.path.exists(src):
                     shutil.copy(src, vdir)

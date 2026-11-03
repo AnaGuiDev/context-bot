@@ -47,7 +47,7 @@ details{background:var(--card);border:1px solid var(--line);border-radius:18px;p
 summary{cursor:pointer;font-weight:800;font-size:1.08rem}
 details p{color:var(--muted);margin:10px 0 0}
 .steps4 .grid{grid-template-columns:repeat(2,1fr)}
-button.btn{font:inherit;cursor:pointer}
+button.btn{font:inherit;font-weight:800;cursor:pointer;border:0}
 .cta{text-align:center;padding:72px 24px;background:var(--card);border:1px solid var(--line);border-radius:32px}
 .cta .sub{margin:0 auto 28px}
 footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem;text-align:center}
@@ -78,6 +78,75 @@ footer p{margin:4px 0}
 .lang a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
 .lang a[aria-current]{background:var(--accent);color:var(--on)}
 .lang a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* --- Revisión: hero con maqueta de chat, jerarquía de CTA, barra del semáforo, vídeo bajo demanda --- */
+.hero{grid-template-columns:1.15fr 1fr}
+.ctas{flex-wrap:nowrap}
+.btn{white-space:nowrap;justify-content:center}
+.dash-link{margin:12px 0 0;font-weight:700}
+.mock{margin:0;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:12px;font-size:.98rem;text-align:left}
+.mock-bar{display:flex;justify-content:space-between;align-items:center;padding:0 4px 10px;border-bottom:1px solid var(--line);font-weight:800}
+.mock-name{display:flex;gap:8px;align-items:center}
+.mock-av{font-size:1.1rem;line-height:1}
+.tl{display:inline-flex;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 8px}
+.tl i{width:14px;height:14px;border-radius:50%;opacity:.25}
+.tl .g{background:var(--g)}.tl .y{background:var(--y)}.tl .r{background:var(--r)}
+.tl i.on{opacity:1;box-shadow:0 0 12px var(--y);animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 2px var(--y)}}
+.msg{max-width:88%;padding:10px 14px;border-radius:18px;line-height:1.45}
+.msg.me{align-self:flex-end;background:var(--accent);color:var(--on);border-bottom-right-radius:6px}
+@media (prefers-color-scheme: light){.msg.me{color:#fff}}
+.msg.bot{align-self:flex-start;background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:6px}
+.msg.bot strong{color:var(--text)}
+.statement{padding:40px 0 24px;max-width:760px}
+.statement h2{color:var(--accent);font-size:1.1rem;text-transform:uppercase;letter-spacing:.08em}
+.statement .big{font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.3;font-weight:800;margin:0 0 14px;color:var(--text)}
+.statement p{color:var(--muted);font-size:1.15rem;margin:0}
+.meter{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr 1fr;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.seg{position:relative;padding:22px 22px 24px;background:var(--card);display:flex;flex-direction:column;gap:4px}
+.seg::before{content:"";position:absolute;left:0;right:0;top:0;height:10px}
+.seg.g::before{background:var(--g)}.seg.y::before{background:var(--y)}.seg.r::before{background:var(--r)}
+.meter{background:linear-gradient(90deg,var(--g),var(--y),var(--r))}
+.seg{margin-top:10px}
+.seg+.seg{border-left:1px solid var(--line)}
+.seg-h{font-weight:800;font-size:1.15rem;margin-top:4px}
+.seg-th{font-size:.88rem;font-weight:700;color:var(--text);opacity:.85}
+.seg-p{color:var(--muted)}
+.soon{margin-top:20px;border:1px dashed var(--line);border-radius:18px;padding:18px 22px;font-size:.95rem;color:var(--muted)}
+.soon p{margin:0 0 8px}.soon p:last-child{margin:8px 0 0}
+.soon-h{font-weight:800;color:var(--text)}
+.badge{display:inline-block;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;font-weight:800;background:var(--bg);border:1px solid var(--line);color:var(--accent);border-radius:999px;padding:2px 10px;margin-right:6px}
+.code{display:flex;gap:10px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px 8px 8px 14px}
+.code code{flex:1;font:600 .9rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);overflow-x:auto;white-space:nowrap}
+.copy-code{font:inherit;font-weight:800;font-size:.85rem;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:6px 14px;flex:none}
+.copy-code:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tip{display:flex;flex-direction:column}
+.tip .ico{font-size:1.5rem;line-height:1;width:2.6rem;height:2.6rem;display:inline-grid;place-items:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.tip p{flex:1}
+.src{margin-top:12px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none}
+.src:hover,.src:focus-visible{color:var(--accent);text-decoration:underline}
+.video-sec{padding:64px 0}
+.video-sec h2{text-align:center}
+.player{max-width:720px;margin:0 auto}
+.bigplay{position:absolute;left:50%;top:calc(50% - 30px);transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;border:0;background:var(--accent);color:var(--on);cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.bigplay svg{width:34px;height:34px;fill:currentColor;margin-left:4px}
+.bigplay:focus-visible{outline:3px solid var(--text);outline-offset:3px}
+@media (prefers-color-scheme: light){.bigplay{color:#fff}}
+.support-line{margin:22px auto 0;color:var(--muted);font-size:.95rem;max-width:60ch}
+.muted-s{font-size:.85rem}
+@media (max-width:820px){
+  .hero{text-align:center;grid-template-columns:1fr}
+  .ctas{flex-direction:column;align-items:stretch;max-width:340px;margin:0 auto}
+  .mock{max-width:440px;margin:0 auto;width:100%}
+  .statement{text-align:center;margin:0 auto}
+  .meter{grid-template-columns:1fr}
+  .seg+.seg{border-left:0;border-top:1px solid var(--line)}
+  .meter{background:linear-gradient(180deg,var(--g),var(--y),var(--r))}
+  .seg{margin-top:0;margin-left:10px}
+  .seg::before{display:none}
+  .player{max-width:360px}
+  .player video{max-width:100%}
+}
+@media (prefers-reduced-motion: reduce){.tl i.on{animation:none}.btn,.cbtn{transition:none}}
 </style>
 </head>
 <body>
@@ -89,81 +158,88 @@ footer p{margin:4px 0}
 
 <main>
 <section class="hero" aria-labelledby="title">
-  <div>
+  <div class="hero-copy">
     <h1 id="title">{{h1}}</h1>
     <p class="lead">{{lead}}</p>
-    <!-- TODO(PLACEHOLDER): enlace de la plantilla del bot, se rellena con --template (ver PLACEHOLDERS.md) -->
-    <div class="ctas"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>
-    <button class="btn alt" type="button" id="copy-install" data-prompt="{{install_prompt}}">{{cta_copy}}</button>
-    <a class="btn alt" href="{{L_DASH}}?demo">{{cta_try}}</a></div>
+    <!-- TODO(PLACEHOLDER): con enlace de plantilla (--template) sale «Add Context Bot» como botón principal; sin él, «Copy install prompt» (ver scripts/build_site.py) -->
+    <div class="ctas">{{CTAS}}</div>
     <p class="note" id="copy-status" role="status" aria-live="polite">{{cta_copy_hint}}</p>
+    <p class="dash-link"><a href="{{L_DASH}}?demo">{{cta_dash_link}}</a></p>
     <p class="note">{{unofficial_short}}</p>
   </div>
-  <div class="light" role="img" aria-label="{{light_alt}}">
-    <span class="lamp g"></span><span class="lamp y"></span><span class="lamp r"></span>
-  </div>
+  <figure class="mock" aria-label="{{mock_alt}}">
+    <div class="mock-bar"><span class="mock-name"><span class="mock-av" aria-hidden="true">🤖</span>{{mock_title}}</span>
+      <span class="tl" aria-hidden="true"><i class="g"></i><i class="y on"></i><i class="r"></i></span></div>
+    <div class="msg me">{{mock_me}}</div>
+    <div class="msg bot">{{mock_bot}}</div>
+    <div class="msg me">{{mock_me2}}</div>
+    <div class="msg bot">{{mock_bot2}}</div>
+  </figure>
 </section>
 
-<section class="video-sec" aria-labelledby="video-title">
-  <h2 id="video-title" class="sr">{{video_title}}</h2>
-  <div class="player">
-    <!-- El script elige la versión de este idioma y la orientación: 9:16 en pantallas estrechas, 16:9 en el resto. -->
-    <video id="promo" muted loop playsinline preload="metadata" poster="{{R}}assets/video/poster-{{LANG}}-16x9.jpg"
-      data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4"
-      data-poster-wide="{{R}}assets/video/poster-{{LANG}}-16x9.jpg" data-poster-narrow="{{R}}assets/video/poster-{{LANG}}-9x16.jpg"
-      aria-describedby="video-title">
-      <source src="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" type="video/mp4">
-      {{video_fallback}} <a href="{{R}}assets/video/promo-{{LANG}}-16x9.mp4">{{video_download}}</a>.
-    </video>
-    <div class="controls" role="group" aria-label="{{v_controls}}">
-      <button class="cbtn" id="v-play" type="button" aria-label="{{v_play_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-play-icon" d="M8 5v14l11-7z"/></svg><span id="v-play-txt">{{v_play}}</span></button>
-      <button class="cbtn" id="v-stop" type="button" aria-label="{{v_stop_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span>{{v_stop}}</span></button>
-      <button class="cbtn sound" id="v-sound" type="button" aria-pressed="false" aria-label="{{v_sound_on}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-sound-icon" d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><span id="v-sound-txt">{{v_sound_on}}</span></button>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="problem">
-  <div class="problem">
-    <h2 id="problem">{{problem_h}}</h2>
-    <p>{{problem_p1}}</p>
-    <p>{{problem_p2}}</p>
-  </div>
+<section class="statement" aria-labelledby="problem">
+  <h2 id="problem">{{problem_h}}</h2>
+  <p class="big">{{problem_p1}}</p>
+  <p>{{problem_p2}}</p>
 </section>
 
 <section aria-labelledby="lights">
   <h2 id="lights">{{lights_h}}</h2>
   <p class="sub">{{lights_sub}}</p>
-  <div class="grid">
-    <div class="card status"><span class="c" style="background:var(--g)" aria-hidden="true"></span><div><h3>{{green}}</h3><p>{{green_p}}</p></div></div>
-    <div class="card status"><span class="c" style="background:var(--y)" aria-hidden="true"></span><div><h3>{{yellow}}</h3><p>{{yellow_p}}</p></div></div>
-    <div class="card status"><span class="c" style="background:var(--r)" aria-hidden="true"></span><div><h3>{{red}}</h3><p>{{red_p}}</p></div></div>
-  </div>
+  <ol class="meter">
+    <li class="seg g"><span class="seg-h">🟢 {{green}}</span><span class="seg-th">{{th_g}}</span><span class="seg-p">{{green_p}}</span></li>
+    <li class="seg y"><span class="seg-h">🟡 {{yellow}}</span><span class="seg-th">{{th_y}}</span><span class="seg-p">{{yellow_p}}</span></li>
+    <li class="seg r"><span class="seg-h">🔴 {{red}}</span><span class="seg-th">{{th_r}}</span><span class="seg-p">{{red_p}}</span></li>
+  </ol>
 </section>
 
-<section aria-labelledby="steps" class="steps4">
+<section aria-labelledby="steps">
   <h2 id="steps">{{steps_h}}</h2>
   <p class="sub">{{steps_sub}}</p>
   <div class="grid">
-    <div class="card"><span class="num">1</span><h3>{{s1_h}}</h3><p>{{s1_p}}</p></div>
+    <div class="card"><span class="num">1</span><h3>{{S1_H}}</h3><p>{{S1_P}}</p></div>
     <div class="card"><span class="num">2</span><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div>
     <div class="card"><span class="num">3</span><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div>
-    <div class="card"><span class="num">4</span><h3>{{s4_h}}</h3><p>{{s4_p}}</p></div>
   </div>
+  <aside class="soon" aria-labelledby="soon-h">
+    <p class="soon-h" id="soon-h"><span class="badge">{{soon_label}}</span> {{s4_h}}</p>
+    <p>{{s4_cmd_label}}</p>
+    <div class="code"><code id="mcp-cmd">Add this MCP server: https://mcp.contextbot.app/mcp</code><button type="button" class="copy-code" data-target="mcp-cmd">{{copy_word}}</button></div>
+    <p>{{s4_p}}</p>
+  </aside>
 </section>
 
 <section aria-labelledby="tips">
   <h2 id="tips">{{tips_h}}</h2>
   <p class="sub">{{tips_sub}}</p>
   <div class="tips">
-    <div class="card tip"><span class="ico" aria-hidden="true">🤐</span><h3>{{t1_h}}</h3><p>{{t1_p}}</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">📦</span><h3>{{t2_h}}</h3><p>{{t2_p}}</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">⏸️</span><h3>{{t3_h}}</h3><p>{{t3_p}}</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🕰️</span><h3>{{t4_h}}</h3><p>{{t4_p}}</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🧪</span><h3>{{t5_h}}</h3><p>{{t5_p}}</p></div>
-    <div class="card tip"><span class="ico" aria-hidden="true">🚚</span><h3>{{t6_h}}</h3><p>{{t6_p}}</p></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🤐</span><h3>{{t1_h}}</h3><p>{{t1_p}}</p><a class="src" href="{{src1}}">{{src_word}}: {{src1_n}} ↗</a></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">📦</span><h3>{{t2_h}}</h3><p>{{t2_p}}</p><a class="src" href="{{src2}}">{{src_word}}: {{src2_n}} ↗</a></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">⏸️</span><h3>{{t3_h}}</h3><p>{{t3_p}}</p><a class="src" href="{{src3}}">{{src_word}}: {{src3_n}} ↗</a></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🕰️</span><h3>{{t4_h}}</h3><p>{{t4_p}}</p><a class="src" href="{{src4}}">{{src_word}}: {{src4_n}} ↗</a></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🧪</span><h3>{{t5_h}}</h3><p>{{t5_p}}</p><a class="src" href="{{src5}}">{{src_word}}: {{src5_n}} ↗</a></div>
+    <div class="card tip"><span class="ico" aria-hidden="true">🚚</span><h3>{{t6_h}}</h3><p>{{t6_p}}</p><a class="src" href="{{src6}}">{{src_word}}: {{src6_n}} ↗</a></div>
   </div>
   <p class="tips-more"><a href="{{TIPS_URL}}">{{tips_more}}</a></p>
+</section>
+
+<section class="video-sec" aria-labelledby="video-title">
+  <h2 id="video-title">{{video_title}}</h2>
+  <div class="player">
+    <!-- Sin autoplay: solo se descarga al pulsar Reproducir (preload="none"). El script elige idioma y orientación (9:16 en pantallas estrechas). -->
+    <video id="promo" playsinline preload="none" poster="{{R}}assets/video/poster-ui-{{LANG}}-16x9.jpg"
+      data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4"
+      data-poster-wide="{{R}}assets/video/poster-ui-{{LANG}}-16x9.jpg" data-poster-narrow="{{R}}assets/video/poster-ui-{{LANG}}-9x16.jpg"
+      aria-describedby="video-title">
+      {{video_fallback}} <a href="{{R}}assets/video/promo-{{LANG}}-16x9.mp4">{{video_download}}</a>.
+    </video>
+    <button type="button" class="bigplay" id="v-big" aria-label="{{v_play_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+    <div class="controls" role="group" aria-label="{{v_controls}}">
+      <button class="cbtn" id="v-play" type="button" aria-label="{{v_play_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-play-icon" d="M8 5v14l11-7z"/></svg><span id="v-play-txt">{{v_play}}</span></button>
+      <button class="cbtn" id="v-stop" type="button" aria-label="{{v_stop_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span>{{v_stop}}</span></button>
+      <button class="cbtn" id="v-sound" type="button" aria-pressed="true" aria-label="{{v_sound_off}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-sound-icon" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg><span id="v-sound-txt">{{v_sound_off}}</span></button>
+    </div>
+  </div>
 </section>
 
 <section aria-labelledby="faq">
@@ -179,19 +255,8 @@ footer p{margin:4px 0}
     <h2 id="cta">{{cta_h}}</h2>
     <p class="sub">{{cta_sub}}</p>
     <a class="btn" href="{{REPO}}">{{cta_gh}}</a>
-  </div>
-</section>
-
-<section aria-labelledby="support">
-  <div class="cta">
-    <h2 id="support">{{sup_h}}</h2>
-    <p class="sub">{{sup_sub}}</p>
-    <div class="support">
-      <!-- TODO(PLACEHOLDER): enlace de Buy Me a Coffee y perfil de X (ver PLACEHOLDERS.md) -->
-      <a class="btn" href="{{BMC}}">{{coffee}}</a>
-      <a class="btn alt" href="{{X}}">{{tips_x}}</a>
-    </div>
-    <p class="note">{{tips_x_note}}<br><a href="{{X}}">{{follow_x}}</a></p>
+    <!-- TODO(PLACEHOLDER): enlace de Buy Me a Coffee y perfil de X (ver PLACEHOLDERS.md) -->
+    <p class="support-line">{{close_or}} <a href="{{BMC}}">{{coffee}}</a> · <a href="{{X}}">{{tips_x}}</a> <span class="muted-s">({{tips_x_note}})</span> · <a href="{{X}}">{{follow_x}}</a></p>
   </div>
 </section>
 </main>
@@ -215,31 +280,46 @@ footer p{margin:4px 0}
 </script>
 <script>
 (function(){
+  var ok={{COPY_OK}},bad={{COPY_BAD}},cw="{{copy_word}}",cd="{{copied_word}}";
+  function copy(t,done,fail){
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fail);return}
+    try{var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();document.execCommand('copy')?done():fail();a.remove();}catch(e){fail();}
+  }
+  var b=document.getElementById('copy-install'),st=document.getElementById('copy-status');
+  if(b)b.addEventListener('click',function(){var t=b.getAttribute('data-prompt');copy(t,function(){st.textContent=ok},function(){st.textContent=bad+' '+t})});
+  document.querySelectorAll('.copy-code').forEach(function(c){c.addEventListener('click',function(){
+    var t=document.getElementById(c.dataset.target).textContent;copy(t,function(){c.textContent=cd;setTimeout(function(){c.textContent=cw},1600)},function(){})})});
+})();
+</script>
+<script>
+(function(){
   var T={{VIDEO_JSON}};
   var v=document.getElementById('promo');if(!v)return;
-  var play=document.getElementById('v-play'),stop=document.getElementById('v-stop'),snd=document.getElementById('v-sound');
+  var play=document.getElementById('v-play'),stop=document.getElementById('v-stop'),snd=document.getElementById('v-sound'),big=document.getElementById('v-big');
   var pIcon=document.getElementById('v-play-icon'),pTxt=document.getElementById('v-play-txt');
   var sIcon=document.getElementById('v-sound-icon'),sTxt=document.getElementById('v-sound-txt');
   var PLAY='M8 5v14l11-7z',PAUSE='M6 5h4v14H6zm8 0h4v14h-4z';
   var MUTED='M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z';
   var ON='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z';
-  var narrowQ=matchMedia('(max-width: 820px)'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
-  function pick(){
-    var n=narrowQ.matches,src=n?v.dataset.narrow:v.dataset.wide;
-    if(v.getAttribute('src')===src)return;
-    var t=v.currentTime||0,was=!v.paused;
-    v.poster=n?v.dataset.posterNarrow:v.dataset.posterWide;v.src=src;v.load();
-    v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=t}catch(e){}if(was)v.play().catch(function(){})});
+  var narrowQ=matchMedia('(max-width: 820px)'),loaded=false;
+  /* Nada se descarga hasta que se pulsa Reproducir: solo cambia el póster según la orientación. */
+  function src(){return narrowQ.matches?v.dataset.narrow:v.dataset.wide}
+  function poster(){if(!loaded)v.poster=narrowQ.matches?v.dataset.posterNarrow:v.dataset.posterWide}
+  function start(){
+    if(!loaded){loaded=true;v.src=src();v.controls=false}
+    else if(v.getAttribute('src')!==src()){var t=v.currentTime||0;v.src=src();v.addEventListener('loadedmetadata',function f(){v.removeEventListener('loadedmetadata',f);try{v.currentTime=t}catch(e){}})}
+    v.play().catch(function(){});
   }
   function ui(){
     var p=v.paused;pIcon.setAttribute('d',p?PLAY:PAUSE);pTxt.textContent=p?T.play:T.pause;play.setAttribute('aria-label',p?T.playLabel:T.pauseLabel);
+    big.hidden=!p;
     var m=v.muted;sIcon.setAttribute('d',m?MUTED:ON);sTxt.textContent=m?T.soundOn:T.soundOff;snd.setAttribute('aria-label',m?T.soundOn:T.soundOff);snd.setAttribute('aria-pressed',String(!m));
   }
-  pick();if(narrowQ.addEventListener)narrowQ.addEventListener('change',pick);
-  if(!reduce.matches){v.autoplay=true;v.play().catch(function(){})}
-  play.onclick=function(){v.paused?v.play().catch(function(){}):v.pause()};
-  stop.onclick=function(){v.pause();v.currentTime=0;ui()};
-  snd.onclick=function(){v.muted=!v.muted;if(!v.muted&&v.paused)v.play().catch(function(){});ui()};
+  poster();if(narrowQ.addEventListener)narrowQ.addEventListener('change',function(){poster();if(loaded&&!v.paused)start()});
+  play.onclick=function(){v.paused?start():v.pause()};
+  big.onclick=function(){start()};
+  stop.onclick=function(){v.pause();if(loaded)v.currentTime=0;ui()};
+  snd.onclick=function(){v.muted=!v.muted;ui()};
   v.addEventListener('click',function(){play.click()});
   ['play','pause','volumechange'].forEach(function(e){v.addEventListener(e,ui)});ui();
 })();

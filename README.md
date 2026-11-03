@@ -23,7 +23,7 @@ A free, open-source kit that stops your long Grok Bot conversations from getting
 
 <sub>Click the animation to watch the full video with sound.</sub>
 
-**[➕ Add Context Bot](TODO_TEMPLATE_URL)** · ⭐ **Star the repo** if it helps · **[Follow @SoyAnaDev](https://x.com/SoyAnaDev)** for updates
+**[➕ Install Context Bot](#install)** (one prompt) · ⭐ **Star the repo** if it helps · **[Follow @SoyAnaDev](https://x.com/SoyAnaDev)** for updates
 
 </div>
 
@@ -57,13 +57,15 @@ Your bot estimates how big the conversation is, keeps a `STATUS.md` file with wh
 - **[Tips for using less](docs/en/tips.md)**, each with its source.
 - **Bilingual website ready to publish** (`scripts/build-site.sh` → `dist/`), with a guide in [docs/publicar.md](docs/publicar.md).
 
+<a id="install"></a>
+
 ## 🚀 Get started in 3 steps
 
 1. **Add the bot, or just the skill.**
-   - **New bot:** open the [Context Bot template](TODO_TEMPLATE_URL) and click **Add to Grok Bot**.
+   - **New bot:** a ready-made template is coming soon. For now, create a bot and paste the prompt below. <!-- TODO(PLACEHOLDER): enlace de plantilla pendiente (ver PLACEHOLDERS.md) -->
    - **Your own bot:** paste this into its chat:
      > Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
-2. **Check the light.** Ask *"What colour are we on?"* or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
+2. **Check the light.** Ask *"What color are we on?"* or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
 3. **Switch bots when it's time.** On red, follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows you exactly what the new bot takes with it.
 
 More detail in [docs/en/installation.md](docs/en/installation.md).

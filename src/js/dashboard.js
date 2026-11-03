@@ -23,6 +23,7 @@ $('r-freq').innerHTML=Object.keys(FREQ).map(k=>opt(k,'varias',FREQ[k])).join('')
 function render(){
   const order={rojo:0,amarillo:1,verde:2};const list=$('list');
   ['verde','amarillo','rojo'].forEach(c=>$('n-'+c).textContent=bots.filter(b=>b.color===c).length);
+  const aw=$('add-wrap');if(aw&&!bots.length)aw.open=true;
   if(!bots.length){list.innerHTML=`<div class="card empty muted" style="grid-column:1/-1">${T.emptyBots}</div>`;return}
   list.innerHTML=bots.map((b,i)=>({b,i})).sort((a,z)=>order[a.b.color]-order[z.b.color]).map(({b,i})=>`
   <article class="card bot">
@@ -33,7 +34,7 @@ function render(){
     <textarea data-i="${i}" class="st" placeholder="${T.statusPh}" aria-label="${fmt(T.statusAria,{n:esc(b.name)})}">${esc(b.status||'')}</textarea>
     <div class="row">
       <select data-i="${i}" class="col" aria-label="${T.color}">${opt('verde',b.color,'🟢 '+LABEL.verde)}${opt('amarillo',b.color,'🟡 '+LABEL.amarillo)}${opt('rojo',b.color,'🔴 '+LABEL.rojo)}</select>
-      <button type="button" class="ghost del" data-i="${i}">${T.remove}</button>
+      <button type="button" class="del" data-i="${i}" title="${T.remove}">🗑 ${T.remove}…</button>
     </div>
   </article>`).join('');
 }
@@ -61,7 +62,7 @@ function renderR(){
     <div class="row">
       <select class="rf" data-i="${i}" aria-label="${fmt(T.freqAria,{n:esc(r.name)})}">${Object.keys(FREQ).map(k=>opt(k,r.freq,FREQ[k])).join('')}</select>
       <select class="rn" data-i="${i}" aria-label="${fmt(T.needAria,{n:esc(r.name)})}">${opt('si',r.need,T.needYes)}${opt('no',r.need,T.needNo)}</select>
-      <button type="button" class="ghost rdel" data-i="${i}">${T.remove}</button>
+      <button type="button" class="rdel" data-i="${i}" title="${T.remove}">🗑 ${T.remove}…</button>
     </div>
   </article>`).join('');
 }
@@ -126,7 +127,7 @@ $('ho-dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObj
 $('ho-show').onclick=()=>{const p=hoParse($('ho-paste').value);if(!p){alert(H.parseError);return}hoSrc=p;hoFill();$('handoff').scrollIntoView({behavior:RM()?'auto':'smooth'});setTimeout(hoGo,RM()?0:400)};
 $('list').addEventListener('click',e=>{const b=e.target.closest('.ho-btn');if(!b)return;hoSrc=null;$('ho-pick').value=b.dataset.i;hoFill();$('handoff').scrollIntoView({behavior:RM()?'auto':'smooth'});setTimeout(hoGo,RM()?0:500)});
 const _render=render;render=function(){_render();
-  document.querySelectorAll('#list .del').forEach(d=>{const i=+d.dataset.i;if(bots[i]&&bots[i].color!=='verde')d.insertAdjacentHTML('beforebegin',`<button type="button" class="ho-btn" data-i="${i}">🤝 ${H.btn}</button>`)});
+  document.querySelectorAll('#list .del').forEach(d=>{const i=+d.dataset.i;if(bots[i]&&bots[i].color!=='verde')d.parentNode.querySelector('.col').insertAdjacentHTML('afterend',`<button type="button" class="ho-btn" data-i="${i}">🤝 ${H.btn}</button>`)});
   hoFill()};
 render();
 // Gancho para live.js (estado en directo opcional)
