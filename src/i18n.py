@@ -1,9 +1,10 @@
 # Textos de la web en inglés (por defecto) y español de España.
 # Las claves {{...}} de src/templates/ se rellenan con estos valores. Se permite HTML.
 # TODO(PLACEHOLDER): usuario de GitHub, X y Buy Me a Coffee (ver PLACEHOLDERS.md)
-REPO = "https://github.com/ana-gui/context-bot"
-X = "https://x.com/TODO_ANA_GUI"
-BMC = "https://buymeacoffee.com/TODO_ANA_GUI"
+REPO = "https://github.com/AnaGuiDev/context-bot"
+X = "https://x.com/SoyAnaDev"
+BMC = "https://buymeacoffee.com/TODO_BMC"
+TEMPLATE = "TODO_TEMPLATE_URL"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(
   og_locale="en_US", og_locale_alt="es_ES", og_image="og-image.png",
@@ -22,6 +23,11 @@ EN = dict(
   h1="Keep your bot <span>fast</span>, even when the chat gets long.",
   lead="A simple kit that stops your Grok Bot conversations from getting slow and expensive.",
   cta_get="Get it free →", cta_try="Try the dashboard",
+  cta_add="Add Context Bot", cta_copy="Copy install prompt",
+  cta_copy_hint="Already have a bot? Copy the prompt and paste it into its chat.",
+  copy_ok="Copied. Paste it into your bot's chat and it will install the skill.",
+  copy_bad="Couldn't copy automatically. Copy this text:",
+  install_prompt="Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.",
   light_alt="Animated traffic light going from green to yellow to red",
   video_title="Promo video",
   video_fallback="Your browser can't play this video.", video_download="Download it here",
@@ -36,7 +42,7 @@ EN = dict(
   yellow="Yellow", yellow_p="Good moment to summarize what you've got so far.",
   red="Red", red_p="Time to move to a new bot, with all your work.",
   steps_h="Get started in 3 steps", steps_sub="Nothing weird to install. No coding.",
-  s1_h="Give your bot the skill", s1_p="Copy the skill from the repository and ask your bot to use it.",
+  s1_h="Add the bot, or just the skill", s1_p="Click <strong>Add Context Bot</strong> to get a ready-made bot from the template. Already have one you like? Copy the install prompt and paste it into its chat.",
   s2_h="Check the light", s2_p="Your bot notes where you're at (STATUS.md) and tells you the colour.",
   s3_h="Switch bots when it's time", s3_p="Your bot writes a handoff file with its memory and status. The new bot reads it and picks up where you left off. In the dashboard's <a href=\"{{L_DASH}}?demo#handoff\">Handoff</a> view you can watch what travels across and download that TRASPASO.md.",
   tips_h="Tips to use less", tips_sub="Small habits that make your weekly usage last longer. Each one comes with its source.",
@@ -52,6 +58,7 @@ EN = dict(
   q2="Do I need to know how to code?", a2="No. You just copy, paste and talk to your bot as usual.",
   q3="Will I lose my conversation?", a3="No. Your bot saves the state of the work and the guide helps you move everything to the new bot.",
   q4="Is it an official Grok Bot product?", a4="No. It's a community project with no official connection to Grok Bot or xAI.",
+  s4_h="Coming soon: live status", s4_p="Tell your bot <em>Add this MCP server: https://mcp.contextbot.app/mcp</em> and sign in with GitHub. It reports its colour (an estimate, never your conversation) and the <a href=\"{{L_DASH}}\">dashboard</a> shows it live. Without it, everything stays local.",
   cta_h="Long chats, light bot.", cta_sub="Skill, traffic-light dashboard, prompts and a migration guide. All in one repository.",
   cta_gh="View on GitHub →",
   sup_h="Did it help?", sup_sub="The kit is free and always will be. If you'd like to support it, pick whatever suits you:",
@@ -142,6 +149,11 @@ ES = dict(
   h1="Que tu bot siga <span>rápido</span>, aunque la charla sea larga.",
   lead="Un kit sencillo para que tus conversaciones con Grok Bot no se vuelvan lentas ni caras.",
   cta_get="Conseguirlo gratis →", cta_try="Probar el panel",
+  cta_add="Añadir Context Bot", cta_copy="Copiar prompt de instalación",
+  cta_copy_hint="¿Ya tienes un bot? Copia el prompt y pégalo en su chat.",
+  copy_ok="Copiado. Pégalo en el chat de tu bot y él instalará la skill.",
+  copy_bad="No se ha podido copiar solo. Copia este texto:",
+  install_prompt="Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skills, guárdala exactamente como está escrita y confírmamelo.",
   light_alt="Semáforo animado que pasa de verde a amarillo y a rojo",
   video_title="Vídeo de presentación",
   video_fallback="Tu navegador no puede reproducir el vídeo.", video_download="Descárgalo aquí",
@@ -156,7 +168,7 @@ ES = dict(
   yellow="Amarillo", yellow_p="Buen momento para resumir lo que llevas.",
   red="Rojo", red_p="Hora de pasar a un bot nuevo, con todo tu trabajo.",
   steps_h="Empieza en 3 pasos", steps_sub="Sin instalar nada raro. Sin programar.",
-  s1_h="Dale la skill a tu bot", s1_p="Copia la skill del repositorio y pídele a tu bot que la use.",
+  s1_h="Añade el bot, o solo la skill", s1_p="Pulsa <strong>Añadir Context Bot</strong> y tendrás un bot listo a partir de la plantilla. ¿Ya tienes uno que te gusta? Copia el prompt de instalación y pégalo en su chat.",
   s2_h="Mira el semáforo", s2_p="Tu bot apunta en qué estáis (STATUS.md) y te dice el color.",
   s3_h="Cambia de bot si toca", s3_p="Tu bot escribe un archivo de traspaso con su memoria y su estado. El bot nuevo lo lee y sigue donde lo dejaste. En la vista <a href=\"{{L_DASH}}?demo#handoff\">Traspaso</a> del panel ves qué pasa de uno a otro y descargas ese TRASPASO.md.",
   tips_h="Trucos para gastar menos", tips_sub="Pequeños hábitos que hacen que tu uso semanal dure más. Todos con su fuente.",
@@ -172,6 +184,7 @@ ES = dict(
   q2="¿Tengo que saber programar?", a2="No. Solo copias, pegas y hablas con tu bot como siempre.",
   q3="¿Pierdo mi conversación?", a3="No. Tu bot guarda el estado del trabajo y la guía te ayuda a pasarlo todo al bot nuevo.",
   q4="¿Es oficial de Grok Bot?", a4="No. Es un proyecto de la comunidad, sin relación oficial con Grok Bot ni xAI.",
+  s4_h="Muy pronto: estado en directo", s4_p="Dile a tu bot <em>Add this MCP server: https://mcp.contextbot.app/mcp</em> y entra con GitHub. Te enviará su color (una estimación, nunca tu conversación) y el <a href=\"{{L_DASH}}\">panel</a> lo mostrará en directo. Sin él, todo se queda en local.",
   cta_h="Charlas largas, bot ligero.", cta_sub="Skill, panel con semáforo, prompts y guía de migración. Todo en un repositorio.",
   cta_gh="Ver en GitHub →",
   sup_h="¿Te ha ayudado?", sup_sub="El kit es y seguirá siendo gratis. Si te apetece apoyarlo, elige lo que te resulte más cómodo:",

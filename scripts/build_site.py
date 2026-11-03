@@ -56,7 +56,8 @@ def main():
                 ES_CUR=' aria-current="page"' if lang == "es" else "",
                 L_HOME=rel(PAGES["landing"][idx], here), L_DASH=rel(PAGES["dashboard"][idx], here),
                 L_PRIV=rel(PAGES["privacy"][idx], here),
-                REPO=i18n.REPO, X=i18n.X, BMC=i18n.BMC,
+                REPO=i18n.REPO, X=i18n.X, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                COPY_OK=json.dumps(strings["copy_ok"], ensure_ascii=False), COPY_BAD=json.dumps(strings["copy_bad"], ensure_ascii=False),
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
                 og_description=strings[pre + "_og"],
                 VIDEO_JSON=json.dumps(strings["VIDEO"], ensure_ascii=False),
@@ -102,6 +103,9 @@ def main():
                     missing.append(f)
     if missing:
         print("AVISO: faltan vídeos o pósteres en assets/video/: " + ", ".join(missing), file=sys.stderr)
+    # La skill en Markdown plano: /skill.md (inglés) y /es/skill.md (español)
+    shutil.copy(os.path.join(ROOT, "skills", "context-bot", "en", "SKILL.md"), os.path.join(OUT, "skill.md"))
+    shutil.copy(os.path.join(ROOT, "skills", "context-bot", "SKILL.md"), os.path.join(OUT, "es", "skill.md"))
     open(os.path.join(OUT, ".nojekyll"), "w").close()
 
 if __name__ == "__main__":

@@ -1,7 +1,24 @@
-# Cabeceras para Netlify y Cloudflare Pages
+# Cabeceras para Cloudflare Pages (y Netlify)
 /*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin
+
 /assets/*
   Cache-Control: public, max-age=604800
+
+# La skill, en Markdown plano y legible desde cualquier sitio (los bots la descargan)
+/skill.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300
+  X-Robots-Tag: noindex
+
+/es/skill.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300
+  X-Robots-Tag: noindex
