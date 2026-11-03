@@ -1,35 +1,34 @@
-# Lo que tienes que rellenar al despertar
+# Lo que falta por rellenar · What's left to fill in
 
-Solo quedan **cuatro datos** (y una fecha). Todo lo demás ya está hecho.
+El dominio ya está puesto: **https://contextbot.app** (`src/static/CNAME`). Quedan **tres datos** y una fecha.
+The domain is already set: **https://contextbot.app** (`src/static/CNAME`). **Three details** and a date are left.
 
-| # | Dato | Marcador en los archivos | Ejemplo |
-|---|------|--------------------------|---------|
-| 1 | Tu dominio (cuando lo compres) | `TODO-DOMINIO` | `controldecontexto.com` |
-| 2 | Tu usuario de X | `TODO_ANA_GUI` (en `x.com/…` y `@…`) | `ana_gui` |
-| 3 | Tu enlace de Buy Me a Coffee | `buymeacoffee.com/TODO_ANA_GUI` | `ana_gui` o la URL completa |
-| 4 | Tu usuario de GitHub | `ana-gui` (en `github.com/ana-gui/…`, `ana-gui.github.io` y el correo noreply) | `ana-gui` (déjalo si es ese) |
-| 5 | Fecha de la versión 0.2.0 | `AAAA-MM-DD` en `CHANGELOG.md` | `2026-11-04` |
+| # | Dato · Detail | Marcador · Marker | Ejemplo · Example |
+|---|---|---|---|
+| 1 | Usuario de X · X username | `TODO_ANA_GUI` (en `x.com/…` y `@…`) | `ana_gui` |
+| 2 | Buy Me a Coffee | `buymeacoffee.com/TODO_ANA_GUI` | `ana_gui` o la URL completa · or the full URL |
+| 3 | Usuario de GitHub · GitHub user | `ana-gui` (en `github.com/ana-gui/context-bot`, `ana-gui.github.io` y el correo noreply) | `ana-gui` (déjalo si es ese · keep it if it is) |
+| 4 | Fecha de la v0.2.0 · v0.2.0 date | `AAAA-MM-DD` en `CHANGELOG.md` | `2026-11-10` |
 
-## Cómo rellenarlo todo de una vez
+Nombre sugerido del repositorio · Suggested repo name: **`context-bot`**.
 
-```bash
-bash scripts/rellenar-placeholders.sh --prueba \
-  --dominio controldecontexto.com --x ana_gui --bmc ana_gui --github ana-gui   # mira qué cambiaría
-bash scripts/rellenar-placeholders.sh \
-  --dominio controldecontexto.com --x ana_gui --bmc ana_gui --github ana-gui   # lo cambia
-```
-
-- Puedes pasar solo los datos que ya tengas y ejecutarlo otra vez más tarde.
-- Al terminar te dice si queda algún marcador pendiente.
-- También escribe el dominio en `site/CNAME`, así `scripts/build-site.sh` ya lo copiará a `dist/`.
-- La fecha del CHANGELOG (punto 5) se cambia a mano el día que publiques.
-- Los comentarios `TODO(PLACEHOLDER)` que quedan en el código solo son avisos; puedes borrarlos o dejarlos.
-
-## Dónde aparece cada cosa (por si prefieres hacerlo a mano)
+## De una vez · All at once
 
 ```bash
-git grep -n "TODO-DOMINIO\|TODO--DOMINIO\|TODO_ANA_GUI\|ana-gui\|AAAA-MM-DD"
+bash scripts/rellenar-placeholders.sh --prueba --x ana_gui --bmc ana_gui --github ana-gui   # mira qué cambiaría · dry run
+bash scripts/rellenar-placeholders.sh          --x ana_gui --bmc ana_gui --github ana-gui   # lo cambia · apply
 ```
 
-Ojo: en la insignia del README el dominio va con guiones dobles (`TODO--DOMINIO`); el script ya lo tiene en cuenta.
-El correo `ana-gui@users.noreply.github.com` es orientativo: el de verdad lo ves en GitHub → Settings → Emails (suele empezar por un número).
+- Puedes pasar solo lo que ya tengas y repetirlo luego. · You can pass only what you have and run it again later.
+- Al terminar te dice si queda algún marcador. · It tells you if any marker is left.
+- La fecha del CHANGELOG se cambia a mano el día que publiques. · Change the CHANGELOG date by hand on launch day.
+- Los comentarios `TODO(PLACEHOLDER)` son solo avisos. · `TODO(PLACEHOLDER)` comments are just reminders.
+
+## A mano · By hand
+
+```bash
+git grep -n "TODO_ANA_GUI\|ana-gui\|AAAA-MM-DD"
+```
+
+Los textos de la web están en `src/i18n.py` (inglés y español). · Website copy lives in `src/i18n.py` (English and Spanish).
+El correo `ana-gui@users.noreply.github.com` es orientativo; el real está en GitHub → Settings → Emails. · The noreply email is a guess; the real one is under GitHub → Settings → Emails.

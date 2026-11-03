@@ -1,178 +1,154 @@
-<!-- TODO(PLACEHOLDER): dominio, URL del repositorio, perfil de X y enlace de donación. Ver PLACEHOLDERS.md -->
+<!-- TODO(PLACEHOLDER): repository URL, X profile and donation link. See PLACEHOLDERS.md -->
 <div align="center">
 
-# 🚦 Control de Contexto
+# 🚦 Context Bot
 
-**Que tu bot siga rápido, aunque la charla sea larga.**
+**Keep your bot fast.**
 
-Un kit gratuito y de código abierto para que tus conversaciones largas con Grok Bot no se vuelvan lentas ni caras.
+A free, open-source kit that stops your long Grok Bot conversations from getting slow and expensive.
 
-[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-4ade80.svg)](LICENSE)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-0.2.0-8fb4ff.svg)](CHANGELOG.md)
-[![Web](https://img.shields.io/badge/web-TODO--DOMINIO-4ade80.svg)](https://TODO-DOMINIO/)
-[![Publicar web](https://github.com/ana-gui/control-de-contexto/actions/workflows/pages.yml/badge.svg)](https://github.com/ana-gui/control-de-contexto/actions/workflows/pages.yml)
-[![Hecho con cariño](https://img.shields.io/badge/hecho%20con-%E2%9D%A4-f87171.svg)](#-créditos)
-[![Sin programar](https://img.shields.io/badge/sin%20programar-s%C3%AD-facc15.svg)](docs/instalacion.md)
-[![Contribuciones bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-8fb4ff.svg)](CONTRIBUTING.md)
-[![Seguir en X](https://img.shields.io/badge/X-seguir-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
+[![MIT licence](https://img.shields.io/badge/licence-MIT-4ade80.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-0.2.0-8fb4ff.svg)](CHANGELOG.md)
+[![Website](https://img.shields.io/badge/web-contextbot.app-4ade80.svg)](https://contextbot.app/)
+[![Publish website](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/ana-gui/context-bot/actions/workflows/pages.yml)
+[![No coding](https://img.shields.io/badge/no%20coding-needed-facc15.svg)](docs/en/installation.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-8fb4ff.svg)](CONTRIBUTING.md)
+[![Follow on X](https://img.shields.io/badge/X-follow-000000.svg?logo=x)](https://x.com/TODO_ANA_GUI)
 
-**[🌐 Ver la web](https://TODO-DOMINIO/) · [📊 Probar el panel con ejemplos](https://TODO-DOMINIO/dashboard/?demo)** · [English](README.en.md)
+**[🌐 Website](https://contextbot.app/) · [📊 Try the dashboard with sample data](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
 
-[Empezar](#-empieza-en-3-pasos) · [Guía de migración](docs/integracion-botduplicator.md) · [Preguntas](#-preguntas-frecuentes) · [☕ Invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI)
+[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/TODO_ANA_GUI)
 
-<a href="assets/video/promo-16x9.mp4"><img src="assets/video/promo.gif" alt="Vídeo de presentación de Control de Contexto (pulsa para verlo con sonido)" width="820"></a>
+<a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
-<sub>Pulsa la animación para ver el vídeo completo con sonido.</sub>
+<sub>Click the animation to watch the full video with sound.</sub>
 
 </div>
 
 ---
 
-## Índice
+## 🤔 The problem
 
-- [El problema](#-el-problema)
-- [Cómo funciona](#-cómo-funciona)
-- [Qué incluye](#-qué-incluye)
-- [Empieza en 3 pasos](#-empieza-en-3-pasos)
-- [La página y el panel](#️-la-página-y-el-panel)
-- [Trucos para gastar menos](#-trucos-para-gastar-menos)
-- [Preguntas frecuentes](#-preguntas-frecuentes)
-- [Hoja de ruta](#️-hoja-de-ruta)
-- [Contribuir](#-contribuir)
-- [Apoya el proyecto](#-apoya-el-proyecto)
-- [Privacidad](#-privacidad)
-- [Licencia](#-licencia)
+The longer your conversation with a bot gets, **the slower it replies and the more it costs**, because it rereads everything that came before on every reply. Most people only notice once it's already sluggish, and by then starting over feels risky because you might lose your work.
 
-## 🤔 El problema
+Context Bot warns you in time and helps you carry on **without losing anything**.
 
-Cuanto más larga es la conversación con tu bot, **más tarda en responder y más te cuesta**: en cada respuesta vuelve a leer todo lo anterior. Casi nadie se da cuenta hasta que ya va lento, y entonces da pereza empezar de cero por miedo a perder lo hecho.
+## 🚦 How it works
 
-Control de Contexto te avisa a tiempo y te ayuda a seguir **sin perder nada**.
+Your bot estimates how big the conversation is, keeps a `STATUS.md` file with where things stand, and sums it up as a colour:
 
-## 🚦 Cómo funciona
-
-Tu bot estima el tamaño de la conversación, apunta en qué estáis en un archivo `STATUS.md` y te lo resume con un color:
-
-| | Color | Qué significa | Qué hacer |
+| | Colour | What it means | What to do |
 |---|---|---|---|
-| 🟢 | **Verde** | Todo bien | Seguir a lo tuyo |
-| 🟡 | **Amarillo** | La charla ya pesa | Resumir en `STATUS.md` y trabajar desde ahí |
-| 🔴 | **Rojo** | Va lento y sale caro | Escribir el traspaso y pasar a un bot nuevo |
+| 🟢 | **Green** | All good | Carry on |
+| 🟡 | **Yellow** | The chat is getting heavy | Summarise in `STATUS.md` and work from there |
+| 🔴 | **Red** | Slow and expensive | Write the handoff and move to a new bot |
 
-## 📦 Qué incluye
+## 📦 What's inside
 
-- **[Skill](skills/control-de-contexto/SKILL.md)** para tu bot: cuándo comprobar, cómo estimar, cuándo avisar y cómo migrar.
-- **[Panel](dashboard/index.html)** con semáforo: un único archivo HTML, sin servidor, guarda en tu navegador. [Pruébalo con ejemplos](https://TODO-DOMINIO/dashboard/?demo).
-- **[Prompts](prompts/bot-coordinador.md)**, incluido un bot coordinador que vigila a los demás.
-- **[Ejemplo de STATUS.md](examples/STATUS.md.example)** y **[ejemplo de TRASPASO.md](examples/TRASPASO.md.example)**.
-- **[Guía de migración](docs/integracion-botduplicator.md)** a un bot nuevo con BotDuplicator.
-- **[Trucos para gastar menos](docs/tips-ahorro.md)**, cada uno con su fuente.
-- **Revisión de rutinas** en el panel: te marca en rojo o amarillo las que conviene pausar o espaciar.
-- **Web lista para publicar** (`scripts/build-site.sh` → `dist/`), con guía en [docs/publicar.md](docs/publicar.md).
+- **[Skill](skills/context-bot/SKILL.md)** for your bot: when to check, how to estimate, when to warn you and how to move on. (The skill text is in Spanish for now; your bot will still reply in your language.)
+- **[Dashboard](https://contextbot.app/dashboard/)** with a traffic light: no server, no account, data stays in your browser.
+- **Handoff view** in the dashboard: pick a yellow or red bot and watch its memory, tasks, key files and routines move across to the new bot. Then copy or download the `TRASPASO.md` handoff file.
+- **Routine review** in the dashboard: flags the routines worth pausing or slowing down.
+- **[Prompts](prompts/bot-coordinador.md)**, including a coordinator bot that keeps an eye on the others.
+- **[Sample STATUS.md](examples/STATUS.md.example)** and **[sample TRASPASO.md](examples/TRASPASO.md.example)**.
+- **[Guide to moving to a new bot](docs/en/botduplicator-integration.md)** with BotDuplicator.
+- **[Tips for using less](docs/en/tips.md)**, each with its source.
+- **Bilingual website ready to publish** (`scripts/build-site.sh` → `dist/`), with a guide in [docs/publicar.md](docs/publicar.md).
 
-## 🚀 Empieza en 3 pasos
+## 🚀 Get started in 3 steps
 
-1. **Dale la skill a tu bot.** Copia [`SKILL.md`](skills/control-de-contexto/SKILL.md) y pídele: *«Guarda esta skill y úsala a partir de ahora»*.
-2. **Mira el semáforo.** Pregúntale *«¿De qué color estamos?»* o pega su `STATUS.md` en el [panel](dashboard/index.html).
-3. **Cambia de bot si toca.** En rojo, sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md): la memoria viaja en un archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)).
+1. **Give your bot the skill.** Copy [`SKILL.md`](skills/context-bot/SKILL.md) and say: *"Save this skill and use it from now on."*
+2. **Check the light.** Ask *"What colour are we on?"* or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
+3. **Switch bots when it's time.** On red, follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows you exactly what the new bot takes with it.
 
-Más detalle en [docs/instalacion.md](docs/instalacion.md).
+More detail in [docs/en/installation.md](docs/en/installation.md).
 
-## 🖥️ La página y el panel
-
-<div align="center">
-<img src="assets/landing.png" alt="Página de presentación de Control de Contexto" width="820">
-</div>
-
-### El panel
+## 🖥️ The website and the dashboard
 
 <div align="center">
-<img src="assets/dashboard.png" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
+<img src="assets/landing.png" alt="Context Bot landing page" width="820">
 </div>
-
-Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Debajo, **Revisa tus rutinas**: apunta cada rutina (bot, frecuencia, si aún la necesitas) y te sugiere pausarla o bajar su frecuencia. Puedes exportar e importar bots y rutinas en JSON. Nada sale de tu ordenador.
-
-## 💡 Trucos para gastar menos
-
-No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que no uses y espacia las demás. Todos los trucos, con sus fuentes, en [docs/tips-ahorro.md](docs/tips-ahorro.md). Los que aún no hemos podido confirmar están en [docs/tips-pendientes.md](docs/tips-pendientes.md).
-
-## ❓ Preguntas frecuentes
-
-<details><summary><b>¿Es gratis?</b></summary>
-
-Sí. Gratis y de código abierto, con licencia MIT.
-</details>
-
-<details><summary><b>¿Tengo que saber programar?</b></summary>
-
-No. Copias, pegas y hablas con tu bot como siempre.
-</details>
-
-<details><summary><b>¿Pierdo mi conversación al migrar?</b></summary>
-
-No. Al duplicar un bot, la memoria aprendida no se copia, así que el bot escribe un archivo de traspaso (`TRASPASO.md`) con sus preferencias, decisiones y estado. El bot nuevo lo lee y lo guarda en su memoria. El antiguo sigue existiendo para consulta: ocúltalo, no lo borres.
-</details>
-
-<details><summary><b>¿El tamaño que calcula es exacto?</b></summary>
-
-No, es una estimación orientativa a partir de la longitud de la charla. Suficiente para saber cuándo conviene actuar.
-</details>
-
-<details><summary><b>¿Dónde se guardan los datos del panel?</b></summary>
-
-Solo en tu navegador (`localStorage`). No hay servidor.
-</details>
-
-<details><summary><b>¿Es oficial de Grok Bot?</b></summary>
-
-No. Es un proyecto comunitario, sin relación oficial con Grok Bot ni xAI.
-</details>
-
-## 🗺️ Hoja de ruta
-
-Ideas para próximas versiones. No hay fechas: dependen del tiempo libre y de lo que pidáis.
-
-- [ ] Versión en inglés de la skill y del panel.
-- [ ] Importar un `TRASPASO.md` en el panel para ver de un vistazo qué se lleva el bot nuevo.
-- [ ] Que el panel funcione sin conexión (instalable como app).
-- [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.
-- [ ] Más trucos para gastar menos, siempre con fuente.
-
-¿Echas algo en falta? [Propón una idea](https://github.com/ana-gui/control-de-contexto/issues/new?template=idea.yml).
-
-## 🤝 Contribuir
-
-Las ideas, correcciones y mejoras son bienvenidas. Lee [CONTRIBUTING.md](CONTRIBUTING.md), abre un [issue](https://github.com/ana-gui/control-de-contexto/issues) y respeta el [Código de conducta](CODE_OF_CONDUCT.md).
-
-## ☕ Apoya el proyecto
-
-Control de Contexto es y seguirá siendo gratis. Si te ha ahorrado algún rato, puedes:
 
 <div align="center">
-
-[![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/TODO_ANA_GUI)
-[![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/TODO_ANA_GUI)
-
+<img src="assets/dashboard.png" alt="Dashboard with three bots on green, yellow and red" width="820">
 </div>
 
-- **☕ Buy Me a Coffee:** [invítame a un café](https://buymeacoffee.com/TODO_ANA_GUI).
-- **💸 Propinas en X:** desde el [perfil de X](https://x.com/TODO_ANA_GUI), botón de Propinas.
-- **Sígueme en X** para enterarte de las novedades: [@TODO_ANA_GUI](https://x.com/TODO_ANA_GUI).
+Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. **Handoff** shows what travels to the new bot and gives you the `TRASPASO.md`. You can also paste one in to check it. **Review your routines** suggests which ones to pause or run less often. You can export and import everything as JSON. Nothing leaves your computer.
 
-Darle una ⭐ al repositorio o compartirlo con quien le venga bien también ayuda muchísimo.
+## 💡 Tips for using less
 
-## 🔒 Privacidad
+Don't reply "ok" to every message, batch your requests, pause routines you don't use and space out the rest. All the tips, with sources, are in [docs/en/tips.md](docs/en/tips.md).
 
-La web no usa cookies ni seguimiento, y la fuente y el vídeo se sirven desde la propia web. El panel guarda tus datos solo en tu navegador (`localStorage`). Más detalle en la [página de privacidad](site/privacidad.html). Para avisar de un fallo de seguridad, lee [SECURITY.md](SECURITY.md).
+## ❓ FAQ
 
-## 💛 Créditos
+<details><summary><b>Is it free?</b></summary>
 
-Hecho con cariño por **Ana Gui**. Gracias a quienes prueban, opinan y mejoran el kit.
+Yes. Free and open source, under the MIT licence.
+</details>
 
-Iconos de insignias: [shields.io](https://shields.io). Fuente [Nunito](https://github.com/googlefonts/nunito) (licencia SIL OFL 1.1). Código de conducta basado en el [Contributor Covenant](https://www.contributor-covenant.org/).
+<details><summary><b>Do I need to know how to code?</b></summary>
 
-## 📄 Licencia
+No. You copy, paste and talk to your bot as usual.
+</details>
+
+<details><summary><b>Do I lose my conversation when I move?</b></summary>
+
+No. Duplicating a bot doesn't copy its learned memory, so the bot writes a handoff file (`TRASPASO.md`) with your preferences, decisions and progress. The new bot reads it and saves it to memory. The old bot is still there if you need it: hide it rather than deleting it.
+</details>
+
+<details><summary><b>Is the size estimate exact?</b></summary>
+
+No, it's a rough estimate based on how long the chat is. It's good enough to know when to act.
+</details>
+
+<details><summary><b>Where is the dashboard data stored?</b></summary>
+
+Only in your browser (`localStorage`). There's no server.
+</details>
+
+<details><summary><b>Is this an official Grok Bot project?</b></summary>
+
+No. It's a community project with no official link to Grok Bot or xAI.
+</details>
+
+## 🗺️ Roadmap
+
+Ideas for future versions. No dates: they depend on spare time and on what you ask for.
+
+- [x] Website and dashboard in English and Spanish.
+- [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
+- [ ] English version of the skill.
+- [ ] Make the dashboard work offline (installable as an app).
+- [ ] Test memory handoff in more real cases and improve the template.
+
+Missing something? [Suggest an idea](https://github.com/ana-gui/context-bot/issues/new?template=idea.yml).
+
+## 🤝 Contributing
+
+Ideas, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), open an [issue](https://github.com/ana-gui/context-bot/issues) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## ☕ Support the project
+
+Context Bot is free and will stay that way. If it's saved you some time, you can:
+
+- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/TODO_ANA_GUI).
+- **💸 Tips on X:** use the Tips button on my [X profile](https://x.com/TODO_ANA_GUI).
+- **Follow me on X** for updates: [@TODO_ANA_GUI](https://x.com/TODO_ANA_GUI).
+
+A ⭐ on the repo, or sharing it with someone who'd find it useful, helps a lot too.
+
+## 🔒 Privacy
+
+The website uses no cookies or tracking, and the font and video are served from the site itself. The dashboard keeps your data in your browser only (`localStorage`). More on the [privacy page](https://contextbot.app/privacy.html). To report a security issue, read [SECURITY.md](SECURITY.md).
+
+## 💛 Credits
+
+Made with care by **Ana Gui**. Thanks to everyone who tries the kit, shares feedback and improves it.
+
+Badges: [shields.io](https://shields.io). Font: [Nunito](https://github.com/googlefonts/nunito) (SIL OFL 1.1). Code of Conduct based on the [Contributor Covenant](https://www.contributor-covenant.org/).
+
+## 📄 Licence
 
 [MIT](LICENSE) © 2026 Ana Gui
 
-> Proyecto comunitario no oficial. No está afiliado a Grok Bot ni a xAI.
+> Unofficial community project. Not affiliated with Grok Bot or xAI.

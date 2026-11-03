@@ -1,8 +1,8 @@
-# Publicar Control de Contexto
+# Publicar Context Bot
 
-Guía paso a paso para subir el repositorio a GitHub y poner la web en tu propio dominio. Sigue el orden: cada paso depende del anterior.
+Guía paso a paso para subir el repositorio a GitHub y poner la web en `https://contextbot.app` con Cloudflare Registrar y Cloudflare Pages. Sigue el orden: cada paso depende del anterior.
 
-> Antes de nada, rellena los datos pendientes con `scripts/rellenar-placeholders.sh` (lo explica [`ESTADO-AL-DESPERTAR.md`](../ESTADO-AL-DESPERTAR.md)).
+> Antes de nada, rellena los datos pendientes con `scripts/rellenar-placeholders.sh` (lo explica [`PLACEHOLDERS.md`](../PLACEHOLDERS.md)). El dominio ya está puesto.
 
 ## 0. Comprueba la web en tu ordenador
 
@@ -11,13 +11,13 @@ bash scripts/build-site.sh
 cd dist && python3 -m http.server 8000
 ```
 
-Abre <http://localhost:8000> y <http://localhost:8000/dashboard/?demo>. Si todo se ve bien, sigue.
+Abre <http://localhost:8000> (inglés), <http://localhost:8000/es/> (español) y <http://localhost:8000/dashboard/?demo>. Si todo se ve bien, sigue.
 
 ## 1. Crear el repositorio en GitHub como Ana Gui
 
 1. Entra en GitHub con la cuenta **ana-gui** (o la que vayas a usar).
 2. Crea un repositorio nuevo: <https://github.com/new>
-   - Nombre: `control-de-contexto`
+   - Nombre: `context-bot`
    - Público.
    - **No** marques «Add a README», ni licencia, ni .gitignore (ya los tienes).
 3. En tu ordenador, dentro de la carpeta del proyecto:
@@ -26,15 +26,15 @@ Abre <http://localhost:8000> y <http://localhost:8000/dashboard/?demo>. Si todo 
    git config user.name "Ana Gui"
    git config user.email "ana-gui@users.noreply.github.com"
    git branch -M main
-   git remote add origin https://github.com/ana-gui/control-de-contexto.git
+   git remote add origin https://github.com/ana-gui/context-bot.git
    git push -u origin main
    ```
 
    Con GitHub CLI es un solo comando (hace lo mismo que los pasos 2 y 3):
 
    ```bash
-   gh repo create ana-gui/control-de-contexto --public --source . --remote origin --push \
-     --description "Un semáforo para tus conversaciones con Grok Bot: te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada."
+   gh repo create ana-gui/context-bot --public --source . --remote origin --push \
+     --description "Keep your bot fast. A traffic light for long Grok Bot chats: know when to summarise and when to move to a new bot without losing anything."
    ```
 
 4. Comprueba que en GitHub los commits aparecen a nombre de **Ana Gui**.
@@ -43,17 +43,17 @@ Abre <http://localhost:8000> y <http://localhost:8000/dashboard/?demo>. Si todo 
 
 En la página del repositorio, pulsa el engranaje ⚙️ junto a «About»:
 
-- **Description:** Un semáforo para tus conversaciones con Grok Bot: te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada.
-- **Website:** `https://tu-dominio` (cuando lo tengas).
-- **Topics:** `grok-bot`, `ai-agents`, `context-window`, `productividad`, `espanol`, `skill`, `dashboard`, `open-source`.
+- **Description:** Keep your bot fast. A traffic light for long Grok Bot chats: know when to summarise and when to move to a new bot without losing anything.
+- **Website:** `https://contextbot.app`.
+- **Topics:** `grok-bot`, `ai-agents`, `context-window`, `productivity`, `spanish`, `skill`, `dashboard`, `open-source`.
 
 Con GitHub CLI:
 
 ```bash
-gh repo edit ana-gui/control-de-contexto \
-  --homepage "https://tu-dominio" \
+gh repo edit ana-gui/context-bot \
+  --homepage "https://contextbot.app" \
   --add-topic grok-bot --add-topic ai-agents --add-topic context-window \
-  --add-topic productividad --add-topic espanol --add-topic skill \
+  --add-topic productivity --add-topic spanish --add-topic skill \
   --add-topic dashboard --add-topic open-source
 ```
 
@@ -68,72 +68,64 @@ gh repo edit ana-gui/control-de-contexto \
 
 Esto solo se puede hacer desde la web de GitHub.
 
-## 4. Activar GitHub Pages
+## 4. Comprar contextbot.app en Cloudflare Registrar
 
-1. **Settings** → **Pages**.
-2. En **Build and deployment → Source**, elige **GitHub Actions**.
-3. Ve a la pestaña **Actions**: el flujo «Publicar web» (`.github/workflows/pages.yml`) se lanza en cada push a `main`. Si no ha arrancado, ábrelo y pulsa **Run workflow**.
-4. Al terminar, la web queda en `https://ana-gui.github.io/control-de-contexto/`.
+Cloudflare Registrar vende los dominios a precio de coste, sin recargo, y deja el DNS ya en Cloudflare, así que el paso 5 se configura casi solo.
 
-> En esa dirección provisional, la página 404 y algunos enlaces absolutos no funcionan bien porque la web está en una subcarpeta. Con tu dominio propio (paso 5) todo funciona.
+1. Crea una cuenta en <https://dash.cloudflare.com/sign-up> (o entra en la tuya) y activa la verificación en dos pasos (**My Profile → Authentication**).
+2. En el panel: **Domain Registration → Register Domains**.
+3. Busca `contextbot.app`. Mira el precio del primer año **y el de renovación** antes de seguir.
+4. Rellena los datos de contacto. Cloudflare oculta los datos personales del WHOIS sin coste.
+5. Paga y confirma. El dominio aparece en **Websites** (o **Domains**) con el DNS ya gestionado por Cloudflare.
+6. Recomendado: en **Domain Registration → Manage Domains → contextbot.app**, deja activada la **renovación automática**.
 
-## 5. Comprar un dominio y apuntarlo
+> **Importante: `.app` solo funciona con HTTPS.** Todo el dominio `.app` está en la lista de precarga HSTS de los navegadores: Chrome, Firefox, Safari y Edge nunca abren `http://contextbot.app`, solo `https://`. Hasta que el certificado esté activo (paso 5), la web **no cargará en ningún navegador**. No anuncies nada antes de comprobarlo.
 
-### Comprar
+## 5. Publicar la web en Cloudflare Pages
 
-1. Elige un registrador (por ejemplo Cloudflare Registrar, Porkbun, Namecheap o el que prefieras). Compara el precio de **renovación**, no solo el del primer año.
-2. Busca un nombre corto. Ideas: `controldecontexto.com`, `controldecontexto.es`, `semaforodebots.com`.
-3. Compra solo el dominio. No hacen falta extras de correo ni de alojamiento. Activa la protección de privacidad WHOIS si es gratis.
+1. Sube antes el repositorio a GitHub (paso 1) con al menos un commit en `main`.
+2. Panel de Cloudflare → **Compute → Workers & Pages → Create application**.
+3. Cloudflare muestra primero el asistente de Workers. Abajo, pulsa **Looking to deploy Pages? Get started** y luego **Import an existing Git repository → Get started**.
+4. **Connect GitHub**. Al autorizar, elige **Only select repositories** y marca solo `context-bot`. Pulsa **Begin setup**.
+5. Configura la compilación:
+   - **Project name:** `context-bot` (te da `context-bot.pages.dev`).
+   - **Production branch:** `main`.
+   - **Framework preset:** `None`.
+   - **Build command:** `bash scripts/build-site.sh`
+   - **Build output directory:** `dist`
+6. **Save and Deploy**. Cuando termine, abre `https://context-bot.pages.dev` y `https://context-bot.pages.dev/dashboard/?demo` para comprobarlo.
+7. En el proyecto: **Custom domains → Set up a custom domain** → escribe `contextbot.app` → **Continue** → **Activate domain**. Como el dominio ya está en Cloudflare, el registro DNS se crea solo.
+8. Repite con `www.contextbot.app`. Para que `www` lleve a la dirección principal: **Rules → Redirect Rules → Create rule → plantilla «Redirect from WWW to root»** (redirección 301, conservando la ruta y la consulta).
+9. Espera a que el estado pase de **Initializing** a **Active** (suele tardar unos minutos). Ese es el certificado HTTPS.
+10. En **SSL/TLS → Overview** de `contextbot.app`, deja el modo en **Full (strict)**, y en **SSL/TLS → Edge Certificates** activa **Always Use HTTPS**. Con `.app` HSTS ya viene impuesto por el navegador; no hace falta activar nada más.
 
-### Apuntar el DNS a GitHub Pages
+Notas:
+- Cloudflare Pages lee `dist/_headers` (cabeceras de seguridad y caché) y sirve `dist/404.html` en las direcciones que no existen.
+- Cada push a `main` vuelve a publicar la web. Las ramas y pull requests reciben una vista previa propia.
+- Si usas Cloudflare Pages, **no** actives también GitHub Pages: desactiva el flujo `.github/workflows/pages.yml` (**Actions → Publicar web → ⋯ → Disable workflow**) o bórralo.
 
-En el panel DNS del registrador, crea estos registros (valores oficiales de GitHub Pages, compruébalos en [su documentación](https://docs.github.com/es/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)):
+## Otras opciones (secundarias)
 
-| Tipo | Nombre | Valor |
-|---|---|---|
-| A | `@` | `185.199.108.153` |
-| A | `@` | `185.199.109.153` |
-| A | `@` | `185.199.110.153` |
-| A | `@` | `185.199.111.153` |
-| AAAA | `@` | `2606:50c0:8000::153` |
-| AAAA | `@` | `2606:50c0:8001::153` |
-| AAAA | `@` | `2606:50c0:8002::153` |
-| AAAA | `@` | `2606:50c0:8003::153` |
-| CNAME | `www` | `ana-gui.github.io` |
+Usa **solo una** para el mismo dominio. Todas generan la web con `bash scripts/build-site.sh` y publican `dist/`. Con `.app`, comprueba siempre que HTTPS funciona antes de anunciar nada.
 
-Luego, en GitHub:
+### GitHub Pages
 
-1. **Settings → Pages → Custom domain:** escribe tu dominio (`controldecontexto.com`) y pulsa **Save**.
-2. Espera a que la comprobación DNS salga en verde (de minutos a unas horas).
-3. Marca **Enforce HTTPS** en cuanto se active. GitHub emite el certificado gratis.
-4. Recomendado: verifica el dominio en tu cuenta (**Settings de tu perfil → Pages → Add a domain**) para que nadie pueda usarlo en otro repositorio.
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions.** El flujo «Publicar web» (`.github/workflows/pages.yml`) se lanza en cada push a `main`.
+2. **Settings → Pages → Custom domain:** `contextbot.app` → **Save**. `src/static/CNAME` ya lleva `contextbot.app`.
+3. En el DNS de Cloudflare crea los registros de [la documentación de GitHub](https://docs.github.com/es/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site): cuatro `A` (`185.199.108.153` a `185.199.111.153`), cuatro `AAAA` (`2606:50c0:8000::153` a `2606:50c0:8003::153`) y `CNAME www → ana-gui.github.io`, todos con la nube en gris (**DNS only**).
+4. Marca **Enforce HTTPS** en cuanto GitHub lo permita.
 
-> El archivo `site/CNAME` lleva tu dominio cuando ejecutas `rellenar-placeholders.sh`. Con el despliegue por Actions, GitHub usa el dominio que pongas en Settings; el archivo sirve para Netlify/otros y como recordatorio.
-
-## Alternativas a GitHub Pages
-
-Las tres generan la web con `bash scripts/build-site.sh` y publican la carpeta `dist/`. HTTPS es automático y gratis en todas.
+> En la dirección provisional `ana-gui.github.io/context-bot/` la 404 y algunos enlaces absolutos fallan porque la web está en una subcarpeta. Con el dominio propio va todo bien.
 
 ### Netlify
 
-1. <https://app.netlify.com> → **Add new site → Import an existing project** → elige el repositorio.
-2. Netlify lee `netlify.toml` (comando y carpeta ya puestos). Pulsa **Deploy**.
-3. **Domain management → Add a domain** y sigue sus instrucciones DNS (normalmente un CNAME de `www` y un registro A o ALIAS para el dominio raíz).
+1. <https://app.netlify.com> → **Add new site → Import an existing project** → elige el repositorio. Netlify lee `netlify.toml`.
+2. **Domain management → Add a domain** → `contextbot.app`, y crea en Cloudflare los registros que te indique (con la nube en gris).
 
 ### Vercel
 
-1. <https://vercel.com/new> → importa el repositorio.
-2. Framework: **Other**. Vercel lee `vercel.json`. Pulsa **Deploy**.
-3. **Settings → Domains → Add** y crea los registros DNS que te indique.
-
-### Cloudflare Pages
-
-1. Panel de Cloudflare → **Workers & Pages → Create → Pages → Connect to Git**.
-2. Build command: `bash scripts/build-site.sh` · Build output directory: `dist`.
-3. **Custom domains → Set up a domain**. Si el dominio está en Cloudflare, el DNS se configura solo.
-4. Las cabeceras de `site/_headers` se aplican automáticamente.
-
-Usa **solo una** de las opciones para el mismo dominio.
+1. <https://vercel.com/new> → importa el repositorio. Framework: **Other**. Vercel lee `vercel.json`.
+2. **Settings → Domains → Add** → `contextbot.app`, y crea en Cloudflare los registros que te indique (con la nube en gris).
 
 ## 6. Primera versión: v0.2.0
 
@@ -150,8 +142,9 @@ Usa **solo una** de las opciones para el mismo dominio.
 
 ## 7. Comprobación final
 
-- [ ] La web abre en `https://tu-dominio` con el candado de HTTPS.
-- [ ] `https://tu-dominio/dashboard/?demo` muestra el panel con ejemplos.
+- [ ] La web abre en `https://contextbot.app` con el candado de HTTPS.
+- [ ] `https://contextbot.app/dashboard/?demo` y `https://contextbot.app/es/dashboard/?demo` muestran el panel con ejemplos, y el selector EN/ES cambia de idioma.
+- [ ] `http://contextbot.app` salta solo a `https://` y `https://www.contextbot.app` lleva a `https://contextbot.app/`.
 - [ ] Una dirección inventada (`/no-existe`) muestra la página 404.
 - [ ] Al pegar el enlace en X sale la imagen del semáforo (puedes comprobarlo con el [validador de tarjetas](https://cards-dev.x.com/validator) si sigue activo, o publicando un post de prueba privado).
 - [ ] Los botones de café y Propinas en X llevan a tus perfiles reales.

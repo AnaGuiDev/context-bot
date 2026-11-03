@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
-# Rellena de una vez los datos pendientes (dominio, X, Buy Me a Coffee y usuario de GitHub).
+# Rellena de una vez los datos pendientes (X, Buy Me a Coffee y usuario de GitHub).
+# El dominio ya está puesto (contextbot.app); --dominio solo sirve para marcadores TODO-DOMINIO antiguos.
 #
 # Uso:
 #   bash scripts/rellenar-placeholders.sh \
-#     --dominio controldecontexto.com \
 #     --x ana_gui \
 #     --bmc ana_gui \
 #     --github ana-gui
 #
 # Opciones:
-#   --dominio   Dominio sin https:// (ej. controldecontexto.com)
+#   --dominio   (Obsoleto) Dominio sin https://, solo para marcadores TODO-DOMINIO
 #   --x         Usuario de X sin @ (ej. ana_gui)
 #   --bmc       Usuario de Buy Me a Coffee o URL completa (https://buymeacoffee.com/...)
 #   --github    Usuario u organización de GitHub (por defecto: ana-gui)
@@ -47,7 +47,7 @@ fi
 
 # Archivos de texto del repositorio (sin binarios, sin este script ni las guías de placeholders)
 mapfile -t FILES < <(git ls-files | grep -Ev '\.(png|jpg|jpeg|gif|mp4|woff2|ico)$' \
-  | grep -Ev '^(scripts/rellenar-placeholders\.sh|PLACEHOLDERS\.md|ESTADO-AL-DESPERTAR\.md)$')
+  | grep -Ev '^(scripts/rellenar-placeholders\.sh|PLACEHOLDERS\.md|NEXT-STEPS\.md)$')
 
 export DOMINIO XUSER BMC GH
 CAMBIADOS=()
@@ -59,7 +59,7 @@ for f in "${FILES[@]}"; do
     if ($b ne "") { s{buymeacoffee\.com/TODO_ANA_GUI}{buymeacoffee.com/$b}g; }
     if ($x ne "") { s/TODO_ANA_GUI/$x/g; }
     if ($g ne "ana-gui") {
-      s{ana-gui/control-de-contexto}{$g/control-de-contexto}g;
+      s{ana-gui/context-bot}{$g/context-bot}g;
       s{ana-gui\.github\.io}{$g.github.io}g;
       s{\*\*ana-gui\*\*}{**$g**}g;
       s{ana-gui\@users\.noreply}{$g\@users.noreply}g;
@@ -76,7 +76,7 @@ printf '  %s\n' "${CAMBIADOS[@]}"
 
 echo
 echo "Pendiente tras este paso:"
-pend="$(git grep -nE 'TODO-DOMINIO|TODO--DOMINIO|TODO_ANA_GUI' -- ':!scripts/rellenar-placeholders.sh' ':!PLACEHOLDERS.md' ':!ESTADO-AL-DESPERTAR.md' 2>/dev/null || true)"
+pend="$(git grep -nE 'TODO-DOMINIO|TODO--DOMINIO|TODO_ANA_GUI' -- ':!scripts/rellenar-placeholders.sh' ':!PLACEHOLDERS.md' ':!NEXT-STEPS.md' 2>/dev/null || true)"
 [ "$PRUEBA" = 1 ] && pend="(modo prueba: no se comprueba)"
 if [ -z "$pend" ]; then
   echo "  Nada. ✔ Quedan los comentarios TODO(PLACEHOLDER), que puedes borrar o dejar."
