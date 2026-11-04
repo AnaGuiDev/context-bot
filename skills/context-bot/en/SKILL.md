@@ -1,6 +1,6 @@
 ---
 name: context-bot
-description: Watches how big the conversation is getting, keeps a STATUS.md with the state of the work, and uses a traffic light (green, yellow, red) to say when to summarise or move to a new bot with BotDuplicator, with a handoff file so the memory travels too. Use it at the start of every session, roughly every 10 messages, after long tasks, and whenever the user asks about slowness, cost or progress.
+description: Watches how big the conversation is getting, keeps a STATUS.md with the state of the work, and uses a traffic light (green, yellow, red) to say when to summarise or move to a new bot with BotDuplicator, with a handoff file so the memory travels too. Includes a savings mode that suggests moving repetitive routines to scripts. Use it at the start of every session, roughly every 10 messages, after long tasks, and whenever the user asks about slowness, cost, savings mode or progress.
 ---
 
 # Context Bot
@@ -130,6 +130,38 @@ If you have the **Context Bot Live Status** connector (the `report_status` tool)
 - **Never** put conversation content, people's names, private data or secrets in `note`. "long document task" is fine; "reviewing John's contract" is not.
 - If the connector isn't there, fails, or the user doesn't want it, stay in local mode (STATUS.md only) without insisting.
 - If the user asks to delete their connector data, use `delete_my_data`.
+
+## Savings mode: routines that could be scripts
+
+Many routines do the same thing every time: fetch data, build a report from files, make a backup, convert formats or check that something is still up. When the bot does that, each run uses part of the subscription. A script (shell or Python) running on the box does that mechanical work without going through the bot. These are **savings suggestions**: the real saving depends on each case and can't be guaranteed.
+
+**When to use it**
+
+- When the user asks ("savings mode", "can I spend less?", "review my routines").
+- As a suggestion during a check, only if you see repetitive routines and only occasionally (at most once a week, and never if the user said no). One sentence: "I think some routines could be scripts and use less. Want me to look?".
+
+**How to review**
+
+1. List the bot's routines and recurring tasks (name, frequency, what they do).
+2. Mark as a candidate every part that is **deterministic and repeatable**: the same steps every time, no deciding or writing. Examples: fetching data from a URL or API, building a report from files, backups, format conversions, checks (is the site up? has the file arrived?).
+3. For each candidate, explain in plain words:
+   - what the script would do and how it would run: with cron on the box, or with a routine that only runs the script and gives you a short summary;
+   - the estimated benefit in qualitative terms (high, medium, low) and why, e.g. "it runs every hour and is mostly copying data". **Don't invent numbers** for savings, tokens or money;
+   - what stays with the bot: judgement, writing, handling surprises and deciding what to do with the result.
+4. Also point out what is **not** worth converting (tasks needing judgement, texts for people, decisions).
+
+**Savings mode rules**
+
+- **Never create, change or delete scripts, cron jobs or routines without the user's explicit confirmation**, one proposal at a time.
+- Before changing a routine, save a copy of its current setup (e.g. in `/workspace/backups/routines/` with the date) and explain how to roll back.
+- Run the script once in front of the user and show the result before scheduling it.
+- Keep scripts in a clear folder (e.g. `/workspace/scripts/`), with a comment at the top saying what they do.
+- No passwords or tokens written into scripts; if needed, ask the user how they want them stored.
+- Note in STATUS.md, under "Decisions", which routines moved to a script and where the backup is.
+
+**Example**
+
+> Routine "Daily report · 8:00": the bot reads three CSVs, adds up totals and writes the report. Proposal: a Python script that computes the totals and saves `report.md`, run by cron at 7:55; the 8:00 routine just reads that file and sends you a three-line summary. Estimated benefit: high (it repeats every day and is mostly arithmetic). Stays with the bot: flagging anything odd and writing the summary.
 
 ## Rules
 
