@@ -80,7 +80,7 @@ bash scripts/rellenar-placeholders.sh --template "https://…the link you copied
 bash scripts/build-site.sh
 ```
 
-This replaces `TODO_TEMPLATE_URL` and switches the landing page, the dashboard, the READMEs and the install docs to the template story: **Add Context Bot** first, and *"Already have a bot? Paste this prompt"* as the second option. To preview the website that way without changing any file: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
+This puts the link in place of the placeholder and switches the landing page, the dashboard, the READMEs and the install docs to the template story: **Add Context Bot** first, and *"Already have a bot? Paste this prompt"* as the second option. To preview the website that way without changing any file: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
 
 4. Open the link in a private window to check the preview and the **Add to Grok Bot** button.
 

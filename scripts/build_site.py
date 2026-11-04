@@ -19,7 +19,7 @@ PAGES = {  # plantilla: (ruta en inglés, ruta en español, prefijo de claves)
     "privacy": ("/privacy.html", "/es/privacidad.html", "privacy"),
 }
 TPL = os.path.join(ROOT, "src", "templates")
-# Mientras la plantilla del bot no tenga enlace real (TODO_TEMPLATE_URL), la web cuenta la instalación con el prompt.
+# Mientras la plantilla del bot no tenga enlace real (TEMPLATE en src/i18n.py), la web cuenta la instalación con el prompt.
 # Con enlace (scripts/rellenar-placeholders.sh --template, o CB_TEMPLATE=https://… para probar) cuenta la historia
 # de la plantilla: «Add Context Bot» como botón principal y el prompt como opción secundaria para quien ya tiene bot.
 #   - Textos: una clave «x_tpl» en src/i18n.py sustituye a «x» cuando hay plantilla.
