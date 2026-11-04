@@ -5,6 +5,18 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 
 ## [Sin publicar]
 
+## [0.2.0] - 2026-11-04
+
+### Resumen
+- **Suite completa:** Context Bot, Context Bot Migrator y Context Bot Lite, gratis y de código abierto, con web bilingüe (EN/ES) y panel.
+- **Plantilla Context Bot** lista para añadir desde Grok Bot.
+- **Modo ahorro con scripts:** log de tareas, `savings-scan.sh` (https://contextbot.app/savings-scan.sh) y revisión barata del texto de las rutinas; solo sugerencias, nada cambia sin permiso.
+- **Context Bot Migrator:** paso a un bot nuevo en cinco etapas (inventario, traspaso revisado, bot nuevo tras un sí, checklist con rutinas en pausa y vuelta atrás). Retoma donde lo dejaste.
+- **Vídeo nuevo** de presentación en la web (EN/ES).
+- **Context Bot Lite:** solo semáforo y `STATUS.md`, revisión cada ~20 mensajes; en rojo sugiere el Migrator. Plantilla próximamente.
+- **Chequeo de un minuto** (`#check` en la web): un prompt para saber el color de cualquier Grok Bot.
+- Imagen social nueva para el repositorio (`assets/social-preview.png`), descripciones de plantillas (`docs/template-descriptions.md`) y topics en GitHub.
+
 ### Añadido
 - Conector MCP opcional de estado en directo en `worker/` (Cloudflare Workers, OAuth con GitHub, D1/KV), con 5 herramientas, entre ellas `delete_my_data`, y pruebas. Guías: `docs/conector.md` y `docs/despliegue-worker.md`.
 - Panel: botón «Conectar estado en directo». Si no conecta, el panel sigue usando los datos locales.
@@ -30,10 +42,6 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Imágenes para redes, favicon e icono de Apple con el nuevo estilo. Títulos y descripciones nuevos para buscadores y redes.
 - README en inglés y en español rehechos como portada del repositorio: instalación en un bloque copiable, antes y después, insignia de estrellas y preguntas sobre privacidad.
 - `.github/FUNDING.yml` usa la clave nativa `buy_me_a_coffee`.
-
-## [0.2.0] - AAAA-MM-DD
-
-<!-- TODO(PLACEHOLDER): pon la fecha del día que publiques (ver docs/publicar.md, paso 6) -->
 
 ### Añadido
 - Procedimiento de **Traspaso** y **arranque** en la skill: la memoria viaja en un archivo `TRASPASO.md` (memoria duradera, estado, archivos, rutinas y resumen), sin credenciales.

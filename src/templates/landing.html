@@ -502,6 +502,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <ul class="clean tips">
     <li class="tip"><h3>{{ben1_h}}</h3><p>{{ben1_p}}</p></li>
     <li class="tip"><h3>{{ben2_h}}</h3><p>{{ben2_p}}</p></li>
+    <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p></li>
     <li class="tip"><h3>{{ben3_h}}</h3><p>{{ben3_p}}</p></li>
   </ul>
 </section>
@@ -518,6 +519,29 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">5</text></svg><div><h3>{{mig5_h}}</h3><p>{{mig5_p}}</p></div></li>
   </ol>
   <div class="add"><a class="btn" href="{{MIGRATOR_TEMPLATE}}">{{mig_soon}}</a><p class="note">{{mig_note}}</p></div>
+</section>
+
+<section id="lite" class="wrap" aria-labelledby="lite-h">
+  <span class="eyebrow">{{lite_eyebrow}}</span>
+  <h2 id="lite-h">{{lite_h}}</h2>
+  <p class="sub">{{lite_sub}}</p>
+  <ul class="clean tips">
+    <li class="tip"><h3>{{lite1_h}}</h3><p>{{lite1_p}}</p></li>
+    <li class="tip"><h3>{{lite2_h}}</h3><p>{{lite2_p}}</p></li>
+    <li class="tip"><h3>{{lite3_h}}</h3><p>{{lite3_p}}</p></li>
+  </ul>
+  <div class="add"><button class="btn alt" type="button" disabled aria-disabled="true" style="opacity:.6;cursor:not-allowed">{{lite_soon}}</button><p class="note">{{lite_note}}</p></div>
+</section>
+
+<section id="check" class="wrap" aria-labelledby="chk-h">
+  <span class="eyebrow">{{chk_eyebrow}}</span>
+  <h2 id="chk-h">{{chk_h}}</h2>
+  <p class="sub">{{chk_sub}}</p>
+  <div class="ticket">
+    <p class="ticket-l">{{chk_label}}</p>
+    <div class="code"><code id="check-code">{{chk_prompt}}</code><button type="button" class="copy-code" data-target="check-code" aria-label="{{chk_label}}">{{copy_word}}</button></div>
+    <p>{{chk_note}}</p>
+  </div>
 </section>
 
 <section id="tips" class="wrap" aria-labelledby="tips-h">
