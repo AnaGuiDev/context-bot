@@ -72,23 +72,23 @@ Lo que no puedas saber, márcalo como `desconocido`. No lo adivines.
 
 ## Paso 2 · El bot antiguo lo repasa
 
-Envía el archivo al bot antiguo con SendToAgent:
+**Obligatorio, no te lo saltes.** Leer su chat no sustituye este paso: el bot antiguo es el único que ve sus rutinas reales, sus skills y sus conectores. Busca su id en tu lista de compañeros (teammates) y envíale el archivo con SendToAgent. No pidas al dueño que haga de mensajero ni que te pegue nada:
 
 ```
 Soy Context Bot Migrator. Preparo tu migración a un bot nuevo. Repasa /workspace/context-bot-traspasos/<bot>/TRASPASO.md y dime qué falta o qué está mal para que el bot nuevo sea una réplica perfecta de ti: memoria, reglas, tareas, archivos, skills y conectores. Lista además todas tus rutinas con tu herramienta de rutinas (no de memoria): nombre, horario, estado y texto completo de sus instrucciones. Da también tus recuentos de hechos, skills, rutinas y conectores. No cambies nada.
 ```
 
-Une sus respuestas al archivo y guarda la versión final (y su copia en `archive/`). Sus recuentos son el «antes» del Paso 5. Solo si no puedes escribirle, da al dueño ese mismo texto como una línea para pegar en el bot antiguo.
+Espera su respuesta (llega sola; no sigas al Paso 3 sin ella). Une sus respuestas al archivo, resuelve cualquier contradicción preguntándole otra vez y guarda la versión final (y su copia en `archive/`). Sus recuentos son el «antes» del Paso 5. Solo si no puedes escribirle, da al dueño ese mismo texto como una línea para pegar en el bot antiguo.
 
 ## Paso 3 · Enseñar el traspaso y esperar el sí
 
-Muestra al dueño el archivo completo con un resumen arriba para ojearlo rápido:
+Envía al dueño el archivo final **como archivo adjunto** (no pegado en el texto del chat), con un mensaje corto que sirva de resumen para ojearlo rápido:
 
 - 3–4 líneas: qué se lleva el bot nuevo y los recuentos (hechos, skills, rutinas, conectores).
 - Lo que el bot antiguo añadió o corrigió.
 - Lo marcado como `desconocido` o «requiere autenticación».
 
-Debajo, el archivo entero, por si quiere revisarlo al detalle (datos privados que no quiera compartir, decisiones que falten, rutinas que ya no quiera). Pregunta: «¿Creo ya el bot nuevo?». Espera un sí claro.
+El adjunto lleva el archivo entero, por si quiere revisarlo al detalle (datos privados que no quiera compartir, decisiones que falten, rutinas que ya no quiera). Pregunta: «¿Creo ya el bot nuevo?». Espera un sí claro.
 
 ## Paso 4 · Crear el bot nuevo y cambiar las rutinas
 
