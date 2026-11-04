@@ -229,6 +229,7 @@ main>section#demo{padding-top:0}
 .kraft::before{left:24px;transform:rotate(-5deg)}.kraft::after{right:24px;transform:rotate(4deg)}
 .kraft .sub{color:#3b3127;margin-bottom:0}
 .kraft .eyebrow{background:var(--ink)}
+.sup-h3{margin:0 0 4px;font-size:1.15rem}
 .sup-actions{display:flex;flex-direction:column;gap:12px}
 .sup-note,.follow{margin:12px 0 0;font-size:.95rem;color:#3b3127}
 .kraft a:not(.btn){color:var(--ink);font-weight:800}
@@ -567,13 +568,21 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
       <p class="sub">{{sup_sub}}</p>
     </div>
     <div>
+      <h3 class="sup-h3">{{sup_ana_h}}</h3>
+      <p class="sup-note">{{sup_ana_p}}</p>
       <div class="sup-actions">
-        <a class="btn" href="{{REPO}}">{{STAR}}{{cta_star}}{{STARS}}</a>
         <a class="btn alt" href="{{BMC}}">{{coffee}}</a>
         <a class="btn alt" href="{{X}}">{{tips_x}}</a>
+        <a class="btn alt" href="{{X}}">{{follow_ana}}</a>
       </div>
       <p class="sup-note">{{tips_x_note}}</p>
-      <p class="follow">{{follow_line}}</p>
+      <h3 class="sup-h3" style="margin-top:22px">{{sup_cb_h}}</h3>
+      <p class="sup-note">{{sup_cb_p}}</p>
+      <div class="sup-actions">
+        <a class="btn" href="{{XP}}">{{follow_cb}}</a>
+        <a class="btn alt" href="{{share_url}}">{{share_x}}</a>
+        <a class="btn alt" href="{{REPO}}">{{STAR}}{{cta_star}}{{STARS}}</a>
+      </div>
     </div>
   </div>
 </section>
