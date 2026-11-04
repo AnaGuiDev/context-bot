@@ -375,7 +375,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <p class="sub">{{video_sub}}</p>
   <div class="billboard">
     <div class="board">
-      <!-- Autoplay sin sonido y en bucle al acercarse a la pantalla (antes no se descarga nada); el script elige idioma y orientación (9:16 en pantallas estrechas). Con «reducir movimiento» no arranca solo. -->
+      <!-- Autoplay sin sonido y en bucle al acercarse a la pantalla, siempre después de cargar la página (el póster va primero); el script elige idioma y orientación (9:16 en pantallas estrechas). Con «reducir movimiento» no arranca solo. -->
       <video id="promo" muted loop playsinline preload="none"
         data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4"
         data-poster-wide="{{R}}assets/video/poster-ui-{{LANG}}-16x9.jpg" data-poster-narrow="{{R}}assets/video/poster-ui-{{LANG}}-9x16.jpg"
@@ -606,10 +606,11 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     var m=v.muted;sIcon.setAttribute('d',m?MUTED:ON);sTxt.textContent=m?T.soundOn:T.soundOff;snd.setAttribute('aria-label',m?T.soundOn:T.soundOff);snd.setAttribute('aria-pressed',String(!m));
   }
   poster();if(narrowQ.addEventListener)narrowQ.addEventListener('change',swap);
-  if(auto){
+  function watch(){
     if('IntersectionObserver' in window)new IntersectionObserver(function(e){if(e[0].isIntersecting){if(!userPaused)go()}else if(!v.paused&&v.muted)v.pause()},{rootMargin:'300px 0px'}).observe(v);
     else go();
   }
+  if(auto){if(document.readyState==='complete')watch();else addEventListener('load',watch)}
   play.onclick=function(){if(v.paused){userPaused=false;go()}else{userPaused=true;v.pause()}};
   stop.onclick=function(){userPaused=true;v.pause();if(loaded)v.currentTime=0;ui()};
   snd.onclick=function(){v.muted=!v.muted;if(!v.muted&&v.paused){userPaused=false;go()}ui()};
