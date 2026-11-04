@@ -63,6 +63,8 @@ Más detalle en [docs/instalacion.md](docs/instalacion.md).
 
 Cuando el semáforo pasa a amarillo o rojo, la skill opcional **Context Bot Migrator** pasa el trabajo a un bot nuevo en cinco etapas comprobadas: inventario, un traspaso breve que revisas tú, bot nuevo solo tras tu sí, lista de verificación con las rutinas en pausa y vuelta atrás (el antiguo se oculta, nunca se borra). Mira [docs/migrator.md](docs/migrator.md).
 
+**[➕ Añadir Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)** · la plantilla se abre en Grok Bot con la skill del Migrator lista.
+
 ## 🧳 Antes y después
 
 | Sin Context Bot | Con Context Bot |

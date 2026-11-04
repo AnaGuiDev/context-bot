@@ -63,6 +63,8 @@ More detail in [docs/en/installation.md](docs/en/installation.md).
 
 When the light turns yellow or red, the optional **Context Bot Migrator** skill moves the work to a fresh bot in five checked stages: inventory, a short handoff you review, a new bot only after your OK, a verification checklist with routines paused, and a rollback (the old bot is hidden, never deleted). See [docs/en/migrator.md](docs/en/migrator.md).
 
+**[➕ Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)** · the template opens in Grok Bot with the Migrator skill ready.
+
 ## 🧳 Before and after
 
 | Without Context Bot | With Context Bot |

@@ -1,5 +1,7 @@
 # Context Bot Migrator
 
+**[➕ Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)** · ready-made template in Grok Bot.
+
 An optional companion skill (`skills/context-bot-migrator/`) for moving a long, slow bot into a fresh one in a planned way. It works with any bot and does not need a specific duplication tool.
 
 **Five stages**

@@ -136,7 +136,7 @@ def main():
                 ES_CUR=' aria-current="page"' if lang == "es" else "",
                 L_HOME=rel(PAGES["landing"][idx], here), L_DASH=rel(PAGES["dashboard"][idx], here),
                 L_PRIV=rel(PAGES["privacy"][idx], here),
-                REPO=i18n.REPO, X=i18n.X, XP=i18n.X_PROJECT, BMC=i18n.BMC, TEMPLATE=escape(TEMPLATE),
+                REPO=i18n.REPO, X=i18n.X, XP=i18n.X_PROJECT, BMC=i18n.BMC, TEMPLATE=escape(TEMPLATE), MIGRATOR_TEMPLATE=escape(i18n.MIGRATOR_TEMPLATE),
                 STAR=STAR, STARS=stars,
                 COPY_OK=json.dumps(strings["copy_ok"], ensure_ascii=False), COPY_BAD=json.dumps(strings["copy_bad"], ensure_ascii=False),
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
