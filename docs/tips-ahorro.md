@@ -44,4 +44,8 @@ Lo que pones en *Edit Profile* se conserva al duplicar y no hay que repetirlo en
 Acota bien la tarea, mira cuánto gasta y luego amplía. Consulta el uso antes de trabajos largos.
 *Fuente:* [Plans and billing](https://cursor.com/help/grok-bot/plans).
 
+### 9. 🛠️ Modo ahorro: pasa las tareas repetidas a scripts
+Tu bot apunta cada tarea terminada en una línea, un pequeño script cuenta las repetidas (sin gastar uso del bot) y, más o menos una vez por semana, el bot lee un resumen de 10 líneas. También repasa sus rutinas leyendo solo su texto guardado. Si algo se repite o una rutina es casi toda mecánica, te propone un script que puedes lanzar a demanda o con cron. Di «modo ahorro ya» para mirarlo cuando quieras. Nada cambia sin tu permiso. Son sugerencias; el ahorro depende de cada caso.
+*Se deduce de:* [Plans and billing](https://cursor.com/help/grok-bot/plans) (el uso son pasos y tokens) y [Routines](https://cursor.com/help/grok-bot/routines).
+
 Los consejos que aún no hemos podido confirmar están en [tips-pendientes.md](tips-pendientes.md).
