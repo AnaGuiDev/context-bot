@@ -25,12 +25,14 @@ Reglas básicas:
 Normalmente un bot sabe listar su memoria, skills, rutinas y conectores mejor que nadie. Da al dueño este mensaje para pegar en el bot **antiguo**. Genera inventario y traspaso en un solo turno:
 
 ```
-Prepara una migración de Context Bot en una sola respuesta. 1) Actualiza STATUS.md y pon el semáforo. 2) Escribe /workspace/context-bot-traspasos/<bot>/TRASPASO.md con el formato de traspaso de Migrator: versión, bot de origen, fecha, resumen, hechos de memoria (uno por línea), tareas, archivos clave, skills, rutinas con horario y estado activa/pausada, conectores con estado de autenticación y una línea que confirme que se han excluido los secretos. 3) Cópialo en /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<AAAA-MM-DD>.md. 4) Responde con los recuentos: hechos, skills, rutinas, conectores. Que el archivo no pase de unas 150 líneas. No crees, cambies ni borres nada más.
+Prepara una migración de Context Bot en una sola respuesta. 1) Actualiza STATUS.md y pon el semáforo. 2) Escribe /workspace/context-bot-traspasos/<bot>/TRASPASO.md con el formato de traspaso de Migrator: versión, bot de origen, fecha, resumen, hechos de memoria (uno por línea), tareas, archivos clave, skills, rutinas (léelas con tu herramienta de rutinas, no de memoria) con nombre, horario, estado activa/pausada y el texto completo de sus instrucciones, conectores con estado de autenticación y una línea que confirme que se han excluido los secretos. 3) Cópialo en /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<AAAA-MM-DD>.md. 4) Responde con los recuentos: hechos, skills, rutinas, conectores. Que el archivo no pase de unas 150 líneas. No crees, cambies ni borres nada más.
 ```
 
 Cambia `<bot>` por un nombre de carpeta corto (minúsculas, sin espacios). Apunta los recuentos: son el «antes» de la Etapa 4.
 
 Si el bot antiguo no puede listar algo (por ejemplo, la autenticación de un conector), márcalo como `desconocido`. No lo adivines.
+
+**Las rutinas las compruebas tú, no el dueño.** Tú no puedes ver las rutinas de otro bot, pero sí preguntarle. Si tienes una herramienta para escribir a otros bots (por ejemplo SendToAgent), pregunta tú mismo al bot antiguo: «Lista todas tus rutinas con tu herramienta de rutinas: nombre, horario, estado y el texto completo de sus instrucciones. No cambies nada.» Compara su respuesta con el traspaso y añade lo que falte. No pidas al dueño que te diga sus rutinas; solo si no puedes escribir al bot antiguo, dale una línea para pegarle con esa misma pregunta.
 
 ## Etapa 2 · El archivo de traspaso
 
@@ -64,6 +66,7 @@ light_at_handoff: yellow | red
 
 ## Rutinas
 - nombre — horario — activa/pausada — qué hace
+  instrucciones: texto completo guardado (hace falta para recrearla igual)
 
 ## Conectores
 - nombre — conectado / requiere autenticación / desconocido
