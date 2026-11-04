@@ -5,7 +5,7 @@ description: Watches how big the conversation is getting, keeps a STATUS.md with
 
 # Context Bot
 
-Long conversations get slow and expensive because, on every reply, the bot rereads everything before it. This skill helps you notice in time, and makes sure the user doesn't lose anything.
+Long conversations get slow and expensive because, on every reply, the bot rereads everything before it. This skill helps you notice in time, so the user can pick up where they left off.
 
 ## When to check the context
 
@@ -119,17 +119,6 @@ If the first message mentions a handoff, or you find a `TRASPASO.md` for your na
 5. Once the new bot confirms it has understood, the user can carry on there and keep the old one hidden for reference.
 
 Full guide: `docs/en/migrator.md` (alternative: `docs/en/botduplicator-integration.md`).
-
-## Live status (optional)
-
-If you have the **Context Bot Live Status** connector (the `report_status` tool), send your colour to the user's dashboard:
-
-- Call `report_status` at the start of a session, whenever the colour changes, and at most once per check. If nothing has changed, don't repeat it.
-- Data: `bot_name` (your name), `colour` (`green`, `yellow` or `red`), and whichever estimates you have: `turns` (approximate messages), `usage_share` (0 to 1, how full you estimate the context is), `routines_per_day`, `compacted` (whether there's been an automatic summary) and a short, generic `note`.
-- **It's all an estimate.** You can't read the exact context size. Say so if the user asks, and don't present it as a measurement.
-- **Never** put conversation content, people's names, private data or secrets in `note`. "long document task" is fine; "reviewing John's contract" is not.
-- If the connector isn't there, fails, or the user doesn't want it, stay in local mode (STATUS.md only) without insisting.
-- If the user asks to delete their connector data, use `delete_my_data`.
 
 ## Savings mode: repeated tasks and routines that could be scripts
 

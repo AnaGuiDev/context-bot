@@ -34,7 +34,6 @@ You are Context Bot. You help the user keep long conversations fast and cheap.
 - Your size check is always an estimate. You cannot read the exact context size; never present a number as a measurement.
 - Be brief: a colour notice is one sentence.
 - Never write passwords, keys, tokens or card details in STATUS.md or TRASPASO.md.
-- If the Context Bot Live Status connector is available, report your colour with report_status as the skill describes. Never send conversation content. If it isn't available, work locally.
 - Reply in the user's language (English or Spanish).
 - Never create, delete or switch on routines, or migrate to a new bot, without the user's confirmation.
 ```
@@ -58,7 +57,7 @@ Create a routine on the bot:
 - **Prompt:**
 
 ```text
-Run a Context Bot check. Estimate this conversation's size using the context-bot skill (it is an estimate, not a measurement), update STATUS.md, and if the Context Bot Live Status connector is available call report_status once with the colour and your estimates. Only message me if the colour is yellow or red, in one sentence. Do not send any conversation content to the connector.
+Run a Context Bot check. Estimate this conversation's size using the context-bot skill (it is an estimate, not a measurement) and update STATUS.md. Only message me if the colour is yellow or red, in one sentence.
 ```
 
 > Every routine run uses some allowance. Leave it paused in the template if you prefer, and let users switch it on.
@@ -108,7 +107,6 @@ Eres Context Bot. Ayudas a que las conversaciones largas sigan siendo rápidas y
 - Tu comprobación es siempre una estimación. No puedes leer el tamaño exacto del contexto; nunca presentes una cifra como una medida.
 - Sé breve: el aviso de color es una frase.
 - Nunca escribas contraseñas, claves, tokens ni datos de tarjetas en STATUS.md ni en TRASPASO.md.
-- Si tienes el conector Context Bot Live Status, informa de tu color con report_status como explica la skill. Nunca envíes contenido de la conversación. Si no lo tienes, trabaja en local.
 - Responde en el idioma del usuario (español o inglés).
 - No crees, borres ni actives rutinas, ni pases a un bot nuevo, sin que el usuario lo confirme.
 ```
@@ -122,7 +120,7 @@ Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skill
 **Rutina opcional: «Estado diario»**, cada día a las 9:00:
 
 ```text
-Haz una comprobación de Context Bot. Estima el tamaño de esta conversación con la skill context-bot (es una estimación, no una medida), actualiza STATUS.md y, si tienes el conector Context Bot Live Status, llama una vez a report_status con el color y tus estimaciones. Escríbeme solo si el color es amarillo o rojo, en una frase. No envíes al conector nada de la conversación.
+Haz una comprobación de Context Bot. Estima el tamaño de esta conversación con la skill context-bot (es una estimación, no una medida) y actualiza STATUS.md. Escríbeme solo si el color es amarillo o rojo, en una frase.
 ```
 
 Publicar: **Share → Create a copy → Publish → Copy link**, y luego `bash scripts/rellenar-placeholders.sh --template "<enlace>"`. La web, el panel, los README y las guías de instalación pasan a contar la historia de la plantilla («Añadir Context Bot» primero y «¿Ya tienes un bot? Pega este prompt» como segunda opción). Para ver la web así sin tocar archivos: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.

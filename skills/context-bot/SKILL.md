@@ -5,7 +5,7 @@ description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el
 
 # Context Bot
 
-Las conversaciones largas se vuelven lentas y caras porque, en cada respuesta, el bot vuelve a leer todo lo anterior. Esta skill te ayuda a darte cuenta a tiempo y a que el usuario no pierda nada.
+Las conversaciones largas se vuelven lentas y caras porque, en cada respuesta, el bot vuelve a leer todo lo anterior. Esta skill te ayuda a darte cuenta a tiempo para que el usuario retome donde lo dejó.
 
 ## Cuándo comprobar el contexto
 
@@ -119,17 +119,6 @@ Si el primer mensaje menciona un traspaso, o encuentras un `TRASPASO.md` para tu
 5. Cuando el bot nuevo confirme que lo ha entendido, el usuario puede seguir allí y dejar el antiguo oculto para consulta.
 
 Guía completa: `docs/migrator.md` (alternativa: `docs/integracion-botduplicator.md`).
-
-## Estado en directo (opcional)
-
-Si tienes el conector **Context Bot Live Status** (herramienta `report_status`), envía tu color al panel del usuario:
-
-- Llama a `report_status` al empezar la sesión, cada vez que cambie el color y, como mucho, una vez por comprobación. Si no cambia nada, no lo repitas.
-- Datos: `bot_name` (tu nombre), `colour` (`green`, `yellow` o `red`), y las estimaciones que tengas: `turns` (mensajes aproximados), `usage_share` (de 0 a 1, lo lleno que estimas el contexto), `routines_per_day`, `compacted` (si ha habido un resumen automático) y una `note` corta y genérica.
-- **Todo es una estimación.** No puedes leer el tamaño exacto del contexto. Dilo así si el usuario pregunta, y no lo presentes como una medida.
-- **Nunca** pongas en `note` contenido de la conversación, nombres de personas, datos privados ni secretos. Vale «tarea larga de documentos», no vale «revisando el contrato de Juan».
-- Si el conector no está, falla o el usuario no quiere, sigue en modo local (solo STATUS.md) sin insistir.
-- Si el usuario pide borrar sus datos del conector, usa `delete_my_data`.
 
 ## Modo ahorro: tareas repetidas y rutinas que pueden ser scripts
 
