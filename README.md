@@ -118,7 +118,7 @@ Don't reply "ok" to every message, batch your requests, pause routines you don't
 
 <details><summary><b>Why does my new bot have a black ball as its picture?</b></summary>
 
-Templates don't carry the profile picture, so the bot starts with the default one. Download its picture and set it yourself: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
+Templates don't carry the profile picture. The bot sets its own one when it starts and tells you. If it couldn't, set it yourself: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
 </details>
 
 <details><summary><b>Is it free?</b></summary>
