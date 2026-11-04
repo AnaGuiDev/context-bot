@@ -22,9 +22,52 @@ TPL = os.path.join(ROOT, "src", "templates")
 # el botón principal pasa a ser «Copy install prompt». Al rellenarla con scripts/rellenar-placeholders.sh --template,
 # vuelve a salir «Add Context Bot» como principal y «Copy install prompt» como secundario.
 HAS_TPL = i18n.TEMPLATE.startswith("https://")
-COPY_BTN = '<button class="btn{cls}" type="button" id="copy-install" data-prompt="{{{{install_prompt}}}}">{{{{cta_copy}}}}</button>'
-CTAS = (('<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt")) if HAS_TPL
-        else (COPY_BTN.format(cls="") + '<a class="btn alt" href="#video-title">{{cta_demo}}</a>'))
+COPY_BTN = ('<button class="btn{cls} copy-install" type="button" data-status="{status}" '
+            'data-prompt="{{{{install_prompt}}}}">{{{{cta_copy}}}}</button>')
+STAR_BTN = '<a class="btn alt" href="{{REPO}}">{{STAR}}{{cta_star}}{{STARS}}</a>'
+
+def ctas(status):
+    if HAS_TPL:
+        return '<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt", status=status)
+    return COPY_BTN.format(cls="", status=status) + STAR_BTN
+
+STAR = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.8-4.9 4.6 1.3 6.5'
+        'L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>')
+STARS_MIN = 10  # por debajo no se enseña el número: un «★ 3» resta más de lo que suma
+
+def star_count():
+    """Estrellas del repositorio en el momento de generar la web. Sin red (o con CB_OFFLINE=1) no se muestra nada."""
+    if os.environ.get("CB_STARS", "").isdigit():
+        return int(os.environ["CB_STARS"])
+    if os.environ.get("CB_OFFLINE"):
+        return 0
+    import urllib.request
+    api = i18n.REPO.replace("https://github.com/", "https://api.github.com/repos/")
+    try:
+        req = urllib.request.Request(api, headers={"Accept": "application/vnd.github+json", "User-Agent": "context-bot-build"})
+        with urllib.request.urlopen(req, timeout=4) as r:
+            return int(json.load(r).get("stargazers_count", 0))
+    except Exception:
+        return 0
+
+def stars_label(n):
+    if n < STARS_MIN:
+        return ""
+    txt = f"{n / 1000:.1f}k".replace(".0k", "k") if n >= 1000 else str(n)
+    return f' <span class="stars">· {txt}</span>'
+
+def json_ld(strings, lang, url):
+    data = {
+        "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Context Bot",
+        "url": url, "description": strings["landing_description"], "inLanguage": lang,
+        "applicationCategory": "ProductivityApplication", "operatingSystem": "Web",
+        "isAccessibleForFree": True, "license": "https://opensource.org/licenses/MIT",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "image": f"{DOMAIN}/assets/brand/{strings['og_image']}",
+        "author": {"@type": "Person", "name": "Ana Gui", "url": i18n.X, "sameAs": ["https://github.com/AnaGuiDev", i18n.X]},
+        "sameAs": [i18n.REPO, i18n.X_PROJECT],
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
 def rel(target, here):
     """Ruta relativa entre dos URL del sitio (las que acaban en / son carpetas)."""
@@ -48,6 +91,7 @@ def page_path(url):
 
 def main():
     shutil.rmtree(OUT, ignore_errors=True)
+    stars = stars_label(star_count())
     for lang, strings in (("en", i18n.EN), ("es", i18n.ES)):
         idx = 0 if lang == "en" else 1
         for name, (en_url, es_url, pre) in PAGES.items():
@@ -63,12 +107,15 @@ def main():
                 ES_CUR=' aria-current="page"' if lang == "es" else "",
                 L_HOME=rel(PAGES["landing"][idx], here), L_DASH=rel(PAGES["dashboard"][idx], here),
                 L_PRIV=rel(PAGES["privacy"][idx], here),
-                REPO=i18n.REPO, X=i18n.X, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                REPO=i18n.REPO, X=i18n.X, XP=i18n.X_PROJECT, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                STAR=STAR, STARS=stars,
                 COPY_OK=json.dumps(strings["copy_ok"], ensure_ascii=False), COPY_BAD=json.dumps(strings["copy_bad"], ensure_ascii=False),
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
+                og_title=strings.get(pre + "_og_title", strings[pre + "_title"]),
                 og_description=strings[pre + "_og"],
+                JSONLD=json_ld(strings, lang, DOMAIN + here) if name == "landing" else "",
                 VIDEO_JSON=json.dumps(strings["VIDEO"], ensure_ascii=False),
-                CTAS=CTAS,
+                CTAS=ctas("copy-status"), CTAS_END=ctas("copy-status-end"),
                 S1_H=strings["s1_h"] if HAS_TPL else strings["s1_h_notpl"],
                 S1_P=strings["s1_p"] if HAS_TPL else strings["s1_p_notpl"],
                 DASH_JSON=json.dumps(strings["DASH"], ensure_ascii=False).replace("</", "<\\/"),
@@ -101,7 +148,7 @@ def main():
     shutil.copy(os.path.join(ROOT, "src", "js", "dashboard.js"), os.path.join(OUT, "assets", "js"))
     shutil.copy(os.path.join(ROOT, "src", "js", "live.js"), os.path.join(OUT, "assets", "js"))
     for d in ("brand", "fonts"):
-        shutil.copytree(os.path.join(ROOT, "assets", d), os.path.join(OUT, "assets", d))
+        shutil.copytree(os.path.join(ROOT, "assets", d), os.path.join(OUT, "assets", d), ignore=shutil.ignore_patterns("*.html"))
     vdir = os.path.join(OUT, "assets", "video"); os.makedirs(vdir)
     missing = []
     for lang in ("en", "es"):

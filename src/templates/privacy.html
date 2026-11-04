@@ -2,27 +2,25 @@
 <html lang="{{LANG}}">
 <head>
 {{>_head}}
+{{>_brand}}
 <style>
-@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url({{R}}assets/fonts/nunito-latin.woff2) format("woff2")}
-:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020}
-@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff}}
-*{box-sizing:border-box}body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-main{max-width:720px;margin:0 auto;padding:48px 24px}h1{font-size:2rem;line-height:1.2;margin:0 0 16px}h2{font-size:1.2rem;margin:28px 0 8px}
-a{color:var(--accent)}p,li{color:var(--muted)}strong{color:var(--text)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
-.btn{display:inline-block;background:var(--accent);color:var(--on);text-decoration:none;font-weight:800;padding:13px 24px;border-radius:999px;margin:8px 8px 0 0}
-.btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
-footer{text-align:center;font-size:.9rem;color:var(--muted);padding:0 24px 40px}
-header.top{max-width:720px;margin:0 auto;padding:22px 24px 0;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;color:var(--text);text-decoration:none}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;font-size:.85rem;font-weight:800}
-.lang a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
-.lang a[aria-current]{background:var(--accent);color:var(--on)}
+header.top{max-width:760px;margin:0 auto;padding:18px 20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+main{max-width:760px;margin:0 auto;padding:40px 20px 48px}
+h1{font-size:clamp(2rem,7vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin:0 0 18px}
+h2{font-size:1.2rem;font-weight:900;margin:28px 0 8px}
+p,li{color:var(--muted)}strong{color:var(--text)}
+.card{padding:28px}
+.card>p:first-child{font-size:1.1rem}
+footer{text-align:center;font-size:.92rem;color:var(--muted);padding:0 20px 48px}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:0 0 8px}
+footer nav a{color:var(--text);font-weight:800;text-decoration:none}
+footer nav a:hover{color:var(--accent);text-decoration:underline}
 </style>
 </head>
 <body>
-<header class="top"><a class="logo" href="{{L_HOME}}">🚦 Context Bot</a>{{>_lang}}</header>
-<main>
+<a class="skip" href="#main">{{skip}}</a>
+<header class="top"><a class="logo" href="{{L_HOME}}">{{>_logo}}Context Bot</a>{{>_lang}}</header>
+<main id="main">
 <h1>{{p_h1}}</h1>
 <div class="card">
 <p><strong>{{p_short}}</strong></p>
@@ -38,6 +36,9 @@ header.top{max-width:720px;margin:0 auto;padding:22px 24px 0;display:flex;justif
 <p>{{p_handoff}}</p>
 </div>
 </main>
-<footer>Context Bot · {{unofficial_mid}} · <a href="{{L_HOME}}">{{home_word}}</a></footer>
+<footer>
+  <nav aria-label="{{foot_nav}}"><a href="{{L_HOME}}">{{home_word}}</a><a href="{{L_DASH}}">{{dash_word}}</a><a href="{{REPO}}">GitHub</a><a href="{{XP}}">X · @contextbotapp</a></nav>
+  <p>Context Bot · {{unofficial_mid}}</p>
+</footer>
 </body>
 </html>

@@ -2,12 +2,8 @@
 <html lang="{{LANG}}">
 <head>
 {{>_head}}
+{{>_brand}}
 <style>
-@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url({{R}}assets/fonts/nunito-latin.woff2) format("woff2")}
-:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020;--g:#4ade80;--y:#facc15;--r:#f87171;--off:#2b313d}
-@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff;--off:#e5e7ee}}
-*{box-sizing:border-box}
-body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
 .wrap{max-width:1040px;margin:0 auto;padding:24px}
 header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 h1{margin:0;font-size:1.6rem}
@@ -49,10 +45,6 @@ footer{margin-top:30px;text-align:center;font-size:.88rem;color:var(--muted)}
 footer a{color:var(--accent)}
 .dot{display:inline-block;width:14px;height:14px;border-radius:50%}
 @media (max-width:640px){form.add{grid-template-columns:1fr}}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;font-size:.85rem;font-weight:800}
-.lang a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
-.lang a[aria-current]{background:var(--accent);color:var(--on)}
-.lang a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 /* Traspaso / Handoff */
 .ho{display:grid;grid-template-columns:1fr 64px 1fr;gap:0;align-items:stretch;position:relative}
 .ho-side{display:flex;flex-direction:column;gap:12px;transition:border-color .6s,box-shadow .6s}
@@ -81,7 +73,6 @@ footer a{color:var(--accent)}
 .ho-tools pre{margin:0;max-height:300px;overflow:auto;white-space:pre-wrap;font-size:.8rem;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px}
 .ho-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
 .ho-bar select{width:auto;min-width:200px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:820px){.ho{grid-template-columns:1fr}.ho-lane{height:48px}.ho-lane::before{left:50%;right:auto;top:6px;bottom:6px;width:4px;height:auto;background:repeating-linear-gradient(180deg,var(--accent) 0 10px,transparent 10px 18px)}.ho-lane span{transform:rotate(90deg)}.ho-tools{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
 .add-wrap{margin:16px 0 28px;border:1px dashed var(--line);border-radius:16px;padding:12px 16px}
@@ -91,13 +82,52 @@ footer a{color:var(--accent)}
 .add-wrap form.add{margin:0}
 button.del,button.rdel{margin-left:auto;background:transparent;border:0;color:var(--muted);font-size:.85rem;font-weight:700;text-decoration:underline;padding:6px 4px}
 button.del:hover,button.rdel:hover,button.del:focus-visible,button.rdel:focus-visible{color:var(--r)}
+/* Marca: mismo fondo, tarjetas y semáforo que la página principal */
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:0 0 22px}
+.gh{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:800;color:var(--text);text-decoration:none;border:1px solid var(--line);background:rgba(0,0,0,.2);border-radius:999px;padding:5px 12px 5px 10px}
+.gh svg{width:16px;height:16px;fill:var(--y)}
+h1{font-size:clamp(1.7rem,5vw,2.3rem);font-weight:900;letter-spacing:-.02em;line-height:1.15}
+.sec-title{font-size:1.45rem;font-weight:900;letter-spacing:-.01em}
+.card{background:var(--card);border-color:var(--line)}
+input,textarea,select{background:rgba(6,6,26,.75);border-color:var(--line2)}
+input::placeholder,textarea::placeholder{color:#8f94b8}
+button{background:var(--blue);color:#fff;font-weight:800;min-height:40px}
+button:hover{filter:brightness(1.12)}
+button.ghost{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--line2)}
+button.del,button.rdel{min-height:0;filter:none}
+#live-go,#ho-go,form.add button[type=submit]{background:var(--y);color:var(--on);box-shadow:0 8px 24px -10px rgba(250,204,21,.7)}
+.summary .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.summary .dot{width:16px;height:16px}
+.summary .card:nth-child(1) .dot{box-shadow:0 0 12px var(--g)}.summary .card:nth-child(2) .dot{box-shadow:0 0 12px var(--y)}.summary .card:nth-child(3) .dot{box-shadow:0 0 12px var(--r)}
+.light{background:#08090f;border:2px solid #252840;border-radius:22px;padding:7px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.lamp{background:var(--off)}
+.verde .lamp.g{box-shadow:0 0 16px 2px var(--g)}.amarillo .lamp.y{box-shadow:0 0 16px 2px var(--y)}.rojo .lamp.r{box-shadow:0 0 16px 2px var(--r)}
+.bot{border-left:3px solid transparent}
+.bot:has(.verde){border-left-color:rgba(74,222,128,.55)}.bot:has(.amarillo){border-left-color:rgba(250,204,21,.65)}.bot:has(.rojo){border-left-color:rgba(248,113,113,.65)}
+.ho-lane::before{background:repeating-linear-gradient(90deg,var(--y) 0 10px,transparent 10px 18px)}
+.ho-lane span{background:transparent}
+.chip,.ho-tools pre,.mini{background:rgba(6,6,26,.7)}
+.add-wrap{border-color:var(--line2)}
+footer{margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+footer p{margin:6px 0}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:10px 0}
+footer nav a{color:var(--text);font-weight:800;text-decoration:none}
+footer nav a:hover{color:var(--accent);text-decoration:underline}
+@media (max-width:820px){.ho-lane::before{background:repeating-linear-gradient(180deg,var(--y) 0 10px,transparent 10px 18px)}}
+@media (max-width:420px){.wrap{padding:16px}.gh span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">{{skip}}</a>
 <div class="wrap">
+<nav class="topbar" aria-label="Context Bot">
+  <a class="logo" href="{{L_HOME}}">{{>_logo}}Context Bot</a>
+  <div class="row"><a class="gh" href="{{REPO}}">{{STAR}}<span>{{star_short}}</span></a>{{>_lang}}</div>
+</nav>
+<main id="main">
 <header>
-  <div><h1>🚦 {{d_h1}}</h1><p class="muted" style="margin:4px 0 0">{{d_sub}}</p></div>
-  <div class="row"><button type="button" class="ghost" id="export">{{d_export}}</button><button type="button" class="ghost" id="import">{{d_import}}</button>{{>_lang}}</div>
+  <div><h1>{{d_h1}}</h1><p class="muted" style="margin:4px 0 0">{{d_sub}}</p></div>
+  <div class="row"><button type="button" class="ghost" id="export">{{d_export}}</button><button type="button" class="ghost" id="import">{{d_import}}</button></div>
 </header>
 
 <div class="summary" aria-live="polite">
@@ -158,10 +188,11 @@ button.del:hover,button.rdel:hover,button.del:focus-visible,button.rdel:focus-vi
 </form>
 <div class="grid" id="rlist"></div>
 
+</main>
 <footer>
-  {{d_local}} <a href="{{L_PRIV}}">{{privacy_word}}</a> · <a href="{{L_HOME}}">{{home_word}}</a><br>
-  <!-- TODO(PLACEHOLDER): URLs del repositorio y del enlace de donación (ver PLACEHOLDERS.md) -->
-  <a href="{{REPO}}">Context Bot</a> · MIT · {{unofficial_mid}} · <a href="{{BMC}}">{{coffee}}</a>
+  <p>🔒 {{d_local}} <a href="{{L_PRIV}}">{{privacy_word}}</a></p>
+  <nav aria-label="{{foot_nav}}"><a href="{{L_HOME}}">{{home_word}}</a><a href="{{REPO}}">GitHub</a><a href="{{XP}}">X · @contextbotapp</a><a href="{{BMC}}">{{coffee}}</a></nav>
+  <p>MIT · {{unofficial_mid}}</p>
 </footer>
 </div>
 <script>window.CB_I18N={{DASH_JSON}};</script>

@@ -6,36 +6,39 @@
 <title>Page not found · Context Bot</title>
 <meta name="description" content="This page does not exist.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0f1218">
-<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#151140">
+<meta name="color-scheme" content="dark">
 <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <style>
-@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url(/assets/fonts/nunito-latin.woff2) format("woff2")}
-:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020}
-@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff}}
-*{box-sizing:border-box}body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-main{max-width:720px;margin:0 auto;padding:48px 24px}h1{font-size:2rem;line-height:1.2;margin:0 0 16px}h2{font-size:1.2rem;margin:28px 0 8px}
+@font-face{font-family:Nunito;font-style:normal;font-weight:200 1000;font-display:swap;src:url(/assets/fonts/nunito-latin.woff2) format("woff2")}
+:root{color-scheme:dark;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.1);--text:#f2f3ff;--muted:#b6bad9;--accent:#a5b4fc;--y:#facc15;--on:#1a1400}
+*{box-sizing:border-box}html{background:#06061a}
+body{margin:0;min-height:100vh;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);line-height:1.6;background:radial-gradient(900px 520px at 85% -8%,rgba(139,92,246,.30),transparent 62%),linear-gradient(180deg,#151140 0,#0a0a1f 600px,#06061a 100%)}
+main{max-width:720px;margin:0 auto;padding:48px 20px}h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;line-height:1.15;margin:0 0 16px}h2{font-size:1.3rem;font-weight:900;margin:28px 0 8px}
 a{color:var(--accent)}p,li{color:var(--muted)}strong{color:var(--text)}
+.off{display:inline-flex;gap:8px;padding:8px 12px;margin-bottom:18px;background:#08090f;border:2px solid #252840;border-radius:999px}.off i{width:18px;height:18px;border-radius:50%;background:#272a44}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px}
-.btn{display:inline-block;background:var(--accent);color:var(--on);text-decoration:none;font-weight:800;padding:13px 24px;border-radius:999px;margin:8px 8px 0 0}
-.btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
-footer{text-align:center;font-size:.9rem;color:var(--muted);padding:0 24px 40px}
+.btn{display:inline-block;background:var(--y);color:var(--on);text-decoration:none;font-weight:900;padding:13px 24px;border-radius:999px;margin:8px 8px 0 0}
+.btn.alt{background:rgba(255,255,255,.06);color:var(--text);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.2)}
+.btn:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+footer{text-align:center;font-size:.9rem;color:var(--muted);padding:0 20px 40px}
 </style>
 </head>
 <body>
 <main>
-<h1>🚦 Nothing here</h1>
+<div class="off" aria-hidden="true"><i></i><i></i><i></i></div>
+<h1>Nothing here</h1>
 <div class="card">
 <p>This page doesn't exist or has moved. Not green, not yellow: the light is off.</p>
-<p><a class="btn" href="/">Go to the home page</a><a class="btn" href="/dashboard/">Open the dashboard</a></p>
+<p><a class="btn" href="/">Go to the home page</a><a class="btn alt" href="/dashboard/">Open the dashboard</a></p>
 </div>
 <div class="card" lang="es" style="margin-top:18px">
 <h2 style="margin-top:0">Aquí no hay nada</h2>
 <p>Esta página no existe o se ha movido. Ni verde, ni amarillo: luz apagada.</p>
-<p><a class="btn" href="/es/">Ir al inicio</a><a class="btn" href="/es/dashboard/">Abrir el panel</a></p>
+<p><a class="btn" href="/es/">Ir al inicio</a><a class="btn alt" href="/es/dashboard/">Abrir el panel</a></p>
 </div>
 </main>
-<footer>Context Bot · Unofficial community project, not affiliated with Grok Bot or xAI · <a href="/">Home</a> · <a href="/es/" lang="es">Inicio</a></footer>
+<footer>Context Bot · Unofficial community project, not affiliated with Grok Bot or xAI · <a href="/">Home</a> · <a href="/es/" lang="es">Inicio</a> · <a href="https://x.com/contextbotapp">X · @contextbotapp</a></footer>
 </body>
 </html>
