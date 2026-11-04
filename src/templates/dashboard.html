@@ -3,17 +3,14 @@
 <head>
 {{>_head}}
 <style>
-@font-face{font-family:Nunito;font-style:normal;font-weight:400 800;font-display:swap;src:url({{R}}assets/fonts/nunito-latin.woff2) format("woff2")}
-:root{--bg:#0f1218;--card:#181c25;--line:#262c38;--text:#eef1f6;--muted:#a9b1c1;--accent:#8fb4ff;--on:#0b1020;--g:#4ade80;--y:#facc15;--r:#f87171;--off:#2b313d}
-@media (prefers-color-scheme: light){:root{--bg:#f6f7fb;--card:#fff;--line:#e3e6ee;--text:#151821;--muted:#4a5263;--accent:#2f5fd0;--on:#fff;--off:#e5e7ee}}
-*{box-sizing:border-box}
-body{margin:0;font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-.wrap{max-width:1040px;margin:0 auto;padding:24px}
-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
-h1{margin:0;font-size:1.6rem}
+body{line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 24px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin:14px 0 22px}
+h1{margin:0;font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.1;font-weight:900;letter-spacing:-.025em}
 .muted{color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
-.sec-title{margin:34px 0 6px;font-size:1.3rem}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:20px}
+.sec-title{margin:40px 0 6px;font-size:1.45rem;font-weight:900;letter-spacing:-.015em}
 form.add.r{grid-template-columns:1.3fr 1fr 1fr 1fr auto}
 .rt{display:flex;flex-direction:column;gap:10px}
 .rt .head{display:flex;gap:12px;align-items:flex-start}
@@ -24,16 +21,18 @@ form.add.r{grid-template-columns:1.3fr 1fr 1fr 1fr auto}
 form.add{display:grid;grid-template-columns:1fr 2fr auto;gap:10px;margin-bottom:22px}
 input,textarea,select{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
 textarea{min-height:90px;resize:vertical;font-family:ui-monospace,Menlo,monospace;font-size:.88rem}
-button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;background:var(--accent);color:var(--on);cursor:pointer}
-button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
-button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:10px 18px;min-height:42px;background:var(--g);color:var(--on);cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.ghost{background:rgba(255,255,255,.03);color:var(--text);border:1px solid var(--line)}
+button.ghost:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--y);outline-offset:2px}
 .summary{display:flex;gap:14px;margin-bottom:20px;flex-wrap:wrap}
 .summary .card{flex:1;min-width:140px;display:flex;align-items:center;gap:12px;padding:14px 18px}
 .big{font-size:1.6rem;font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
 .bot{display:flex;flex-direction:column;gap:12px}
 .bot-top{display:flex;gap:16px;align-items:center}
-.light{display:flex;flex-direction:column;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:8px}
+.light{display:flex;flex-direction:column;gap:6px;background:var(--housing);border:1px solid #24233f;border-radius:22px;padding:8px}
 .lamp{width:22px;height:22px;border-radius:50%;background:var(--off)}
 .verde .lamp.g{background:var(--g);box-shadow:0 0 12px var(--g)}
 .amarillo .lamp.y{background:var(--y);box-shadow:0 0 12px var(--y)}
@@ -47,12 +46,11 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-vis
 .badge{font-size:.75rem;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);margin-left:6px;vertical-align:middle}
 footer{margin-top:30px;text-align:center;font-size:.88rem;color:var(--muted)}
 footer a{color:var(--accent)}
-.dot{display:inline-block;width:14px;height:14px;border-radius:50%}
-@media (max-width:640px){form.add{grid-template-columns:1fr}}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;font-size:.85rem;font-weight:800}
-.lang a{color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:999px}
-.lang a[aria-current]{background:var(--accent);color:var(--on)}
-.lang a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;flex:none}
+.summary .dot.g{background:var(--g);box-shadow:0 0 12px var(--g)}.summary .dot.y{background:var(--y);box-shadow:0 0 12px var(--y)}.summary .dot.r{background:var(--r);box-shadow:0 0 12px var(--r)}
+footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;margin:8px 0;font-weight:700}
+footer nav a{text-decoration:none}
+@media (max-width:640px){form.add{grid-template-columns:1fr}.summary{gap:8px;flex-wrap:nowrap}.summary .card{min-width:0;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 14px}.summary .muted{font-size:.82rem;line-height:1.3}.big{font-size:1.4rem}}
 /* Traspaso / Handoff */
 .ho{display:grid;grid-template-columns:1fr 64px 1fr;gap:0;align-items:stretch;position:relative}
 .ho-side{display:flex;flex-direction:column;gap:12px;transition:border-color .6s,box-shadow .6s}
@@ -94,16 +92,22 @@ button.del:hover,button.rdel:hover,button.del:focus-visible,button.rdel:focus-vi
 </style>
 </head>
 <body>
+<a class="skip" href="#main">{{skip}}</a>
 <div class="wrap">
-<header>
-  <div><h1>🚦 {{d_h1}}</h1><p class="muted" style="margin:4px 0 0">{{d_sub}}</p></div>
-  <div class="row"><button type="button" class="ghost" id="export">{{d_export}}</button><button type="button" class="ghost" id="import">{{d_import}}</button>{{>_lang}}</div>
+<header class="top">
+  <a class="logo" href="{{L_HOME}}">{{>_logo}}Context Bot</a>
+  {{>_lang}}
 </header>
+<main id="main">
+<div class="head">
+  <div><h1>{{d_h1}}</h1><p class="muted" style="margin:6px 0 0">{{d_sub}}</p></div>
+  <div class="row"><button type="button" class="ghost" id="export">{{d_export}}</button><button type="button" class="ghost" id="import">{{d_import}}</button></div>
+</div>
 
 <div class="summary" aria-live="polite">
-  <div class="card"><span class="dot" style="background:var(--g)"></span><div><div class="big" id="n-verde">0</div><div class="muted">{{d_sum_g}}</div></div></div>
-  <div class="card"><span class="dot" style="background:var(--y)"></span><div><div class="big" id="n-amarillo">0</div><div class="muted">{{d_sum_y}}</div></div></div>
-  <div class="card"><span class="dot" style="background:var(--r)"></span><div><div class="big" id="n-rojo">0</div><div class="muted">{{d_sum_r}}</div></div></div>
+  <div class="card"><span class="dot g"></span><div><div class="big" id="n-verde">0</div><div class="muted">{{d_sum_g}}</div></div></div>
+  <div class="card"><span class="dot y"></span><div><div class="big" id="n-amarillo">0</div><div class="muted">{{d_sum_y}}</div></div></div>
+  <div class="card"><span class="dot r"></span><div><div class="big" id="n-rojo">0</div><div class="muted">{{d_sum_r}}</div></div></div>
 </div>
 
 <section class="card live" id="live" aria-labelledby="live-h">
@@ -145,23 +149,25 @@ button.del:hover,button.rdel:hover,button.del:focus-visible,button.rdel:focus-vi
 <h2 class="sec-title">🔁 {{d_r_h}}</h2>
 <p class="muted" style="margin:0 0 14px">{{d_r_sub}} <a href="{{TIPS_URL}}" style="color:var(--accent)">{{d_why}}</a></p>
 <div class="summary" aria-live="polite">
-  <div class="card"><span class="dot" style="background:var(--g)"></span><div><div class="big" id="r-verde">0</div><div class="muted">{{d_rs_g}}</div></div></div>
-  <div class="card"><span class="dot" style="background:var(--y)"></span><div><div class="big" id="r-amarillo">0</div><div class="muted">{{d_rs_y}}</div></div></div>
-  <div class="card"><span class="dot" style="background:var(--r)"></span><div><div class="big" id="r-rojo">0</div><div class="muted">{{d_rs_r}}</div></div></div>
+  <div class="card"><span class="dot g"></span><div><div class="big" id="r-verde">0</div><div class="muted">{{d_rs_g}}</div></div></div>
+  <div class="card"><span class="dot y"></span><div><div class="big" id="r-amarillo">0</div><div class="muted">{{d_rs_y}}</div></div></div>
+  <div class="card"><span class="dot r"></span><div><div class="big" id="r-rojo">0</div><div class="muted">{{d_rs_r}}</div></div></div>
 </div>
 <form class="add r card" id="addr">
   <input type="text" id="r-name" placeholder="{{d_r_name}}" required aria-label="{{d_r_name}}">
-  <input type="text" id="r-bot" placeholder="Bot" aria-label="Bot">
+  <input type="text" id="r-bot" placeholder="{{d_r_bot}}" aria-label="{{d_r_bot}}">
   <select id="r-freq" aria-label="{{d_freq}}"></select>
   <select id="r-need" aria-label="{{d_need_q}}"><option value="si">{{d_need_yes}}</option><option value="no">{{d_need_no}}</option></select>
   <button type="submit">{{d_r_add}}</button>
 </form>
 <div class="grid" id="rlist"></div>
 
+</main>
 <footer>
-  {{d_local}} <a href="{{L_PRIV}}">{{privacy_word}}</a> · <a href="{{L_HOME}}">{{home_word}}</a><br>
+  <p>{{d_local}} <a href="{{L_PRIV}}">{{privacy_word}}</a></p>
   <!-- TODO(PLACEHOLDER): URLs del repositorio y del enlace de donación (ver PLACEHOLDERS.md) -->
-  <a href="{{REPO}}">Context Bot</a> · MIT · {{unofficial_mid}} · <a href="{{BMC}}">{{coffee}}</a>
+  <nav aria-label="{{footer_nav}}"><a href="{{L_HOME}}">{{home_word}}</a><a href="{{REPO}}">GitHub</a><a href="{{X_APP}}">X · @contextbotapp</a><a href="{{BMC}}">{{coffee}}</a></nav>
+  <p>Context Bot · MIT · {{unofficial_mid}}</p>
 </footer>
 </div>
 <script>window.CB_I18N={{DASH_JSON}};</script>

@@ -22,9 +22,39 @@ TPL = os.path.join(ROOT, "src", "templates")
 # el botón principal pasa a ser «Copy install prompt». Al rellenarla con scripts/rellenar-placeholders.sh --template,
 # vuelve a salir «Add Context Bot» como principal y «Copy install prompt» como secundario.
 HAS_TPL = i18n.TEMPLATE.startswith("https://")
-COPY_BTN = '<button class="btn{cls}" type="button" id="copy-install" data-prompt="{{{{install_prompt}}}}">{{{{cta_copy}}}}</button>'
-CTAS = (('<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt")) if HAS_TPL
-        else (COPY_BTN.format(cls="") + '<a class="btn alt" href="#video-title">{{cta_demo}}</a>'))
+ICON_COPY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H6a2 2 0 0 0-2 2v13h2V3h10V1zm3 4H10a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H10V7h9v14z"/></svg>'
+ICON_STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.2 6.6L12 17.4l-5.8 3.2 1.2-6.6-4.9-4.6 6.6-.8z"/></svg>'
+ICON_GH = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 '
+           '1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 '
+           '3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>')
+
+def copy_btn(cls, status):
+    return (f'<button class="btn{cls} js-copy" type="button" data-status="{status}" data-prompt="{{{{install_prompt}}}}">'
+            f'{ICON_COPY}<span class="lbl">{{{{cta_copy}}}}</span></button>')
+
+STAR_BTN = '<a class="btn alt" href="{{REPO}}">' + ICON_STAR + '<span>{{cta_star}}</span>{{STARS}}</a>'
+CTAS = (('<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + copy_btn(" alt", "copy-status")) if HAS_TPL
+        else (copy_btn("", "copy-status") + STAR_BTN))
+CTAS_END = copy_btn("", "copy-status-end") + STAR_BTN
+
+# Por debajo de esta cifra el contador resta más que suma, así que no se muestra.
+STARS_MIN = 10
+
+def github_stars():
+    """Estrellas del repositorio al generar la web (CB_STARS=off para no consultarlo, CB_STARS=123 para fijarlo)."""
+    v = os.environ.get("CB_STARS", "")
+    if v == "off":
+        return None
+    if v.isdigit():
+        return int(v)
+    try:
+        import urllib.request
+        req = urllib.request.Request("https://api.github.com/repos/" + i18n.REPO.split("github.com/")[1],
+                                     headers={"User-Agent": "context-bot-build", "Accept": "application/vnd.github+json"})
+        with urllib.request.urlopen(req, timeout=4) as r:
+            return int(json.load(r)["stargazers_count"])
+    except Exception:
+        return None
 
 def rel(target, here):
     """Ruta relativa entre dos URL del sitio (las que acaban en / son carpetas)."""
@@ -35,7 +65,8 @@ def rel(target, here):
     return r
 
 def fill(text, ctx):
-    text = re.sub(r"\{\{>(\w+)\}\}", lambda m: open(os.path.join(TPL, m.group(1) + ".html")).read().rstrip("\n"), text)
+    while re.search(r"\{\{>\w+\}\}", text):
+        text = re.sub(r"\{\{>(\w+)\}\}", lambda m: open(os.path.join(TPL, m.group(1) + ".html")).read().rstrip("\n"), text)
     for _ in range(3):  # los valores pueden llevar a su vez {{...}}
         text = re.sub(r"\{\{(\w+)\}\}", lambda m: str(ctx[m.group(1)]), text)
     left = re.findall(r"\{\{[^}]*\}\}", text)
@@ -48,6 +79,8 @@ def page_path(url):
 
 def main():
     shutil.rmtree(OUT, ignore_errors=True)
+    stars = github_stars()
+    print(f"Estrellas en GitHub: {stars if stars is not None else 'sin dato'}" + (" (no se muestran)" if (stars or 0) < STARS_MIN else ""))
     for lang, strings in (("en", i18n.EN), ("es", i18n.ES)):
         idx = 0 if lang == "en" else 1
         for name, (en_url, es_url, pre) in PAGES.items():
@@ -63,12 +96,16 @@ def main():
                 ES_CUR=' aria-current="page"' if lang == "es" else "",
                 L_HOME=rel(PAGES["landing"][idx], here), L_DASH=rel(PAGES["dashboard"][idx], here),
                 L_PRIV=rel(PAGES["privacy"][idx], here),
-                REPO=i18n.REPO, X=i18n.X, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                REPO=i18n.REPO, X=i18n.X, X_APP=i18n.X_APP, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                ICON_GH=ICON_GH,
+                STARS=(f'<span class="stars"><span class="sr">{strings["stars_sr"]}: </span>{stars:,}</span>'.replace(",", strings["thousands"])
+                       if (stars or 0) >= STARS_MIN else ""),
+                HL_JSON=json.dumps(strings["HL"], ensure_ascii=False),
                 COPY_OK=json.dumps(strings["copy_ok"], ensure_ascii=False), COPY_BAD=json.dumps(strings["copy_bad"], ensure_ascii=False),
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
                 og_description=strings[pre + "_og"],
                 VIDEO_JSON=json.dumps(strings["VIDEO"], ensure_ascii=False),
-                CTAS=CTAS,
+                CTAS=CTAS, CTAS_END=CTAS_END,
                 S1_H=strings["s1_h"] if HAS_TPL else strings["s1_h_notpl"],
                 S1_P=strings["s1_p"] if HAS_TPL else strings["s1_p_notpl"],
                 DASH_JSON=json.dumps(strings["DASH"], ensure_ascii=False).replace("</", "<\\/"),
