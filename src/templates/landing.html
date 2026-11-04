@@ -114,6 +114,7 @@ button.lamp:focus-visible{outline-offset:7px;border-radius:50%}
 
 /* Before / after */
 .ba{display:grid;gap:18px}
+#savings .ticket{margin:28px 0 6px}#savings .ticket p:last-child{margin:12px 0 0}#savings .code code{white-space:pre-wrap;font-size:.86em}.sav-list{margin-top:26px}
 .lane{border-radius:16px;padding:26px 22px 20px;color:#fff}
 .lane.before{background:var(--grain-l),var(--asphalt);box-shadow:inset 0 0 0 3px var(--asphalt),inset 0 0 0 5px rgba(255,255,255,.18),var(--shadow)}
 .lane.after{background:var(--hwy);box-shadow:inset 0 0 0 3px var(--hwy),inset 0 0 0 5.5px #fff,0 18px 34px -20px rgba(14,106,60,.9)}
@@ -469,6 +470,29 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
       <p>{{s4_p}}</p>
     </div>
   </aside>
+</section>
+
+<section id="savings" class="wrap" aria-labelledby="sav-h">
+  <span class="eyebrow">{{sav_eyebrow}}</span>
+  <h2 id="sav-h">{{sav_h}}</h2>
+  <p class="sub">{{sav_sub}}</p>
+  <div class="ba">
+    <div class="lane before"><h3><i aria-hidden="true"></i>{{sav_before}}</h3>
+      <ul class="clean"><li>{{sav_b1}}</li><li>{{sav_b2}}</li><li>{{sav_b3}}</li></ul></div>
+    <div class="lane after"><h3><i aria-hidden="true"></i>{{sav_after}}</h3>
+      <ul class="clean"><li>{{sav_a1}}</li><li>{{sav_a2}}</li><li>{{sav_a3}}</li></ul></div>
+  </div>
+  <div class="ticket">
+    <p class="ticket-l">{{sav_ex_label}}</p>
+    <div class="code"><code>{{sav_ex_code}}</code></div>
+    <p>{{sav_ex_note}}</p>
+  </div>
+  <ul class="clean tips sav-list">
+    <li class="tip"><span class="svc emo" aria-hidden="true">📝</span><h3>{{sav_c_h}}</h3><p>{{sav_c_p}}</p></li>
+    <li class="tip"><span class="svc emo" aria-hidden="true">🔁</span><h3>{{sav_k_h}}</h3><p>{{sav_k_p}}</p></li>
+    <li class="tip"><span class="svc emo" aria-hidden="true">🛑</span><h3>{{sav_r_h}}</h3><p>{{sav_r_p}}</p></li>
+  </ul>
+  <p class="more">{{sav_try}}</p>
 </section>
 
 <section id="tips" class="wrap" aria-labelledby="tips-h">

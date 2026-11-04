@@ -191,6 +191,8 @@ def main():
     # La skill en Markdown plano: /skill.md (inglés) y /es/skill.md (español)
     shutil.copy(os.path.join(ROOT, "skills", "context-bot", "en", "SKILL.md"), os.path.join(OUT, "skill.md"))
     shutil.copy(os.path.join(ROOT, "skills", "context-bot", "SKILL.md"), os.path.join(OUT, "es", "skill.md"))
+    # Script del modo ahorro: /savings-scan.sh
+    shutil.copy(os.path.join(ROOT, "skills", "context-bot", "scripts", "savings-scan.sh"), os.path.join(OUT, "savings-scan.sh"))
     open(os.path.join(OUT, ".nojekyll"), "w").close()
 
 if __name__ == "__main__":

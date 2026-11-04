@@ -1,6 +1,6 @@
 ---
 name: context-bot
-description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el estado del trabajo y avisa con un semáforo (verde, amarillo, rojo) cuándo conviene resumir o pasar a un bot nuevo con BotDuplicator, con un archivo de traspaso para que la memoria viaje. Úsala al empezar cada sesión, cada 10 mensajes aproximadamente, tras tareas largas y siempre que el usuario pregunte por la lentitud, el coste o el estado.
+description: Vigila el tamaño de la conversación, mantiene un STATUS.md con el estado del trabajo y avisa con un semáforo (verde, amarillo, rojo) cuándo conviene resumir o pasar a un bot nuevo con BotDuplicator, con un archivo de traspaso para que la memoria viaje. Incluye un modo ahorro: apunta cada tarea en un log y, una vez por semana, un script cuenta las repetidas; también repasa el texto de sus rutinas para proponer pasar lo mecánico a script. Úsala al empezar cada sesión, cada 10 mensajes aproximadamente, tras tareas largas y siempre que el usuario pregunte por la lentitud, el coste, el estado o el modo ahorro.
 ---
 
 # Context Bot
@@ -130,6 +130,56 @@ Si tienes el conector **Context Bot Live Status** (herramienta `report_status`),
 - **Nunca** pongas en `note` contenido de la conversación, nombres de personas, datos privados ni secretos. Vale «tarea larga de documentos», no vale «revisando el contrato de Juan».
 - Si el conector no está, falla o el usuario no quiere, sigue en modo local (solo STATUS.md) sin insistir.
 - Si el usuario pide borrar sus datos del conector, usa `delete_my_data`.
+
+## Modo ahorro: tareas repetidas y rutinas que pueden ser scripts
+
+Mira dos cosas, las dos baratas: **(a) las tareas que el usuario te pide a menudo** y **(b) tus rutinas**. Para (a): **apuntas las tareas sobre la marcha, un script hace las cuentas y tú solo lees un resumen de 10 líneas**. Nunca releas el historial de la charla para esto. Son **sugerencias de ahorro**: el ahorro real depende de cada caso y no se puede garantizar.
+
+**1. Apunta cada tarea al terminarla**
+
+Cada vez que termines una tarea que pidió el usuario (en el chat o en una ejecución de rutina), añade **una** línea corta a `/workspace/context-bot/tareas.log`:
+
+```
+2026-11-04 | csv-convert | ventas CSV a xlsx para informe
+```
+
+- Formato: `fecha (AAAA-MM-DD) | clave | nota de 3 a 8 palabras`.
+- La clave es corta, en minúsculas y con guiones, y **siempre la misma para la misma tarea** (`csv-convert`, `web-check`, `git-push`, `informe-diario`, `backup-web`). Reutiliza las claves que ya existan.
+- Sin datos privados, nombres de personas ni secretos en la nota. Si la carpeta no existe, créala.
+- Solo apuntas tus propias tareas. **Nunca leas las charlas de otros bots.**
+
+**2. El script cuenta, no tú**
+
+`savings-scan.sh` (en `https://contextbot.app/savings-scan.sh`, se instala en `/workspace/context-bot/savings-scan.sh`) lee el log sin gastar uso del bot y saca como mucho 10 líneas con las claves repetidas 3 o más veces en los últimos 30 días. Es de solo lectura. Instálalo la primera vez que haga falta, diciéndoselo al usuario.
+
+**3. Cuándo mirarlo**
+
+- Durante la comprobación de tamaño que ya haces, **como mucho una vez por semana**: ejecuta `bash /workspace/context-bot/savings-scan.sh` y lee solo su salida. No crees una rutina nueva para esto.
+- Cuando el usuario diga «modo ahorro ya» (o «savings mode now»): ejecútalo en ese momento.
+- Si no hay nada repetido, no digas nada (o, si lo pidió, «Nada repetido todavía»).
+
+**3b. Revisa también tus rutinas (barato)**
+
+En la misma comprobación semanal (o con «modo ahorro ya»), repasa tus rutinas leyendo **solo el texto guardado de cada rutina** (sus instrucciones y su frecuencia), sin abrir sus ejecuciones ni sus resultados. Marca las partes deterministas (traer datos, montar informes con archivos, copias, conversiones, comprobaciones). Una rutina frecuente que casi solo hace pasos mecánicos es buena candidata: el script haría esa parte y la rutina solo lo lanzaría y resumiría. Si ya revisaste una rutina y su texto no ha cambiado, no la vuelvas a revisar.
+
+**4. Si algo se repite o una rutina es mecánica, propone UN script**
+
+Elige la tarea repetida (del log) o la parte de rutina más clara que sea **determinista y repetible** (traer datos, informes a partir de archivos, copias, conversiones de formato, comprobaciones) y propón un solo script:
+
+- qué haría y cómo se lanzaría: **a demanda** («ejecuta informe-diario») o con **cron** en el box;
+- el beneficio estimado de forma cualitativa (alto, medio, bajo) y por qué, por ejemplo «lo pediste 6 veces este mes y son siempre los mismos pasos». **No inventes cifras** de ahorro, tokens ni dinero;
+- qué se queda contigo: el criterio, la redacción, los imprevistos y decidir qué hacer con el resultado.
+
+Si la tarea necesita juicio o es texto para personas, dilo y no la propongas.
+
+**Reglas del modo ahorro**
+
+- **No crees, cambies ni borres scripts, cron ni rutinas sin la confirmación explícita del usuario.** Una propuesta cada vez.
+- Antes de cambiar algo, guarda una copia (por ejemplo en `/workspace/backups/` con fecha) y explica cómo volver atrás.
+- Guarda los scripts en `/workspace/scripts/`, con un comentario arriba que diga qué hacen, y apúntalos en `/workspace/scripts/INDEX.md` (nombre, qué hace, cómo se lanza, fecha).
+- Prueba el script una vez delante del usuario antes de programarlo.
+- Nada de contraseñas ni tokens dentro de los scripts ni del log.
+- Apunta en STATUS.md, en «Decisiones», qué pasó a script y dónde está la copia.
 
 ## Reglas
 
