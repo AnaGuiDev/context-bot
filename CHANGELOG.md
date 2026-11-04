@@ -17,6 +17,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - `MARKETING-REVIEW.md`: revisión de la web, el vídeo y el marketing, con plan de lanzamiento.
 
 ### Cambiado
+- **Diseño alternativo «viaje por carretera»** (propuesta): papel cálido y asfalto, letra de señal de autopista (Overpass) con notas a mano (Caveat), un semáforo de verdad que cambia al bajar por la página y un bot conductor que se va cansando. Vuelve el vídeo en reproducción automática, sin sonido y en bucle (no arranca con «reducir movimiento»).
 - **Nuevo nombre: Context Bot** (antes «Control de Contexto»), con dominio `contextbot.app`. La carpeta de la skill pasa de `skills/control-de-contexto/` a `skills/context-bot/` y la skill se llama `context-bot`. Si ya la tenías guardada con el nombre anterior, sigue funcionando; puedes volver a guardarla con el nombre nuevo.
 - Web bilingüe: inglés en `/` y español en `/es/`, con `hreflang`, selector EN/ES que se recuerda y detección del idioma del navegador. La web se genera desde `src/` con `scripts/build_site.py`.
 - README principal en inglés (`README.md`) y en español (`README.es.md`). Guías en inglés en `docs/en/`.
