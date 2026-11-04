@@ -1,6 +1,6 @@
 ---
 name: context-bot
-description: Watches how big the conversation is getting, keeps a STATUS.md with the state of the work, and uses a traffic light (green, yellow, red) to say when to summarise or move to a new bot with BotDuplicator, with a handoff file so the memory travels too. Includes a savings mode: it logs each task and, once a week, a script counts repeats; it also reviews its routines' prompt text, to propose turning mechanical work into a script. Use it at the start of every session, roughly every 10 messages, after long tasks, and whenever the user asks about slowness, cost, savings mode or progress.
+description: Watches how big the conversation is getting, keeps a STATUS.md with the state of the work, and uses a traffic light (green, yellow, red) to say when to summarise or move to a new bot with Context Bot Migrator, with a handoff file so the memory travels too. Includes a savings mode: it logs each task and, once a week, a script counts repeats; it also reviews its routines' prompt text, to propose turning mechanical work into a script. Use it at the start of every session, roughly every 10 messages, after long tasks, and whenever the user asks about slowness, cost, savings mode or progress.
 ---
 
 # Context Bot
@@ -36,7 +36,7 @@ These thresholds are a guide, not exact. When in doubt, pick the more cautious c
 
 ## Keeping STATUS.md
 
-Keep a `STATUS.md` file (as a file in your workspace: when a bot is duplicated, its memory isn't copied) with the real state of the work. Update it whenever something important changes, and always when you move to yellow or red. Structure:
+Keep a `STATUS.md` file (as a file in your workspace: when you move to a new bot, its memory isn't copied) with the real state of the work. Update it whenever something important changes, and always when you move to yellow or red. Structure:
 
 ```markdown
 # STATUS
@@ -77,13 +77,13 @@ Also write or update `TRASPASO.md` (the handoff file). Offer to summarise: from 
 
 **🔴 Red.** Update the STATUS fully, prepare the handoff and recommend moving to a new bot:
 
-> 🔴 This conversation is now very long, which makes it slow and more expensive. I suggest moving to a new bot: I've written everything down in STATUS.md so nothing gets lost. Shall I help you do it with BotDuplicator?
+> 🔴 This conversation is now very long, which makes it slow and more expensive. I suggest moving to a new bot: I've written down where we are in STATUS.md so you can pick up where you left off. Shall I help you do it with Context Bot Migrator?
 
 Don't migrate until the user confirms.
 
 ## Handoff: the memory travels in a file
 
-When a bot is duplicated, its learned memory isn't copied. So, **on yellow or red, and always before using BotDuplicator**, write a handoff file.
+When you move to a new bot, its learned memory isn't copied. So, **on yellow or red, and always before migrating**, write a handoff file.
 
 **Where:** somewhere the new bot can read. For example, on the bots' shared computer: `/workspace/context-bot-traspasos/<bot-name>/TRASPASO.md`, or in a shared persistent store. Tell the user the exact path.
 
@@ -104,21 +104,21 @@ If the first message mentions a handoff, or you find a `TRASPASO.md` for your na
 1. Read the whole file.
 2. Save the "Long-term memory" facts into your own memory (one per fact, no secrets).
 3. Create or update your `STATUS.md` with the handoff state and set it to green.
-4. Check the listed routines exist (they're copied on duplication). Don't create or switch on anything without asking.
+4. Check the listed routines exist (if the setup was copied they'll be there; Context Bot Migrator leaves them paused). Don't create or switch on anything without asking.
 5. Reply with a three-sentence summary and ask whether anything looks off.
 
-## Moving to a new bot with BotDuplicator
+## Moving to a new bot with Context Bot Migrator
 
 1. Do the **handoff**: update `STATUS.md` (on red) and write `TRASPASO.md`.
-2. Explain to the user that BotDuplicator creates a new bot with the same setup (name, instructions, skills, routines), but with an empty conversation and without the learned memory. That's why the memory travels in the handoff file.
-3. Ask the user to review `TRASPASO.md` and run BotDuplicator (or do it yourself if you have the tool and their permission).
+2. Explain to the user that Context Bot Migrator (template: https://x.ai/bot/oUJEAr2axANgtedIGrkNS) walks them step by step to a new bot with the same setup (name, instructions, skills, routines), but with an empty conversation and without the learned memory. That's why the memory travels in the handoff file.
+3. Ask the user to review `TRASPASO.md` and carry on with Context Bot Migrator. Alternative: a duplication tool such as BotDuplicator, or creating the bot by hand.
 4. Give them this first message for the new bot, with the real path:
 
 > Hi. You're continuing from an earlier conversation. Run the Context Bot start-up: read /workspace/context-bot-traspasos/<bot>/TRASPASO.md, save the facts into your memory, and tell me in three sentences where we are.
 
 5. Once the new bot confirms it has understood, the user can carry on there and keep the old one hidden for reference.
 
-Full guide: `docs/en/botduplicator-integration.md`.
+Full guide: `docs/en/migrator.md` (alternative: `docs/en/botduplicator-integration.md`).
 
 ## Live status (optional)
 

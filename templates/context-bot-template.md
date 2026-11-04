@@ -21,7 +21,7 @@ Context Bot
 **Description** (short, shown on the template preview)
 
 ```text
-Keep your bot fast. A traffic light for long chats: tells you when to summarise and when to move to a fresh bot, and writes a handoff file so nothing gets lost.
+Keep your bot fast. A traffic light for long chats: tells you when to summarise and when to move to a fresh bot, and writes a handoff file so you can pick up where you left off.
 ```
 
 **Instructions**
@@ -95,7 +95,7 @@ Si prefieres una plantilla en español, usa estos textos en el perfil.
 **Descripción**
 
 ```text
-Que tu bot siga rápido. Un semáforo para las charlas largas: te dice cuándo resumir y cuándo pasar a un bot nuevo, y escribe un archivo de traspaso para que no se pierda nada.
+Que tu bot siga rápido. Un semáforo para las charlas largas: te dice cuándo resumir y cuándo pasar a un bot nuevo, y escribe un archivo de traspaso para que retomes donde lo dejaste.
 ```
 
 **Instrucciones**

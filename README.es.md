@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://contextbot.app/es/"><img src="assets/brand/og-image-es.png" alt="Context Bot: que tu Grok Bot siga rápido y barato. Un semáforo para las charlas largas. Gratis, de código abierto, contextbot.app" width="820"></a>
+<a href="https://contextbot.app/es/"><img src="assets/brand/og-image-es.png" alt="Context Bot: tus Grok Bots, a punto. Estira tu suscripción. El kit completo para tus bots. Gratis, de código abierto, contextbot.app" width="820"></a>
 
 # Context Bot
 
@@ -15,9 +15,9 @@
 
 **[⚡ Instálalo en un minuto](#-instálalo-en-un-minuto) · [🌐 Web](https://contextbot.app/es/) · [📊 Panel con ejemplos](https://contextbot.app/es/dashboard/?demo)** · [English](README.md)
 
-<a href="assets/video/promo-es-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Vídeo de presentación de Context Bot (pulsa para verlo con sonido)" width="820"></a>
+<a href="assets/video/promo-es-16x9.mp4"><img src="assets/video/promo-es.gif" alt="Vídeo de presentación de Context Bot (pulsa para verlo con sonido)" width="820"></a>
 
-<sub>Pulsa la animación para ver el vídeo de 45 segundos con sonido.</sub>
+<sub>Pulsa la animación para ver el vídeo de un minuto con sonido.</sub>
 
 Gratis, de código abierto, sin descargas ni registros. Si te ahorra una tarde lenta, **⭐ dale una estrella**: es la forma más fácil de que llegue a más gente.
 
@@ -49,7 +49,7 @@ Los umbrales son estimaciones según la longitud de la charla, no un recuento ex
 
 1. **Añade Context Bot** desde la plantilla (enlace de arriba).
 2. **Charla como siempre.** Según crece la charla, mira el semáforo por su cuenta y lleva un `STATUS.md` con en qué estáis. Pregunta *«¿En qué color estamos?»* cuando quieras, o pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).
-3. **En rojo, traspasa con BotDuplicator.** Tu bot escribe el archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)) y te propone un bot nuevo. Sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md); en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
+3. **En rojo, migra con Context Bot Migrator.** Tu bot escribe el archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)) y te propone un bot nuevo. [Añade Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) y te acompaña en el cambio ([guía](docs/migrator.md); alternativa: [BotDuplicator](docs/integracion-botduplicator.md)); en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
 
 **¿Ya tienes un bot? Pega este prompt** en su chat (GitHub te pone un botón para copiarlo a la derecha):
 
@@ -91,7 +91,7 @@ Context Bot no hace más listo a tu bot. Te avisa de cuándo actuar.
 ## 🖥️ La página y el panel
 
 <div align="center">
-<img src="assets/landing.png" alt="Página de Context Bot: un semáforo que brilla junto al titular Long chats make your bot slow and pricey. Keep it fast and cheap." width="820">
+<img src="assets/landing.png" alt="Página de Context Bot: un semáforo junto al titular Long chats make your bot slow &amp; pricey. Keep every bot in shape, with a little help. (versión en inglés)" width="820">
 </div>
 
 <div align="center">

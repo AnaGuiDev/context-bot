@@ -29,4 +29,4 @@ If you have several bots, create one that watches over all of them using the pro
 
 ## When the light turns red
 
-Follow the guide [Moving to a new bot with BotDuplicator](botduplicator-integration.md).
+Use [Context Bot Migrator](migrator.md) ([template](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)). Alternative: [moving with BotDuplicator](botduplicator-integration.md).

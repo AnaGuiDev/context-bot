@@ -10,7 +10,7 @@ TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la pla
 
 EN = dict(
   og_locale="en_US", og_locale_alt="es_ES", og_image="og-image.png",
-  og_image_alt="A glowing red, yellow and green traffic light next to the words: Keep your Grok Bot fast and cheap. Context Bot, free and open source.",
+  og_image_alt="A glowing red, yellow and green traffic light next to the words: Keep your Grok Bots in shape. Stretch your subscription. Context Bot, free and open source.",
   lang_nav="Language", privacy_word="Privacy", home_word="Home", dash_word="Dashboard",
   skip="Skip to content", foot_nav="Footer", star_short="Star",
   coffee="☕ Buy me a coffee",
@@ -95,7 +95,7 @@ EN = dict(
   s4_p="Then sign in with GitHub. Your bot reports its color (an estimate, never your conversation), and in the <a href=\"{{L_DASH}}\">dashboard</a> you press <em>Connect live status</em> to see it. You can delete everything with one tool call. Without it, everything stays local.",
   copy_word="Copy", copied_word="Copied ✓",
   # landing · video
-  video_eyebrow="The demo", video_title="See it in 45 seconds",
+  video_eyebrow="The demo", video_title="See it in about a minute",
   video_sub="It plays on its own, muted and on a loop. Turn the sound on for the music.",
   video_next="Now, the long version ↓",
   road_hint="Scroll down the road: the light changes as the chat grows.",
@@ -154,7 +154,7 @@ EN = dict(
   t3_h="Pause routines you don't use", t3_p="A routine that doesn't run doesn't use anything.",
   t4_h="Lower the frequency", t4_p="Going from “every hour” to “every morning” is usually enough.",
   t5_h="Careful with “Test”", t5_p="Testing a routine uses as much as a real run.",
-  t6_h="Long chat, new bot", t6_p="Duplicate the bot and carry on from your STATUS.md.",
+  t6_h="Long chat, new bot", t6_p="Move to a new bot with Context Bot Migrator and pick up where you left off.",
   tips_more="See all the tips and their sources →",
   # landing · support
   sup_eyebrow="Support", sup_h="Free forever. Fueled by coffee and stars.",
@@ -167,11 +167,11 @@ EN = dict(
   q2="Do I need to know how to code?", a2="No. You copy one prompt, paste it into your bot's chat and talk to it as usual.",
   a2_tpl="No. Click <strong>Add Context Bot</strong>, add the template and chat as usual. Already have a bot? Paste one prompt into its chat instead.",
   q8="Template or prompt: which one?", a8="The template creates a new bot with the Context Bot skill and its instructions ready to go. The prompt adds the same skill to a bot you already have, so it keeps its chat, memory and setup. The light works the same either way.",
-  q3="Will I lose my work when I switch bots?", a3="Duplicating a bot doesn't copy its learned memory, so before you switch, your bot writes a handoff file with your preferences, decisions, tasks and key files. The new bot reads it and carries on. Check the file first: it should never contain passwords or keys.",
+  q3="Will I lose my work when I switch bots?", a3="A new bot doesn't inherit the old one's learned memory, so before you switch, your bot writes a handoff file with your preferences, decisions, tasks and key files. The new bot reads it and carries on. Check the file first: it should never contain passwords or keys.",
   q4="Is it an official Grok Bot product?", a4="No. It's an unofficial community project, not affiliated with Grok Bot or xAI.",
   q5="Does it read or upload my conversations?", a5="No. The skill runs inside your own bot. This website and the dashboard keep everything in your browser, with no cookies or tracking. The optional live status (coming soon) only sends your bot's name, color and a few estimates, never your conversation.",
   q6="How accurate is the light?", a6="It's a rough estimate based on how long the chat is, not an exact token count. It's meant to tell you when to act, well before things feel slow.",
-  q7="What's BotDuplicator?", a7="A third-party tool that copies a bot (name, instructions, skills and routines) into a new one with an empty chat. Context Bot isn't affiliated with it. You can also create a fresh bot by hand and give it the handoff file.",
+  q7="What's BotDuplicator?", a7="A third-party tool that copies a bot (name, instructions, skills and routines) into a new one with an empty chat. Context Bot isn't affiliated with it. It's an optional alternative: the recommended path is Context Bot Migrator, and you can also create a fresh bot by hand and give it the handoff file.",
   # landing · closing
   cta_h="Long chats, light bot.",
   cta_sub="One prompt, about a minute. Your future self, no longer staring at “typing…”, says thanks.",
@@ -203,7 +203,7 @@ EN = dict(
       confirmDel="Delete every live status saved on the server and disconnect? Your local dashboard data stays.", deleted="Live data deleted.",
       note="Numbers are the bot's own estimates.", from_="live", turns="≈{n} turns", share="≈{n}% of usage", routines="{n} routines/day", compacted="summarized"),
     label=dict(verde="Green",amarillo="Yellow",rojo="Red"),
-    advice=dict(verde="All good. Carry on.",amarillo="Good moment to summarize in STATUS.md.",rojo="Time to move to a new bot: use Context Bot Migrator and pass on the handoff file."),
+    advice=dict(verde="All good. Carry on.",amarillo="Good moment to summarize in STATUS.md.",rojo="Time to move to a new bot: migrate it with Context Bot Migrator and pass on the handoff file."),
     freq=dict(minutos="Every few minutes",hora="Every hour",varias="Several times a day",diaria="Once a day",semanal="Weekly or less",evento="On an event (Slack, email…)"),
     judge=dict(unneeded="Don't need it any more? Pause it: a routine that doesn't run doesn't use anything.",
       often="It runs very often. Bring it down to a few times a day, or weekdays only.",
@@ -274,7 +274,7 @@ EN = dict(
 
 ES = dict(
   og_locale="es_ES", og_locale_alt="en_US", og_image="og-image-es.png",
-  og_image_alt="Un semáforo rojo, amarillo y verde que brilla junto al texto: Que tu Grok Bot siga rápido y barato. Context Bot, gratis y de código abierto.",
+  og_image_alt="Un semáforo rojo, amarillo y verde que brilla junto al texto: Tus Grok Bots, a punto. Estira tu suscripción. Context Bot, gratis y de código abierto.",
   lang_nav="Idioma", privacy_word="Privacidad", home_word="Inicio", dash_word="Panel",
   skip="Saltar al contenido", foot_nav="Pie de página", star_short="Estrella",
   coffee="☕ Invítame a un café",
@@ -359,7 +359,7 @@ ES = dict(
   s4_p="Después entra con GitHub. Tu bot enviará su color (una estimación, nunca tu conversación) y en el <a href=\"{{L_DASH}}\">panel</a> pulsas <em>Conectar estado en directo</em> para verlo. Lo borras todo con una sola orden. Sin él, todo se queda en local.",
   copy_word="Copiar", copied_word="Copiado ✓",
   # landing · vídeo
-  video_eyebrow="La demo", video_title="Míralo en 45 segundos",
+  video_eyebrow="La demo", video_title="Míralo en un minuto",
   video_sub="Se reproduce solo, sin sonido y en bucle. Activa el sonido si quieres música.",
   video_next="Y ahora, la versión larga ↓",
   road_hint="Baja por la carretera: el semáforo cambia según crece la charla.",
@@ -418,7 +418,7 @@ ES = dict(
   t3_h="Pausa rutinas que no usas", t3_p="Una rutina que no se ejecuta no gasta.",
   t4_h="Baja la frecuencia", t4_p="De «cada hora» a «cada mañana» suele bastar.",
   t5_h="Ojo con «Test»", t5_p="Probar una rutina gasta como una ejecución real.",
-  t6_h="Charla larga, bot nuevo", t6_p="Duplica el bot y sigue desde tu STATUS.md.",
+  t6_h="Charla larga, bot nuevo", t6_p="Pasa a un bot nuevo con Context Bot Migrator y retoma donde lo dejaste.",
   tips_more="Ver todos los trucos y sus fuentes →",
   # landing · apoyo
   sup_eyebrow="Apoya el proyecto", sup_h="Gratis para siempre. Funciona a base de cafés y estrellas.",
@@ -431,11 +431,11 @@ ES = dict(
   q2="¿Tengo que saber programar?", a2="No. Copias un prompt, lo pegas en el chat de tu bot y hablas con él como siempre.",
   a2_tpl="No. Pulsa <strong>Añadir Context Bot</strong>, añade la plantilla y charla como siempre. ¿Ya tienes un bot? Pegas un prompt en su chat y listo.",
   q8="¿Plantilla o prompt?", a8="La plantilla crea un bot nuevo con la skill de Context Bot y sus instrucciones listas. El prompt añade la misma skill a un bot que ya tienes, así que conserva su charla, su memoria y su configuración. El semáforo funciona igual en los dos casos.",
-  q3="¿Pierdo mi trabajo al cambiar de bot?", a3="Al duplicar un bot no se copia su memoria aprendida, así que antes de cambiar, tu bot escribe un archivo de traspaso con tus preferencias, decisiones, tareas y archivos clave. El bot nuevo lo lee y sigue. Revisa el archivo antes: nunca debe llevar contraseñas ni claves.",
+  q3="¿Pierdo mi trabajo al cambiar de bot?", a3="Un bot nuevo no hereda la memoria aprendida del antiguo, así que antes de cambiar, tu bot escribe un archivo de traspaso con tus preferencias, decisiones, tareas y archivos clave. El bot nuevo lo lee y sigue. Revisa el archivo antes: nunca debe llevar contraseñas ni claves.",
   q4="¿Es oficial de Grok Bot?", a4="No. Es un proyecto comunitario no oficial, sin relación con Grok Bot ni con xAI.",
   q5="¿Lee o sube mis conversaciones?", a5="No. La skill funciona dentro de tu propio bot. Esta web y el panel lo guardan todo en tu navegador, sin cookies ni seguimiento. El estado en directo opcional (muy pronto) solo envía el nombre de tu bot, su color y unas pocas estimaciones, nunca tu conversación.",
   q6="¿Es exacto el semáforo?", a6="Es una estimación aproximada según la longitud de la charla, no un recuento exacto de tokens. Sirve para avisarte de cuándo actuar, mucho antes de que lo notes lento.",
-  q7="¿Qué es BotDuplicator?", a7="Una herramienta de terceros que copia un bot (nombre, instrucciones, skills y rutinas) en uno nuevo con el chat vacío. Context Bot no tiene relación con ella. También puedes crear un bot nuevo a mano y darle el archivo de traspaso.",
+  q7="¿Qué es BotDuplicator?", a7="Una herramienta de terceros que copia un bot (nombre, instrucciones, skills y rutinas) en uno nuevo con el chat vacío. Context Bot no tiene relación con ella. Es una alternativa opcional: lo recomendado es Context Bot Migrator, y también puedes crear un bot nuevo a mano y darle el archivo de traspaso.",
   # landing · cierre
   cta_h="Charlas largas, bot ligero.",
   cta_sub="Un prompt y un minuto, más o menos. Tu yo del futuro, sin mirar «escribiendo…», te lo agradece.",
@@ -467,7 +467,7 @@ ES = dict(
       confirmDel="¿Borrar todo el estado guardado en el servidor y desconectar? Los datos locales del panel se quedan.", deleted="Datos en directo borrados.",
       note="Las cifras son estimaciones del propio bot.", from_="en directo", turns="≈{n} turnos", share="≈{n} % del uso", routines="{n} rutinas/día", compacted="resumido"),
     label=dict(verde="Verde",amarillo="Amarillo",rojo="Rojo"),
-    advice=dict(verde="Todo bien. Sigue a lo tuyo.",amarillo="Buen momento para resumir en STATUS.md.",rojo="Hora de pasar a un bot nuevo: usa Context Bot Migrator y pásale el archivo de traspaso."),
+    advice=dict(verde="Todo bien. Sigue a lo tuyo.",amarillo="Buen momento para resumir en STATUS.md.",rojo="Hora de pasar a un bot nuevo: mígralo con Context Bot Migrator y pásale el archivo de traspaso."),
     freq=dict(minutos="Cada pocos minutos",hora="Cada hora",varias="Varias veces al día",diaria="Una vez al día",semanal="Semanal o menos",evento="Por evento (Slack, email…)"),
     judge=dict(unneeded="¿Ya no la necesitas? Páusala: una rutina que no se ejecuta no gasta.",
       often="Se ejecuta muy a menudo. Bájala a unas pocas veces al día o solo días laborables.",

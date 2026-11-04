@@ -1,6 +1,6 @@
 # Migrar a un bot nuevo con BotDuplicator
 
-Cuando el semáforo se pone en 🔴 rojo, lo más cómodo es seguir en un bot nuevo: misma configuración, conversación limpia y rápida. Así lo haces sin perder nada.
+Cuando el semáforo se pone en 🔴 rojo, lo más cómodo es seguir en un bot nuevo: misma configuración, conversación limpia y rápida. Así lo haces y retomas donde lo dejaste. (Lo recomendado es [Context Bot Migrator](migrator.md); esta guía es la alternativa con BotDuplicator.)
 
 > BotDuplicator es una herramienta de terceros para duplicar bots. Context Bot no está afiliado a ella ni a Grok Bot / xAI.
 

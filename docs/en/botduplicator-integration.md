@@ -1,6 +1,6 @@
 # Moving to a new bot with BotDuplicator
 
-When the light turns 🔴 red, the easiest thing is to carry on in a new bot: same setup, a clean and fast conversation. Here's how to do it without losing anything.
+When the light turns 🔴 red, the easiest thing is to carry on in a new bot: same setup, a clean and fast conversation. Here's how to do it and pick up where you left off. (The recommended path is [Context Bot Migrator](migrator.md); this guide is the BotDuplicator alternative.)
 
 > BotDuplicator is a third-party tool for duplicating bots. Context Bot isn't affiliated with it, or with Grok Bot or xAI.
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://contextbot.app/"><img src="assets/brand/og-image.png" alt="Context Bot: keep your Grok Bot fast and cheap. A traffic light for long chats. Free, open source, contextbot.app" width="820"></a>
+<a href="https://contextbot.app/"><img src="assets/brand/og-image.png" alt="Context Bot: keep your Grok Bots in shape. Stretch your subscription. The complete kit for your bots. Free, open source, contextbot.app" width="820"></a>
 
 # Context Bot
 
@@ -17,7 +17,7 @@
 
 <a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
-<sub>Click the animation to watch the 45-second video with sound.</sub>
+<sub>Click the animation to watch the one-minute video with sound.</sub>
 
 Free, open source, no download, no sign-up. If it saves you a slow afternoon, **⭐ star the repo**: it's the easiest way to help other people find it.
 
@@ -49,7 +49,7 @@ Thresholds are rough estimates based on chat length, not exact token counts. Goo
 
 1. **Add Context Bot** from the template (link above).
 2. **Chat as usual.** As the chat grows, it checks the light on its own and keeps a `STATUS.md` with where you are. Ask *"What color are we on?"* anytime, or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
-3. **On red, hand off with BotDuplicator.** Your bot writes the handoff file ([example](examples/TRASPASO.md.example)) and suggests a fresh bot. Follow the [BotDuplicator guide](docs/en/botduplicator-integration.md); the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
+3. **On red, move with Context Bot Migrator.** Your bot writes the handoff file ([example](examples/TRASPASO.md.example)) and suggests a fresh bot. [Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) and it walks you through the move ([guide](docs/en/migrator.md); alternative: [BotDuplicator](docs/en/botduplicator-integration.md)); the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
 
 **Already have a bot? Paste this prompt** into its chat (GitHub shows a copy button on the right):
 
@@ -91,7 +91,7 @@ Context Bot doesn't make your bot smarter. It tells you when to act.
 ## 🖥️ The website and the dashboard
 
 <div align="center">
-<img src="assets/landing.png" alt="Context Bot landing page: a glowing traffic light next to the headline Long chats make your bot slow and pricey. Keep it fast and cheap." width="820">
+<img src="assets/landing.png" alt="Context Bot landing page: a traffic light next to the headline Long chats make your bot slow &amp; pricey. Keep every bot in shape, with a little help." width="820">
 </div>
 
 <div align="center">
