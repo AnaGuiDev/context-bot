@@ -12,8 +12,12 @@
 [![Website](https://img.shields.io/badge/web-contextbot.app-2563eb.svg)](https://contextbot.app/)
 [![No coding](https://img.shields.io/badge/no%20coding-needed-facc15.svg)](docs/en/installation.md)
 [![Follow @contextbotapp](https://img.shields.io/badge/follow-%40contextbotapp-000000.svg?logo=x)](https://x.com/contextbotapp)
+[![Made by @SoyAnaDev](https://img.shields.io/badge/made%20by-%40SoyAnaDev-000000.svg?logo=x)](https://x.com/SoyAnaDev)
+[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a-coffee-FFDD00.svg?logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
 
 **[⚡ Install in about a minute](#-install-in-about-a-minute) · [🌐 Website](https://contextbot.app/) · [📊 Dashboard demo](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
+
+**Three friendly bots, ready to add:** [🚦 Context Bot](https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY) · [🧭 Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) · [🪶 Lite](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG)
 
 <a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
@@ -181,7 +185,7 @@ Context Bot is free and will stay that way. No ads, no trackers, no paid tier.
 - **⭐ Star the repo:** it helps other people find it.
 - **☕ Buy Me a Coffee:** [buymeacoffee.com/soyanadev](https://buymeacoffee.com/soyanadev).
 - **💸 Tips on X:** the Tips button on [@SoyAnaDev](https://x.com/SoyAnaDev)'s profile.
-- **Follow [@contextbotapp](https://x.com/contextbotapp)** for updates, and share it with someone whose bot is still typing.
+- **Follow [@contextbotapp](https://x.com/contextbotapp)** for updates and [@SoyAnaDev](https://x.com/SoyAnaDev) for behind-the-scenes, and share it with someone whose bot is still typing.
 
 ## 🔒 Privacy
 

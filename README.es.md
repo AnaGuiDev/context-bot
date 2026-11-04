@@ -12,8 +12,12 @@
 [![Web](https://img.shields.io/badge/web-contextbot.app-2563eb.svg)](https://contextbot.app/es/)
 [![Sin programar](https://img.shields.io/badge/sin%20programar-s%C3%AD-facc15.svg)](docs/instalacion.md)
 [![Sigue a @contextbotapp](https://img.shields.io/badge/sigue%20a-%40contextbotapp-000000.svg?logo=x)](https://x.com/contextbotapp)
+[![Hecho por @SoyAnaDev](https://img.shields.io/badge/hecho%20por-%40SoyAnaDev-000000.svg?logo=x)](https://x.com/SoyAnaDev)
+[![Invítame a un café](https://img.shields.io/badge/inv%C3%ADtame%20a%20un-caf%C3%A9-FFDD00.svg?logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
 
 **[⚡ Instálalo en un minuto](#-instálalo-en-un-minuto) · [🌐 Web](https://contextbot.app/es/) · [📊 Panel con ejemplos](https://contextbot.app/es/dashboard/?demo)** · [English](README.md)
+
+**Tres bots amables, listos para añadir:** [🚦 Context Bot](https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY) · [🧭 Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) · [🪶 Lite](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG)
 
 <a href="assets/video/promo-es-16x9.mp4"><img src="assets/video/promo-es.gif" alt="Vídeo de presentación de Context Bot (pulsa para verlo con sonido)" width="820"></a>
 
