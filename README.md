@@ -72,6 +72,7 @@ Context Bot doesn't make your bot smarter. It tells you when to act.
 ## 📦 What's inside
 
 - **Skill** for your bot, in [English](skills/context-bot/en/SKILL.md) (served at <https://contextbot.app/skill.md>) and [Spanish](skills/context-bot/SKILL.md): when to check, how to estimate, when to warn you and how to hand off.
+- **Optional welcome skill** [`getting-started-context-bot`](skills/getting-started-context-bot/SKILL.md): guides the first conversation of a new Context Bot with its owner.
 - **[Dashboard](https://contextbot.app/dashboard/)** with a traffic light: no server, no account, data stays in your browser.
 - **Handoff view** in the dashboard: pick a yellow or red bot and watch its memory, tasks, key files and routines move to the new bot. Then copy or download the `TRASPASO.md` handoff file, or paste one in to check it.
 - **Routine review** in the dashboard: flags the routines worth pausing or slowing down.

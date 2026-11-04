@@ -72,6 +72,7 @@ Context Bot no hace más listo a tu bot. Te avisa de cuándo actuar.
 ## 📦 Qué incluye
 
 - **Skill** para tu bot, en [español](skills/context-bot/SKILL.md) y en [inglés](skills/context-bot/en/SKILL.md) (en <https://contextbot.app/es/skill.md> y <https://contextbot.app/skill.md>): cuándo comprobar, cómo estimar, cuándo avisar y cómo hacer el traspaso.
+- **Skill de bienvenida opcional** [`getting-started-context-bot`](skills/getting-started-context-bot/SKILL.md): guía la primera conversación de un nuevo Context Bot con su dueño.
 - **[Panel](https://contextbot.app/es/dashboard/)** con semáforo: sin servidor ni cuenta, guarda en tu navegador.
 - **Vista Traspaso** en el panel: elige un bot en amarillo o rojo y mira cómo pasan al bot nuevo su memoria, tareas, archivos y rutinas. Luego copia o descarga el `TRASPASO.md`, o pega uno para revisarlo.
 - **Revisión de rutinas** en el panel: te marca las que conviene pausar o espaciar.
