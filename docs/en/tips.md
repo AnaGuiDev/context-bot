@@ -44,8 +44,8 @@ Whatever you put in *Edit Profile* survives duplication and doesn't need repeati
 Scope the task tightly, see how much it uses, then widen it. Check your usage before long jobs.
 *Source:* [Plans and billing](https://cursor.com/help/grok-bot/plans).
 
-### 9. 🛠️ Savings mode: move repetitive routine work to scripts
-If a routine does the same mechanical steps every time (fetch data, build a report from files, back up, convert, check), a script on the box can do that part and the routine only runs it and summarises. Ask your bot for "savings mode": it lists candidates and changes nothing without your OK. These are suggestions; the saving depends on the case.
-*Follows from:* [Routines](https://cursor.com/help/grok-bot/routines) (every routine run uses some allowance).
+### 9. 🛠️ Savings mode: turn repeated tasks into scripts
+Your bot notes each finished task in one line, a small script counts the repeats (no bot usage), and about once a week the bot reads a 10-line summary. It also reviews its routines by reading only their saved prompt text. If something repeats or a routine is mostly mechanical, it proposes one script you can run on demand or with cron. Say "savings mode now" to check anytime. Nothing changes without your OK. These are suggestions; the saving depends on the case.
+*Follows from:* [Plans and billing](https://cursor.com/help/grok-bot/plans) (usage is agent steps and tokens) and [Routines](https://cursor.com/help/grok-bot/routines).
 
 Tips we haven't been able to confirm yet are listed (in Spanish) in [tips-pendientes.md](../tips-pendientes.md).
