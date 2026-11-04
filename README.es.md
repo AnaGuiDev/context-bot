@@ -116,6 +116,11 @@ No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que 
 
 ## ❓ Preguntas frecuentes
 
+<details><summary><b>¿Por qué mi bot nuevo sale con una bola negra?</b></summary>
+
+Las plantillas no traen la foto de perfil, así que el bot empieza con la de serie. Descarga su foto y pónsela tú: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
+</details>
+
 <details><summary><b>¿Es gratis?</b></summary>
 
 Sí. Gratis y de código abierto, con licencia MIT. Sin versión de pago.
