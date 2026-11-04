@@ -179,6 +179,7 @@ EN = dict(
   sup_ana_h="💛 Support Ana, the author", sup_ana_p="If Context Bot saved you time or usage, you can thank Ana with a coffee or a tip on X.", follow_ana="Follow @SoyAnaDev",
   sup_cb_h="🚦 Help Context Bot grow", sup_cb_p="If it helps you, a follow and a share are the best way to help it reach more people. 😉", follow_cb="Follow @contextbotapp", share_x="📣 Share on X",
   share_url="https://x.com/intent/post?text=My%20Grok%20Bots%20stay%20fast%20with%20Context%20Bot%20%F0%9F%9A%A6%20Free%20and%20open%20source%3A%20https%3A%2F%2Fcontextbot.app%20via%20%40contextbotapp",
+  v_seek="Video progress",
   tips_x="💸 Tip on X", tips_x_note="X tips: use the Tips button on <a href=\"{{X}}\">@SoyAnaDev</a>'s profile.",
   follow_line="Follow <a href=\"{{XP}}\">@contextbotapp</a> for updates, and <a href=\"{{X}}\">@SoyAnaDev</a> for the person behind it.",
   # landing · FAQ
@@ -462,6 +463,7 @@ ES = dict(
   sup_ana_h="💛 Apoya a Ana, la autora", sup_ana_p="Si Context Bot te ha ahorrado tiempo o uso, puedes darle las gracias a Ana con un café o una propina en X.", follow_ana="Sigue a @SoyAnaDev",
   sup_cb_h="🚦 Ayuda a que Context Bot crezca", sup_cb_p="Si te ayuda, seguirlo y compartirlo es la mejor forma de que llegue a más gente. 😉", follow_cb="Sigue a @contextbotapp", share_x="📣 Compártelo en X",
   share_url="https://x.com/intent/post?text=Mis%20Grok%20Bots%20siguen%20r%C3%A1pidos%20con%20Context%20Bot%20%F0%9F%9A%A6%20Gratis%20y%20de%20c%C3%B3digo%20abierto%3A%20https%3A%2F%2Fcontextbot.app%2Fes%2F%20v%C3%ADa%20%40contextbotapp",
+  v_seek="Progreso del vídeo",
   tips_x="💸 Propina en X", tips_x_note="Propinas en X: botón de Propinas en el perfil de <a href=\"{{X}}\">@SoyAnaDev</a>.",
   follow_line="Sigue a <a href=\"{{XP}}\">@contextbotapp</a> para enterarte de las novedades, y a <a href=\"{{X}}\">@SoyAnaDev</a> para conocer a quien está detrás.",
   # landing · preguntas

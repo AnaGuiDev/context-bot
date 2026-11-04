@@ -223,6 +223,10 @@ main>section#demo{padding-top:0}
 .tip p{flex:1;margin:0 0 6px;color:var(--muted)}
 .more{margin:30px 0 0;font-weight:900}
 
+/* Seek bar */
+.seek{display:flex;align-items:center;gap:12px;max-width:760px;margin:14px auto 0;font-weight:800;font-size:.9rem;font-variant-numeric:tabular-nums}
+.seek input{flex:1;height:28px;accent-color:var(--blue);cursor:pointer;touch-action:none}
+
 /* Support */
 .kraft{position:relative;display:grid;gap:22px;padding:34px 22px 26px;color:var(--ink);background:var(--grain),var(--kraft);border-radius:8px;box-shadow:0 22px 34px -22px rgba(31,27,22,.8);transform:rotate(-.5deg)}
 .kraft::before,.kraft::after{content:"";position:absolute;top:-12px;width:80px;height:24px;background:rgba(255,255,255,.55);box-shadow:0 1px 2px rgba(31,27,22,.15)}
@@ -379,10 +383,10 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <div class="board">
       <!-- Autoplay sin sonido y en bucle al acercarse a la pantalla, siempre después de cargar la página (el póster va primero); el script elige idioma y orientación (9:16 en pantallas estrechas). Con «reducir movimiento» no arranca solo. -->
       <video id="promo" muted loop playsinline preload="none"
-        data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4"
-        data-poster-wide="{{R}}assets/video/poster-ui-{{LANG}}-16x9.jpg" data-poster-narrow="{{R}}assets/video/poster-ui-{{LANG}}-9x16.jpg"
+        data-wide="{{R}}assets/video/promo-{{LANG}}-16x9.mp4?v=7" data-narrow="{{R}}assets/video/promo-{{LANG}}-9x16.mp4?v=7"
+        data-poster-wide="{{R}}assets/video/poster-ui-{{LANG}}-16x9.jpg?v=7" data-poster-narrow="{{R}}assets/video/poster-ui-{{LANG}}-9x16.jpg?v=7"
         aria-describedby="video-title">
-        {{video_fallback}} <a href="{{R}}assets/video/promo-{{LANG}}-16x9.mp4">{{video_download}}</a>.
+        {{video_fallback}} <a href="{{R}}assets/video/promo-{{LANG}}-16x9.mp4?v=7">{{video_download}}</a>.
       </video>
       <script>(function(v){v.poster=matchMedia('(max-width: 759px)').matches?v.dataset.posterNarrow:v.dataset.posterWide})(document.getElementById('promo'))</script>
     </div>
@@ -394,6 +398,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <button class="cbtn" id="v-stop" type="button" aria-label="{{v_stop_label}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span>{{v_stop}}</span></button>
     <button class="cbtn" id="v-sound" type="button" aria-pressed="false" aria-label="{{v_sound_on}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="v-sound-icon" d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><span id="v-sound-txt">{{v_sound_on}}</span></button>
   </div>
+  <div class="seek"><span id="v-cur">0:00</span><input id="v-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="{{v_seek}}"><span id="v-dur">1:10</span></div>
   <p class="next note" aria-hidden="true">{{video_next}}</p>
 </section>
 
@@ -696,6 +701,14 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   play.onclick=function(){if(v.paused){userPaused=false;go()}else{userPaused=true;v.pause()}};
   stop.onclick=function(){userPaused=true;v.pause();if(loaded)v.currentTime=0;ui()};
   snd.onclick=function(){v.muted=!v.muted;if(!v.muted&&v.paused){userPaused=false;go()}ui()};
+  var seek=document.getElementById('v-seek'),cur=document.getElementById('v-cur'),dur=document.getElementById('v-dur'),dragging=false;
+  function fmt(x){x=Math.max(0,Math.floor(x||0));return Math.floor(x/60)+':'+String(x%60).padStart(2,'0')}
+  function prog(){if(!dragging&&v.duration){seek.value=Math.round(v.currentTime/v.duration*1000)}cur.textContent=fmt(v.currentTime);if(v.duration)dur.textContent=fmt(v.duration)}
+  ['timeupdate','loadedmetadata','seeked'].forEach(function(e){v.addEventListener(e,prog)});
+  function seekTo(){var f=seek.value/1000;function set(){if(v.duration){v.currentTime=f*v.duration;prog()}}if(!loaded){loaded=true;v.src=want();v.addEventListener('loadedmetadata',function g(){v.removeEventListener('loadedmetadata',g);set()})}else set()}
+  seek.addEventListener('input',function(){dragging=true;if(v.duration)cur.textContent=fmt(seek.value/1000*v.duration);seekTo()});
+  seek.addEventListener('change',function(){dragging=false;seekTo()});
+  stop.addEventListener('click',function(){seek.value=0;cur.textContent='0:00'});
   v.addEventListener('click',function(){play.click()});
   ['play','pause','volumechange'].forEach(function(e){v.addEventListener(e,ui)});ui();
 })();
