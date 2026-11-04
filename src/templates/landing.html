@@ -190,6 +190,8 @@ button.lamp:focus-visible{outline-offset:7px;border-radius:50%}
 .works-in p{margin:0 0 8px}.works-in p:last-child{margin:10px 0 0}
 .works-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-weight:900;color:var(--ink)}
 .badge{display:inline-block;padding:4px 9px 2px;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--ink);background:var(--works);border:2px solid var(--ink);border-radius:5px}
+.add{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin:36px 0 0}
+.add .note{margin:0;font-size:1.4rem;line-height:1.1;color:var(--muted)}
 
 /* Video billboard */
 .center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
@@ -337,7 +339,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <p class="kicker note"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>{{kicker}}</p>
     <h1 id="title">{{h1}} <span class="hwy">{{h1_relief}}</span></h1>
     <p class="lead">{{lead}}</p>
-    <!-- TODO(PLACEHOLDER): con enlace de plantilla (--template) sale «Add Context Bot» como botón principal; sin él, «Copy install prompt» (ver scripts/build_site.py) -->
+    <!-- Con enlace de plantilla sale «Add Context Bot» como botón principal y el prompt como secundario; sin él, «Copy install prompt» (ver scripts/build_site.py) -->
     <div class="ctas">{{CTAS}}</div>
     <p class="hint" id="copy-status" role="status" aria-live="polite"><svg class="arrow" viewBox="0 0 34 30" aria-hidden="true"><path d="M3 27c9 1 17-4 20-14M17 9l6-6 5 8"/></svg><span>{{cta_copy_hint}}</span></p>
     <ul class="clean trust"><li>{{trust1}}</li><li>{{trust2}}</li><li>{{trust3}}</li></ul>
@@ -421,10 +423,11 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <h2 id="steps">{{steps_h}}</h2>
   <p class="sub">{{steps_sub}}</p>
   <ol class="clean route">
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{S1_H}}</h3><p>{{S1_P}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{s1_h}}</h3><p>{{s1_p}}</p></div></li>
     <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div></li>
     <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div></li>
   </ol>
+  {{#TPL}}<div class="add"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a><p class="note">{{cta_add_note}}</p></div>{{/TPL}}
   <div class="ticket">
     <p class="ticket-l" id="install-l">{{install_label}}</p>
     <div class="code"><code id="install-code">{{install_prompt}}</code><button type="button" class="copy-code" data-target="install-code" aria-label="{{copy_prompt_label}}">{{copy_word}}</button></div>
@@ -502,6 +505,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <h2 id="faq-h">{{faq_h}}</h2>
   <details><summary>{{q1}}</summary><p>{{a1}}</p></details>
   <details><summary>{{q2}}</summary><p>{{a2}}</p></details>
+  {{#TPL}}<details><summary>{{q8}}</summary><p>{{a8}}</p></details>{{/TPL}}
   <details><summary>{{q3}}</summary><p>{{a3}}</p></details>
   <details><summary>{{q5}}</summary><p>{{a5}}</p></details>
   <details><summary>{{q6}}</summary><p>{{a6}}</p></details>
