@@ -1,16 +1,27 @@
 # Installation
 
-No coding needed. It takes a few minutes.
+No coding needed. It takes a minute or two.
 
 ## 1. Give your bot the skill
 
-1. Open [`skills/context-bot/SKILL.md`](../../skills/context-bot/SKILL.md) and copy all of it (including the header between the `---` lines).
-2. In your Grok Bot, ask something like:
+<!-- TPL-ON
+**Easiest: a ready-made bot.** Open the [Context Bot template](TODO_TEMPLATE_URL) and add it in Grok Bot. You get a new bot with the skill and its instructions already in place. Then chat as usual: it checks the light as the chat grows.
 
-   > Save this skill as "context-bot" and use it from now on: (paste the content here)
+**Already have a bot? Paste this prompt** into its chat instead:
+TPL-ON -->
+<!-- TPL-OFF -->
+Paste this prompt into your bot's chat:
+<!-- /TPL-OFF -->
 
-   The skill is written in Spanish, but your bot will keep talking to you in English.
-3. Check it's there by asking: "What colour is our context traffic light?"
+```text
+Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
+```
+
+Your bot saves the skill ([readable here](../../skills/context-bot/en/SKILL.md)) and confirms. Check it's there by asking: "What color are we on?"
+<!-- TPL-OFF -->
+
+A ready-made bot template is coming soon.
+<!-- /TPL-OFF -->
 
 ## 2. Open the dashboard
 

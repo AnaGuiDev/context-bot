@@ -18,6 +18,7 @@ bash scripts/rellenar-placeholders.sh          --bmc usuario --template "https:/
 ```
 
 - Puedes pasar solo lo que ya tengas y repetirlo luego. · You can pass only what you have and run it again later.
+- `--template` también cambia los README y las guías de instalación a la versión con plantilla (bloques `TPL-ON` / `TPL-OFF`). La web cambia sola al generarla; para verla antes: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`. · `--template` also switches the READMEs and install docs to the template version; the website switches on its own when built.
 - Al terminar te dice si queda algún marcador. · It tells you if any marker is left.
 - La fecha del CHANGELOG se cambia a mano el día que publiques. · Change the CHANGELOG date by hand on launch day.
 - Los comentarios `TODO(PLACEHOLDER)` son solo avisos. · `TODO(PLACEHOLDER)` comments are just reminders.
