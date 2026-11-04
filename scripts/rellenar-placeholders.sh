@@ -12,6 +12,8 @@
 #   --dominio   (Obsoleto) Dominio sin https://, solo para marcadores TODO-DOMINIO
 #   --x         Usuario de X sin @ (ya puesto: SoyAnaDev; solo para marcadores TODO_ANA_GUI antiguos)
 #   --template  Enlace público de la plantilla del bot (Share → Create a copy → Publish → Copy link)
+#               Además activa en README y docs los bloques <!-- TPL-ON … TPL-ON --> (instalación con la plantilla)
+#               y quita los <!-- TPL-OFF --> … <!-- /TPL-OFF --> (instalación solo con el prompt).
 #   --bmc       Usuario de Buy Me a Coffee o URL completa (https://buymeacoffee.com/...)
 #   --github    Usuario u organización de GitHub (por defecto: ana-gui)
 #   --prueba    Solo muestra qué archivos cambiaría, sin tocar nada
@@ -30,7 +32,7 @@ while [ $# -gt 0 ]; do
     --template) TPL="${2:-}"; shift 2 ;;
     --github) GH="${2:-}"; shift 2 ;;
     --prueba) PRUEBA=1; shift ;;
-    -h|--help) sed -n '2,21p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,22p' "$0"; exit 0 ;;
     *) echo "Opción desconocida: $1 (usa --help)" >&2; exit 1 ;;
   esac
 done
@@ -61,7 +63,12 @@ for f in "${FILES[@]}"; do
     my ($d,$x,$b,$t,$g)=@ENV{qw(DOMINIO XUSER BMC TPL GH)};
     if ($d ne "") { my $dd=$d; $dd=~s/-/--/g; s/TODO--DOMINIO/$dd/g; s/TODO-DOMINIO/$d/g; }
     if ($b ne "") { s{buymeacoffee\.com/TODO_(?:ANA_GUI|BMC)}{buymeacoffee.com/$b}g; }
-    if ($t ne "") { s{TODO_TEMPLATE_URL}{$t}g; }
+    if ($t ne "") {
+      s{TODO_TEMPLATE_URL}{$t}g;
+      s{<!-- TPL-ON\n(.*?)\nTPL-ON -->\n}{$1\n}sg;
+      s{<!-- TPL-OFF -->\n.*?<!-- /TPL-OFF -->\n}{}sg;
+      s{- \[ \] (Public bot template link|Enlace público de la plantilla del bot)\.}{- [x] $1.}g;
+    }
     if ($x ne "") { s/TODO_ANA_GUI/$x/g; }
     if ($g ne "ana-gui") {
       s{ana-gui/context-bot}{$g/context-bot}g;

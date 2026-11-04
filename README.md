@@ -45,18 +45,19 @@ Thresholds are rough estimates based on chat length, not exact token counts. Goo
 
 ## ⚡ Install in about a minute
 
-Paste this into your bot's chat (GitHub shows a copy button on the right):
+**[➕ Add Context Bot](https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY)** · the template opens in Grok Bot. Add it and you get a new bot with the Context Bot skill and its instructions already in place.
+
+1. **Add Context Bot** from the template (link above).
+2. **Chat as usual.** As the chat grows, it checks the light on its own and keeps a `STATUS.md` with where you are. Ask *"What color are we on?"* anytime, or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
+3. **On red, hand off with BotDuplicator.** Your bot writes the handoff file ([example](examples/TRASPASO.md.example)) and suggests a fresh bot. Follow the [BotDuplicator guide](docs/en/botduplicator-integration.md); the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
+
+**Already have a bot? Paste this prompt** into its chat (GitHub shows a copy button on the right):
 
 ```text
 Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
 ```
 
-Then:
-
-1. **Ask for the light.** *"What color are we on?"* Or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
-2. **Switch bots on red.** Follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
-
-A ready-made bot template is coming soon. More detail in [docs/en/installation.md](docs/en/installation.md).
+More detail in [docs/en/installation.md](docs/en/installation.md).
 
 ## 🧳 Before and after
 
@@ -106,7 +107,12 @@ Yes. Free and open source under the MIT license. No paid tier.
 
 <details><summary><b>Do I need to know how to code?</b></summary>
 
-No. You copy one prompt, paste it and talk to your bot as usual.
+No. Add Context Bot from the template and chat as usual. Already have a bot? Paste one prompt into its chat instead.
+</details>
+
+<details><summary><b>Template or prompt: which one?</b></summary>
+
+The template creates a new bot with the Context Bot skill and its instructions ready to go. The prompt adds the same skill to a bot you already have, so it keeps its chat, memory and setup. The light works the same either way.
 </details>
 
 <details><summary><b>Do I lose my work when I move to a new bot?</b></summary>
@@ -138,7 +144,7 @@ No dates: it depends on spare time and on what you ask for.
 - [x] English version of the skill.
 - [x] Ready-to-publish bot template kit ([templates/context-bot-template.md](templates/context-bot-template.md)).
 - [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Not deployed yet.
-- [ ] Public bot template link.
+- [x] Public bot template link.
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.
 

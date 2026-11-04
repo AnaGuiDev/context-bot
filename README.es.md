@@ -45,18 +45,19 @@ Los umbrales son estimaciones según la longitud de la charla, no un recuento ex
 
 ## ⚡ Instálalo en un minuto
 
-Pega esto en el chat de tu bot (GitHub te pone un botón para copiarlo a la derecha):
+**[➕ Añadir Context Bot](https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY)** · la plantilla se abre en Grok Bot. Añádela y tendrás un bot nuevo con la skill de Context Bot y sus instrucciones ya puestas.
+
+1. **Añade Context Bot** desde la plantilla (enlace de arriba).
+2. **Charla como siempre.** Según crece la charla, mira el semáforo por su cuenta y lleva un `STATUS.md` con en qué estáis. Pregunta *«¿En qué color estamos?»* cuando quieras, o pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).
+3. **En rojo, traspasa con BotDuplicator.** Tu bot escribe el archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)) y te propone un bot nuevo. Sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md); en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
+
+**¿Ya tienes un bot? Pega este prompt** en su chat (GitHub te pone un botón para copiarlo a la derecha):
 
 ```text
 Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skills, guárdala exactamente como está escrita y confírmamelo.
 ```
 
-Después:
-
-1. **Pide el color.** *«¿En qué color estamos?»* O pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).
-2. **Cambia de bot en rojo.** Sigue la [guía con BotDuplicator](docs/integracion-botduplicator.md). La memoria viaja en un archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)), y en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
-
-Pronto habrá una plantilla de bot lista para usar. Más detalle en [docs/instalacion.md](docs/instalacion.md).
+Más detalle en [docs/instalacion.md](docs/instalacion.md).
 
 ## 🧳 Antes y después
 
@@ -106,7 +107,12 @@ Sí. Gratis y de código abierto, con licencia MIT. Sin versión de pago.
 
 <details><summary><b>¿Tengo que saber programar?</b></summary>
 
-No. Copias un prompt, lo pegas y hablas con tu bot como siempre.
+No. Añades Context Bot desde la plantilla y charlas como siempre. ¿Ya tienes un bot? Pegas un prompt en su chat y listo.
+</details>
+
+<details><summary><b>¿Plantilla o prompt?</b></summary>
+
+La plantilla crea un bot nuevo con la skill de Context Bot y sus instrucciones listas. El prompt añade la misma skill a un bot que ya tienes, así que conserva su charla, su memoria y su configuración. El semáforo funciona igual en los dos casos.
 </details>
 
 <details><summary><b>¿Pierdo mi trabajo al pasar a un bot nuevo?</b></summary>
@@ -138,7 +144,7 @@ No hay fechas: depende del tiempo libre y de lo que pidáis.
 - [x] Versión en inglés de la skill.
 - [x] Kit de plantilla del bot listo para publicar ([templates/context-bot-template.md](templates/context-bot-template.md)).
 - [x] Conector opcional de estado en directo (MCP): código y pruebas en [`worker/`](worker/), ver [docs/conector.md](docs/conector.md). Aún sin desplegar.
-- [ ] Enlace público de la plantilla del bot.
+- [x] Enlace público de la plantilla del bot.
 - [ ] Que el panel funcione sin conexión (instalable como app).
 - [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.
 - [ ] Más trucos para gastar menos, siempre con fuente.

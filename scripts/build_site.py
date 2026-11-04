@@ -6,6 +6,7 @@
   /privacy.html     privacidad (inglés)      /es/privacidad.html  privacidad (español)
 """
 import json, os, posixpath, re, shutil, sys
+from html import escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
 import i18n  # noqa: E402
@@ -18,10 +19,15 @@ PAGES = {  # plantilla: (ruta en inglés, ruta en español, prefijo de claves)
     "privacy": ("/privacy.html", "/es/privacidad.html", "privacy"),
 }
 TPL = os.path.join(ROOT, "src", "templates")
-# Mientras la plantilla del bot no tenga enlace real (TODO_TEMPLATE_URL), no se publica el botón «Add Context Bot»:
-# el botón principal pasa a ser «Copy install prompt». Al rellenarla con scripts/rellenar-placeholders.sh --template,
-# vuelve a salir «Add Context Bot» como principal y «Copy install prompt» como secundario.
-HAS_TPL = i18n.TEMPLATE.startswith("https://")
+# Mientras la plantilla del bot no tenga enlace real (TEMPLATE en src/i18n.py), la web cuenta la instalación con el prompt.
+# Con enlace (scripts/rellenar-placeholders.sh --template, o CB_TEMPLATE=https://… para probar) cuenta la historia
+# de la plantilla: «Add Context Bot» como botón principal y el prompt como opción secundaria para quien ya tiene bot.
+#   - Textos: una clave «x_tpl» en src/i18n.py sustituye a «x» cuando hay plantilla.
+#   - Plantillas HTML: {{#TPL}}…{{/TPL}} solo sale con plantilla; {{^TPL}}…{{/TPL}}, solo sin ella.
+TEMPLATE = os.environ.get("CB_TEMPLATE") or i18n.TEMPLATE
+HAS_TPL = TEMPLATE.startswith("https://")
+if HAS_TPL and not re.fullmatch(r"https://[A-Za-z0-9./?=_%&~+-]+", TEMPLATE):
+    sys.exit(f"ERROR: enlace de plantilla no válido: {TEMPLATE}")
 COPY_BTN = ('<button class="btn{cls} copy-install" type="button" data-status="{status}" '
             'data-prompt="{{{{install_prompt}}}}">{{{{cta_copy}}}}</button>')
 STAR_BTN = '<a class="btn alt" href="{{REPO}}">{{STAR}}{{cta_star}}{{STARS}}</a>'
@@ -30,6 +36,25 @@ def ctas(status):
     if HAS_TPL:
         return '<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt", status=status)
     return COPY_BTN.format(cls="", status=status) + STAR_BTN
+
+def texts(d):
+    """Elige la variante de cada texto: «x_tpl» si hay plantilla, «x» si no. Entra también en los diccionarios anidados."""
+    out = {}
+    for k, v in d.items():
+        if k.endswith("_tpl"):
+            if k[:-4] not in d:
+                sys.exit(f"ERROR: «{k}» no tiene texto base «{k[:-4]}»")
+            continue
+        v = d.get(k + "_tpl", v) if HAS_TPL else v
+        out[k] = texts(v) if isinstance(v, dict) else v
+    return out
+
+def keys(d, pre=""):
+    return {pre + k for k in d} | {x for k, v in d.items() if isinstance(v, dict) for x in keys(v, pre + k + ".")}
+
+def conditionals(text):
+    text = re.sub(r"\{\{#TPL\}\}(.*?)\{\{/TPL\}\}", lambda m: m.group(1) if HAS_TPL else "", text, flags=re.S)
+    return re.sub(r"\{\{\^TPL\}\}(.*?)\{\{/TPL\}\}", lambda m: "" if HAS_TPL else m.group(1), text, flags=re.S)
 
 STAR = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.8-4.9 4.6 1.3 6.5'
         'L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></svg>')
@@ -79,6 +104,7 @@ def rel(target, here):
 
 def fill(text, ctx):
     text = re.sub(r"\{\{>(\w+)\}\}", lambda m: open(os.path.join(TPL, m.group(1) + ".html")).read().rstrip("\n"), text)
+    text = conditionals(text)
     for _ in range(3):  # los valores pueden llevar a su vez {{...}}
         text = re.sub(r"\{\{(\w+)\}\}", lambda m: str(ctx[m.group(1)]), text)
     left = re.findall(r"\{\{[^}]*\}\}", text)
@@ -90,9 +116,12 @@ def page_path(url):
     return os.path.join(OUT, url.lstrip("/") + ("index.html" if url.endswith("/") else ""))
 
 def main():
+    diff = keys(i18n.EN) ^ keys(i18n.ES)
+    if diff:
+        sys.exit(f"ERROR: claves que solo están en un idioma: {sorted(diff)}")
     shutil.rmtree(OUT, ignore_errors=True)
     stars = stars_label(star_count())
-    for lang, strings in (("en", i18n.EN), ("es", i18n.ES)):
+    for lang, strings in (("en", texts(i18n.EN)), ("es", texts(i18n.ES))):
         idx = 0 if lang == "en" else 1
         for name, (en_url, es_url, pre) in PAGES.items():
             here = (en_url, es_url)[idx]
@@ -107,7 +136,7 @@ def main():
                 ES_CUR=' aria-current="page"' if lang == "es" else "",
                 L_HOME=rel(PAGES["landing"][idx], here), L_DASH=rel(PAGES["dashboard"][idx], here),
                 L_PRIV=rel(PAGES["privacy"][idx], here),
-                REPO=i18n.REPO, X=i18n.X, XP=i18n.X_PROJECT, BMC=i18n.BMC, TEMPLATE=i18n.TEMPLATE,
+                REPO=i18n.REPO, X=i18n.X, XP=i18n.X_PROJECT, BMC=i18n.BMC, TEMPLATE=escape(TEMPLATE),
                 STAR=STAR, STARS=stars,
                 COPY_OK=json.dumps(strings["copy_ok"], ensure_ascii=False), COPY_BAD=json.dumps(strings["copy_bad"], ensure_ascii=False),
                 title=strings[pre + "_title"], description=strings[pre + "_description"],
@@ -116,8 +145,6 @@ def main():
                 JSONLD=json_ld(strings, lang, DOMAIN + here) if name == "landing" else "",
                 VIDEO_JSON=json.dumps(strings["VIDEO"], ensure_ascii=False),
                 CTAS=ctas("copy-status"), CTAS_END=ctas("copy-status-end"),
-                S1_H=strings["s1_h"] if HAS_TPL else strings["s1_h_notpl"],
-                S1_P=strings["s1_p"] if HAS_TPL else strings["s1_p_notpl"],
                 DASH_JSON=json.dumps(strings["DASH"], ensure_ascii=False).replace("</", "<\\/"),
             )
             html = fill(open(os.path.join(TPL, name + ".html")).read(), ctx)

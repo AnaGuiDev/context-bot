@@ -80,7 +80,7 @@ bash scripts/rellenar-placeholders.sh --template "https://…the link you copied
 bash scripts/build-site.sh
 ```
 
-This replaces `TODO_TEMPLATE_URL` on the landing page (**Add Context Bot** button), the READMEs and the docs.
+This puts the link in place of the placeholder and switches the landing page, the dashboard, the READMEs and the install docs to the template story: **Add Context Bot** first, and *"Already have a bot? Paste this prompt"* as the second option. To preview the website that way without changing any file: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
 
 4. Open the link in a private window to check the preview and the **Add to Grok Bot** button.
 
@@ -125,4 +125,4 @@ Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skill
 Haz una comprobación de Context Bot. Estima el tamaño de esta conversación con la skill context-bot (es una estimación, no una medida), actualiza STATUS.md y, si tienes el conector Context Bot Live Status, llama una vez a report_status con el color y tus estimaciones. Escríbeme solo si el color es amarillo o rojo, en una frase. No envíes al conector nada de la conversación.
 ```
 
-Publicar: **Share → Create a copy → Publish → Copy link**, y luego `bash scripts/rellenar-placeholders.sh --template "<enlace>"`.
+Publicar: **Share → Create a copy → Publish → Copy link**, y luego `bash scripts/rellenar-placeholders.sh --template "<enlace>"`. La web, el panel, los README y las guías de instalación pasan a contar la historia de la plantilla («Añadir Context Bot» primero y «¿Ya tienes un bot? Pega este prompt» como segunda opción). Para ver la web así sin tocar archivos: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
