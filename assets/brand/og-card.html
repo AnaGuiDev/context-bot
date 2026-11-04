@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+  Fuente de las imágenes para redes (og-image.png y og-image-es.png, 1200×630).
+  Para regenerarlas (Chrome o Chromium, sin dependencias):
+    google-chrome --headless --hide-scrollbars --window-size=1200,630 --screenshot=assets/brand/og-image.png    "file://$PWD/assets/brand/og-card.html"
+    google-chrome --headless --hide-scrollbars --window-size=1200,630 --screenshot=assets/brand/og-image-es.png "file://$PWD/assets/brand/og-card.html?es"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Context Bot · social card</title>
+<style>
+@font-face{font-family:Nunito;font-weight:200 1000;src:url(../fonts/nunito-latin.woff2) format("woff2")}
+*{box-sizing:border-box}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden}
+body{position:relative;font-family:Nunito,sans-serif;color:#f2f3ff;
+  background:radial-gradient(700px 420px at 88% 30%,rgba(139,92,246,.35),transparent 65%),radial-gradient(600px 400px at 0 0,rgba(37,99,235,.22),transparent 60%),linear-gradient(160deg,#1b1650 0%,#100e33 45%,#07071c 100%)}
+body::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse at 40% 40%,#000 30%,transparent 85%)}
+.copy{position:absolute;left:84px;top:96px;width:720px}
+.logo{display:flex;align-items:center;gap:14px;font-weight:900;font-size:30px;letter-spacing:-.01em;margin-bottom:38px}
+.logo i{display:inline-flex;flex-direction:column;gap:4px;padding:6px;background:#0b0c14;border:2px solid rgba(255,255,255,.22);border-radius:12px}
+.logo b{width:12px;height:12px;border-radius:50%}
+h1{margin:0;font-size:76px;line-height:1.04;font-weight:300;letter-spacing:-.03em}
+h1 span{display:block;color:#facc15;font-weight:800;text-shadow:0 0 50px rgba(250,204,21,.45)}
+p{margin:26px 0 34px;font-size:32px;font-weight:300;color:#c9cdea}
+.pill{display:inline-block;font-size:26px;font-weight:700;background:#2563eb;color:#fff;border-radius:999px;padding:12px 28px}
+.light{position:absolute;right:120px;top:70px;width:200px;height:490px;border-radius:100px;background:linear-gradient(180deg,#14151f,#08090f);border:3px solid #2a2d45;display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:22px 0;
+  box-shadow:0 0 120px 30px rgba(248,113,113,.18),0 60px 120px 20px rgba(74,222,128,.16),0 0 0 1px rgba(255,255,255,.05) inset}
+.light b{width:136px;height:136px;border-radius:50%;background:radial-gradient(circle at 33% 28%,rgba(255,255,255,.65) 0 9%,rgba(255,255,255,0) 10%),var(--c);box-shadow:0 0 40px 6px var(--g)}
+.r{--c:#f87171;--g:rgba(248,113,113,.55)}.y{--c:#facc15;--g:rgba(250,204,21,.55)}.gr{--c:#4ade80;--g:rgba(74,222,128,.55)}
+</style>
+</head>
+<body>
+<div class="copy">
+  <div class="logo"><i><b class="r" style="background:#f87171"></b><b style="background:#facc15"></b><b style="background:#4ade80"></b></i>Context Bot</div>
+  <h1 id="h"><span id="h2"></span></h1>
+  <p id="p"></p>
+  <div class="pill" id="pill"></div>
+</div>
+<div class="light"><b class="r"></b><b class="y"></b><b class="gr"></b></div>
+<script>
+var es=location.search.indexOf('es')>-1,T=es
+  ?{h:'Que tu Grok Bot siga',h2:'rápido y barato.',p:'Un semáforo para las charlas largas',pill:'Gratis · Código abierto · contextbot.app/es'}
+  :{h:'Keep your Grok Bot',h2:'fast & cheap.',p:'A traffic light for long chats',pill:'Free · Open source · contextbot.app'};
+document.documentElement.lang=es?'es':'en';
+document.getElementById('h').insertBefore(document.createTextNode(T.h),document.getElementById('h2'));
+document.getElementById('h2').textContent=T.h2;document.getElementById('p').textContent=T.p;document.getElementById('pill').textContent=T.pill;
+</script>
+</body>
+</html>
