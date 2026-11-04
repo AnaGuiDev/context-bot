@@ -174,18 +174,36 @@ Ideas, fixes and translations are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.m
 
 Context Bot is free and will stay that way. No ads, no trackers, no paid tier.
 
+### 💛 Support Ana, the author
+
+If Context Bot saved you time or usage, you can thank Ana with a coffee or a tip on X.
+
 <div align="center">
 
-[![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20on%20GitHub-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
 [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
 [![Tips on X](https://img.shields.io/badge/Tips%20on%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
+[![Follow @SoyAnaDev](https://img.shields.io/badge/Follow%20%40SoyAnaDev-1d1d1f?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
 
 </div>
 
-- **⭐ Star the repo:** it helps other people find it.
 - **☕ Buy Me a Coffee:** [buymeacoffee.com/soyanadev](https://buymeacoffee.com/soyanadev).
 - **💸 Tips on X:** the Tips button on [@SoyAnaDev](https://x.com/SoyAnaDev)'s profile.
-- **Follow [@contextbotapp](https://x.com/contextbotapp)** for updates and [@SoyAnaDev](https://x.com/SoyAnaDev) for behind-the-scenes, and share it with someone whose bot is still typing.
+
+### 🚦 Help Context Bot grow
+
+If it helps you, a follow and a share are the best way to help it reach more people. 😉
+
+<div align="center">
+
+[![Follow @contextbotapp](https://img.shields.io/badge/Follow%20%40contextbotapp-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/contextbotapp)
+[![Share on X](https://img.shields.io/badge/Share%20on%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=My%20Grok%20Bots%20stay%20fast%20with%20Context%20Bot%20%F0%9F%9A%A6%20Free%20and%20open%20source%3A%20https%3A%2F%2Fcontextbot.app%20via%20%40contextbotapp)
+[![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20on%20GitHub-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
+
+</div>
+
+- **Follow [@contextbotapp](https://x.com/contextbotapp)** for tips and updates.
+- **Share it** with someone whose bot is still typing.
+- **⭐ Star the repo:** it helps other people find it.
 
 ## 🔒 Privacy
 

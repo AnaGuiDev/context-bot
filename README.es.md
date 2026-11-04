@@ -175,18 +175,36 @@ Las ideas, correcciones y traducciones son bienvenidas. Lee [CONTRIBUTING.md](CO
 
 Context Bot es y seguirá siendo gratis. Sin anuncios, sin rastreadores, sin versión de pago.
 
+### 💛 Apoya a Ana, la autora
+
+Si Context Bot te ha ahorrado tiempo o uso, puedes darle las gracias a Ana con un café o una propina en X.
+
 <div align="center">
 
-[![Dale una estrella](https://img.shields.io/badge/%E2%AD%90%20Dale%20una%20estrella-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
 [![Invítame a un café](https://img.shields.io/badge/Inv%C3%ADtame%20a%20un%20caf%C3%A9-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
 [![Propinas en X](https://img.shields.io/badge/Propinas%20en%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
+[![Sigue a @SoyAnaDev](https://img.shields.io/badge/Sigue%20a%20%40SoyAnaDev-1d1d1f?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
 
 </div>
 
-- **⭐ Dale una estrella al repositorio:** ayuda a que otros lo encuentren.
 - **☕ Buy Me a Coffee:** [buymeacoffee.com/soyanadev](https://buymeacoffee.com/soyanadev).
 - **💸 Propinas en X:** botón de Propinas en el perfil de [@SoyAnaDev](https://x.com/SoyAnaDev).
-- **Sigue a [@contextbotapp](https://x.com/contextbotapp)** para enterarte de las novedades, y compártelo con quien tenga un bot que sigue escribiendo.
+
+### 🚦 Ayuda a que Context Bot crezca
+
+Si te ayuda, seguirlo y compartirlo es la mejor forma de que llegue a más gente. 😉
+
+<div align="center">
+
+[![Sigue a @contextbotapp](https://img.shields.io/badge/Sigue%20a%20%40contextbotapp-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/contextbotapp)
+[![Compártelo en X](https://img.shields.io/badge/Comp%C3%A1rtelo%20en%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=Mis%20Grok%20Bots%20siguen%20r%C3%A1pidos%20con%20Context%20Bot%20%F0%9F%9A%A6%20Gratis%20y%20de%20c%C3%B3digo%20abierto%3A%20https%3A%2F%2Fcontextbot.app%2Fes%2F%20v%C3%ADa%20%40contextbotapp)
+[![Dale una estrella](https://img.shields.io/badge/%E2%AD%90%20Dale%20una%20estrella-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
+
+</div>
+
+- **Sigue a [@contextbotapp](https://x.com/contextbotapp)** para consejos y novedades.
+- **Compártelo** con quien tenga un bot que sigue escribiendo.
+- **⭐ Dale una estrella al repositorio:** ayuda a que otros lo encuentren.
 
 ## 🔒 Privacidad
 
