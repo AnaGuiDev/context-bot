@@ -96,6 +96,7 @@ EN = dict(
   # landing · video
   video_eyebrow="The demo", video_title="See it in 45 seconds",
   video_sub="It plays on its own, muted and on a loop. Turn the sound on for the music.",
+  video_next="Now, the long version ↓",
   road_hint="Scroll down the road: the light changes as the chat grows.",
   bot_g="Fresh and fast.", bot_y="Getting a bit slow…", bot_r="Running on fumes.",
   exit_word="EXIT", exit_to="Fresh bot",
@@ -318,6 +319,7 @@ ES = dict(
   # landing · vídeo
   video_eyebrow="La demo", video_title="Míralo en 45 segundos",
   video_sub="Se reproduce solo, sin sonido y en bucle. Activa el sonido si quieres música.",
+  video_next="Y ahora, la versión larga ↓",
   road_hint="Baja por la carretera: el semáforo cambia según crece la charla.",
   bot_g="Fresco y rápido.", bot_y="Empiezo a ir lento…", bot_r="Voy en reserva.",
   exit_word="SALIDA", exit_to="Bot nuevo",
