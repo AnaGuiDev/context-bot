@@ -73,11 +73,11 @@ More detail in [docs/en/installation.md](docs/en/installation.md).
 ## 🖥️ The website and the dashboard
 
 <div align="center">
-<img src="assets/landing.png" alt="Context Bot landing page" width="820">
+<img src="assets/landing.jpg" alt="Context Bot landing page" width="820">
 </div>
 
 <div align="center">
-<img src="assets/dashboard.png" alt="Dashboard with three bots on green, yellow and red" width="820">
+<img src="assets/dashboard.jpg" alt="Dashboard with three bots on green, yellow and red" width="820">
 </div>
 
 Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. **Handoff** shows what travels to the new bot and gives you the `TRASPASO.md`. You can also paste one in to check it. **Review your routines** suggests which ones to pause or run less often. You can export and import everything as JSON. Nothing leaves your computer.

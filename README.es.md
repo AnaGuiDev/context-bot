@@ -89,13 +89,13 @@ Más detalle en [docs/instalacion.md](docs/instalacion.md).
 ## 🖥️ La página y el panel
 
 <div align="center">
-<img src="assets/landing.png" alt="Página de presentación de Context Bot" width="820">
+<img src="assets/landing.jpg" alt="Página de presentación de Context Bot" width="820">
 </div>
 
 ### El panel
 
 <div align="center">
-<img src="assets/dashboard.png" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
+<img src="assets/dashboard.jpg" alt="Panel con tres bots en verde, amarillo y rojo" width="820">
 </div>
 
 Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Debajo, **Revisa tus rutinas**: apunta cada rutina (bot, frecuencia, si aún la necesitas) y te sugiere pausarla o bajar su frecuencia. Puedes exportar e importar bots y rutinas en JSON. Con **Traspaso** eliges un bot en amarillo o rojo, ves cómo pasan sus cosas al bot nuevo y te llevas el `TRASPASO.md`; también puedes pegar uno para revisarlo. Nada sale de tu ordenador.
