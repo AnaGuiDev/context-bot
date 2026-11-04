@@ -114,6 +114,8 @@ Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. D
 
 No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que no uses y espacia las demás. Todos los trucos, con sus fuentes, en [docs/tips-ahorro.md](docs/tips-ahorro.md). Los que aún no hemos podido confirmar están en [docs/tips-pendientes.md](docs/tips-pendientes.md).
 
+> 🎨 **Ponle cara a cada bot.** Dile a tu bot nuevo «ponte tu foto oficial» y lo reconocerás de un vistazo en tu lista. El mismo bot, el doble de disfrute.
+
 ## ❓ Preguntas frecuentes
 
 <details><summary><b>¿Por qué mi bot nuevo sale con una bola negra?</b></summary>

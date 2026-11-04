@@ -172,6 +172,7 @@ EN = dict(
   t4_h="Lower the frequency", t4_p="Going from “every hour” to “every morning” is usually enough.",
   t5_h="Careful with “Test”", t5_p="Testing a routine uses as much as a real run.",
   t6_h="Long chat, new bot", t6_p="Move to a new bot with Context Bot Migrator and pick up where you left off.",
+  tip_photo="🎨 <strong>Give each bot its face.</strong> Tell your new bot «put on your official picture» and you'll spot it at a glance in your list. Same bot, twice the fun.",
   tips_more="See all the tips and their sources →",
   # landing · support
   sup_eyebrow="Support", sup_h="Free forever. Fueled by coffee and stars.",
@@ -457,6 +458,7 @@ ES = dict(
   t4_h="Baja la frecuencia", t4_p="De «cada hora» a «cada mañana» suele bastar.",
   t5_h="Ojo con «Test»", t5_p="Probar una rutina gasta como una ejecución real.",
   t6_h="Charla larga, bot nuevo", t6_p="Pasa a un bot nuevo con Context Bot Migrator y retoma donde lo dejaste.",
+  tip_photo='🎨 <strong>Ponle cara a cada bot.</strong> Dile a tu bot nuevo «ponte tu foto oficial» y lo reconocerás de un vistazo en tu lista. El mismo bot, el doble de disfrute.',
   tips_more="Ver todos los trucos y sus fuentes →",
   # landing · apoyo
   sup_eyebrow="Apoya el proyecto", sup_h="Gratis para siempre. Funciona a base de cafés y estrellas.",

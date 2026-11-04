@@ -114,6 +114,8 @@ Add your bots, paste their status and see at a glance which one needs attention.
 
 Don't reply "ok" to every message, batch your requests, pause routines you don't use and space out the rest. All the tips, with sources, are in [docs/en/tips.md](docs/en/tips.md).
 
+> 🎨 **Give each bot its face.** Tell your new bot «put on your official picture» and you'll spot it at a glance in your list. Same bot, twice the fun.
+
 ## ❓ FAQ
 
 <details><summary><b>Why does my new bot have a black ball as its picture?</b></summary>
