@@ -85,7 +85,10 @@ EN = dict(
   copy_word="Copy", copied_word="Copied ✓",
   # landing · video
   video_eyebrow="The demo", video_title="See it in 45 seconds",
-  video_sub="No autoplay, no tracking: the video only loads when you press play.",
+  video_sub="It plays on its own, muted and on a loop. Turn the sound on for the music.",
+  road_hint="Scroll down the road: the light changes as the chat grows.",
+  bot_g="Fresh and fast.", bot_y="Getting a bit slow…", bot_r="Running on fumes.",
+  exit_word="EXIT", exit_to="Fresh bot",
   video_fallback="Your browser can't play this video.", video_download="Download it here",
   v_controls="Video controls", v_play="Play", v_play_label="Play video", v_stop="Stop",
   v_stop_label="Stop the video and go back to the start", v_sound_on="Turn sound on", v_sound_off="Mute",
@@ -289,7 +292,10 @@ ES = dict(
   copy_word="Copiar", copied_word="Copiado ✓",
   # landing · vídeo
   video_eyebrow="La demo", video_title="Míralo en 45 segundos",
-  video_sub="Sin reproducción automática ni seguimiento: el vídeo solo se carga cuando pulsas reproducir.",
+  video_sub="Se reproduce solo, sin sonido y en bucle. Activa el sonido si quieres música.",
+  road_hint="Baja por la carretera: el semáforo cambia según crece la charla.",
+  bot_g="Fresco y rápido.", bot_y="Empiezo a ir lento…", bot_r="Voy en reserva.",
+  exit_word="SALIDA", exit_to="Bot nuevo",
   video_fallback="Tu navegador no puede reproducir el vídeo.", video_download="Descárgalo aquí",
   v_controls="Controles del vídeo", v_play="Reproducir", v_play_label="Reproducir vídeo", v_stop="Parar",
   v_stop_label="Parar vídeo y volver al principio", v_sound_on="Activar sonido", v_sound_off="Silenciar",
