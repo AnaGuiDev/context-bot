@@ -5,6 +5,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 
 ## [Sin publicar]
 
+### Cambiado
+- **Rediseño de la landing** con la marca nueva (degradado azul marino/morado y luces que brillan, como el banner y el avatar de X): titular «dolor → alivio», semáforo vivo en el hero (cambia solo, se puede tocar y pausar, y se queda quieto con «reducir movimiento»), sección «¿Te suena?», comparativa antes/después, los tres colores contados con lo que dice el bot y lo que haces tú, CTA final con el prompt de instalación, bloque de apoyo y tres preguntas nuevas en el FAQ. Todo en inglés y español desde `src/i18n.py`.
+- Panel y privacidad con la misma marca; estilos comunes en `src/templates/_brand.html` y logo en `_logo.html`. La web pasa a ser solo oscura.
+- Imágenes para redes (`og-image.png`, `og-image-es.png`) con el estilo del banner nuevo.
+- Enlaces a la cuenta del proyecto en X, [@contextbotapp](https://x.com/contextbotapp), en el pie de la landing, el panel, la privacidad y la 404.
+- `scripts/build_site.py` consulta las estrellas del repositorio al generar la web y solo muestra la cifra a partir de 10 (`CB_STARS=off` para no consultarlo). Nada se pide a terceros desde el navegador.
+
+### Corregido
+- Los elementos con `hidden` se veían igualmente si su CSS fijaba `display` (el botón grande de reproducir seguía encima del vídeo y la vista de Traspaso no se ocultaba cuando no había bots en amarillo o rojo).
+- El botón de copiar el prompt copiaba dos veces (había dos scripts escuchando el mismo clic).
+
 ### Añadido
 - Conector MCP opcional de estado en directo en `worker/` (Cloudflare Workers, OAuth con GitHub, D1/KV), con 5 herramientas, entre ellas `delete_my_data`, y pruebas. Guías: `docs/conector.md` y `docs/despliegue-worker.md`.
 - Panel: botón «Conectar estado en directo». Si no conecta, el panel sigue usando los datos locales.
