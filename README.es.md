@@ -118,7 +118,7 @@ No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que 
 
 <details><summary><b>¿Por qué mi bot nuevo sale con una bola negra?</b></summary>
 
-Las plantillas no traen la foto de perfil. El bot se pone la suya solo al arrancar y te avisa. Si no lo consiguió, pónsela tú: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
+Las plantillas no traen la foto de perfil. Dile a tu bot nuevo «ponte tu foto oficial» y se la pondrá. O pónsela tú a mano: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
 </details>
 
 <details><summary><b>¿Es gratis?</b></summary>
