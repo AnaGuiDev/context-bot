@@ -10,7 +10,7 @@ LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública d
 TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(
-  og_locale="en_US", og_locale_alt="es_ES", og_image="og-image.png?v=3",
+  og_locale="en_US", og_locale_alt="es_ES", og_image="card-launch-en.png",
   og_image_alt="A glowing red, yellow and green traffic light next to the words: Keep your Grok Bots in shape. Stretch your subscription. Context Bot, free and open source.",
   lang_nav="Language", privacy_word="Privacy", home_word="Home", dash_word="Dashboard",
   skip="Skip to content", foot_nav="Footer", star_short="Star",
@@ -294,7 +294,7 @@ EN = dict(
 )
 
 ES = dict(
-  og_locale="es_ES", og_locale_alt="en_US", og_image="og-image-es.png?v=3",
+  og_locale="es_ES", og_locale_alt="en_US", og_image="card-launch-es.png",
   og_image_alt="Un semáforo rojo, amarillo y verde que brilla junto al texto: Tus Grok Bots, a punto. Estira tu suscripción. Context Bot, gratis y de código abierto.",
   lang_nav="Idioma", privacy_word="Privacidad", home_word="Inicio", dash_word="Panel",
   skip="Saltar al contenido", foot_nav="Pie de página", star_short="Estrella",
