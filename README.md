@@ -59,6 +59,10 @@ Install the skill at https://contextbot.app/skill.md into my skill library, save
 
 More detail in [docs/en/installation.md](docs/en/installation.md).
 
+## 🧭 Migrator (optional)
+
+When the light turns yellow or red, the optional **Context Bot Migrator** skill moves the work to a fresh bot in five checked stages: inventory, a short handoff you review, a new bot only after your OK, a verification checklist with routines paused, and a rollback (the old bot is hidden, never deleted). See [docs/en/migrator.md](docs/en/migrator.md).
+
 ## 🧳 Before and after
 
 | Without Context Bot | With Context Bot |

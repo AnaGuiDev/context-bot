@@ -59,6 +59,10 @@ Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skill
 
 Más detalle en [docs/instalacion.md](docs/instalacion.md).
 
+## 🧭 Migrator (opcional)
+
+Cuando el semáforo pasa a amarillo o rojo, la skill opcional **Context Bot Migrator** pasa el trabajo a un bot nuevo en cinco etapas comprobadas: inventario, un traspaso breve que revisas tú, bot nuevo solo tras tu sí, lista de verificación con las rutinas en pausa y vuelta atrás (el antiguo se oculta, nunca se borra). Mira [docs/migrator.md](docs/migrator.md).
+
 ## 🧳 Antes y después
 
 | Sin Context Bot | Con Context Bot |
