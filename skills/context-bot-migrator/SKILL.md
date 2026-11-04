@@ -1,126 +1,126 @@
 ---
 name: context-bot-migrator
-description: Moves the work of a slow, long-running bot into a fresh bot in a planned way. It takes an inventory of the old bot, writes a short structured handoff the owner reviews, creates the new bot only after an explicit OK, checks the result against a checklist, and keeps a rollback. Use it when Context Bot shows yellow or red, or when the owner asks to move, copy, migrate or restart a bot.
+description: Pasa el trabajo de un bot lento y con mucha conversación a un bot nuevo de forma ordenada. Hace inventario del bot antiguo, escribe un traspaso breve y estructurado que revisa el dueño, crea el bot nuevo solo tras un sí explícito, lo verifica con una lista y deja una vuelta atrás. Úsala cuando Context Bot marque amarillo o rojo, o cuando el dueño pida mover, copiar, migrar o reiniciar un bot.
 ---
 
 # Context Bot Migrator
 
-A long chat costs more on every reply. Moving to a fresh bot resets that cost, but learned memory does not copy itself. This skill turns the move into five checked stages. It works with any bot and does not depend on a specific duplication tool.
+Una conversación larga cuesta más en cada respuesta. Pasar a un bot nuevo reinicia ese coste, pero la memoria aprendida no se copia sola. Esta skill convierte el cambio en cinco etapas comprobadas. Sirve para cualquier bot y no depende de ninguna herramienta concreta de duplicado.
 
-Ground rules:
-- Copy, never move. The old bot stays intact and hidden. Never delete it.
-- Nothing irreversible without the owner's explicit OK: creating a bot, switching routines on, hiding the old bot.
-- No passwords, tokens, card numbers or private keys in any file.
-- Every number about size or cost is an **estimate**. Say what it is based on.
-- Give each line the owner must paste into another chat in its own code block, alone.
+Reglas básicas:
+- Copiar, nunca mover. El bot antiguo queda intacto y oculto. Nunca se borra.
+- Nada irreversible sin un sí explícito del dueño: crear un bot, activar rutinas, ocultar el bot antiguo.
+- Ni contraseñas, ni tokens, ni números de tarjeta, ni claves privadas en ningún archivo.
+- Toda cifra de tamaño o coste es una **estimación**. Di en qué se basa.
+- Cada línea que el dueño deba pegar en otro chat va en su propio bloque de código, sola.
 
-## When to suggest it
+## Cuándo proponerla
 
-- Context Bot light is **yellow**: the best moment. The old bot can still write a good handoff cheaply.
-- Light is **red**: suggest it now. Don't start until the owner says yes.
-- The owner asks directly.
+- Semáforo en **amarillo**: el mejor momento. El bot antiguo aún puede escribir un buen traspaso sin gastar mucho.
+- Semáforo en **rojo**: proponlo ya. No empieces hasta que el dueño diga que sí.
+- El dueño lo pide directamente.
 
-## Stage 1 · Inventory of the old bot
+## Etapa 1 · Inventario del bot antiguo
 
-A bot can usually list its own memory, skills, routines and connectors better than anyone else. Give the owner this prompt to paste into the **old** bot. It produces the inventory and the handoff in one turn:
+Normalmente un bot sabe listar su memoria, skills, rutinas y conectores mejor que nadie. Da al dueño este mensaje para pegar en el bot **antiguo**. Genera inventario y traspaso en un solo turno:
 
 ```
-Prepare a Context Bot migration in one reply. 1) Update STATUS.md and set the light. 2) Write /workspace/context-bot-traspasos/<bot>/TRASPASO.md using the Migrator handoff format: version, source bot, date, summary, memory facts (one per line), tasks, key files, skills, routines with schedule and on/off state, connectors with auth status, and a line confirming secrets were excluded. 3) Copy it to /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<YYYY-MM-DD>.md. 4) Reply with the counts: facts, skills, routines, connectors. Keep the whole file under about 150 lines. Do not create, change or delete anything else.
+Prepara una migración de Context Bot en una sola respuesta. 1) Actualiza STATUS.md y pon el semáforo. 2) Escribe /workspace/context-bot-traspasos/<bot>/TRASPASO.md con el formato de traspaso de Migrator: versión, bot de origen, fecha, resumen, hechos de memoria (uno por línea), tareas, archivos clave, skills, rutinas con horario y estado activa/pausada, conectores con estado de autenticación y una línea que confirme que se han excluido los secretos. 3) Cópialo en /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<AAAA-MM-DD>.md. 4) Responde con los recuentos: hechos, skills, rutinas, conectores. Que el archivo no pase de unas 150 líneas. No crees, cambies ni borres nada más.
 ```
 
-Replace `<bot>` with a short folder name (lowercase, no spaces). Write the counts down: they are the "before" side of Stage 4.
+Cambia `<bot>` por un nombre de carpeta corto (minúsculas, sin espacios). Apunta los recuentos: son el «antes» de la Etapa 4.
 
-If the old bot can't list something (for example connector auth), mark it `unknown`. Don't guess.
+Si el bot antiguo no puede listar algo (por ejemplo, la autenticación de un conector), márcalo como `desconocido`. No lo adivines.
 
-## Stage 2 · The handoff file
+## Etapa 2 · El archivo de traspaso
 
-Path: `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, readable by every bot on the shared computer. If the new bot can't read it, the owner pastes the contents into the chat.
+Ruta: `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, legible por todos los bots del ordenador compartido. Si el bot nuevo no puede leerlo, el dueño pega el contenido en el chat.
 
-Format (keep it short, a summary rather than a history):
+Formato (breve: un resumen, no un historial):
 
 ```markdown
 # TRASPASO
 format: migrator-1
-source_bot: <name> (<id if known>)
-date: YYYY-MM-DD HH:MM <zone>
+source_bot: <nombre> (<id si se conoce>)
+date: AAAA-MM-DD HH:MM <zona>
 light_at_handoff: yellow | red
 
-## Summary
-3–5 sentences: goal, where we are, next step.
+## Resumen
+3–5 frases: objetivo, en qué punto estamos, siguiente paso.
 
-## Memory facts
-- one fact per line (preferences, decisions, people/projects by role, ways of working)
+## Hechos de memoria
+- un hecho por línea (preferencias, decisiones, personas/proyectos por su papel, forma de trabajar)
 
-## Tasks
-- [in progress] ...
-- [to do] ...
-- [blocked] ... (why)
+## Tareas
+- [en curso] ...
+- [pendiente] ...
+- [bloqueada] ... (motivo)
 
-## Key files
-- /path — what it is
+## Archivos clave
+- /ruta — qué es
 
 ## Skills
-- name — installed / custom
+- nombre — instalada / propia
 
-## Routines
-- name — schedule — on/off — what it does
+## Rutinas
+- nombre — horario — activa/pausada — qué hace
 
-## Connectors
-- name — connected / needs auth / unknown
+## Conectores
+- nombre — conectado / requiere autenticación / desconocido
 
-## Secrets
-secrets_excluded: yes — no passwords, tokens, keys or card data in this file.
+## Secretos
+secrets_excluded: sí — sin contraseñas, tokens, claves ni datos de tarjeta en este archivo.
 ```
 
-Ask the owner to read it before going on. Look for: private data they don't want shared, missing decisions or preferences, routines they no longer want.
+Pide al dueño que lo lea antes de seguir. Que busque: datos privados que no quiera compartir, decisiones o preferencias que falten, rutinas que ya no quiera.
 
-## Stage 3 · Create the new bot (only after an explicit OK)
+## Etapa 3 · Crear el bot nuevo (solo tras un sí explícito)
 
-Ask in one sentence: "Shall I create the new bot now?" Wait for a clear yes.
+Pregunta en una frase: «¿Creo ahora el bot nuevo?». Espera un sí claro.
 
-Then, depending on what is available:
-1. **A bot-creation tool (for example CreateAgent):** create it with the same name plus a marker (e.g. "· 2"), the same instructions, and the skills on the handoff list. Create routines **paused**.
-2. **No tool:** guide the owner step by step to create the bot in the app, or to use a duplication tool if they already use one. Duplication tools often copy setup but not learned memory. The handoff covers that gap either way.
+Después, según lo que haya disponible:
+1. **Una herramienta para crear bots (por ejemplo CreateAgent):** créalo con el mismo nombre y una marca (p. ej. «· 2»), las mismas instrucciones y las skills de la lista del traspaso. Crea las rutinas **en pausa**.
+2. **Sin herramienta:** guía al dueño paso a paso para crear el bot en la app, o para usar una herramienta de duplicado si ya la usa. Estas herramientas suelen copiar la configuración pero no la memoria aprendida. El traspaso cubre ese hueco en ambos casos.
 
-First message for the new bot (give it to the owner as a single paste line):
+Primer mensaje para el bot nuevo (dáselo al dueño como una sola línea para pegar):
 
 ```
-You are continuing from an earlier bot. Read /workspace/context-bot-traspasos/<bot>/TRASPASO.md, save each memory fact to your memory, create STATUS.md in green, keep all routines paused, and reply with a three-sentence summary plus your counts of facts, skills, routines and connectors.
+Vienes de un bot anterior. Lee /workspace/context-bot-traspasos/<bot>/TRASPASO.md, guarda cada hecho de memoria en tu memoria, crea STATUS.md en verde, deja todas las rutinas en pausa y responde con un resumen de tres frases y tus recuentos de hechos, skills, rutinas y conectores.
 ```
 
-This one-turn startup keeps the new chat small from the start.
+Este arranque en un turno mantiene pequeña la conversación nueva desde el principio.
 
-## Stage 4 · Verification checklist
+## Etapa 4 · Lista de verificación
 
-Compare the new bot against the "before" counts. Report each line as ✅, ⚠️ or ❌:
+Compara el bot nuevo con los recuentos del «antes». Marca cada línea con ✅, ⚠️ o ❌:
 
-- [ ] Memory facts: count matches; spot-check two facts word by word.
-- [ ] Skills: every listed skill is present.
-- [ ] Routines: same count, same schedules, and **all paused**. They stay paused until the owner confirms, so nothing runs twice.
-- [ ] Connectors: each is connected, or flagged "needs re-auth" for the owner. Sign-ins are done by the owner, never by pasting secrets.
-- [ ] Three memory-only questions: the owner asks three things only the old memory would know (a preference, a decision, a person's role). All three should be right.
-- [ ] STATUS.md exists in green and matches the handoff tasks.
-- [ ] Optional dry run: run one routine once by hand, check its output, and leave it paused.
+- [ ] Hechos de memoria: el recuento coincide; comprueba dos hechos palabra por palabra.
+- [ ] Skills: están todas las de la lista.
+- [ ] Rutinas: mismo número, mismos horarios y **todas en pausa**. Siguen en pausa hasta que el dueño confirme, para que nada se ejecute dos veces.
+- [ ] Conectores: cada uno conectado o marcado «requiere autenticación» para el dueño. Los inicios de sesión los hace el dueño, nunca pegando secretos.
+- [ ] Tres preguntas de memoria: el dueño pregunta tres cosas que solo sabría la memoria antigua (una preferencia, una decisión, el papel de una persona). Las tres deberían salir bien.
+- [ ] STATUS.md existe en verde y coincide con las tareas del traspaso.
+- [ ] Prueba opcional: ejecuta una rutina una vez a mano, revisa el resultado y déjala en pausa.
 
-Anything ⚠️ or ❌: fix it from the handoff, or ask the old bot to expand that section, then check again.
+Si algo sale ⚠️ o ❌: complétalo desde el traspaso, o pide al bot antiguo que amplíe esa sección, y vuelve a comprobar.
 
-When everything passes and the owner agrees: switch the new bot's routines on, pause the matching routines on the old bot, and ask before hiding the old bot.
+Cuando todo esté bien y el dueño esté de acuerdo: activa las rutinas del bot nuevo, pausa las equivalentes del antiguo y pregunta antes de ocultar el antiguo.
 
-## Stage 5 · Rollback
+## Etapa 5 · Vuelta atrás
 
-- The old bot is hidden, not deleted. Its chat and memory stay as they were.
-- The dated archive in `archive/` keeps every handoff version.
-- One-line undo for the owner: **unhide the old bot, switch its routines back on, and pause or hide the new one.**
-- Offer the undo whenever the owner says the new bot feels wrong during the first days.
+- El bot antiguo se oculta, no se borra. Su conversación y su memoria quedan como estaban.
+- El archivo fechado en `archive/` guarda cada versión del traspaso.
+- Deshacer en una línea, para el dueño: **muestra el bot antiguo, reactiva sus rutinas y pausa u oculta el nuevo.**
+- Ofrece deshacer siempre que el dueño note raro el bot nuevo en los primeros días.
 
-## Cost
+## Coste
 
-- Migrating at yellow costs less than at red: the old bot's handoff turn is one of its most expensive, and it only gets pricier.
-- Short handoff, one-turn startup, no replaying old history.
-- If the owner asks what they save: give a rough **estimate** based on visible signs (approximate message count, compactions, large tool results). Label it as an estimate, say what it is based on, and never invent exact token or money figures.
+- Migrar en amarillo cuesta menos que en rojo: el turno de traspaso del bot antiguo es de los más caros, y cada vez lo es más.
+- Traspaso breve, arranque en un turno, sin repetir el historial.
+- Si el dueño pregunta cuánto ahorra: da una **estimación** aproximada basada en señales visibles (número aproximado de mensajes, compactaciones, resultados grandes de herramientas). Llámala estimación, di en qué se basa y nunca inventes cifras exactas de tokens o dinero.
 
-## With Context Bot
+## Con Context Bot
 
-- Read the light from `STATUS.md`. On yellow, offer the migration. On red, recommend it.
-- The handoff lives at `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, the same place Context Bot uses.
-- After migrating, the new bot uses Context Bot as usual, starting in green.
+- Lee el semáforo de `STATUS.md`. En amarillo, ofrece la migración. En rojo, recomiéndala.
+- El traspaso vive en `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, el mismo sitio que usa Context Bot.
+- Tras migrar, el bot nuevo sigue con Context Bot como siempre, empezando en verde.
