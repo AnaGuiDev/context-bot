@@ -18,7 +18,7 @@ The light version of Context Bot: **just the traffic light and `STATUS.md`**.
 
 ## Install
 
-Template: coming soon. Meanwhile, paste this into your bot:
+Template: [Context Bot Lite](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG). Or paste this into your bot:
 
 > Save https://github.com/AnaGuiDev/context-bot/blob/main/skills/context-bot-lite/en/SKILL.md as a skill and use it from now on.
 

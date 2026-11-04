@@ -67,7 +67,7 @@ When the light turns yellow or red, the optional **Context Bot Migrator** skill 
 
 ## 🪶 Lite (optional)
 
-**Context Bot Lite** is the light version: just the traffic light and `STATUS.md`, checked roughly every 20 messages or when you ask. No savings mode and no migration; at red it suggests Context Bot Migrator. Template coming soon; the skill is in [skills/context-bot-lite/](skills/context-bot-lite/). See [docs/en/lite.md](docs/en/lite.md).
+**Context Bot Lite** is the light version: just the traffic light and `STATUS.md`, checked roughly every 20 messages or when you ask. No savings mode and no migration; at red it suggests Context Bot Migrator. [Add the template](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG); the skill is in [skills/context-bot-lite/](skills/context-bot-lite/). See [docs/en/lite.md](docs/en/lite.md).
 
 Not sure what colour your bot is? Try the [one-minute check](https://contextbot.app/#check): one prompt, any Grok Bot.
 

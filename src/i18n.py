@@ -5,7 +5,8 @@ REPO = "https://github.com/AnaGuiDev/context-bot"
 X = "https://x.com/SoyAnaDev"          # perfil de la autora (propinas de X)
 X_PROJECT = "https://x.com/contextbotapp"  # cuenta del proyecto (novedades)
 BMC = "https://buymeacoffee.com/soyanadev"
-MIGRATOR_TEMPLATE = "https://x.ai/bot/oUJEAr2axANgtedIGrkNS"  # plantilla pública de Context Bot Migrator
+MIGRATOR_TEMPLATE = "https://x.ai/bot/oUJEAr2axANgtedIGrkNS"
+LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública de Context Bot Lite  # plantilla pública de Context Bot Migrator
 TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(
@@ -139,10 +140,10 @@ EN = dict(
   lite1_h='🚦 Traffic light', lite1_p='Green, yellow or red, with one short sentence when it changes.',
   lite2_h='📝 STATUS.md', lite2_p='Your progress in a file, so you can pick up where you left off.',
   lite3_h='🪶 Light by design', lite3_p='Fewer checks, no scripts, no extra routines.',
-  lite_soon='Template coming soon',
+  lite_soon='Add Context Bot Lite',
   lite_note='Want it now? Get the skill on <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-lite">GitHub</a>.',
   ben4_h='🪶 Context Bot Lite · just the traffic light',
-  ben4_p='The light version: traffic light and STATUS.md only, with fewer checks. Template coming soon.',
+  ben4_p='The light version: traffic light and STATUS.md only, with fewer checks.',
   ben_eyebrow='The complete kit',
   ben_h='Three friendly bots, one complete kit',
   ben_sub='Together they keep your bots in shape and help your subscription go further. All free and open source.',
@@ -419,10 +420,10 @@ ES = dict(
   lite1_h='🚦 Semáforo', lite1_p='Verde, amarillo o rojo, con una frase corta cuando cambia.',
   lite2_h='📝 STATUS.md', lite2_p='Tu progreso en un archivo, para que retomes donde lo dejaste.',
   lite3_h='🪶 Ligero a propósito', lite3_p='Menos comprobaciones, sin scripts ni rutinas extra.',
-  lite_soon='Plantilla próximamente',
+  lite_soon='Añadir Context Bot Lite',
   lite_note='¿Lo quieres ya? La skill está en <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-lite">GitHub</a>.',
   ben4_h='🪶 Context Bot Lite · solo el semáforo',
-  ben4_p='La versión ligera: semáforo y STATUS.md, con menos comprobaciones. Plantilla próximamente.',
+  ben4_p='La versión ligera: semáforo y STATUS.md, con menos comprobaciones.',
   ben_eyebrow='El kit completo',
   ben_h='Tres bots amables, un kit completo',
   ben_sub='Juntos tienen tus bots a punto y te ayudan a estirar la suscripción. Todos, gratis y de código abierto.',

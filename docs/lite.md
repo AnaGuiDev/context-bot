@@ -18,7 +18,7 @@ La versión ligera de Context Bot: **solo el semáforo y el `STATUS.md`**.
 
 ## Instalar
 
-Plantilla: próximamente. Mientras tanto, pega esto en tu bot:
+Plantilla: [Context Bot Lite](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG). O pega esto en tu bot:
 
 > Guarda como skill el archivo https://github.com/AnaGuiDev/context-bot/blob/main/skills/context-bot-lite/SKILL.md y úsalo desde ahora.
 

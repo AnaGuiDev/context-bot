@@ -67,7 +67,7 @@ Cuando el semáforo pasa a amarillo o rojo, la skill opcional **Context Bot Migr
 
 ## 🪶 Lite (opcional)
 
-**Context Bot Lite** es la versión ligera: solo el semáforo y `STATUS.md`, con una revisión cada ~20 mensajes o cuando la pidas. Sin modo ahorro ni migración; en rojo sugiere Context Bot Migrator. Plantilla próximamente; la skill está en [skills/context-bot-lite/](skills/context-bot-lite/). Más en [docs/lite.md](docs/lite.md).
+**Context Bot Lite** es la versión ligera: solo el semáforo y `STATUS.md`, con una revisión cada ~20 mensajes o cuando la pidas. Sin modo ahorro ni migración; en rojo sugiere Context Bot Migrator. [Añade la plantilla](https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG); la skill está en [skills/context-bot-lite/](skills/context-bot-lite/). Más en [docs/lite.md](docs/lite.md).
 
 ¿No sabes de qué color está tu bot? Prueba el [chequeo de un minuto](https://contextbot.app/es/#check): un prompt, cualquier Grok Bot.
 
