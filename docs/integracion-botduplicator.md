@@ -32,3 +32,5 @@ Pide a tu bot actual:
 - **El bot nuevo no recuerda una preferencia:** pídele que la guarde en su memoria y añádela al traspaso para la próxima vez.
 - **Le falta contexto:** pide al bot antiguo que amplíe la sección que falte y pásasela al nuevo.
 - **No quiero duplicar:** también puedes crear un bot desde cero, darle la skill y pegarle el STATUS. Es igual de válido.
+
+> ¿Prefieres una migración guiada y comprobada? Mira la skill opcional [Context Bot Migrator](migrator.md).

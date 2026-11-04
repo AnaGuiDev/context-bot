@@ -32,3 +32,5 @@ Ask your current bot:
 - **The new bot doesn't remember a preference:** ask it to save it to memory, and add it to the handoff for next time.
 - **It's missing context:** ask the old bot to expand the missing section and pass it to the new one.
 - **I don't want to duplicate:** you can also create a bot from scratch, give it the skill and paste in the STATUS. That works just as well.
+
+> Prefer a guided, checked migration? See the optional [Context Bot Migrator](migrator.md).
