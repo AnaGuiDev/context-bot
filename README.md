@@ -65,7 +65,7 @@ More detail in [docs/en/installation.md](docs/en/installation.md).
 
 ## 🧭 Migrator (optional)
 
-When the light turns yellow or red, the optional **Context Bot Migrator** skill moves the work to a fresh bot in five checked stages: inventory, a short handoff you review, a new bot only after your OK, a verification checklist with routines paused, and a rollback (the old bot is hidden, never deleted). See [docs/en/migrator.md](docs/en/migrator.md).
+When the light turns yellow or red, the optional **Context Bot Migrator** does the move for you: it reads the old chat, writes the handoff, has the old bot double-check it, shows you a summary, creates the new bot, swaps routines safely and tells you it worked. You just say yes twice. The old bot is hidden, never deleted, so you can always go back. See [docs/en/migrator.md](docs/en/migrator.md).
 
 **[➕ Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)** · the template opens in Grok Bot with the Migrator skill ready.
 
@@ -121,6 +121,11 @@ Don't reply "ok" to every message, batch your requests, pause routines you don't
 <details><summary><b>Why does my new bot have a black ball as its picture?</b></summary>
 
 Templates don't carry the profile picture. Just tell your new bot «put on your official picture» and it will set it. Or set it by hand: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
+</details>
+
+<details><summary><b>Do I have to copy and paste anything to migrate?</b></summary>
+
+No. Context Bot Migrator reads the old chat, writes the handoff and talks to both bots itself. You just say yes twice: once to create the new bot and once to switch its routines on. Only if a tool can't reach the old bot will it give you one line to paste.
 </details>
 
 <details><summary><b>Is it free?</b></summary>

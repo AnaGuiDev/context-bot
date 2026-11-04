@@ -1,44 +1,33 @@
 ---
 name: context-bot-migrator
-description: Pasa el trabajo de un bot lento y con mucha conversación a un bot nuevo de forma ordenada. Hace inventario del bot antiguo, escribe un traspaso breve y estructurado que revisa el dueño, crea el bot nuevo solo tras un sí explícito, lo verifica con una lista y deja una vuelta atrás. Úsala cuando Context Bot marque amarillo o rojo, o cuando el dueño pida mover, copiar, migrar o reiniciar un bot.
+description: Pasa el trabajo de un bot lento y con mucha conversación a un bot nuevo y hace toda la migración por sí mismo. Lee el chat del bot antiguo, escribe el traspaso, se lo hace repasar al propio bot antiguo, lo enseña al dueño con un resumen, crea el bot nuevo tras un sí explícito, cambia las rutinas de uno a otro con cuidado, lo verifica todo y cierra con un mensaje final. El dueño solo da los visto buenos. Úsala cuando Context Bot marque amarillo o rojo, o cuando el dueño pida mover, copiar, migrar o reiniciar un bot.
 ---
 
 # Context Bot Migrator
 
-Una conversación larga cuesta más en cada respuesta. Pasar a un bot nuevo reinicia ese coste, pero la memoria aprendida no se copia sola. Esta skill convierte el cambio en cinco etapas comprobadas. Sirve para cualquier bot y no depende de ninguna herramienta concreta de duplicado.
+Una conversación larga cuesta más en cada respuesta. Pasar a un bot nuevo reinicia ese coste, pero la memoria aprendida no se copia sola. Esta skill hace la migración entera en seis pasos comprobados: **tú haces el trabajo; el dueño solo dice que sí.**
 
 Reglas básicas:
 - Copiar, nunca mover. El bot antiguo queda intacto y oculto. Nunca se borra.
 - Nada irreversible sin un sí explícito del dueño: crear un bot, activar rutinas, ocultar el bot antiguo.
 - Ni contraseñas, ni tokens, ni números de tarjeta, ni claves privadas en ningún archivo.
-- Toda cifra de tamaño o coste es una **estimación**. Di en qué se basa.
-- Cada línea que el dueño deba pegar en otro chat va en su propio bloque de código, sola.
+- Toda cifra de tamaño o coste es una **estimación**. Di en qué se basa y nunca inventes cifras de ahorro.
+- No pidas al dueño que copie ni pegue nada salvo que una herramienta falle. Si hace falta, cada línea va en su propio bloque de código, sola.
+- Tono cálido y claro. Di «retoma donde lo dejaste». No digas «sin perder nada», «lossless», «arregla» ni «no necesitas nada más».
 
 ## Cuándo proponerla
 
-- Semáforo en **amarillo**: el mejor momento. El bot antiguo aún puede escribir un buen traspaso sin gastar mucho.
+- Semáforo en **amarillo**: el mejor momento; el chat antiguo aún es manejable.
 - Semáforo en **rojo**: proponlo ya. No empieces hasta que el dueño diga que sí.
 - El dueño lo pide directamente.
 
-## Etapa 1 · Inventario del bot antiguo
+Usa `<bot>` como nombre de carpeta corto (minúsculas, sin espacios).
 
-Normalmente un bot sabe listar su memoria, skills, rutinas y conectores mejor que nadie. Da al dueño este mensaje para pegar en el bot **antiguo**. Genera inventario y traspaso en un solo turno:
+## Paso 1 · Leer el chat antiguo y escribir el traspaso
 
-```
-Prepara una migración de Context Bot en una sola respuesta. 1) Actualiza STATUS.md y pon el semáforo. 2) Escribe /workspace/context-bot-traspasos/<bot>/TRASPASO.md con el formato de traspaso de Migrator: versión, bot de origen, fecha, resumen, hechos de memoria (uno por línea), tareas, archivos clave, skills, rutinas (léelas con tu herramienta de rutinas, no de memoria) con nombre, horario, estado activa/pausada y el texto completo de sus instrucciones, conectores con estado de autenticación y una línea que confirme que se han excluido los secretos. 3) Cópialo en /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<AAAA-MM-DD>.md. 4) Responde con los recuentos: hechos, skills, rutinas, conectores. Que el archivo no pase de unas 150 líneas. No crees, cambies ni borres nada más.
-```
+Lee tú mismo la conversación del bot antiguo con ReadTranscript: primero lo más reciente y luego hacia atrás, página a página, hasta tener claro el objetivo, las decisiones, las preferencias y el trabajo abierto. No hace falta leerlo todo si lo antiguo ya está resumido en un STATUS.md o en un traspaso anterior.
 
-Cambia `<bot>` por un nombre de carpeta corto (minúsculas, sin espacios). Apunta los recuentos: son el «antes» de la Etapa 4.
-
-Si el bot antiguo no puede listar algo (por ejemplo, la autenticación de un conector), márcalo como `desconocido`. No lo adivines.
-
-**Las rutinas las compruebas tú, no el dueño.** Tú no puedes ver las rutinas de otro bot, pero sí preguntarle. Si tienes una herramienta para escribir a otros bots (por ejemplo SendToAgent), pregunta tú mismo al bot antiguo: «Lista todas tus rutinas con tu herramienta de rutinas: nombre, horario, estado y el texto completo de sus instrucciones. No cambies nada.» Compara su respuesta con el traspaso y añade lo que falte. No pidas al dueño que te diga sus rutinas; solo si no puedes escribir al bot antiguo, dale una línea para pegarle con esa misma pregunta.
-
-## Etapa 2 · El archivo de traspaso
-
-Ruta: `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, legible por todos los bots del ordenador compartido. Si el bot nuevo no puede leerlo, el dueño pega el contenido en el chat.
-
-Formato (breve: un resumen, no un historial):
+Escribe `/workspace/context-bot-traspasos/<bot>/TRASPASO.md` (legible por todos los bots del ordenador compartido) y una copia en `archive/TRASPASO-<AAAA-MM-DD>.md`. Breve: un resumen, no un historial (unas 150 líneas como máximo).
 
 ```markdown
 # TRASPASO
@@ -51,12 +40,16 @@ light_at_handoff: yellow | red
 3–5 frases: objetivo, en qué punto estamos, siguiente paso.
 
 ## Hechos de memoria
-- un hecho por línea (preferencias, decisiones, personas/proyectos por su papel, forma de trabajar)
+- un hecho por línea (preferencias, decisiones, personas/proyectos por su papel)
+
+## Reglas de trabajo y preferencias
+- cómo le gusta trabajar al dueño, tono, idioma, qué no hacer nunca
+
+## Cómo se hace
+- comandos y pasos habituales (p. ej. `bash scripts/build.sh` — qué hace)
 
 ## Tareas
-- [en curso] ...
-- [pendiente] ...
-- [bloqueada] ... (motivo)
+- [en curso] ... / [pendiente] ... / [bloqueada] ... (motivo)
 
 ## Archivos clave
 - /ruta — qué es
@@ -75,55 +68,72 @@ light_at_handoff: yellow | red
 secrets_excluded: sí — sin contraseñas, tokens, claves ni datos de tarjeta en este archivo.
 ```
 
-Pide al dueño que lo lea antes de seguir. Que busque: datos privados que no quiera compartir, decisiones o preferencias que falten, rutinas que ya no quiera.
+Lo que no puedas saber, márcalo como `desconocido`. No lo adivines.
 
-## Etapa 3 · Crear el bot nuevo (solo tras un sí explícito)
+## Paso 2 · El bot antiguo lo repasa
 
-Pregunta en una frase: «¿Creo ahora el bot nuevo?». Espera un sí claro.
-
-Después, según lo que haya disponible:
-1. **Una herramienta para crear bots (por ejemplo CreateAgent):** créalo con el mismo nombre y una marca (p. ej. «· 2»), las mismas instrucciones y las skills de la lista del traspaso. Crea las rutinas **en pausa**.
-2. **Sin herramienta:** guía al dueño paso a paso para crear el bot en la app, o para usar una herramienta de duplicado si ya la usa. Estas herramientas suelen copiar la configuración pero no la memoria aprendida. El traspaso cubre ese hueco en ambos casos.
-
-Primer mensaje para el bot nuevo (dáselo al dueño como una sola línea para pegar):
+Envía el archivo al bot antiguo con SendToAgent:
 
 ```
-Vienes de un bot anterior. Lee /workspace/context-bot-traspasos/<bot>/TRASPASO.md, guarda cada hecho de memoria en tu memoria, crea STATUS.md en verde, deja todas las rutinas en pausa y responde con un resumen de tres frases y tus recuentos de hechos, skills, rutinas y conectores.
+Soy Context Bot Migrator. Preparo tu migración a un bot nuevo. Repasa /workspace/context-bot-traspasos/<bot>/TRASPASO.md y dime qué falta o qué está mal para que el bot nuevo sea una réplica perfecta de ti: memoria, reglas, tareas, archivos, skills y conectores. Lista además todas tus rutinas con tu herramienta de rutinas (no de memoria): nombre, horario, estado y texto completo de sus instrucciones. Da también tus recuentos de hechos, skills, rutinas y conectores. No cambies nada.
 ```
 
-Este arranque en un turno mantiene pequeña la conversación nueva desde el principio.
+Une sus respuestas al archivo y guarda la versión final (y su copia en `archive/`). Sus recuentos son el «antes» del Paso 5. Solo si no puedes escribirle, da al dueño ese mismo texto como una línea para pegar en el bot antiguo.
 
-## Etapa 4 · Lista de verificación
+## Paso 3 · Enseñar el traspaso y esperar el sí
 
-Compara el bot nuevo con los recuentos del «antes». Marca cada línea con ✅, ⚠️ o ❌:
+Muestra al dueño el archivo completo con un resumen arriba para ojearlo rápido:
 
-- [ ] Hechos de memoria: el recuento coincide; comprueba dos hechos palabra por palabra.
-- [ ] Skills: están todas las de la lista.
-- [ ] Rutinas: mismo número, mismos horarios y **todas en pausa**. Siguen en pausa hasta que el dueño confirme, para que nada se ejecute dos veces.
-- [ ] Conectores: cada uno conectado o marcado «requiere autenticación» para el dueño. Los inicios de sesión los hace el dueño, nunca pegando secretos.
-- [ ] Tres preguntas de memoria: el dueño pregunta tres cosas que solo sabría la memoria antigua (una preferencia, una decisión, el papel de una persona). Las tres deberían salir bien.
-- [ ] STATUS.md existe en verde y coincide con las tareas del traspaso.
-- [ ] Prueba opcional: ejecuta una rutina una vez a mano, revisa el resultado y déjala en pausa.
+- 3–4 líneas: qué se lleva el bot nuevo y los recuentos (hechos, skills, rutinas, conectores).
+- Lo que el bot antiguo añadió o corrigió.
+- Lo marcado como `desconocido` o «requiere autenticación».
 
-Si algo sale ⚠️ o ❌: complétalo desde el traspaso, o pide al bot antiguo que amplíe esa sección, y vuelve a comprobar.
+Debajo, el archivo entero, por si quiere revisarlo al detalle (datos privados que no quiera compartir, decisiones que falten, rutinas que ya no quiera). Pregunta: «¿Creo ya el bot nuevo?». Espera un sí claro.
 
-Cuando todo esté bien y el dueño esté de acuerdo: activa las rutinas del bot nuevo, pausa las equivalentes del antiguo y pregunta antes de ocultar el antiguo.
+## Paso 4 · Crear el bot nuevo y cambiar las rutinas
 
-## Etapa 5 · Vuelta atrás
+1. **Con una herramienta para crear bots (p. ej. CreateAgent):** créalo con el mismo nombre y una marca (p. ej. «· 2»), las mismas instrucciones y las skills del traspaso. Crea las rutinas con su texto completo **en pausa**.
+   **Sin herramienta:** guía al dueño paso a paso para crearlo en la app. El traspaso cubre la memoria en ambos casos.
+2. Pide al bot nuevo (SendToAgent) que cargue el traspaso:
+   ```
+   Vienes de un bot anterior. Lee /workspace/context-bot-traspasos/<bot>/TRASPASO.md, guarda cada hecho de memoria y cada regla en tu memoria, crea STATUS.md en verde, deja todas las rutinas en pausa y responde con un resumen de tres frases y tus recuentos de hechos, skills, rutinas y conectores.
+   ```
+3. Pasa la lista de verificación:
+   - [ ] Hechos: el recuento coincide; comprueba dos palabra por palabra.
+   - [ ] Skills: están todas.
+   - [ ] Rutinas: mismo número, horarios e instrucciones, **todas en pausa**.
+   - [ ] Conectores: conectados o marcados «requiere autenticación» (los inicios de sesión los hace el dueño, nunca pegando secretos).
+   - [ ] Tres preguntas de memoria al bot nuevo (una preferencia, una decisión, el papel de una persona): las tres bien.
+   - [ ] STATUS.md en verde y coincide con las tareas.
+   Si algo sale ⚠️ o ❌, complétalo desde el traspaso o pregunta al bot antiguo, y vuelve a comprobar.
+4. Con todo ✅, pide al bot antiguo (SendToAgent) que **pause sus rutinas** y te confirme cuáles. Después pregunta al dueño: «¿Activo las rutinas del bot nuevo?». Actívalas solo tras su sí. Así nada se ejecuta dos veces.
+
+## Paso 5 · Comprobar que todo ha salido bien
+
+- Rutinas del bot antiguo: en pausa, confirmado por el propio bot antiguo.
+- Rutinas del bot nuevo: activas tras el OK del dueño.
+- Recuentos del bot nuevo iguales a los del «antes» (hechos, skills, rutinas, conectores).
+
+## Paso 6 · Mensaje final
+
+Escribe al dueño un mensaje cálido y bonito:
+- **Si todo ha ido bien:** que ya puede seguir en el bot nuevo y retomar donde lo dejó, con los recuentos y la línea de vuelta atrás. Pregunta si quiere que oculte el bot antiguo (solo tras su sí).
+- **Si algo ha fallado:** qué falló, qué está ya hecho y qué tiene que hacer exactamente (si tiene que hacer algo). Luego retoma el flujo desde el paso que falló y repite hasta conseguirlo, con un nuevo mensaje final.
+
+## Vuelta atrás
 
 - El bot antiguo se oculta, no se borra. Su conversación y su memoria quedan como estaban.
-- El archivo fechado en `archive/` guarda cada versión del traspaso.
+- `archive/` guarda cada versión del traspaso.
 - Deshacer en una línea, para el dueño: **muestra el bot antiguo, reactiva sus rutinas y pausa u oculta el nuevo.**
-- Ofrece deshacer siempre que el dueño note raro el bot nuevo en los primeros días.
+- Ofrece deshacer si el dueño nota raro el bot nuevo en los primeros días.
 
 ## Coste
 
-- Migrar en amarillo cuesta menos que en rojo: el turno de traspaso del bot antiguo es de los más caros, y cada vez lo es más.
-- Traspaso breve, arranque en un turno, sin repetir el historial.
-- Si el dueño pregunta cuánto ahorra: da una **estimación** aproximada basada en señales visibles (número aproximado de mensajes, compactaciones, resultados grandes de herramientas). Llámala estimación, di en qué se basa y nunca inventes cifras exactas de tokens o dinero.
+- Migrar en amarillo cuesta menos que en rojo. Leer el chat por partes y un traspaso breve mantienen pequeño el bot nuevo desde el principio.
+- Si el dueño pregunta cuánto ahorra: da una **estimación** basada en señales visibles (mensajes aproximados, compactaciones, resultados grandes). Nunca inventes cifras exactas.
 
 ## Con Context Bot
 
-- Lee el semáforo de `STATUS.md`. En amarillo, ofrece la migración. En rojo, recomiéndala.
+- Lee el semáforo de `STATUS.md`: en amarillo, ofrece la migración; en rojo, recomiéndala.
 - El traspaso vive en `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, el mismo sitio que usa Context Bot.
 - Tras migrar, el bot nuevo sigue con Context Bot como siempre, empezando en verde.

@@ -65,7 +65,7 @@ Más detalle en [docs/instalacion.md](docs/instalacion.md).
 
 ## 🧭 Migrator (opcional)
 
-Cuando el semáforo pasa a amarillo o rojo, la skill opcional **Context Bot Migrator** pasa el trabajo a un bot nuevo en cinco etapas comprobadas: inventario, un traspaso breve que revisas tú, bot nuevo solo tras tu sí, lista de verificación con las rutinas en pausa y vuelta atrás (el antiguo se oculta, nunca se borra). Mira [docs/migrator.md](docs/migrator.md).
+Cuando el semáforo pasa a amarillo o rojo, el **Context Bot Migrator** opcional hace el cambio por ti: lee el chat antiguo, escribe el traspaso, se lo hace repasar al bot antiguo, te enseña un resumen, crea el bot nuevo, cambia las rutinas con cuidado y te avisa de que ha salido bien. Tú solo dices que sí dos veces. El antiguo se oculta, nunca se borra, así que siempre puedes volver. Mira [docs/migrator.md](docs/migrator.md).
 
 **[➕ Añadir Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)** · la plantilla se abre en Grok Bot con la skill del Migrator lista.
 
@@ -121,6 +121,11 @@ No respondas «ok» a cada mensaje, junta tus peticiones, pausa las rutinas que 
 <details><summary><b>¿Por qué mi bot nuevo sale con una bola negra?</b></summary>
 
 Las plantillas no traen la foto de perfil. Dile a tu bot nuevo «ponte tu foto oficial» y se la pondrá. O pónsela tú a mano: [Context Bot](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-context-bot.png) · [Migrator](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-migrator.png) · [Lite](https://raw.githubusercontent.com/AnaGuiDev/context-bot/main/assets/brand/avatar-lite.png).
+</details>
+
+<details><summary><b>¿Tengo que copiar y pegar algo para migrar?</b></summary>
+
+No. Context Bot Migrator lee el chat antiguo, escribe el traspaso y habla él mismo con los dos bots. Tú solo dices que sí dos veces: una para crear el bot nuevo y otra para activar sus rutinas. Solo si una herramienta no llega al bot antiguo, te dará una línea para pegar.
 </details>
 
 <details><summary><b>¿Es gratis?</b></summary>
