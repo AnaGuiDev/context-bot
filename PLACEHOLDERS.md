@@ -1,13 +1,12 @@
 # Lo que falta por rellenar · What's left to fill in
 
-Ya está puesto · Already set: dominio **https://contextbot.app**, X **[@SoyAnaDev](https://x.com/SoyAnaDev)**, GitHub **[AnaGuiDev/context-bot](https://github.com/AnaGuiDev/context-bot)**.
-Quedan **dos datos** y una fecha. · **Two details** and a date are left.
+Ya está puesto · Already set: dominio **https://contextbot.app**, X **[@SoyAnaDev](https://x.com/SoyAnaDev)** y **[@contextbotapp](https://x.com/contextbotapp)**, GitHub **[AnaGuiDev/context-bot](https://github.com/AnaGuiDev/context-bot)**, Buy Me a Coffee **[soyanadev](https://buymeacoffee.com/soyanadev)**.
+Quedan **un dato** y una fecha. · **One detail** and a date are left.
 
 | # | Dato · Detail | Marcador · Marker | Cómo · How |
 |---|---|---|---|
-| 1 | Buy Me a Coffee | `buymeacoffee.com/TODO_BMC` | `--bmc usuario` |
-| 2 | Enlace de la plantilla · Template link | `TODO_TEMPLATE_URL` | `--template "https://…"` (ver · see [templates/context-bot-template.md](templates/context-bot-template.md)) |
-| 3 | Fecha de la v0.2.0 · v0.2.0 date | `AAAA-MM-DD` en `CHANGELOG.md` | a mano · by hand |
+| 1 | Enlace de la plantilla · Template link | `TODO_TEMPLATE_URL` | `--template "https://…"` (ver · see [templates/context-bot-template.md](templates/context-bot-template.md)) |
+| 2 | Fecha de la v0.2.0 · v0.2.0 date | `AAAA-MM-DD` en `CHANGELOG.md` | a mano · by hand |
 
 Nombre sugerido del repositorio · Suggested repo name: **`context-bot`**.
 

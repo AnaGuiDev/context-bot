@@ -8,16 +8,25 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 ### Añadido
 - Conector MCP opcional de estado en directo en `worker/` (Cloudflare Workers, OAuth con GitHub, D1/KV), con 5 herramientas, entre ellas `delete_my_data`, y pruebas. Guías: `docs/conector.md` y `docs/despliegue-worker.md`.
 - Panel: botón «Conectar estado en directo». Si no conecta, el panel sigue usando los datos locales.
+- Vista **Traspaso / Handoff** en el panel: elige un bot en amarillo o rojo, mira cómo pasan su memoria, tareas, archivos y rutinas al bot nuevo, y copia o descarga el `TRASPASO.md`. También puedes pegar un `TRASPASO.md` para verlo. Respeta «reducir movimiento».
+- Publicaciones de lanzamiento en inglés y en español, y pasos para Cloudflare Registrar + Cloudflare Pages en `docs/publicar.md`.
+- Página principal: semáforo interactivo en la cabecera (cambia solo de color, se puede pausar y se queda quieto con «reducir movimiento»), sección «antes y después», las tres luces contadas como historia y bloque de apoyo con GitHub, Buy Me a Coffee y propinas en X.
+- Cuenta del proyecto en X, [@contextbotapp](https://x.com/contextbotapp), en el pie de la web, los metadatos (`twitter:site`) y los README.
+- Datos estructurados (JSON-LD `SoftwareApplication`) en la página principal, sin valoraciones ni cifras.
+- `assets/brand/og-card.html`: fuente de las imágenes para redes, para regenerarlas con Chrome sin dependencias.
+- `MARKETING-REVIEW.md`: revisión de la web, el vídeo y el marketing, con plan de lanzamiento.
 
 ### Cambiado
 - **Nuevo nombre: Context Bot** (antes «Control de Contexto»), con dominio `contextbot.app`. La carpeta de la skill pasa de `skills/control-de-contexto/` a `skills/context-bot/` y la skill se llama `context-bot`. Si ya la tenías guardada con el nombre anterior, sigue funcionando; puedes volver a guardarla con el nombre nuevo.
 - Web bilingüe: inglés en `/` y español en `/es/`, con `hreflang`, selector EN/ES que se recuerda y detección del idioma del navegador. La web se genera desde `src/` con `scripts/build_site.py`.
 - README principal en inglés (`README.md`) y en español (`README.es.md`). Guías en inglés en `docs/en/`.
 - El panel guarda en `context-bot:*` y recupera los datos guardados con el nombre anterior.
-
-### Añadido
-- Vista **Traspaso / Handoff** en el panel: elige un bot en amarillo o rojo, mira cómo pasan su memoria, tareas, archivos y rutinas al bot nuevo, y copia o descarga el `TRASPASO.md`. También puedes pegar un `TRASPASO.md` para verlo. Respeta «reducir movimiento».
-- Publicaciones de lanzamiento en inglés y en español, y pasos para Cloudflare Registrar + Cloudflare Pages en `docs/publicar.md`.
+- **Nueva imagen**: fondo azul marino y morado con las luces del semáforo brillando, como el banner y el avatar nuevos de X. La página, el panel, la privacidad y la 404 comparten los mismos estilos (`src/templates/_brand.html`).
+- Titular nuevo, más directo: «Long chats make your bot slow & pricey. Keep it fast & cheap.» / «Charla larga, bot lento y caro. Mantenlo rápido y barato.».
+- El botón principal copia el prompt de instalación y el secundario lleva a GitHub; el prompt también se ve entero en el paso 1.
+- Imágenes para redes, favicon e icono de Apple con el nuevo estilo. Títulos y descripciones nuevos para buscadores y redes.
+- README en inglés y en español rehechos como portada del repositorio: instalación en un bloque copiable, antes y después, insignia de estrellas y preguntas sobre privacidad.
+- `.github/FUNDING.yml` usa la clave nativa `buy_me_a_coffee`.
 
 ## [0.2.0] - AAAA-MM-DD
 

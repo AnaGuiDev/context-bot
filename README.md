@@ -1,86 +1,96 @@
-<!-- TODO(PLACEHOLDER): repository URL, X profile and donation link. See PLACEHOLDERS.md -->
 <div align="center">
 
-# 🚦 Context Bot
+<a href="https://contextbot.app/"><img src="assets/brand/og-image.png" alt="Context Bot: keep your Grok Bot fast and cheap. A traffic light for long chats. Free, open source, contextbot.app" width="820"></a>
 
-**Keep your bot fast.**
+# Context Bot
 
-A free, open-source kit that stops your long Grok Bot conversations from getting slow and expensive.
+**Long Grok Bot chats get slow and expensive. Context Bot gives them a traffic light.**<br>
+🟢 carry on · 🟡 time to summarize · 🔴 move to a fresh bot, and a handoff file brings your memory along.
 
-[![MIT licence](https://img.shields.io/badge/licence-MIT-4ade80.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.2.0-8fb4ff.svg)](CHANGELOG.md)
-[![Website](https://img.shields.io/badge/web-contextbot.app-4ade80.svg)](https://contextbot.app/)
-[![Publish website](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml/badge.svg)](https://github.com/AnaGuiDev/context-bot/actions/workflows/pages.yml)
+[![GitHub stars](https://img.shields.io/github/stars/AnaGuiDev/context-bot?style=flat&logo=github&label=stars&color=facc15)](https://github.com/AnaGuiDev/context-bot/stargazers)
+[![MIT license](https://img.shields.io/badge/license-MIT-4ade80.svg)](LICENSE)
+[![Website](https://img.shields.io/badge/web-contextbot.app-2563eb.svg)](https://contextbot.app/)
 [![No coding](https://img.shields.io/badge/no%20coding-needed-facc15.svg)](docs/en/installation.md)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-8fb4ff.svg)](CONTRIBUTING.md)
-[![Follow on X](https://img.shields.io/badge/X-follow-000000.svg?logo=x)](https://x.com/SoyAnaDev)
+[![Follow @contextbotapp](https://img.shields.io/badge/follow-%40contextbotapp-000000.svg?logo=x)](https://x.com/contextbotapp)
 
-**[🌐 Website](https://contextbot.app/) · [📊 Try the dashboard with sample data](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
-
-[Get started](#-get-started-in-3-steps) · [Moving to a new bot](docs/en/botduplicator-integration.md) · [FAQ](#-faq) · [☕ Buy me a coffee](https://buymeacoffee.com/soyanadev)
+**[⚡ Install in about a minute](#-install-in-about-a-minute) · [🌐 Website](https://contextbot.app/) · [📊 Dashboard demo](https://contextbot.app/dashboard/?demo)** · [Español](README.es.md)
 
 <a href="assets/video/promo-en-16x9.mp4"><img src="assets/video/promo-en.gif" alt="Context Bot promo video (click to watch it with sound)" width="820"></a>
 
-<sub>Click the animation to watch the full video with sound.</sub>
+<sub>Click the animation to watch the 45-second video with sound.</sub>
 
-**[➕ Install Context Bot](#install)** (one prompt) · ⭐ **Star the repo** if it helps · **[Follow @SoyAnaDev](https://x.com/SoyAnaDev)** for updates
+Free, open source, no download, no sign-up. If it saves you a slow afternoon, **⭐ star the repo**: it's the easiest way to help other people find it.
 
 </div>
 
 ---
 
-## 🤔 The problem
+## 🐢 The problem
 
-The longer your conversation with a bot gets, **the slower it replies and the more it costs**, because it rereads everything that came before on every reply. Most people only notice once it's already sluggish, and by then starting over feels risky because you might lose your work.
+The longer your chat with a bot gets, **the slower it replies and the more it costs**, because every reply rereads everything that came before ([source](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Most people only notice once it's already crawling, and by then starting over feels risky: a fresh bot means re-explaining everything.
 
-Context Bot warns you in time and helps you carry on **without losing anything**.
+Context Bot warns you in time and helps you carry on in a fresh bot **without starting from zero**.
 
 ## 🚦 How it works
 
-Your bot estimates how big the conversation is, keeps a `STATUS.md` file with where things stand, and sums it up as a colour:
+Your bot estimates how long the conversation is getting, keeps a `STATUS.md` with where things stand, and sums it up as a color:
 
-| | Colour | What it means | What to do |
+| | Color | Rough threshold | What happens |
 |---|---|---|---|
-| 🟢 | **Green** | All good | Carry on |
-| 🟡 | **Yellow** | The chat is getting heavy | Summarise in `STATUS.md` and work from there |
-| 🔴 | **Red** | Slow and expensive | Write the handoff and move to a new bot |
+| 🟢 | **Green** | Under ~40 messages | All good. Carry on. |
+| 🟡 | **Yellow** | 40–80 messages, or 1 summary | Your bot summarizes the work in `STATUS.md` and carries on from there. |
+| 🔴 | **Red** | 80+ messages, or 2+ summaries | Your bot writes a handoff file and you move to a fresh bot. |
+
+Thresholds are rough estimates based on chat length, not exact token counts. Good enough to know when to act.
+
+## ⚡ Install in about a minute
+
+Paste this into your bot's chat (GitHub shows a copy button on the right):
+
+```text
+Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
+```
+
+Then:
+
+1. **Ask for the light.** *"What color are we on?"* Or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
+2. **Switch bots on red.** Follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
+
+A ready-made bot template is coming soon. More detail in [docs/en/installation.md](docs/en/installation.md).
+
+## 🧳 Before and after
+
+| Without Context Bot | With Context Bot |
+|---|---|
+| You notice it's slow when it's already crawling. | A color warns you early. |
+| You keep stretching one endless chat. | You summarize at yellow and switch at red, on your terms. |
+| A new bot means re-explaining preferences, decisions and files. | A handoff file carries memory, tasks and key files across. |
+| Routines quietly use up your allowance. | The dashboard flags routines worth pausing or spacing out. |
+
+Context Bot doesn't make your bot smarter. It tells you when to act.
 
 ## 📦 What's inside
 
-- **[Skill](skills/context-bot/SKILL.md)** for your bot: when to check, how to estimate, when to warn you and how to move on. (The skill text is in Spanish for now; your bot will still reply in your language.)
+- **Skill** for your bot, in [English](skills/context-bot/en/SKILL.md) (served at <https://contextbot.app/skill.md>) and [Spanish](skills/context-bot/SKILL.md): when to check, how to estimate, when to warn you and how to hand off.
 - **[Dashboard](https://contextbot.app/dashboard/)** with a traffic light: no server, no account, data stays in your browser.
-- **Handoff view** in the dashboard: pick a yellow or red bot and watch its memory, tasks, key files and routines move across to the new bot. Then copy or download the `TRASPASO.md` handoff file.
+- **Handoff view** in the dashboard: pick a yellow or red bot and watch its memory, tasks, key files and routines move to the new bot. Then copy or download the `TRASPASO.md` handoff file, or paste one in to check it.
 - **Routine review** in the dashboard: flags the routines worth pausing or slowing down.
 - **[Prompts](prompts/bot-coordinador.md)**, including a coordinator bot that keeps an eye on the others.
 - **[Sample STATUS.md](examples/STATUS.md.example)** and **[sample TRASPASO.md](examples/TRASPASO.md.example)**.
-- **[Guide to moving to a new bot](docs/en/botduplicator-integration.md)** with BotDuplicator.
 - **[Tips for using less](docs/en/tips.md)**, each with its source.
-- **Bilingual website ready to publish** (`scripts/build-site.sh` → `dist/`), with a guide in [docs/publicar.md](docs/publicar.md).
-
-<a id="install"></a>
-
-## 🚀 Get started in 3 steps
-
-1. **Add the bot, or just the skill.**
-   - **New bot:** a ready-made template is coming soon. For now, create a bot and paste the prompt below. <!-- TODO(PLACEHOLDER): enlace de plantilla pendiente (ver PLACEHOLDERS.md) -->
-   - **Your own bot:** paste this into its chat:
-     > Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm.
-2. **Check the light.** Ask *"What color are we on?"* or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
-3. **Switch bots when it's time.** On red, follow the [BotDuplicator guide](docs/en/botduplicator-integration.md). The memory travels in a handoff file ([example](examples/TRASPASO.md.example)), and the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows you exactly what the new bot takes with it.
-
-More detail in [docs/en/installation.md](docs/en/installation.md).
+- **Bilingual website** (English and Spanish) built from `src/` with `bash scripts/build-site.sh` → `dist/`. No frameworks, no trackers, self-hosted font.
 
 ## 🖥️ The website and the dashboard
 
 <div align="center">
-<img src="assets/landing.png" alt="Context Bot landing page" width="820">
+<img src="assets/landing.png" alt="Context Bot landing page: a glowing traffic light next to the headline Long chats make your bot slow and pricey. Keep it fast and cheap." width="820">
 </div>
 
 <div align="center">
-<img src="assets/dashboard.png" alt="Dashboard with three bots on green, yellow and red" width="820">
+<img src="assets/dashboard.png" alt="Dashboard with three bots on red, yellow and green, plus the live status and handoff sections" width="820">
 </div>
 
-Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. **Handoff** shows what travels to the new bot and gives you the `TRASPASO.md`. You can also paste one in to check it. **Review your routines** suggests which ones to pause or run less often. You can export and import everything as JSON. Nothing leaves your computer.
+Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. Export and import everything as JSON. Nothing leaves your computer.
 
 ## 💡 Tips for using less
 
@@ -90,43 +100,44 @@ Don't reply "ok" to every message, batch your requests, pause routines you don't
 
 <details><summary><b>Is it free?</b></summary>
 
-Yes. Free and open source, under the MIT licence.
+Yes. Free and open source under the MIT license. No paid tier.
 </details>
 
 <details><summary><b>Do I need to know how to code?</b></summary>
 
-No. You copy, paste and talk to your bot as usual.
+No. You copy one prompt, paste it and talk to your bot as usual.
 </details>
 
-<details><summary><b>Do I lose my conversation when I move?</b></summary>
+<details><summary><b>Do I lose my work when I move to a new bot?</b></summary>
 
-No. Duplicating a bot doesn't copy its learned memory, so the bot writes a handoff file (`TRASPASO.md`) with your preferences, decisions and progress. The new bot reads it and saves it to memory. The old bot is still there if you need it: hide it rather than deleting it.
+Duplicating a bot doesn't copy its learned memory, so before you switch, your bot writes a handoff file (`TRASPASO.md`) with your preferences, decisions, tasks and key files. The new bot reads it and saves it to memory. Check the file before you switch: it should never contain passwords or keys. The old bot is still there if you need it: hide it rather than deleting it.
 </details>
 
-<details><summary><b>Is the size estimate exact?</b></summary>
+<details><summary><b>Does it read or upload my conversations?</b></summary>
 
-No, it's a rough estimate based on how long the chat is. It's good enough to know when to act.
+No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), not deployed yet) only sends your bot's name, color and a few estimates, never your conversation.
 </details>
 
-<details><summary><b>Where is the dashboard data stored?</b></summary>
+<details><summary><b>Is the estimate exact?</b></summary>
 
-Only in your browser (`localStorage`). There's no server.
+No. It's a rough estimate based on how long the chat is. It's meant to tell you when to act, well before things feel slow.
 </details>
 
 <details><summary><b>Is this an official Grok Bot project?</b></summary>
 
-No. It's a community project with no official link to Grok Bot or xAI.
+No. It's an unofficial community project with no link to Grok Bot or xAI. BotDuplicator is a third-party tool, also unrelated.
 </details>
 
 ## 🗺️ Roadmap
 
-Ideas for future versions. No dates: they depend on spare time and on what you ask for.
+No dates: it depends on spare time and on what you ask for.
 
 - [x] Website and dashboard in English and Spanish.
 - [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
-- [x] English version of the skill ([`skills/context-bot/en/SKILL.md`](skills/context-bot/en/SKILL.md), served at <https://contextbot.app/skill.md>).
-- [x] Ready-to-publish bot template ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [x] Optional live status in the dashboard through an MCP connector: code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Not deployed yet.
+- [x] English version of the skill.
+- [x] Ready-to-publish bot template kit ([templates/context-bot-template.md](templates/context-bot-template.md)).
+- [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Not deployed yet.
+- [ ] Public bot template link.
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.
 
@@ -134,29 +145,36 @@ Missing something? [Suggest an idea](https://github.com/AnaGuiDev/context-bot/is
 
 ## 🤝 Contributing
 
-Ideas, fixes and improvements are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), open an [issue](https://github.com/AnaGuiDev/context-bot/issues) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Ideas, fixes and translations are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), open an [issue](https://github.com/AnaGuiDev/context-bot/issues) and follow the [Code of Conduct](CODE_OF_CONDUCT.md). Website copy lives in [`src/i18n.py`](src/i18n.py).
 
 ## ☕ Support the project
 
-Context Bot is free and will stay that way. If it's saved you some time, you can:
+Context Bot is free and will stay that way. No ads, no trackers, no paid tier.
 
-- **☕ Buy Me a Coffee:** [buy me a coffee](https://buymeacoffee.com/soyanadev).
-- **💸 Tips on X:** use the Tips button on my [X profile](https://x.com/SoyAnaDev).
-- **Follow me on X** for updates: [@SoyAnaDev](https://x.com/SoyAnaDev).
+<div align="center">
 
-**⭐ [Star the repo](https://github.com/AnaGuiDev/context-bot)** and **[follow @SoyAnaDev on X](https://x.com/SoyAnaDev)**: it's the easiest way to help, and you'll hear about new versions first. Sharing it with someone who'd find it useful helps a lot too.
+[![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20on%20GitHub-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000)](https://buymeacoffee.com/soyanadev)
+[![Tips on X](https://img.shields.io/badge/Tips%20on%20X-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/SoyAnaDev)
+
+</div>
+
+- **⭐ Star the repo:** it helps other people find it.
+- **☕ Buy Me a Coffee:** [buymeacoffee.com/soyanadev](https://buymeacoffee.com/soyanadev).
+- **💸 Tips on X:** the Tips button on [@SoyAnaDev](https://x.com/SoyAnaDev)'s profile.
+- **Follow [@contextbotapp](https://x.com/contextbotapp)** for updates, and share it with someone whose bot is still typing.
 
 ## 🔒 Privacy
 
-The website uses no cookies or tracking, and the font and video are served from the site itself. The dashboard keeps your data in your browser only (`localStorage`). More on the [privacy page](https://contextbot.app/privacy.html). To report a security issue, read [SECURITY.md](SECURITY.md).
+The website uses no cookies or tracking, and the font and video are served from the site itself. The dashboard keeps your data in your browser only. More on the [privacy page](https://contextbot.app/privacy.html). To report a security issue, read [SECURITY.md](SECURITY.md).
 
 ## 💛 Credits
 
-Made with care by **Ana Gui**. Thanks to everyone who tries the kit, shares feedback and improves it.
+Made with care by **Ana Gui** ([@SoyAnaDev](https://x.com/SoyAnaDev)). Thanks to everyone who tries the kit, shares feedback and improves it.
 
 Badges: [shields.io](https://shields.io). Font: [Nunito](https://github.com/googlefonts/nunito) (SIL OFL 1.1). Code of Conduct based on the [Contributor Covenant](https://www.contributor-covenant.org/).
 
-## 📄 Licence
+## 📄 License
 
 [MIT](LICENSE) © 2026 Ana Gui
 
