@@ -1,6 +1,6 @@
 # Kit de lanzamiento
 
-Borradores para cuando publiques. **Nada de esto se ha publicado.** Revísalo, cámbialo a tu gusto y publícalo tú cuando la web y el repositorio estén en marcha.
+Borradores para cuando publiques. **Nada de esto se ha publicado.** Hay una versión revisada del hilo, en inglés y en español, en [MARKETING-REVIEW.md](../MARKETING-REVIEW.md). Revísalo, cámbialo a tu gusto y publícalo tú cuando la web y el repositorio estén en marcha.
 
 Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `scripts/rellenar-placeholders.sh` para poner tu usuario de X y de Buy Me a Coffee.
 
@@ -10,7 +10,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 
 > ¿Tu bot de Grok Bot va cada vez más lento en las charlas largas? 🐢
 >
-> He hecho Context Bot: un semáforo 🟢🟡🔴 que te avisa cuándo resumir y cuándo pasar a un bot nuevo sin perder nada.
+> He hecho Context Bot: un semáforo 🟢🟡🔴 que te avisa cuándo resumir y cuándo pasar a un bot nuevo con un archivo de traspaso.
 >
 > Gratis y de código abierto 👇
 > https://contextbot.app/es/
@@ -58,7 +58,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 
 > Is your Grok Bot getting slower as the chat gets longer? 🐢
 >
-> I made Context Bot: a 🟢🟡🔴 traffic light that tells you when to summarise and when to move to a fresh bot without losing anything.
+> I made Context Bot: a 🟢🟡🔴 traffic light that tells you when to summarise and when to move to a fresh bot with a handoff file.
 >
 > Free and open source 👇
 > https://contextbot.app/
@@ -106,7 +106,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 > Un semáforo para que tus charlas con Grok Bot no se vuelvan lentas ni caras.
 
 **Párrafo corto:**
-> Context Bot es un kit gratuito y de código abierto para Grok Bot. Tu bot vigila el tamaño de la conversación, mantiene un resumen del trabajo y te avisa en verde, amarillo o rojo. Cuando toca, escribe un archivo de traspaso para que un bot nuevo siga sin perder nada. Incluye un panel en el navegador, sin cuentas ni cookies. Proyecto comunitario no oficial.
+> Context Bot es un kit gratuito y de código abierto para Grok Bot. Tu bot vigila el tamaño de la conversación, mantiene un resumen del trabajo y te avisa en verde, amarillo o rojo. Cuando toca, escribe un archivo de traspaso para que un bot nuevo siga donde lo dejaste. Incluye un panel en el navegador, sin cuentas ni cookies. Proyecto comunitario no oficial.
 
 **Etiquetas:** grok-bot, productividad, agentes de IA, código abierto, español.
 
@@ -114,7 +114,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 > Keep your bot fast: a traffic light for long Grok Bot chats.
 
 **In English · short paragraph:**
-> Context Bot is a free, open-source kit for Grok Bot. Your bot watches how big the conversation is, keeps a summary of the work and warns you on green, yellow or red. When it's time, it writes a handoff file so a new bot can carry on without losing anything. It comes with a browser dashboard, no account and no cookies. Unofficial community project.
+> Context Bot is a free, open-source kit for Grok Bot. Your bot watches how big the conversation is, keeps a summary of the work and warns you on green, yellow or red. When it's time, it writes a handoff file so a new bot can pick up where you left off. It comes with a browser dashboard, no account and no cookies. Unofficial community project.
 
 **Tags:** grok-bot, productivity, ai-agents, open-source.
 

@@ -38,7 +38,7 @@ EN = dict(
   mock_alt="Example chat: what your bot tells you on green, yellow and red",
   mock_title="Your bot", mock_me="How are we doing?",
   hero_g="<strong>🟢 Green · all good.</strong> About 20 messages in. Chat away, I've barely warmed up.",
-  hero_y="<strong>🟡 Yellow · time to summarize.</strong> About 55 messages in. I've saved where we are in STATUS.md, so nothing gets lost.",
+  hero_y="<strong>🟡 Yellow · time to summarize.</strong> About 55 messages in. I've saved where we are in STATUS.md, so we can pick it up anytime.",
   hero_r="<strong>🔴 Red · fresh bot time.</strong> About 90 messages in. Your handoff file is ready: memory, tasks and key files. A new bot can pick up right here.",
   # landing · problem
   problem_eyebrow="The problem", problem_h="Sound familiar?",
@@ -242,7 +242,7 @@ ES = dict(
   mock_alt="Chat de ejemplo: lo que te dice tu bot en verde, amarillo y rojo",
   mock_title="Tu bot", mock_me="¿Cómo vamos?",
   hero_g="<strong>🟢 Verde · todo bien.</strong> Llevamos unos 20 mensajes. Dale, que acabo de calentar.",
-  hero_y="<strong>🟡 Amarillo · toca resumir.</strong> Llevamos unos 55 mensajes. He guardado en STATUS.md en qué estamos para no perder nada.",
+  hero_y="<strong>🟡 Amarillo · toca resumir.</strong> Llevamos unos 55 mensajes. He guardado en STATUS.md en qué estamos para retomarlo cuando quieras.",
   hero_r="<strong>🔴 Rojo · toca bot nuevo.</strong> Llevamos unos 90 mensajes. Tu archivo de traspaso está listo: memoria, tareas y archivos clave. Un bot nuevo puede seguir justo aquí.",
   # landing · problema
   problem_eyebrow="El problema", problem_h="¿Te suena?",
