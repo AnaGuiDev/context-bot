@@ -58,16 +58,17 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 
 ### Option 1 · Single post
 
-> Your Grok Bot isn't broken. Long chats are. 💸
+> Long chats burn Grok Bot usage — every reply rereads it all. 💸
 >
-> Every reply rereads it all — week's usage vanishes (slower answers too).
+> A free kit of 3 bots that help you every day:
+> • Context Bot — 🟢🟡🔴 + STATUS.md
+> • Lite — lighter check
+> • Migrator — fresh bot, pick up where you left off
 >
-> I built Context Bot: a 🟢🟡🔴 traffic light, and a handoff so a fresh bot picks up where you left off.
->
-> Free & open source 👇
+> Open source 👇
 > https://contextbot.app/
 
-*(Attach the vertical `assets/video/promo-en-9x16.mp4` natively (most people will watch on a phone); use `promo-en-16x9.mp4` only for desktop-first placements.)*
+*(Attach `assets/video/promo-en-9x16.mp4` natively; use `promo-en-16x9.mp4` only for desktop viewers.)*
 
 ### Option 2 · Short thread
 
