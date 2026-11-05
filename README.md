@@ -150,7 +150,7 @@ Duplicating a bot doesn't copy its learned memory, so before you switch, your bo
 
 <details><summary><b>Does it read or upload my conversations?</b></summary>
 
-No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), coming soon) only sends your bot's name, color and a few estimates, never your conversation.
+No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), in testing, not announced) only sends your bot's name, color and a few estimates, never your conversation.
 </details>
 
 <details><summary><b>Is the estimate exact?</b></summary>
@@ -171,7 +171,7 @@ No dates: it depends on spare time and on what you ask for.
 - [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
 - [x] English version of the skill.
 - [x] Ready-to-publish bot template kit ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Coming soon.
+- [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). In testing, not announced.
 - [x] Public bot template link.
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.

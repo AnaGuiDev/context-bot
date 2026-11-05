@@ -5,7 +5,7 @@ No queda ningún marcador por rellenar. · No markers left to fill in.
 
 Resuelto · Resolved: `TODO_TEMPLATE_URL` (plantillas x.ai ya puestas · x.ai templates in place) y la fecha de la v0.2.0 en `CHANGELOG.md`: **2026-11-04** (fecha del tag `v0.2.0` · date of the `v0.2.0` tag).
 
-Aparte · Separate, not a marker: `worker/wrangler.toml` ya tiene los ids reales (D1 + 2 KV · ids in place); el anuncio público del conector MCP sigue en preparación para la v0.3 (Próximamente · Coming soon).
+Aparte · Separate, not a marker: `worker/wrangler.toml` ya tiene los ids reales (D1 + 2 KV · ids in place); el conector MCP funciona y está en pruebas, sin anunciar (v0.3 · In testing, not announced); falta el anuncio público.
 
 
 Nombre sugerido del repositorio · Suggested repo name: **`context-bot`**.

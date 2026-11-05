@@ -24,8 +24,8 @@
 - `worker/`: Cloudflare Worker MCP server with OAuth (GitHub sign-in), D1 + KV and 5 tools including `delete_my_data`, plus a REST API for the dashboard. Locally: tsc is clean, 13/13 tests pass, and the smoke test with a real MCP client against `wrangler dev` passes. The dashboard's **Connect live status** button was tested end to end in Chrome against `wrangler dev`.
 - Docs: [docs/en/connector.md](docs/en/connector.md) and [docs/en/worker-deployment.md](docs/en/worker-deployment.md).
 - **Your turn:**
-  1. Deploy following worker-deployment.md (D1/KV ids, GitHub OAuth app with callback `https://mcp.contextbot.app/callback`, secrets).
-  2. Then change the "Coming soon" label in `src/i18n.py` (`soon_label`, EN and ES) and rebuild.
+  1. Done: deployed at `https://mcp.contextbot.app` (OAuth and report_status work). Status: in testing, not announced.
+  2. When announcing, change the "In testing" label in `src/i18n.py` (`soon_label`, EN and ES) and rebuild.
 - **Test live before announcing:**
   - Does Grok Bot's "Add this MCP server" support dynamic client registration and the `resource` parameter?
   - Does the OAuth redirect come back correctly?
@@ -60,8 +60,8 @@
 - `worker/`: servidor MCP en un Worker de Cloudflare con OAuth (entrada con GitHub), D1 + KV y 5 herramientas, entre ellas `delete_my_data`, más una API REST para el panel. En local: tsc sin errores, 13/13 pruebas superadas y prueba de humo superada con un cliente MCP real contra `wrangler dev`. El botón **Conectar estado en directo** del panel está probado de principio a fin en Chrome contra `wrangler dev`.
 - Guías: [docs/conector.md](docs/conector.md) y [docs/despliegue-worker.md](docs/despliegue-worker.md).
 - **Te toca:**
-  1. Despliega siguiendo despliegue-worker.md (ids de D1/KV, app OAuth de GitHub con callback `https://mcp.contextbot.app/callback`, secretos).
-  2. Después cambia la etiqueta «Próximamente» en `src/i18n.py` (`soon_label`, EN y ES) y vuelve a generar la web.
+  1. Hecho: desplegado en `https://mcp.contextbot.app` (OAuth y report_status funcionan). Estado: en pruebas, sin anunciar.
+  2. Al anunciarlo, cambia la etiqueta «En pruebas» en `src/i18n.py` (`soon_label`, EN y ES) y vuelve a generar la web.
 - **Prueba en real antes de anunciarlo:**
   - ¿El «Add this MCP server» de Grok Bot admite el registro dinámico de clientes y el parámetro `resource`?
   - ¿La redirección OAuth vuelve bien?

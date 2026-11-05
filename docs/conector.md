@@ -2,7 +2,7 @@
 
 > Proyecto no oficial, sin relación con Grok Bot ni con xAI. Context Bot funciona igual de bien **sin** el conector: es solo para quien quiera ver el semáforo de sus bots sin copiarlo a mano.
 
-> **Próximamente (v0.3).** El conector aún no está disponible para usarse; esta guía describe cómo funcionará.
+> **En pruebas, sin anunciar (v0.3).** El conector funciona y puedes usar esta guía para probarlo, pero todavía no se ha lanzado públicamente.
 
 [English](en/connector.md)
 

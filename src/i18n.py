@@ -92,7 +92,7 @@ EN = dict(
   s2_p_tpl="Talk to it like any other bot. As the chat grows, it checks the light on its own and keeps a STATUS.md with where you are. Curious? Ask <em>“What color are we on?”</em>",
   s3_h_tpl="On red, move with Context Bot Migrator",
   s3_p_tpl="Your bot writes the handoff file and suggests a fresh bot. Context Bot Migrator takes it from there <a href=\"#migrator\">step by step</a>. The dashboard's <a href=\"{{L_DASH}}?demo#handoff\">Handoff</a> view shows exactly what travels across (saved as <code>TRASPASO.md</code>).",
-  soon_label="Coming soon", s4_h="Live status", s4_cmd_label="Tell your bot:",
+  soon_label="In testing", s4_h="Live status", s4_cmd_label="Tell your bot:",
   s4_p="Then sign in with GitHub. Your bot reports its color (an estimate, never your conversation), and in the <a href=\"{{L_DASH}}\">dashboard</a> you press <em>Connect live status</em> to see it. You can delete everything with one tool call. Without it, everything stays local.",
   copy_word="Copy", copied_word="Copied ✓",
   # landing · video
@@ -194,7 +194,7 @@ EN = dict(
   q10="Do I have to copy and paste anything to migrate?", a10="No. Context Bot Migrator reads the old chat, writes the handoff and talks to both bots itself. You just say yes twice: once to create the new bot and once to switch its routines on. Only if a tool can't reach the old bot will it give you one line to paste.",
   q3="Will I lose my work when I switch bots?", a3="A new bot doesn't inherit the old one's learned memory, so before you switch, your bot writes a handoff file with your preferences, decisions, tasks and key files. The new bot reads it and carries on. Check the file first: it should never contain passwords or keys.",
   q4="Is it an official Grok Bot product?", a4="No. It's an unofficial community project, not affiliated with Grok Bot or xAI.",
-  q5="Does it read or upload my conversations?", a5="No. The skill runs inside your own bot. This website and the dashboard keep everything in your browser, with no cookies or tracking. The optional live status (coming soon) only sends your bot's name, color and a few estimates, never your conversation.",
+  q5="Does it read or upload my conversations?", a5="No. The skill runs inside your own bot. This website and the dashboard keep everything in your browser, with no cookies or tracking. The optional live status (in testing, not announced yet) only sends your bot's name, color and a few estimates, never your conversation.",
   q6="How accurate is the light?", a6="It's a rough estimate based on how long the chat is, not an exact token count. It's meant to tell you when to act, well before things feel slow.",
   # landing · closing
   cta_h="Long chats, light bot.",
@@ -379,7 +379,7 @@ ES = dict(
   s2_p_tpl="Háblale como a cualquier bot. Según crece la charla, mira el semáforo por su cuenta y lleva un STATUS.md con en qué estáis. ¿Curiosidad? Pregunta <em>«¿En qué color estamos?»</em>.",
   s3_h_tpl="En rojo, cambia con Context Bot Migrator",
   s3_p_tpl="Tu bot escribe el archivo de traspaso y te propone un bot nuevo. Context Bot Migrator sigue desde ahí <a href=\"#migrator\">paso a paso</a>. En la vista <a href=\"{{L_DASH}}?demo#handoff\">Traspaso</a> del panel ves exactamente qué pasa de uno a otro (<code>TRASPASO.md</code>).",
-  soon_label="Próximamente", s4_h="Estado en directo", s4_cmd_label="Dile a tu bot:",
+  soon_label="En pruebas", s4_h="Estado en directo", s4_cmd_label="Dile a tu bot:",
   s4_p="Después entra con GitHub. Tu bot enviará su color (una estimación, nunca tu conversación) y en el <a href=\"{{L_DASH}}\">panel</a> pulsas <em>Conectar estado en directo</em> para verlo. Lo borras todo con una sola orden. Sin él, todo se queda en local.",
   copy_word="Copiar", copied_word="Copiado ✓",
   # landing · vídeo
@@ -481,7 +481,7 @@ ES = dict(
   q10="¿Tengo que copiar y pegar algo para migrar?", a10="No. Context Bot Migrator lee el chat antiguo, escribe el traspaso y habla él mismo con los dos bots. Tú solo dices que sí dos veces: una para crear el bot nuevo y otra para activar sus rutinas. Solo si una herramienta no llega al bot antiguo, te dará una línea para pegar.",
   q3="¿Pierdo mi trabajo al cambiar de bot?", a3="Un bot nuevo no hereda la memoria aprendida del antiguo, así que antes de cambiar, tu bot escribe un archivo de traspaso con tus preferencias, decisiones, tareas y archivos clave. El bot nuevo lo lee y sigue. Revisa el archivo antes: nunca debe llevar contraseñas ni claves.",
   q4="¿Es oficial de Grok Bot?", a4="No. Es un proyecto comunitario no oficial, sin relación con Grok Bot ni con xAI.",
-  q5="¿Lee o sube mis conversaciones?", a5="No. La skill funciona dentro de tu propio bot. Esta web y el panel lo guardan todo en tu navegador, sin cookies ni seguimiento. El estado en directo opcional (próximamente) solo envía el nombre de tu bot, su color y unas pocas estimaciones, nunca tu conversación.",
+  q5="¿Lee o sube mis conversaciones?", a5="No. La skill funciona dentro de tu propio bot. Esta web y el panel lo guardan todo en tu navegador, sin cookies ni seguimiento. El estado en directo opcional (en pruebas, aún sin anunciar) solo envía el nombre de tu bot, su color y unas pocas estimaciones, nunca tu conversación.",
   q6="¿Es exacto el semáforo?", a6="Es una estimación aproximada según la longitud de la charla, no un recuento exacto de tokens. Sirve para avisarte de cuándo actuar, mucho antes de que lo notes lento.",
   # landing · cierre
   cta_h="Charlas largas, bot ligero.",
