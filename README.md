@@ -4,7 +4,7 @@
 
 # Context Bot
 
-**Long Grok Bot chats get slow and expensive. Context Bot gives them a traffic light.**<br>
+**Long Grok Bot chats eat your usage (and get slower). Context Bot gives them a traffic light.**<br>
 🟢 carry on · 🟡 time to summarize · 🔴 move to a fresh bot, and a handoff file brings your memory along.
 
 [![GitHub stars](https://img.shields.io/github/stars/AnaGuiDev/context-bot?style=flat&logo=github&label=stars&color=facc15)](https://github.com/AnaGuiDev/context-bot)

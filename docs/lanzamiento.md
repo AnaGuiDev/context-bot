@@ -8,21 +8,23 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 
 ### Opción 1 · Post único
 
-> ¿Tu bot de Grok Bot va cada vez más lento en las charlas largas? 🐢
+> Tu Grok Bot no está roto. Lo que pesa es la charla larga. 💸
 >
-> He hecho Context Bot: un semáforo 🟢🟡🔴 que te avisa cuándo resumir y cuándo pasar a un bot nuevo con un archivo de traspaso.
+> Cada respuesta lo relee todo: tu uso de la semana se esfuma (y las respuestas tardan más).
+>
+> He hecho Context Bot: un semáforo 🟢🟡🔴 y un traspaso para que un bot nuevo retome donde lo dejaste.
 >
 > Gratis y de código abierto 👇
 > https://contextbot.app/es/
 
-*(Adjunta el vídeo `assets/video/promo-es-16x9.mp4`, o `promo-es-9x16.mp4` para quien lo vea en el móvil.)*
+*(Adjunta el vídeo vertical `assets/video/promo-es-9x16.mp4` de forma nativa (la mayoría lo verá en el móvil); `promo-es-16x9.mp4` solo si va a escritorio.)*
 
 ### Opción 2 · Hilo corto
 
 **1/4**
-> Cuanto más larga es la charla con tu bot, más tarda y más gasta: en cada respuesta vuelve a leerlo todo.
+> Cuanto más larga es la charla con tu bot, más uso gasta y más tarda: en cada respuesta vuelve a leerlo todo.
 >
-> Casi nadie se da cuenta hasta que ya va lento. Así que he hecho una cosa 🧵
+> Casi nadie se da cuenta hasta que su uso de la semana ya se ha ido. Así que he hecho una cosa 🧵
 
 **2/4**
 > Context Bot es un semáforo para tu bot:
@@ -56,21 +58,23 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 
 ### Option 1 · Single post
 
-> Is your Grok Bot getting slower as the chat gets longer? 🐢
+> Your Grok Bot isn't broken. Long chats are. 💸
 >
-> I made Context Bot: a 🟢🟡🔴 traffic light that tells you when to summarise and when to move to a fresh bot with a handoff file.
+> Every reply rereads it all — week's usage vanishes (slower answers too).
 >
-> Free and open source 👇
+> I built Context Bot: a 🟢🟡🔴 traffic light, and a handoff so a fresh bot picks up where you left off.
+>
+> Free & open source 👇
 > https://contextbot.app/
 
-*(Attach `assets/video/promo-en-16x9.mp4`, or `promo-en-9x16.mp4` for mobile viewers.)*
+*(Attach the vertical `assets/video/promo-en-9x16.mp4` natively (most people will watch on a phone); use `promo-en-16x9.mp4` only for desktop-first placements.)*
 
 ### Option 2 · Short thread
 
 **1/4**
-> The longer your chat with a bot, the slower and pricier it gets: every reply rereads the whole thing.
+> The longer your chat with a bot, the more usage it eats (and the slower it gets): every reply rereads the whole thing.
 >
-> Most people don't notice until it's already sluggish. So I built something 🧵
+> Most people don't notice until their week's usage is already gone. So I built something 🧵
 
 **2/4**
 > Context Bot is a traffic light for your bot:
@@ -103,7 +107,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 ## Descripción corta para directorios
 
 **Una línea (máx. ~80 caracteres):**
-> Un semáforo para que tus charlas con Grok Bot no se vuelvan lentas ni caras.
+> Que tu uso de Grok Bot dure más: un semáforo para las charlas largas.
 
 **Párrafo corto:**
 > Context Bot es un kit gratuito y de código abierto para Grok Bot. Tu bot vigila el tamaño de la conversación, mantiene un resumen del trabajo y te avisa en verde, amarillo o rojo. Cuando toca, escribe un archivo de traspaso para que un bot nuevo siga donde lo dejaste. Incluye un panel en el navegador, sin cuentas ni cookies. Proyecto comunitario no oficial.
@@ -111,7 +115,7 @@ Los enlaces ya apuntan a `https://contextbot.app`. Antes de publicar, ejecuta `s
 **Etiquetas:** grok-bot, productividad, agentes de IA, código abierto, español.
 
 **In English · one line:**
-> Keep your bot fast: a traffic light for long Grok Bot chats.
+> Stretch your Grok Bot usage: a traffic light for long Grok Bot chats.
 
 **In English · short paragraph:**
 > Context Bot is a free, open-source kit for Grok Bot. Your bot watches how big the conversation is, keeps a summary of the work and warns you on green, yellow or red. When it's time, it writes a handoff file so a new bot can pick up where you left off. It comes with a browser dashboard, no account and no cookies. Unofficial community project.

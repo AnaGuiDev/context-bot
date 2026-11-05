@@ -242,7 +242,7 @@ gh repo edit AnaGuiDev/context-bot \
 
 ## 5. The proposed X post
 
-> Long Grok Bot chats get slow and expensive. Context Bot fixes that with a traffic light: green all good, yellow time to summarise, red move to a fresh bot (memory travels with you). Free, open source, no download. Install in 1 minute: https://contextbot.app
+> Long Grok Bot chats get slow and expensive. Context Bot helps with a traffic light: green all good, yellow time to summarise, red move to a fresh bot (memory travels with you). Free, open source, no download. Install in 1 minute: https://contextbot.app
 
 **What works:**
 - It leads with the pain.
@@ -298,7 +298,7 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 >
 > Every reply rereads the whole conversation, so the longer it gets, the slower and pricier each answer is.
 >
-> I built a free, open-source fix for the "when do I start over?" problem 🧵
+> I built a free, open-source helper for the "when do I start over?" problem 🧵
 
 **2/5**
 > Context Bot is a traffic light that lives in your bot:

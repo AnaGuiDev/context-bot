@@ -4,7 +4,7 @@
 
 # Context Bot
 
-**Las charlas largas con Grok Bot se vuelven lentas y caras. Context Bot les pone un semáforo.**<br>
+**Las charlas largas con Grok Bot se comen tu uso (y van más lentas). Context Bot les pone un semáforo.**<br>
 🟢 sigue · 🟡 toca resumir · 🔴 pasa a un bot nuevo, y un archivo de traspaso se lleva tu memoria.
 
 [![Estrellas en GitHub](https://img.shields.io/github/stars/AnaGuiDev/context-bot?style=flat&logo=github&label=estrellas&color=facc15)](https://github.com/AnaGuiDev/context-bot)
