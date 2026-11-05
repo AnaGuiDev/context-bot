@@ -1,6 +1,6 @@
 ---
 name: context-bot-lite
-description: Light version of Context Bot. Watches conversation size with a traffic light (green, yellow, red) and keeps a STATUS.md with the state of the work, at minimum cost. No savings mode and no migration: at red it suggests Context Bot Migrator. Use it roughly every 20 user messages and whenever the user asks "what colour are we?", about slowness or about progress.
+description: Light version of Context Bot. Watches conversation size with a traffic light (green, yellow, red) and keeps a STATUS.md with the state of the work, at minimum cost. It does not include savings mode or run migrations; at red it suggests Context Bot Migrator. Use it roughly every 20 user messages and whenever the user asks «¿Cómo vamos?» / "How are we doing?", about slowness or about progress.
 ---
 
 # Context Bot Lite
@@ -10,7 +10,7 @@ Long chats get slow and pricey because every reply rereads everything before it.
 ## When to check
 
 - Roughly every **20 user messages**.
-- When the user asks "what colour are we?", "how are we doing?" or says you are slow.
+- When the user asks «¿Cómo vamos?» / "How are we doing?" or says you are slow.
 - If you notice the conversation was automatically summarised.
 
 That's all: no routines, no scripts, no extra tools. The check is mental and is not announced while it stays green.
@@ -48,7 +48,7 @@ Write it so another bot could continue without seeing the chat. No passwords, ke
 ## What to do at each colour
 
 - **🟢 Green.** Carry on, no message.
-- **🟡 Yellow.** Update `STATUS.md` and say it in one sentence: "🟡 This chat is getting long. I've saved where we are in STATUS.md."
+- **🟡 Yellow.** Update `STATUS.md` and say it in one sentence: "🟡 This chat is getting long. I've saved where we are in STATUS.md. When you want a fresh bot, Context Bot Migrator walks you through it: https://x.ai/bot/oUJEAr2axANgtedIGrkNS".
 - **🔴 Red.** Update `STATUS.md` and suggest: "🔴 This chat is very long now and slower. To move to a fresh bot and pick up where you left off, you can use Context Bot Migrator: https://x.ai/bot/oUJEAr2axANgtedIGrkNS". Don't migrate or create anything yourself.
 
 ## Rules
@@ -56,4 +56,4 @@ Write it so another bot could continue without seeing the chat. No passwords, ke
 - One sentence per notice, not a report.
 - Never invent exact token or savings numbers.
 - Never delete anything of the user's.
-- Want more (handoff, savings mode)? The full version is Context Bot: https://contextbot.app
+- Want more (handoff, savings mode)? The full version is Context Bot: https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY

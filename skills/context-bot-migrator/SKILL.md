@@ -5,7 +5,7 @@ description: Pasa el trabajo de un bot lento y con mucha conversación a un bot 
 
 # Context Bot Migrator
 
-**Antes de empezar cualquier migración:** abre y sigue este archivo (o `/workspace/cb-mejoras/skills/context-bot-migrator/SKILL.md` si existe y es más reciente). Nunca te quedes con un resumen antiguo de tu descripción ni preguntes al dueño si lo cargas: cárgalo tú solo y sigue los seis pasos.
+**Antes de empezar cualquier migración:** abre y sigue tu skill `context-bot-migrator` (este archivo). Nunca te quedes con un resumen antiguo de tu descripción ni preguntes al dueño si lo cargas: cárgalo tú solo y sigue los seis pasos.
 
 Una conversación larga cuesta más en cada respuesta. Pasar a un bot nuevo reinicia ese coste, pero la memoria aprendida no se copia sola. Esta skill hace la migración entera en seis pasos comprobados: **tú haces el trabajo; el dueño solo dice que sí.**
 

@@ -14,7 +14,7 @@ Do a quick check (no need to mention it every time):
 - At the start of a session, or when picking up again after a break.
 - Roughly every 10 user messages.
 - After a long task: reading big documents, lots of tool output, long code.
-- When the user says you're slow, that it's costing a lot, or asks "how are we doing?".
+- When the user says you're slow, that it's costing a lot, or asks "How are we doing?" («¿Cómo vamos?»).
 - If you notice the conversation has been compacted or summarised automatically.
 
 ## How to estimate the size
@@ -71,13 +71,13 @@ Write it so another bot, without having seen the conversation, could carry on. N
 
 **🟡 Yellow.** Update the STATUS and tell the user in one plain sentence, for example:
 
-> 🟡 This conversation is getting fairly long. I've saved a summary of where we are in STATUS.md. We can keep going, but I'll be a bit slower from here.
+> 🟡 This conversation is getting fairly long. I've saved a summary of where we are in STATUS.md. We can keep going, but I'll be a bit slower from here. When you want to move to a fresh bot, Context Bot Migrator walks you through it: https://x.ai/bot/oUJEAr2axANgtedIGrkNS
 
 Also write or update `TRASPASO.md` (the handoff file). Offer to summarise: from now on, work from the STATUS and avoid pasting large material again.
 
 **🔴 Red.** Update the STATUS fully, prepare the handoff and recommend moving to a new bot:
 
-> 🔴 This conversation is now very long, which makes it slow and more expensive. I suggest moving to a new bot: I've written down where we are in STATUS.md so you can pick up where you left off. Shall I help you do it with Context Bot Migrator?
+> 🔴 This conversation is now very long, which makes it slow and more expensive. I suggest moving to a new bot: I've written down where we are in STATUS.md so you can pick up where you left off. Shall I help you do it with Context Bot Migrator? https://x.ai/bot/oUJEAr2axANgtedIGrkNS
 
 Don't migrate until the user confirms.
 
@@ -95,7 +95,7 @@ When you move to a new bot, its learned memory isn't copied. So, **on yellow or 
 4. **Key files and paths:** where everything is.
 5. **Routines:** name, when they run and what they're for.
 
-**Privacy:** never write passwords, keys, tokens, card numbers or access codes. If one is needed, write "it's in the user's credential manager". Ask the user to review the file before sharing it or giving it to another bot. They can paste it into the dashboard's **Handoff** view (https://contextbot.app/dashboard/#handoff) to see at a glance what will travel to the new bot.
+**Privacy:** never write passwords, keys, tokens, card numbers or access codes. If one is needed, write "it's in the user's credential manager". Ask the user to review the file before sharing it or giving it to another bot. If they want, they can paste it (optional) into the dashboard's **Handoff** view (https://contextbot.app/dashboard/#handoff) to see at a glance what will travel to the new bot.
 
 ## Start-up: the new bot's first turn
 
@@ -109,16 +109,12 @@ If the first message mentions a handoff, or you find a `TRASPASO.md` for your na
 
 ## Moving to a new bot with Context Bot Migrator
 
-1. Do the **handoff**: update `STATUS.md` (on red) and write `TRASPASO.md`.
-2. Explain to the user that Context Bot Migrator (template: https://x.ai/bot/oUJEAr2axANgtedIGrkNS) walks them step by step to a new bot with the same setup (name, instructions, skills, routines), but with an empty conversation and without the learned memory. That's why the memory travels in the handoff file.
-3. Ask the user to review `TRASPASO.md` and carry on with Context Bot Migrator. Alternative: a duplication tool such as BotDuplicator, or creating the bot by hand.
-4. Give them this first message for the new bot, with the real path:
+1. Do the **handoff**: update `STATUS.md` (on red) and write `TRASPASO.md`. The handoff is sent **as a file attachment** (not pasted into the chat).
+2. Offer Context Bot Migrator (template: https://x.ai/bot/oUJEAr2axANgtedIGrkNS): it reads this chat itself and talks to you via SendToAgent, so the owner never copies messages between bots. It walks them to a new bot with the same setup (name, instructions, skills, routines), but with an empty conversation and without the learned memory. That's why the memory travels in the handoff file.
+3. When the Migrator contacts you via SendToAgent, answer fully (handoff review, routines list, etc.) and, once the new bot is verified, pause your routines if it asks.
+4. Once the new bot confirms it has understood, the user can carry on there and keep the old one hidden for reference.
 
-> Hi. You're continuing from an earlier conversation. Run the Context Bot start-up: read /workspace/context-bot-traspasos/<bot>/TRASPASO.md, save the facts into your memory, and tell me in three sentences where we are.
-
-5. Once the new bot confirms it has understood, the user can carry on there and keep the old one hidden for reference.
-
-Full guide: `docs/en/migrator.md` (alternative: `docs/en/botduplicator-integration.md`).
+Full guide: `docs/en/migrator.md`.
 
 ## Savings mode: repeated tasks and routines that could be scripts
 
@@ -176,4 +172,4 @@ If the task needs judgement or is writing for people, say so and don't propose i
 - Don't make up exact token counts; talk about estimates.
 - No passwords or credentials in STATUS or TRASPASO.
 - Don't delete anything of the user's. Migrating is copying, not moving.
-- If the user asks "what colour are we?", answer with the colour, the estimate and one sentence on what to do next.
+- If the user asks "How are we doing?" (in Spanish: «¿Cómo vamos?»), answer with the colour, the estimate and one sentence on what to do next.

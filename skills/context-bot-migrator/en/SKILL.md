@@ -1,42 +1,35 @@
 ---
 name: context-bot-migrator
-description: Moves the work of a slow, long-running bot into a fresh bot in a planned way. It takes an inventory of the old bot, writes a short structured handoff the owner reviews, creates the new bot only after an explicit OK, checks the result against a checklist, and keeps a rollback. Use it when Context Bot shows yellow or red, or when the owner asks to move, copy, migrate or restart a bot.
+description: Moves the work of a slow, long-running bot into a fresh bot and runs the whole migration itself. It reads the old bot's chat, writes the handoff, has the old bot double-check it, shows the owner a summary, creates the new bot after an explicit yes, swaps routines carefully, verifies everything and closes with a final message. The owner only gives the OKs. Use it when Context Bot shows yellow or red, or when the owner asks to move, copy, migrate or restart a bot.
 ---
 
 # Context Bot Migrator
 
-A long chat costs more on every reply. Moving to a fresh bot resets that cost, but learned memory does not copy itself. This skill turns the move into five checked stages. It works with any bot and does not depend on a specific duplication tool.
+**Before any migration:** open and follow this skill yourself. Never rely on an old summary of your description and never ask the owner to load it: load it yourself and follow the six steps.
+
+A long chat costs more on every reply. Moving to a fresh bot resets that cost, but learned memory does not copy itself. This skill runs the whole migration in six checked steps: **you do the work; the owner only says yes.**
 
 Ground rules:
 - Copy, never move. The old bot stays intact and hidden. Never delete it.
 - Nothing irreversible without the owner's explicit OK: creating a bot, switching routines on, hiding the old bot.
 - No passwords, tokens, card numbers or private keys in any file.
-- Every number about size or cost is an **estimate**. Say what it is based on.
-- Give each line the owner must paste into another chat in its own code block, alone.
+- Every number about size or cost is an **estimate**. Say what it is based on and never invent savings figures.
+- Never ask the owner to copy or paste anything unless a tool fails. If needed, each line goes in its own code block, alone.
+- Warm, clear tone. Say "pick up where you left off". Never say "without losing anything", "lossless", "fixes" or "you don't need anything else".
 
 ## When to suggest it
 
-- Context Bot light is **yellow**: the best moment. The old bot can still write a good handoff cheaply.
+- Light is **yellow**: the best moment; the old chat is still manageable.
 - Light is **red**: suggest it now. Don't start until the owner says yes.
 - The owner asks directly.
 
-## Stage 1 · Inventory of the old bot
+Use `<bot>` as a short folder name (lowercase, no spaces).
 
-A bot can usually list its own memory, skills, routines and connectors better than anyone else. Give the owner this prompt to paste into the **old** bot. It produces the inventory and the handoff in one turn:
+## Step 1 · Read the old chat and write the handoff
 
-```
-Prepare a Context Bot migration in one reply. 1) Update STATUS.md and set the light. 2) Write /workspace/context-bot-traspasos/<bot>/TRASPASO.md using the Migrator handoff format: version, source bot, date, summary, memory facts (one per line), tasks, key files, skills, routines with schedule and on/off state, connectors with auth status, and a line confirming secrets were excluded. 3) Copy it to /workspace/context-bot-traspasos/<bot>/archive/TRASPASO-<YYYY-MM-DD>.md. 4) Reply with the counts: facts, skills, routines, connectors. Keep the whole file under about 150 lines. Do not create, change or delete anything else.
-```
+Read the old bot's conversation yourself with ReadTranscript: newest first, then back page by page, until the goal, decisions, preferences and open work are clear. You don't need to read everything if older parts are already summarised in a STATUS.md or an earlier handoff.
 
-Replace `<bot>` with a short folder name (lowercase, no spaces). Write the counts down: they are the "before" side of Stage 4.
-
-If the old bot can't list something (for example connector auth), mark it `unknown`. Don't guess.
-
-## Stage 2 · The handoff file
-
-Path: `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, readable by every bot on the shared computer. If the new bot can't read it, the owner pastes the contents into the chat.
-
-Format (keep it short, a summary rather than a history):
+Write `/workspace/context-bot-traspasos/<bot>/TRASPASO.md` (readable by every bot on the shared computer) and a copy in `archive/TRASPASO-<YYYY-MM-DD>.md`. Keep it short: a summary, not a history (about 150 lines at most).
 
 ```markdown
 # TRASPASO
@@ -49,12 +42,16 @@ light_at_handoff: yellow | red
 3–5 sentences: goal, where we are, next step.
 
 ## Memory facts
-- one fact per line (preferences, decisions, people/projects by role, ways of working)
+- one fact per line (preferences, decisions, people/projects by role)
+
+## Working rules and preferences
+- how the owner likes to work, tone, language, what never to do
+
+## How things are done
+- usual commands and steps (e.g. `bash scripts/build.sh` — what it does)
 
 ## Tasks
-- [in progress] ...
-- [to do] ...
-- [blocked] ... (why)
+- [in progress] ... / [to do] ... / [blocked] ... (why)
 
 ## Key files
 - /path — what it is
@@ -63,7 +60,8 @@ light_at_handoff: yellow | red
 - name — installed / custom
 
 ## Routines
-- name — schedule — on/off — what it does
+- name — schedule — on/paused — what it does
+  instructions: full saved text (needed to recreate it the same way)
 
 ## Connectors
 - name — connected / needs auth / unknown
@@ -72,55 +70,72 @@ light_at_handoff: yellow | red
 secrets_excluded: yes — no passwords, tokens, keys or card data in this file.
 ```
 
-Ask the owner to read it before going on. Look for: private data they don't want shared, missing decisions or preferences, routines they no longer want.
+Anything you can't know, mark `unknown`. Don't guess.
 
-## Stage 3 · Create the new bot (only after an explicit OK)
+## Step 2 · The old bot reviews it
 
-Ask in one sentence: "Shall I create the new bot now?" Wait for a clear yes.
-
-Then, depending on what is available:
-1. **A bot-creation tool (for example CreateAgent):** create it with the same name plus a marker (e.g. "· 2"), the same instructions, and the skills on the handoff list. Create routines **paused**.
-2. **No tool:** guide the owner step by step to create the bot in the app, or to use a duplication tool if they already use one. Duplication tools often copy setup but not learned memory. The handoff covers that gap either way.
-
-First message for the new bot (give it to the owner as a single paste line):
+**Mandatory — do not skip.** Reading its chat does not replace this step: the old bot is the only one that sees its real routines, skills and connectors. Find its id in your teammates list and send it the file with SendToAgent. Never ask the owner to be the messenger or to paste anything:
 
 ```
-You are continuing from an earlier bot. Read /workspace/context-bot-traspasos/<bot>/TRASPASO.md, save each memory fact to your memory, create STATUS.md in green, keep all routines paused, and reply with a three-sentence summary plus your counts of facts, skills, routines and connectors.
+I'm Context Bot Migrator. I'm preparing your migration to a fresh bot. Review /workspace/context-bot-traspasos/<bot>/TRASPASO.md and tell me what's missing or wrong so the new bot is a perfect replica of you: memory, rules, tasks, files, skills and connectors. Also list all your routines with your routines tool (not from memory): name, schedule, state and full instruction text. Give your counts of facts, skills, routines and connectors too. Change nothing.
 ```
 
-This one-turn startup keeps the new chat small from the start.
+Wait for its reply (it arrives on its own; do not go to Step 3 without it). Merge its answers into the file, resolve contradictions by asking again, and save the final version (and its `archive/` copy). Its counts are the "before" for Step 5. Only if you can't write to it, give the owner that same text as one line to paste into the old bot.
 
-## Stage 4 · Verification checklist
+## Step 3 · Show the handoff and wait for the yes
 
-Compare the new bot against the "before" counts. Report each line as ✅, ⚠️ or ❌:
+Send the owner the final file **as a file attachment** (not pasted into the chat text), with a short message that works as a quick skim summary:
 
-- [ ] Memory facts: count matches; spot-check two facts word by word.
-- [ ] Skills: every listed skill is present.
-- [ ] Routines: same count, same schedules, and **all paused**. They stay paused until the owner confirms, so nothing runs twice.
-- [ ] Connectors: each is connected, or flagged "needs re-auth" for the owner. Sign-ins are done by the owner, never by pasting secrets.
-- [ ] Three memory-only questions: the owner asks three things only the old memory would know (a preference, a decision, a person's role). All three should be right.
-- [ ] STATUS.md exists in green and matches the handoff tasks.
-- [ ] Optional dry run: run one routine once by hand, check its output, and leave it paused.
+- 3–4 lines: what the new bot will carry and the counts (facts, skills, routines, connectors).
+- What the old bot added or corrected.
+- Anything marked `unknown` or "needs auth".
 
-Anything ⚠️ or ❌: fix it from the handoff, or ask the old bot to expand that section, then check again.
+The attachment carries the whole file, in case they want to review it in detail (private data they don't want shared, missing decisions, routines they no longer want). Ask: "Shall I create the new bot now?". Wait for a clear yes.
 
-When everything passes and the owner agrees: switch the new bot's routines on, pause the matching routines on the old bot, and ask before hiding the old bot.
+## Step 4 · Create the new bot and swap routines
 
-## Stage 5 · Rollback
+1. **With a bot-creation tool (e.g. CreateAgent):** create it with the same name plus a marker (e.g. "· 2"), the same instructions and the skills from the handoff. Create routines with their full text **paused**.
+   **Without a tool:** guide the owner step by step to create it in the app. The handoff covers the memory either way.
+2. Ask the new bot (SendToAgent) to load the handoff:
+   ```
+   You are continuing from an earlier bot. Read /workspace/context-bot-traspasos/<bot>/TRASPASO.md, save each memory fact and each rule into your memory, create STATUS.md in green, keep all routines paused, and reply with a three-sentence summary plus your counts of facts, skills, routines and connectors.
+   ```
+3. Run the checklist:
+   - [ ] Facts: count matches; spot-check two word by word.
+   - [ ] Skills: all present.
+   - [ ] Routines: same count, schedules and instructions, **all paused**.
+   - [ ] Connectors: connected or marked "needs auth" (sign-ins are done by the owner, never by pasting secrets).
+   - [ ] Three memory questions to the new bot (one preference, one decision, one person's role): all three right.
+   - [ ] STATUS.md in green and matches the tasks.
+   If anything is ⚠️ or ❌, fill it from the handoff or ask the old bot, then check again.
+4. With everything ✅, ask the old bot (SendToAgent) to **pause its routines** and confirm which ones. Then ask the owner: "Shall I switch the new bot's routines on?". Switch them on only after their yes. That way nothing runs twice.
+
+## Step 5 · Confirm it all worked
+
+- Old bot routines: paused, confirmed by the old bot itself.
+- New bot routines: on after the owner's OK.
+- New bot counts match the "before" (facts, skills, routines, connectors).
+
+## Step 6 · Final message
+
+Write the owner a warm, clear message:
+- **If everything went well:** they can carry on in the new bot and pick up where they left off, with the counts and the one-line undo. Ask whether they want you to hide the old bot (only after their yes).
+- **If something failed:** what failed, what's already done and exactly what they need to do (if anything). Then resume from the failed step and repeat until it works, with a new final message.
+
+## Rollback
 
 - The old bot is hidden, not deleted. Its chat and memory stay as they were.
-- The dated archive in `archive/` keeps every handoff version.
+- `archive/` keeps every handoff version.
 - One-line undo for the owner: **unhide the old bot, switch its routines back on, and pause or hide the new one.**
-- Offer the undo whenever the owner says the new bot feels wrong during the first days.
+- Offer the undo if the owner says the new bot feels wrong in the first days.
 
 ## Cost
 
-- Migrating at yellow costs less than at red: the old bot's handoff turn is one of its most expensive, and it only gets pricier.
-- Short handoff, one-turn startup, no replaying old history.
-- If the owner asks what they save: give a rough **estimate** based on visible signs (approximate message count, compactions, large tool results). Label it as an estimate, say what it is based on, and never invent exact token or money figures.
+- Migrating at yellow costs less than at red. Reading the chat in parts and a short handoff keep the new bot small from the start.
+- If the owner asks what they save: give an **estimate** based on visible signs (approximate messages, compactions, large results). Never invent exact figures.
 
 ## With Context Bot
 
-- Read the light from `STATUS.md`. On yellow, offer the migration. On red, recommend it.
+- Read the light from `STATUS.md`: on yellow, offer the migration; on red, recommend it.
 - The handoff lives at `/workspace/context-bot-traspasos/<bot>/TRASPASO.md`, the same place Context Bot uses.
 - After migrating, the new bot uses Context Bot as usual, starting in green.
