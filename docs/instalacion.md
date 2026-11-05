@@ -29,4 +29,4 @@ Si tienes varios bots, crea uno que los vigile a todos con el prompt de [`prompt
 
 ## Cuando llegue el rojo
 
-Usa [Context Bot Migrator](migrator.md) ([plantilla](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)). Alternativa: [migrar con BotDuplicator](integracion-botduplicator.md).
+Usa [Context Bot Migrator](migrator.md) ([plantilla](https://x.ai/bot/oUJEAr2axANgtedIGrkNS)).

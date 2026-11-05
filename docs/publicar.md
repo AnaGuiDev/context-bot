@@ -150,7 +150,7 @@ Usa **solo una** para el mismo dominio. Todas generan la web con `bash scripts/b
 
 ## 6. Primera versión: v0.2.0
 
-1. En `CHANGELOG.md`, cambia `AAAA-MM-DD` por la fecha de hoy y haz commit.
+1. En `CHANGELOG.md`, comprueba la fecha de la versión (la v0.2.0 ya figura como 2026-11-04, la del tag).
 2. Crea la etiqueta y la versión:
 
    ```bash

@@ -35,7 +35,7 @@
   - `/oauth/register` is open (as DCR requires); registered clients expire after 90 days.
 
 ### Known weak spots
-- The handoff with BotDuplicator hasn't been tested end to end yet. Try it once before announcing.
+- The Context Bot Migrator handoff hasn't been tested end to end yet. Try it once before announcing.
 - Some sources are forum posts from the team, not official docs.
 - The skill text is Spanish only for now.
 
@@ -61,7 +61,7 @@
 - Guías: [docs/conector.md](docs/conector.md) y [docs/despliegue-worker.md](docs/despliegue-worker.md).
 - **Te toca:**
   1. Despliega siguiendo despliegue-worker.md (ids de D1/KV, app OAuth de GitHub con callback `https://mcp.contextbot.app/callback`, secretos).
-  2. Después cambia «Muy pronto: estado en directo» en `src/i18n.py` (`s4_h`, EN y ES) y vuelve a generar la web.
+  2. Después cambia «Próximamente: estado en directo» en `src/i18n.py` (`s4_h`, EN y ES) y vuelve a generar la web.
 - **Prueba en real antes de anunciarlo:**
   - ¿El «Add this MCP server» de Grok Bot admite el registro dinámico de clientes y el parámetro `resource`?
   - ¿La redirección OAuth vuelve bien?
@@ -71,7 +71,7 @@
   - `/oauth/register` es abierto (lo exige el registro dinámico de clientes); los clientes registrados caducan a los 90 días.
 
 ### Puntos flojos conocidos
-- El traspaso con BotDuplicator aún no se ha probado de principio a fin. Pruébalo una vez antes de anunciarlo.
+- El traspaso con Context Bot Migrator aún no se ha probado de principio a fin. Pruébalo una vez antes de anunciarlo.
 - Algunas fuentes son mensajes del equipo en el foro, no documentación oficial.
 - De momento la skill solo está en español.
 

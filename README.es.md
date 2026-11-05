@@ -53,7 +53,7 @@ Los umbrales son estimaciones según la longitud de la charla, no un recuento ex
 
 1. **Añade Context Bot** desde la plantilla (enlace de arriba).
 2. **Charla como siempre.** Según crece la charla, mira el semáforo por su cuenta y lleva un `STATUS.md` con en qué estáis. Pregunta *«¿En qué color estamos?»* cuando quieras, o pega su `STATUS.md` en el [panel](https://contextbot.app/es/dashboard/).
-3. **En rojo, migra con Context Bot Migrator.** Tu bot escribe el archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)) y te propone un bot nuevo. [Añade Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) y te acompaña en el cambio ([guía](docs/migrator.md); alternativa: [BotDuplicator](docs/integracion-botduplicator.md)); en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
+3. **En rojo, migra con Context Bot Migrator.** Tu bot escribe el archivo de traspaso ([ejemplo](examples/TRASPASO.md.example)) y te propone un bot nuevo. [Añade Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) y te acompaña en el cambio ([guía](docs/migrator.md)); en la vista [Traspaso del panel](https://contextbot.app/es/dashboard/?demo#handoff) ves exactamente qué se lleva el bot nuevo.
 
 **¿Ya tienes un bot? Pega este prompt** en su chat (GitHub te pone un botón para copiarlo a la derecha):
 
@@ -150,7 +150,7 @@ Al duplicar un bot no se copia su memoria aprendida, así que antes de cambiar, 
 
 <details><summary><b>¿Lee o sube mis conversaciones?</b></summary>
 
-No. La skill funciona dentro de tu propio bot, y la web y el panel lo guardan todo en tu navegador (`localStorage`). El conector opcional de estado en directo (código en [`worker/`](worker/), aún sin desplegar) solo envía el nombre del bot, su color y unas pocas estimaciones, nunca tu conversación.
+No. La skill funciona dentro de tu propio bot, y la web y el panel lo guardan todo en tu navegador (`localStorage`). El conector opcional de estado en directo (código en [`worker/`](worker/), próximamente) solo envía el nombre del bot, su color y unas pocas estimaciones, nunca tu conversación.
 </details>
 
 <details><summary><b>¿Es exacta la estimación?</b></summary>
@@ -160,7 +160,7 @@ No. Es una estimación aproximada según la longitud de la charla. Sirve para av
 
 <details><summary><b>¿Es oficial de Grok Bot?</b></summary>
 
-No. Es un proyecto comunitario no oficial, sin relación con Grok Bot ni con xAI. BotDuplicator es una herramienta de terceros, tampoco relacionada.
+No. Es un proyecto comunitario no oficial, sin relación con Grok Bot ni con xAI.
 </details>
 
 ## 🗺️ Hoja de ruta
@@ -171,7 +171,7 @@ No hay fechas: depende del tiempo libre y de lo que pidáis.
 - [x] Pegar un `TRASPASO.md` en el panel para ver qué se lleva el bot nuevo.
 - [x] Versión en inglés de la skill.
 - [x] Kit de plantilla del bot listo para publicar ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [x] Conector opcional de estado en directo (MCP): código y pruebas en [`worker/`](worker/), ver [docs/conector.md](docs/conector.md). Aún sin desplegar.
+- [x] Conector opcional de estado en directo (MCP): código y pruebas en [`worker/`](worker/), ver [docs/conector.md](docs/conector.md). Próximamente.
 - [x] Enlace público de la plantilla del bot.
 - [ ] Que el panel funcione sin conexión (instalable como app).
 - [ ] Probar el traspaso de memoria en más casos reales y mejorar la plantilla.

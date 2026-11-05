@@ -13,7 +13,7 @@ House rules for everything below:
 
 ## TL;DR: do these first
 
-1. **Test the BotDuplicator handoff end to end once** (see [NEXT-STEPS.md](NEXT-STEPS.md)). The pitch now leads with "a handoff file brings your memory along". It has to be true before launch day.
+1. **Test the Context Bot Migrator handoff end to end once** (see [NEXT-STEPS.md](NEXT-STEPS.md)). The pitch now leads with "a handoff file brings your memory along". It has to be true before launch day.
 2. **Repo settings on GitHub:** new description, more topics, social preview image, and a `v0.2.0` release. Commands are below.
 3. **Post the X thread with the 9:16 video natively in post 1** and the link later in the thread (see the launch plan).
 4. **Next video pass:** a new 2-second hook, a dark brand end card with a clear verb, louder mix, bigger UI on mobile. Details below. Don't redo the whole thing: most of the footage is fine.
@@ -48,7 +48,6 @@ Status in the repo after this PR:
 - **Still to clean:**
   - **[GitHub repo description](https://github.com/AnaGuiDev/context-bot):** says "lossless handoff". Fix it with the command in section 4.
   - **Video:** says "Nothing lost" / "lose nothing".
-  - **[docs/en/botduplicator-integration.md](docs/en/botduplicator-integration.md):** says "without losing anything". This is how-to text, so it's less urgent.
 
 **Spelling:** the site and READMEs now use US English (summarize, color) to match the X banner. The video uses "summarize" too. Keep it consistent in posts.
 

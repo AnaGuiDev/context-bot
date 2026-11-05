@@ -195,7 +195,6 @@ EN = dict(
   q4="Is it an official Grok Bot product?", a4="No. It's an unofficial community project, not affiliated with Grok Bot or xAI.",
   q5="Does it read or upload my conversations?", a5="No. The skill runs inside your own bot. This website and the dashboard keep everything in your browser, with no cookies or tracking. The optional live status (coming soon) only sends your bot's name, color and a few estimates, never your conversation.",
   q6="How accurate is the light?", a6="It's a rough estimate based on how long the chat is, not an exact token count. It's meant to tell you when to act, well before things feel slow.",
-  q7="What's BotDuplicator?", a7="A third-party tool that copies a bot (name, instructions, skills and routines) into a new one with an empty chat. Context Bot isn't affiliated with it. It's an optional alternative: the recommended path is Context Bot Migrator, and you can also create a fresh bot by hand and give it the handoff file.",
   # landing · closing
   cta_h="Long chats, light bot.",
   cta_sub="One prompt, about a minute. Your future self, no longer staring at “typing…”, says thanks.",
@@ -379,7 +378,7 @@ ES = dict(
   s2_p_tpl="Háblale como a cualquier bot. Según crece la charla, mira el semáforo por su cuenta y lleva un STATUS.md con en qué estáis. ¿Curiosidad? Pregunta <em>«¿En qué color estamos?»</em>.",
   s3_h_tpl="En rojo, cambia con Context Bot Migrator",
   s3_p_tpl="Tu bot escribe el archivo de traspaso y te propone un bot nuevo. Context Bot Migrator sigue desde ahí <a href=\"#migrator\">paso a paso</a>. En la vista <a href=\"{{L_DASH}}?demo#handoff\">Traspaso</a> del panel ves exactamente qué pasa de uno a otro (<code>TRASPASO.md</code>).",
-  soon_label="Muy pronto", s4_h="Estado en directo", s4_cmd_label="Dile a tu bot:",
+  soon_label="Próximamente", s4_h="Estado en directo", s4_cmd_label="Dile a tu bot:",
   s4_p="Después entra con GitHub. Tu bot enviará su color (una estimación, nunca tu conversación) y en el <a href=\"{{L_DASH}}\">panel</a> pulsas <em>Conectar estado en directo</em> para verlo. Lo borras todo con una sola orden. Sin él, todo se queda en local.",
   copy_word="Copiar", copied_word="Copiado ✓",
   # landing · vídeo
@@ -480,9 +479,8 @@ ES = dict(
   q10="¿Tengo que copiar y pegar algo para migrar?", a10="No. Context Bot Migrator lee el chat antiguo, escribe el traspaso y habla él mismo con los dos bots. Tú solo dices que sí dos veces: una para crear el bot nuevo y otra para activar sus rutinas. Solo si una herramienta no llega al bot antiguo, te dará una línea para pegar.",
   q3="¿Pierdo mi trabajo al cambiar de bot?", a3="Un bot nuevo no hereda la memoria aprendida del antiguo, así que antes de cambiar, tu bot escribe un archivo de traspaso con tus preferencias, decisiones, tareas y archivos clave. El bot nuevo lo lee y sigue. Revisa el archivo antes: nunca debe llevar contraseñas ni claves.",
   q4="¿Es oficial de Grok Bot?", a4="No. Es un proyecto comunitario no oficial, sin relación con Grok Bot ni con xAI.",
-  q5="¿Lee o sube mis conversaciones?", a5="No. La skill funciona dentro de tu propio bot. Esta web y el panel lo guardan todo en tu navegador, sin cookies ni seguimiento. El estado en directo opcional (muy pronto) solo envía el nombre de tu bot, su color y unas pocas estimaciones, nunca tu conversación.",
+  q5="¿Lee o sube mis conversaciones?", a5="No. La skill funciona dentro de tu propio bot. Esta web y el panel lo guardan todo en tu navegador, sin cookies ni seguimiento. El estado en directo opcional (próximamente) solo envía el nombre de tu bot, su color y unas pocas estimaciones, nunca tu conversación.",
   q6="¿Es exacto el semáforo?", a6="Es una estimación aproximada según la longitud de la charla, no un recuento exacto de tokens. Sirve para avisarte de cuándo actuar, mucho antes de que lo notes lento.",
-  q7="¿Qué es BotDuplicator?", a7="Una herramienta de terceros que copia un bot (nombre, instrucciones, skills y rutinas) en uno nuevo con el chat vacío. Context Bot no tiene relación con ella. Es una alternativa opcional: lo recomendado es Context Bot Migrator, y también puedes crear un bot nuevo a mano y darle el archivo de traspaso.",
   # landing · cierre
   cta_h="Charlas largas, bot ligero.",
   cta_sub="Un prompt y un minuto, más o menos. Tu yo del futuro, sin mirar «escribiendo…», te lo agradece.",

@@ -53,7 +53,7 @@ Thresholds are rough estimates based on chat length, not exact token counts. Goo
 
 1. **Add Context Bot** from the template (link above).
 2. **Chat as usual.** As the chat grows, it checks the light on its own and keeps a `STATUS.md` with where you are. Ask *"What color are we on?"* anytime, or paste its `STATUS.md` into the [dashboard](https://contextbot.app/dashboard/).
-3. **On red, move with Context Bot Migrator.** Your bot writes the handoff file ([example](examples/TRASPASO.md.example)) and suggests a fresh bot. [Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) and it walks you through the move ([guide](docs/en/migrator.md); alternative: [BotDuplicator](docs/en/botduplicator-integration.md)); the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
+3. **On red, move with Context Bot Migrator.** Your bot writes the handoff file ([example](examples/TRASPASO.md.example)) and suggests a fresh bot. [Add Context Bot Migrator](https://x.ai/bot/oUJEAr2axANgtedIGrkNS) and it walks you through the move ([guide](docs/en/migrator.md)); the dashboard's [Handoff view](https://contextbot.app/dashboard/?demo#handoff) shows exactly what the new bot takes with it.
 
 **Already have a bot? Paste this prompt** into its chat (GitHub shows a copy button on the right):
 
@@ -150,7 +150,7 @@ Duplicating a bot doesn't copy its learned memory, so before you switch, your bo
 
 <details><summary><b>Does it read or upload my conversations?</b></summary>
 
-No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), not deployed yet) only sends your bot's name, color and a few estimates, never your conversation.
+No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), coming soon) only sends your bot's name, color and a few estimates, never your conversation.
 </details>
 
 <details><summary><b>Is the estimate exact?</b></summary>
@@ -160,7 +160,7 @@ No. It's a rough estimate based on how long the chat is. It's meant to tell you 
 
 <details><summary><b>Is this an official Grok Bot project?</b></summary>
 
-No. It's an unofficial community project with no link to Grok Bot or xAI. BotDuplicator is a third-party tool, also unrelated.
+No. It's an unofficial community project with no link to Grok Bot or xAI.
 </details>
 
 ## 🗺️ Roadmap
@@ -171,7 +171,7 @@ No dates: it depends on spare time and on what you ask for.
 - [x] Paste a `TRASPASO.md` into the dashboard to see what the new bot takes with it.
 - [x] English version of the skill.
 - [x] Ready-to-publish bot template kit ([templates/context-bot-template.md](templates/context-bot-template.md)).
-- [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Not deployed yet.
+- [x] Optional live status connector (MCP): code and tests in [`worker/`](worker/), see [docs/en/connector.md](docs/en/connector.md). Coming soon.
 - [x] Public bot template link.
 - [ ] Make the dashboard work offline (installable as an app).
 - [ ] Test memory handoff in more real cases and improve the template.

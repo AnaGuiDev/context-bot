@@ -29,7 +29,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - `MARKETING-REVIEW.md`: revisión de la web, el vídeo y el marketing, con plan de lanzamiento.
 
 ### Cambiado
-- **Historia de la plantilla, lista para cuando haya enlace**: con el enlace público de la plantilla, la web cuenta la instalación como «1. Añade Context Bot desde la plantilla, 2. charla como siempre, 3. en rojo, traspasa con BotDuplicator», con «¿Ya tienes un bot? Pega este prompt» como segunda opción, una pregunta nueva «¿Plantilla o prompt?» y avisos en el panel. Sin enlace, sigue el flujo del prompt. `rellenar-placeholders.sh --template` cambia también los README y las guías de instalación, y `CB_TEMPLATE=https://… bash scripts/build-site.sh` deja probar la web así sin tocar archivos.
+- **Historia de la plantilla, lista para cuando haya enlace**: con el enlace público de la plantilla, la web cuenta la instalación como «1. Añade Context Bot desde la plantilla, 2. charla como siempre, 3. en rojo, migra con Context Bot Migrator», con «¿Ya tienes un bot? Pega este prompt» como segunda opción, una pregunta nueva «¿Plantilla o prompt?» y avisos en el panel. Sin enlace, sigue el flujo del prompt. `rellenar-placeholders.sh --template` cambia también los README y las guías de instalación, y `CB_TEMPLATE=https://… bash scripts/build-site.sh` deja probar la web así sin tocar archivos.
 - El vídeo de la demo sube justo después de la cabecera, con el póster adecuado desde el principio (sin descargar los dos).
 - **Diseño alternativo «viaje por carretera»** (propuesta): papel cálido y asfalto, letra de señal de autopista (Overpass) con notas a mano (Caveat), un semáforo de verdad que cambia al bajar por la página y un bot conductor que se va cansando. Vuelve el vídeo en reproducción automática, sin sonido y en bucle (no arranca con «reducir movimiento»).
 - **Nuevo nombre: Context Bot** (antes «Control de Contexto»), con dominio `contextbot.app`. La carpeta de la skill pasa de `skills/control-de-contexto/` a `skills/context-bot/` y la skill se llama `context-bot`. Si ya la tenías guardada con el nombre anterior, sigue funcionando; puedes volver a guardarla con el nombre nuevo.
@@ -71,7 +71,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Panel (`dashboard/index.html`) con semáforo verde / amarillo / rojo, sin servidor, guardado en el navegador.
 - Prompt del bot coordinador (`prompts/bot-coordinador.md`).
 - Ejemplo de `STATUS.md`.
-- Guías de instalación y de migración con BotDuplicator.
+- Guías de instalación y de migración.
 - Página de presentación (`landing/index.html`).
 
 [Sin publicar]: https://github.com/AnaGuiDev/context-bot/compare/v0.2.0...HEAD

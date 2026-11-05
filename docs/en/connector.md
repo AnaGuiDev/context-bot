@@ -2,6 +2,8 @@
 
 > Unofficial project, not affiliated with Grok Bot or xAI. Context Bot works just as well **without** the connector. It's only for people who want their bots' traffic lights to show up without copying them by hand.
 
+> **Coming soon (v0.3).** The connector isn't available to use yet; this guide describes how it will work.
+
 [Español](../conector.md)
 
 ## Connecting
