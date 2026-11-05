@@ -25,7 +25,7 @@
 - Docs: [docs/en/connector.md](docs/en/connector.md) and [docs/en/worker-deployment.md](docs/en/worker-deployment.md).
 - **Your turn:**
   1. Deploy following worker-deployment.md (D1/KV ids, GitHub OAuth app with callback `https://mcp.contextbot.app/callback`, secrets).
-  2. Then change "Coming soon: live status" in `src/i18n.py` (`s4_h`, EN and ES) and rebuild.
+  2. Then change the "Coming soon" label in `src/i18n.py` (`soon_label`, EN and ES) and rebuild.
 - **Test live before announcing:**
   - Does Grok Bot's "Add this MCP server" support dynamic client registration and the `resource` parameter?
   - Does the OAuth redirect come back correctly?
@@ -61,7 +61,7 @@
 - Guías: [docs/conector.md](docs/conector.md) y [docs/despliegue-worker.md](docs/despliegue-worker.md).
 - **Te toca:**
   1. Despliega siguiendo despliegue-worker.md (ids de D1/KV, app OAuth de GitHub con callback `https://mcp.contextbot.app/callback`, secretos).
-  2. Después cambia «Próximamente: estado en directo» en `src/i18n.py` (`s4_h`, EN y ES) y vuelve a generar la web.
+  2. Después cambia la etiqueta «Próximamente» en `src/i18n.py` (`soon_label`, EN y ES) y vuelve a generar la web.
 - **Prueba en real antes de anunciarlo:**
   - ¿El «Add this MCP server» de Grok Bot admite el registro dinámico de clientes y el parámetro `resource`?
   - ¿La redirección OAuth vuelve bien?

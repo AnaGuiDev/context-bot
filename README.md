@@ -7,7 +7,7 @@
 **Long Grok Bot chats get slow and expensive. Context Bot gives them a traffic light.**<br>
 🟢 carry on · 🟡 time to summarize · 🔴 move to a fresh bot, and a handoff file brings your memory along.
 
-[![GitHub stars](https://img.shields.io/github/stars/AnaGuiDev/context-bot?style=flat&logo=github&label=stars&color=facc15)](https://github.com/AnaGuiDev/context-bot/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/AnaGuiDev/context-bot?style=flat&logo=github&label=stars&color=facc15)](https://github.com/AnaGuiDev/context-bot)
 [![MIT license](https://img.shields.io/badge/license-MIT-4ade80.svg)](LICENSE)
 [![Website](https://img.shields.io/badge/web-contextbot.app-2563eb.svg)](https://contextbot.app/)
 [![No coding](https://img.shields.io/badge/no%20coding-needed-facc15.svg)](docs/en/installation.md)

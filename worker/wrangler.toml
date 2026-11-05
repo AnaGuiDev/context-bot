@@ -1,7 +1,7 @@
 # Context Bot · conector de estado en directo (servidor MCP remoto)
 # Guía de despliegue: ../docs/despliegue-worker.md
 # ESTADO: en preparación para la v0.3 (Próximamente / Coming soon). No se anuncia todavía.
-# Los TODO_*_ID son marcadores a propósito: se rellenan al crear los recursos reales (ver la guía).
+# Recursos creados (D1 + 2 KV) con sus ids ya puestos. El conector sigue en preparación v0.3 (Próximamente), sin anunciar.
 name = "context-bot-mcp"
 main = "src/index.ts"
 compatibility_date = "2026-05-01"

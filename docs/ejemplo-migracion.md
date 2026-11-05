@@ -9,7 +9,9 @@
 - Mensajes aproximados: no anotado.
 - Señales que notaste (lentitud, olvidos, resúmenes automáticos): conversación muy larga, con varios traspasos previos acumulados.
 
-## Inventario (etapa 1)
+## Pasos 1 y 2: lectura del chat y repaso del bot antiguo
+
+El Migrator leyó él mismo el chat antiguo y el bot antiguo repasó el traspaso y listó sus rutinas reales. Recuento (ejemplo / no anotado: cifras de esta migración, no comprobables desde fuera):
 
 | Elemento | Cantidad |
 |---|---|
@@ -19,23 +21,23 @@
 | Memorias | 9 hechos de memoria |
 | Tareas abiertas | 5 |
 
-## Traspaso (etapa 2)
+## Paso 3: traspaso enseñado al dueño
 
-- Tamaño de `TRASPASO.md` (líneas): 76
-- Qué corregiste al revisarlo: el propio bot antiguo lo repasó antes de crear el nuevo. Los secretos (tokens y credenciales) solo se nombran, sin valor, y el nombre real del dueño no sale en nada público: en lo público firma como Ana Gui.
+- Tamaño de `TRASPASO.md` (líneas): 76 (ejemplo / no anotado)
+- Qué corregiste al revisarlo: el propio bot antiguo lo repasó antes de crear el nuevo. Llegó al dueño como archivo adjunto con un resumen arriba. Los secretos (tokens y credenciales) solo se nombran, sin valor.
 
-## Bot nuevo y checklist (etapas 3 y 4)
+## Pasos 4 y 5: bot nuevo y comprobación
 
 - ¿Pasó la checklist a la primera? Sí.
 - Qué faltaba y cómo se resolvió: antes de esta migración, el Migrator a veces pedía al dueño que cargara la skill. Se cambió para que la cargue solo (commit `a1b3e49`) y se actualizaron las skills (`112a85b` y `693c876`), ya en la plantilla v15.
-- Rutinas reactivadas: 2 («Consejo semanal X» y «Recordatorio cancelar X Premium»). Se crearon en pausa en el bot nuevo y se activaron solo tras el OK del dueño, después de pausar las del bot antiguo.
+- Rutinas reactivadas: 2 rutinas. Se crearon en pausa en el bot nuevo y se activaron solo tras el OK del dueño, después de pausar las del bot antiguo.
 
-## Resultado
+## Paso 6: mensaje final y resultado
 
 - Cómo responde el bot nuevo comparado con el antiguo (tu impresión): retoma donde lo dejaste: el bot nuevo empezó con las tareas abiertas, las reglas de trabajo y las rutinas ya en su sitio. Su primera tarea fue precisamente rellenar este ejemplo.
 - Tiempo total aproximado: no anotado (se hizo de madrugada, en una sola sesión).
 - ¿Volviste al bot antiguo? No; se queda con sus rutinas en pausa por si hace falta consultarlo.
-- Cita corta (opcional, con permiso): pendiente (firmará Ana Gui).
+- Cita corta (opcional, con permiso): pendiente. — Ana Gui
 
 ---
 
@@ -43,8 +45,8 @@
 
 1. Elige un bot tuyo en amarillo o rojo (pregúntale «¿qué color estamos?»).
 2. Abre Context Bot Migrator (https://x.ai/bot/oUJEAr2axANgtedIGrkNS) y dile qué bot quieres migrar.
-3. Pega en el bot antiguo la línea de la etapa 1 que te dé el Migrator y copia de vuelta los recuentos.
-4. Revisa el `TRASPASO.md` antes de seguir; quita lo que no quieras pasar.
-5. Di que sí para crear el bot nuevo y deja que pase la checklist con las rutinas en pausa.
+3. El Migrator lee el chat antiguo y habla él solo con el bot antiguo para repasar el traspaso; tú no tienes que pegar nada.
+4. Revisa el `TRASPASO.md` que te llega adjunto; quita lo que no quieras pasar.
+5. Di que sí para crear el bot nuevo (rutinas en pausa) y da el segundo sí para activarlas cuando todo cuadre.
 6. Usa el bot nuevo un par de días y apunta tus impresiones.
 7. Pásanos: los recuentos del inventario, la longitud del traspaso, si pasó la checklist, qué faltó y tu impresión. Sin datos privados.

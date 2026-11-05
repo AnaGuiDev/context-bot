@@ -4,12 +4,15 @@
 
 Skill complementaria y opcional (`skills/context-bot-migrator/`) para pasar un bot largo y lento a uno nuevo de forma ordenada. Sirve para cualquier bot y no necesita ninguna herramienta concreta de duplicado.
 
-**Cinco etapas**
-1. **Inventario:** con una línea para pegar, el bot antiguo lista sus hechos de memoria, skills, rutinas (con horario) y conectores (con estado de autenticación), y escribe el traspaso.
-2. **Traspaso:** un `TRASPASO.md` breve y estructurado en `/workspace/context-bot-traspasos/<bot>/`, con copia fechada en `archive/` y una línea de «secretos excluidos». Lo revisas tú.
-3. **Bot nuevo:** se crea solo tras tu sí explícito, con una herramienta de creación de bots si la hay. Si no, te guía paso a paso (una herramienta de duplicado es opcional). Las rutinas empiezan en pausa.
-4. **Verificación:** se comparan los recuentos de antes y después, se revisan skills y horarios, se marcan los conectores que requieren autenticación, haces tres preguntas que solo sabría la memoria y, si quieres, una prueba de una rutina.
-5. **Vuelta atrás:** el bot antiguo se oculta, nunca se borra. Para deshacer: muestra el antiguo, reactiva sus rutinas y pausa u oculta el nuevo.
+**Seis pasos**
+1. **Lee el chat antiguo:** el Migrator lee él mismo la conversación del bot antiguo (ReadTranscript) y escribe un `TRASPASO.md` breve y estructurado en `/workspace/context-bot-traspasos/<bot>/`, con copia fechada en `archive/` y una línea de «secretos excluidos».
+2. **El bot antiguo lo repasa:** se lo envía por SendToAgent (paso obligatorio). El bot antiguo añade lo que falte y lista sus rutinas reales, con horario.
+3. **Te lo enseña:** recibes el traspaso como archivo adjunto, con un resumen arriba. No se crea nada hasta que digas que sí.
+4. **Bot nuevo:** se crea con las rutinas en pausa y se comprueba con una lista. Luego pide al bot antiguo que pause sus rutinas, y las nuevas se activan tras tu segundo sí.
+5. **Comprueba que todo cuadra:** compara recuentos de antes y después (memoria, skills, rutinas y horarios) y marca los conectores que requieren autenticación.
+6. **Mensaje final:** te confirma el resultado. Vuelta atrás: el bot antiguo se oculta, nunca se borra. Para deshacer: muestra el antiguo, reactiva sus rutinas y pausa u oculta el nuevo.
+
+Solo si falla la herramienta para hablar con el otro bot, el Migrator te dará una línea para pegar en el bot antiguo como alternativa.
 
 **Coste:** migra en amarillo si puedes y mantén breves el traspaso y el arranque. Cualquier ahorro es una estimación.
 
