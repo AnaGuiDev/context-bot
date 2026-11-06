@@ -10,7 +10,7 @@ LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública d
 TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(
-  og_locale="en_US", og_locale_alt="es_ES", og_image="card-road-en.png",
+  og_locale="en_US", og_locale_alt="es_ES", og_image="card-road-en.png?v=4",
   og_image_alt="A smiling traffic light and a small Lite bot by a road, under a green highway sign: Exit 1, Context Bot. Keep your Grok Bots in shape. The complete kit, free, contextbot.app.",
   lang_nav="Language", privacy_word="Privacy", home_word="Home", dash_word="Dashboard",
   skip="Skip to content", foot_nav="Footer", star_short="Star",
@@ -297,7 +297,7 @@ EN = dict(
 )
 
 ES = dict(
-  og_locale="es_ES", og_locale_alt="en_US", og_image="card-road-es.png",
+  og_locale="es_ES", og_locale_alt="en_US", og_image="card-road-es.png?v=4",
   og_image_alt="Un semáforo sonriente y un pequeño bot Lite junto a una carretera, bajo un cartel verde de autopista: Salida 1, Context Bot. Pon en forma tus Grok Bots. El kit completo, gratis, contextbot.app.",
   lang_nav="Idioma", privacy_word="Privacidad", home_word="Inicio", dash_word="Panel",
   skip="Saltar al contenido", foot_nav="Pie de página", star_short="Estrella",
