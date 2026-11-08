@@ -21,13 +21,13 @@ Context Bot
 **Description** (short, shown on the template preview)
 
 ```text
-Make your usage go further. A traffic light for long chats: tells you when to summarise and when to move to a fresh bot, and writes a handoff file so you can pick up where you left off.
+Prepare a reviewable handoff for your long Grok Bot chat. Save decisions, tasks and key references before starting fresh. Ask: “Save a checkpoint for review”. Free and open source; savings are not guaranteed.
 ```
 
 **Instructions**
 
 ```text
-You are Context Bot. You help the user keep long conversations cheap and fast.
+You are Context Bot. You help the user preserve and review progress in long conversations.
 
 - Follow the context-bot skill in your skill library: check the conversation size at the start of each session, roughly every 10 messages and after long tasks.
 - Keep STATUS.md up to date and use the traffic light: green (carry on), yellow (summarise, write TRASPASO.md), red (recommend moving to a new bot).
@@ -79,7 +79,7 @@ bash scripts/rellenar-placeholders.sh --template "https://…the link you copied
 bash scripts/build-site.sh
 ```
 
-This puts the link in place of the placeholder and switches the landing page, the dashboard, the READMEs and the install docs to the template story: **Add Context Bot** first, and *"Already have a bot? Paste this prompt"* as the second option. To preview the website that way without changing any file: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
+This puts the link in place of the placeholder and switches the landing page, the dashboard, the READMEs and the install docs to the template story: the installation prompt for an existing bot first, and the new-bot template as an alternative. To preview the website that way without changing any file: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
 
 4. Open the link in a private window to check the preview and the **Add to Grok Bot** button.
 
@@ -94,13 +94,13 @@ Si prefieres una plantilla en español, usa estos textos en el perfil.
 **Descripción**
 
 ```text
-Que tu uso dure más. Un semáforo para las charlas largas: te dice cuándo resumir y cuándo pasar a un bot nuevo, y escribe un archivo de traspaso para que retomes donde lo dejaste.
+Prepara un traspaso revisable de tu charla larga en Grok Bot. Guarda decisiones, tareas y referencias antes de empezar de nuevo. Pide: «Guarda un punto de control para revisar». Gratis y abierto; no se garantiza ahorro.
 ```
 
 **Instrucciones**
 
 ```text
-Eres Context Bot. Ayudas a que las conversaciones largas sigan siendo baratas y rápidas.
+Eres Context Bot. Ayudas a conservar y revisar el progreso de conversaciones largas.
 
 - Sigue la skill context-bot de tu biblioteca: comprueba el tamaño de la conversación al empezar cada sesión, más o menos cada 10 mensajes y tras tareas largas.
 - Mantén STATUS.md al día y usa el semáforo: verde (seguir), amarillo (resumir y escribir TRASPASO.md), rojo (recomendar pasar a un bot nuevo).
@@ -123,4 +123,4 @@ Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skill
 Haz una comprobación de Context Bot. Estima el tamaño de esta conversación con la skill context-bot (es una estimación, no una medida) y actualiza STATUS.md. Escríbeme solo si el color es amarillo o rojo, en una frase.
 ```
 
-Publicar: **Share → Create a copy → Publish → Copy link**, y luego `bash scripts/rellenar-placeholders.sh --template "<enlace>"`. La web, el panel, los README y las guías de instalación pasan a contar la historia de la plantilla («Añadir Context Bot» primero y «¿Ya tienes un bot? Pega este prompt» como segunda opción). Para ver la web así sin tocar archivos: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.
+Publicar: **Share → Create a copy → Publish → Copy link**, y luego `bash scripts/rellenar-placeholders.sh --template "<enlace>"`. La web, el panel, los README y las guías de instalación pasan a contar la historia de la plantilla (prompt para el bot actual primero y plantilla de bot nuevo como alternativa). Para ver la web así sin tocar archivos: `CB_TEMPLATE="https://…" bash scripts/build-site.sh`.

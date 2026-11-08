@@ -7,6 +7,7 @@
 .wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
 main{overflow-x:clip}
 main>section{padding-block:64px}
+.optional-tools>section{padding-block:40px}.optional-tools>summary{cursor:pointer;font-size:1.3rem;font-weight:800;padding-block:24px}.optional-tools{margin-block:24px}
 h1,h2,h3{line-height:1.05;letter-spacing:-.03em;margin:0}
 h2{font-size:clamp(2.1rem,8.6vw,3.4rem);font-weight:900;margin:0 0 14px}
 h3{font-size:1.24rem;font-weight:900;letter-spacing:-.015em;line-height:1.2}
@@ -350,6 +351,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <p class="lead">{{lead}}</p>
     <!-- Con enlace de plantilla sale «Add Context Bot» como botón principal y el prompt como secundario; sin él, «Copy install prompt» (ver scripts/build_site.py) -->
     <div class="ctas">{{CTAS}}</div>
+    <p><a href="{{L_DASH}}?demo#handoff">{{demo_link}}</a></p>
     <p class="hint" id="copy-status" role="status" aria-live="polite"><svg class="arrow" viewBox="0 0 34 30" aria-hidden="true"><path d="M3 27c9 1 17-4 20-14M17 9l6-6 5 8"/></svg><span>{{cta_copy_hint}}</span></p>
     <ul class="clean trust"><li>{{trust1}}</li><li>{{trust2}}</li><li>{{trust3}}</li></ul>
   </div>
@@ -373,6 +375,30 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
       <div class="tl-ctl"><span class="note">{{tl_hint}} ↑</span><button type="button" class="tl-toggle" id="tl-toggle" data-pause="{{tl_pause}}" data-play="{{tl_play}}" hidden>{{tl_pause}}</button></div>
     </figure>
   </div>
+</section>
+
+<section id="start" class="wrap" aria-labelledby="steps">
+  <span class="eyebrow">{{steps_eyebrow}}</span>
+  <h2 id="steps">{{steps_h}}</h2>
+  <p class="sub">{{steps_sub}}</p>
+  <ol class="clean route">
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{s1_h}}</h3><p>{{s1_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div></li>
+  </ol>
+  {{#TPL}}<div class="add"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a><p class="note">{{cta_add_note}}</p></div>{{/TPL}}
+  <div class="ticket">
+    <p class="ticket-l" id="install-l">{{install_label}}</p>
+    <div class="code"><code id="install-code">{{install_prompt}}</code><button type="button" class="copy-code" data-target="install-code" aria-label="{{copy_prompt_label}}">{{copy_word}}</button></div>
+  </div>
+  <aside class="works" aria-labelledby="soon-h">
+    <div class="works-in">
+      <p class="works-h" id="soon-h"><span class="badge">{{soon_label}}</span> {{s4_h}}</p>
+      <p>{{s4_cmd_label}}</p>
+      <div class="code"><code id="mcp-cmd">Add this MCP server: https://mcp.contextbot.app/mcp</code><button type="button" class="copy-code" data-target="mcp-cmd">{{copy_word}}</button></div>
+      <p>{{s4_p}}</p>
+    </div>
+  </aside>
 </section>
 
 <section id="demo" class="wrap center" aria-labelledby="video-title">
@@ -454,30 +480,24 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
  </div>
 </section>
 
-<section id="start" class="wrap" aria-labelledby="steps">
-  <span class="eyebrow">{{steps_eyebrow}}</span>
-  <h2 id="steps">{{steps_h}}</h2>
-  <p class="sub">{{steps_sub}}</p>
+
+
+<section id="migrator" class="wrap" aria-labelledby="mig-h">
+  <span class="eyebrow">{{mig_eyebrow}}</span>
+  <h2 id="mig-h">{{mig_h}}</h2>
+  <p class="sub">{{mig_sub}}</p>
   <ol class="clean route">
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{s1_h}}</h3><p>{{s1_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{mig1_h}}</h3><p>{{mig1_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{mig2_h}}</h3><p>{{mig2_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{mig3_h}}</h3><p>{{mig3_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">4</text></svg><div><h3>{{mig4_h}}</h3><p>{{mig4_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">5</text></svg><div><h3>{{mig5_h}}</h3><p>{{mig5_p}}</p></div></li>
+    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">6</text></svg><div><h3>{{mig6_h}}</h3><p>{{mig6_p}}</p></div></li>
   </ol>
-  {{#TPL}}<div class="add"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a><p class="note">{{cta_add_note}}</p></div>{{/TPL}}
-  <div class="ticket">
-    <p class="ticket-l" id="install-l">{{install_label}}</p>
-    <div class="code"><code id="install-code">{{install_prompt}}</code><button type="button" class="copy-code" data-target="install-code" aria-label="{{copy_prompt_label}}">{{copy_word}}</button></div>
-  </div>
-  <aside class="works" aria-labelledby="soon-h">
-    <div class="works-in">
-      <p class="works-h" id="soon-h"><span class="badge">{{soon_label}}</span> {{s4_h}}</p>
-      <p>{{s4_cmd_label}}</p>
-      <div class="code"><code id="mcp-cmd">Add this MCP server: https://mcp.contextbot.app/mcp</code><button type="button" class="copy-code" data-target="mcp-cmd">{{copy_word}}</button></div>
-      <p>{{s4_p}}</p>
-    </div>
-  </aside>
+  <div class="add"><a class="btn" href="{{MIGRATOR_TEMPLATE}}">{{mig_soon}}</a><p class="note">{{mig_note}}</p></div>
 </section>
 
+<details class="optional-tools"><summary class="wrap">{{more_label}}</summary>
 <section id="savings" class="wrap" aria-labelledby="sav-h">
   <span class="eyebrow">{{sav_eyebrow}}</span>
   <h2 id="sav-h">{{sav_h}}</h2>
@@ -511,21 +531,6 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p></li>
     <li class="tip"><h3>{{ben3_h}}</h3><p>{{ben3_p}}</p></li>
   </ul>
-</section>
-
-<section id="migrator" class="wrap" aria-labelledby="mig-h">
-  <span class="eyebrow">{{mig_eyebrow}}</span>
-  <h2 id="mig-h">{{mig_h}}</h2>
-  <p class="sub">{{mig_sub}}</p>
-  <ol class="clean route">
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">1</text></svg><div><h3>{{mig1_h}}</h3><p>{{mig1_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{mig2_h}}</h3><p>{{mig2_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{mig3_h}}</h3><p>{{mig3_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">4</text></svg><div><h3>{{mig4_h}}</h3><p>{{mig4_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">5</text></svg><div><h3>{{mig5_h}}</h3><p>{{mig5_p}}</p></div></li>
-    <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">6</text></svg><div><h3>{{mig6_h}}</h3><p>{{mig6_p}}</p></div></li>
-  </ol>
-  <div class="add"><a class="btn" href="{{MIGRATOR_TEMPLATE}}">{{mig_soon}}</a><p class="note">{{mig_note}}</p></div>
 </section>
 
 <section id="lite" class="wrap" aria-labelledby="lite-h">
@@ -593,6 +598,8 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     </div>
   </div>
 </section>
+
+</details>
 
 <section id="faq" class="wrap faq" aria-labelledby="faq-h">
   <span class="eyebrow">{{faq_eyebrow}}</span>

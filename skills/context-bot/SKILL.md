@@ -157,6 +157,41 @@ Elige la tarea repetida (del log) o la parte de rutina más clara que sea **dete
 
 Si la tarea necesita juicio o es texto para personas, dilo y no la propongas.
 
+## Informes recurrentes / modo solo consulta
+
+Como alternativa o complemento al script, puedes proponer una **Grok Bot Page** para un informe, resumen o panel real. Palabras como `report`, `informe`, `resumen`, `daily`, `diario`, `métricas`, `summary` o `dashboard` en la clave, nota o instrucciones son solo indicios: comprueba que el trabajo consiste realmente en elaborar un informe. Debe cumplir al menos una condición: su clave aparece **3 o más veces en los últimos 30 días**, según el resumen del escaneo existente, o ya es una rutina recurrente de informes.
+
+- Aprovecha la comprobación del modo ahorro y el texto guardado de las rutinas: **no releas el historial**, las ejecuciones ni los resultados para detectar candidatos, ni añadas otro escaneo o rutina de detección.
+- Haz **una propuesta cada vez**, contando también las propuestas de scripts. Ofrécelo solo **una vez por clave**. Registra la clave y el estado `propuesto`, `aceptado` o `rechazado` en `STATUS.md`, bajo «Informes recurrentes», sin notas privadas ni contenido del informe. Registra también el rechazo para no insistir; si queda sin respuesta, conserva `propuesto`.
+- Reutiliza la misma Page y, si ya hay una rutina para ese informe, propón **modificarla**, no duplicarla. La **rutina recupera los datos de fuentes autorizadas y edita la Page**; la Page no obtiene datos nuevos por sí sola.
+- El aviso en el chat debe ser corto y llevar el enlace, **sin pegar el cuerpo del informe**. Notifica también los fallos, indicando la fecha y hora (con zona horaria) de la última actualización correcta, o que aún no la hay. No presentes datos antiguos como recién actualizados.
+- Explica que puede reducir el contenido acumulado en el chat y el uso asociado, **sin garantizar ahorro**: generar y actualizar el informe sigue consumiendo uso.
+
+**Ejemplo de propuesta** (adapta el nombre y si se crea o modifica la rutina):
+
+> Generas este informe con frecuencia. Puedo mantenerlo en una misma Grok Bot Page, actualizarlo con una rutina y enviarte solo un aviso breve con el enlace, también si falla. Tendrá una descarga adecuada a los datos. Puede reducir el contenido del chat, pero generar el informe sigue consumiendo uso. ¿Quieres que prepare la Page y cree o modifique la rutina?
+
+**Solo tras la confirmación explícita del usuario:**
+
+1. Lee y sigue las skills de **canvas** y **routines** antes de crear o modificar nada. Concreta nombre, fuentes autorizadas, alcance, frecuencia y zona horaria; pide únicamente los datos o permisos necesarios que falten. No amplíes accesos ni compartas información sin autorización.
+2. Crea y verifica la Page (o reutiliza la existente) y crea o modifica la rutina autorizada. Haz tú el trabajo; pide ayuda al dueño solo en pasos que realmente requieran su intervención. Guarda antes una copia de lo que vayas a modificar y explica cómo volver atrás.
+3. Ofrece una exportación apropiada **CSV, XLSX o PDF**, según los datos y las capacidades disponibles: no prometas todos los formatos. Incluye una forma clara de descargarla y comprueba que el enlace funciona y el archivo corresponde a los datos. Si no puedes verificarlo, dilo y no lo presentes como terminado.
+4. Verifica el destino de las actualizaciones, la configuración de la rutina y el aviso breve con enlace; comprueba el resultado de la prueba autorizada antes de darlo por listo. La Page mostrará la última actualización correcta; ante un fallo, conserva esa referencia y avisa sin publicar datos incompletos como actuales.
+5. En `STATUS.md`, bajo **Informes recurrentes**, registra solo metadatos no sensibles: nombre genérico, clave, estado de la propuesta, id/enlace de la Page, id de la rutina, fecha de configuración y **«Modo solo consulta activado»** cuando esté verificado. Si hay un bloqueo, anótalo como pendiente, no como activado. Nunca guardes datos sensibles en archivos de Context Bot.
+
+**Prompt adaptable tras la confirmación:**
+
+```text
+Crea o reutiliza la Page «[nombre del informe]».
+Crea o modifica la rutina [id si existe] para recuperar datos de [fuentes autorizadas]
+y actualizar siempre esa misma Page [frecuencia y zona horaria].
+Envía al chat solo un aviso breve y el enlace, nunca el informe completo.
+Notifica los fallos e indica la última actualización correcta con su zona horaria.
+Incluye y verifica una descarga en [formato apropiado disponible: CSV, XLSX o PDF].
+Verifica Page y rutina; registra sus identificadores y el modo solo consulta en STATUS.md,
+sin datos sensibles. Generar y actualizar el informe sigue consumiendo uso.
+```
+
 **Reglas del modo ahorro**
 
 - **No crees, cambies ni borres scripts, cron ni rutinas sin la confirmación explícita del usuario.** Una propuesta cada vez.

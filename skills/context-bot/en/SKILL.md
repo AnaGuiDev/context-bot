@@ -157,6 +157,41 @@ Pick the clearest repeated task (from the log) or routine part that is **determi
 
 If the task needs judgement or is writing for people, say so and don't propose it.
 
+## Recurring reports / read-only mode
+
+As an alternative or complement to a script, you may propose a **Grok Bot Page** for an actual report, summary or dashboard. Words such as `report`, `informe`, `resumen`, `daily`, `diario`, `métricas`, `summary` or `dashboard` in the key, note or instructions are only clues: check that the work really involves producing a report. It must meet at least one condition: its key appears **3 or more times in the last 30 days**, according to the existing scan summary, or it is already a recurring reporting routine.
+
+- Reuse the savings-mode check and the saved routine text: **do not reread the history**, runs or outputs to detect candidates, or add another scan or detection routine.
+- Make **one proposal at a time**, including script proposals. Offer it only **once per key**. Record the key and the status `proposed`, `accepted` or `rejected` in `STATUS.md`, under “Recurring reports”, without private notes or report content. Record rejections too, so you do not insist; if unanswered, keep `proposed`.
+- Reuse the same Page and, if a routine already exists for that report, propose **modifying it**, not duplicating it. The **routine retrieves data from authorized sources and edits the Page**; the Page does not fetch fresh data by itself.
+- The chat notification must be brief and include the link, **without pasting the report body**. Also report failures, stating the date and time (with time zone) of the last successful update, or that there has not been one yet. Do not present old data as freshly updated.
+- Explain that this may reduce accumulated chat content and associated usage, **without guaranteeing savings**: generating and updating the report still uses allowance.
+
+**Example proposal** (adapt the name and whether the routine is created or modified):
+
+> You generate this report frequently. I can maintain it in a single Grok Bot Page, update it with a routine, and send you only a brief notification with the link, including when it fails. It will include a download appropriate to the data. This may reduce chat content, but generating the report still uses allowance. Would you like me to prepare the Page and create or modify the routine?
+
+**Only after the user's explicit confirmation:**
+
+1. Read and follow the **canvas** and **routines** skills before creating or modifying anything. Establish the name, authorized sources, scope, frequency and time zone; ask only for necessary missing information or permissions. Do not expand access or share information without authorization.
+2. Create and verify the Page (or reuse the existing one) and create or modify the authorized routine. Do the work yourself; ask the owner for help only with steps that genuinely require their intervention. First back up anything you will modify and explain how to roll back.
+3. Offer an appropriate **CSV, XLSX or PDF** export, according to the data and available capabilities: do not promise every format. Provide a clear way to download it and check that the link works and the file matches the data. If you cannot verify it, say so and do not present it as complete.
+4. Verify the update destination, routine configuration and brief notification with a link; check the result of the authorized test before declaring it ready. The Page must show the last successful update; on failure, preserve that reference and notify the user without publishing incomplete data as current.
+5. In `STATUS.md`, under **Recurring reports**, record only non-sensitive metadata: generic name, key, proposal status, Page id/link, routine id, setup date and **“Read-only mode enabled”** once verified. If blocked, record it as pending, not enabled. Never store sensitive data in Context Bot files.
+
+**Adaptable prompt after confirmation:**
+
+```text
+Create or reuse the Page “[report name]”.
+Create or modify routine [id if it exists] to retrieve data from [authorized sources]
+and always update that same Page [frequency and time zone].
+Send the chat only a brief notification and the link, never the full report.
+Report failures and state the last successful update with its time zone.
+Include and verify a download in [appropriate available format: CSV, XLSX or PDF].
+Verify the Page and routine; record their identifiers and read-only mode in STATUS.md,
+without sensitive data. Generating and updating the report still uses allowance.
+```
+
 **Savings mode rules**
 
 - **Never create, change or delete scripts, cron jobs or routines without the user's explicit confirmation.** One proposal at a time.

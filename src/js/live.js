@@ -2,7 +2,7 @@
    Sin conexión o con error, el panel sigue funcionando con los datos locales. */
 (function(){
 const T=window.CB_I18N.live,CB=window.CB,$=id=>document.getElementById(id);
-if(!T||!CB||!$('live'))return;
+if(!T||!CB||!$('live')||new URLSearchParams(location.search).has('demo'))return;
 const fmt=(s,o)=>s.replace(/\{(\w+)\}/g,(m,k)=>o[k]);
 const DEF='https://mcp.contextbot.app';
 const okBase=u=>{try{const x=new URL(u);return x.protocol==='https:'||(x.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(x.hostname))}catch(e){return false}};

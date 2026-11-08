@@ -48,4 +48,6 @@ Scope the task tightly, see how much it uses, then widen it. Check your usage be
 Your bot notes each finished task in one line, a small script counts the repeats (no bot usage), and about once a week the bot reads a 10-line summary. It also reviews its routines by reading only their saved prompt text. If something repeats or a routine is mostly mechanical, it proposes one script you can run on demand or with cron. Say "savings mode now" to check anytime. Nothing changes without your OK. These are suggestions; the saving depends on the case.
 *Follows from:* [Plans and billing](https://cursor.com/help/grok-bot/plans) (usage is agent steps and tokens) and [Routines](https://cursor.com/help/grok-bot/routines).
 
+Recurring reports can stay in a single Page, with scheduled updates and brief notifications linking to it, always after your confirmation. The routine retrieves authorized data and updates the Page; the Page does not update itself. An existing routine is reused where available, failures are reported too, and the last successful update includes its time zone. An export appropriate to the data and available capabilities is verified. Generating and updating the report still uses allowance: savings are not guaranteed.
+
 Tips we haven't been able to confirm yet are listed (in Spanish) in [tips-pendientes.md](../tips-pendientes.md).

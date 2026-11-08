@@ -21,7 +21,7 @@ PAGES = {  # plantilla: (ruta en inglés, ruta en español, prefijo de claves)
 TPL = os.path.join(ROOT, "src", "templates")
 # Mientras la plantilla del bot no tenga enlace real (TEMPLATE en src/i18n.py), la web cuenta la instalación con el prompt.
 # Con enlace (scripts/rellenar-placeholders.sh --template, o CB_TEMPLATE=https://… para probar) cuenta la historia
-# de la plantilla: «Add Context Bot» como botón principal y el prompt como opción secundaria para quien ya tiene bot.
+# de instalación: prompt para el bot actual como acción principal; plantilla para un bot nuevo como alternativa.
 #   - Textos: una clave «x_tpl» en src/i18n.py sustituye a «x» cuando hay plantilla.
 #   - Plantillas HTML: {{#TPL}}…{{/TPL}} solo sale con plantilla; {{^TPL}}…{{/TPL}}, solo sin ella.
 TEMPLATE = os.environ.get("CB_TEMPLATE") or i18n.TEMPLATE
@@ -34,7 +34,7 @@ STAR_BTN = '<a class="btn alt" href="{{REPO}}">{{STAR}}{{cta_star}}{{STARS}}</a>
 
 def ctas(status):
     if HAS_TPL:
-        return '<a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a>' + COPY_BTN.format(cls=" alt", status=status)
+        return COPY_BTN.format(cls="", status=status) + '<a class="btn alt" href="{{TEMPLATE}}">{{cta_add}}</a>'
     return COPY_BTN.format(cls="", status=status) + STAR_BTN
 
 def texts(d):
