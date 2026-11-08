@@ -351,7 +351,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <p class="lead">{{lead}}</p>
     <!-- Con enlace de plantilla sale «Add Context Bot» como botón principal y el prompt como secundario; sin él, «Copy install prompt» (ver scripts/build_site.py) -->
     <div class="ctas">{{CTAS}}</div>
-    <p><a href="{{L_DASH}}?demo#handoff">{{demo_link}}</a></p>
+    <p><a href="#migrator">{{demo_link}}</a></p>
     <p class="hint" id="copy-status" role="status" aria-live="polite"><svg class="arrow" viewBox="0 0 34 30" aria-hidden="true"><path d="M3 27c9 1 17-4 20-14M17 9l6-6 5 8"/></svg><span>{{cta_copy_hint}}</span></p>
     <ul class="clean trust"><li>{{trust1}}</li><li>{{trust2}}</li><li>{{trust3}}</li></ul>
   </div>
@@ -482,6 +482,18 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
 
 
 
+<section id="kit" class="wrap" aria-labelledby="ben-h">
+  <span class="eyebrow">{{ben_eyebrow}}</span>
+  <h2 id="ben-h">{{ben_h}}</h2>
+  <p class="sub">{{ben_sub}}</p>
+  <ul class="clean tips">
+    <li class="tip"><h3>{{ben1_h}}</h3><p>{{ben1_p}}</p></li>
+    <li class="tip"><h3>{{ben2_h}}</h3><p>{{ben2_p}}</p></li>
+    <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p></li>
+    <li class="tip"><h3>{{ben3_h}}</h3><p>{{ben3_p}}</p></li>
+  </ul>
+</section>
+
 <section id="migrator" class="wrap" aria-labelledby="mig-h">
   <span class="eyebrow">{{mig_eyebrow}}</span>
   <h2 id="mig-h">{{mig_h}}</h2>
@@ -521,17 +533,7 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <p class="more">{{sav_try}}</p>
 </section>
 
-<section id="kit" class="wrap" aria-labelledby="ben-h">
-  <span class="eyebrow">{{ben_eyebrow}}</span>
-  <h2 id="ben-h">{{ben_h}}</h2>
-  <p class="sub">{{ben_sub}}</p>
-  <ul class="clean tips">
-    <li class="tip"><h3>{{ben1_h}}</h3><p>{{ben1_p}}</p></li>
-    <li class="tip"><h3>{{ben2_h}}</h3><p>{{ben2_p}}</p></li>
-    <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p></li>
-    <li class="tip"><h3>{{ben3_h}}</h3><p>{{ben3_p}}</p></li>
-  </ul>
-</section>
+
 
 <section id="lite" class="wrap" aria-labelledby="lite-h">
   <span class="eyebrow">{{lite_eyebrow}}</span>
