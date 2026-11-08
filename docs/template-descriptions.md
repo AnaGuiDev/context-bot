@@ -1,14 +1,16 @@
 # Template descriptions / Descripciones de plantillas
 
-Ready to paste into each Grok Bot template. English first; Spanish for reference.
+Ready to paste into the public description of each Grok Bot template. English first; Spanish for reference.
+
+Publishing this repository does not update the hosted Grok template. Put operational instructions in the private Instructions field, not in this public description. After updating the profile, republish the template and inspect its public preview. / Publicar este repositorio no actualiza la plantilla alojada en Grok: pon las instrucciones operativas en Instrucciones, no en la descripción pública, vuelve a publicar y revisa la vista pública.
 
 ## Context Bot
 
-**EN (short):** Your companion in long chats. 🚦
-**EN:** Context Bot keeps an eye on how long your chat is getting and shows a simple traffic light: green, yellow or red. It saves your progress in STATUS.md, prepares a handoff file when it's time for a fresh bot, and its savings mode suggests small scripts for tasks you repeat. Nothing changes without your OK. Free and open source · contextbot.app
+**EN (short):** A reviewable handoff for long Grok Bot chats. 🚦
+**EN:** Context Bot keeps an eye on how long your chat is getting and shows a simple traffic light: green, yellow or red. It saves your progress in STATUS.md, prepares a handoff file when it's time for a fresh bot, and its savings mode suggests small scripts for tasks you repeat. Recurring reports can stay in one Page with brief linked notifications, after confirmation. Start by asking “Save a checkpoint for review”. The light is an estimate, not a capacity measurement; savings are not guaranteed. Nothing changes without your OK. Free and open source · contextbot.app
 
-**ES (corta):** Tu compañero en las charlas largas. 🚦
-**ES:** Context Bot vigila lo larga que se hace tu charla y te lo dice con un semáforo: verde, amarillo o rojo. Guarda tu progreso en STATUS.md, prepara un archivo de traspaso cuando toca pasar a un bot nuevo y su modo ahorro te sugiere pequeños scripts para lo que repites. Nada cambia sin tu permiso. Gratis y de código abierto · contextbot.app/es
+**ES (corta):** Un traspaso revisable para tus charlas largas en Grok Bot. 🚦
+**ES:** Context Bot vigila lo larga que se hace tu charla y te lo dice con un semáforo: verde, amarillo o rojo. Guarda tu progreso en STATUS.md, prepara un archivo de traspaso cuando toca pasar a un bot nuevo y su modo ahorro te sugiere pequeños scripts para lo que repites. Los informes recurrentes pueden mantenerse en una Page con avisos breves con enlace, tras tu confirmación. Empieza pidiendo «Guarda un punto de control para revisar». El color es orientativo, no mide capacidad; no se garantiza ahorro. Nada cambia sin tu permiso. Gratis y de código abierto · contextbot.app/es
 
 ## Context Bot Migrator
 

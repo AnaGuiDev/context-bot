@@ -4,6 +4,7 @@ const T=window.CB_I18N;
 const $=id=>document.getElementById(id);
 const fmt=(s,o)=>s.replace(/\{(\w+)\}/g,(m,k)=>o[k]);
 // Claves internas de color (verde/amarillo/rojo) se mantienen por compatibilidad con exportaciones anteriores.
+const isDemo=new URLSearchParams(location.search).has('demo');
 const KEY='context-bot:bots',RKEY='context-bot:rutinas',OLD='control-de-contexto:';
 function read(k,old){try{const v=localStorage.getItem(k)??localStorage.getItem(old);return JSON.parse(v)||[]}catch(e){return []}}
 let bots=read(KEY,OLD+'bots');
@@ -23,6 +24,7 @@ $('r-freq').innerHTML=Object.keys(FREQ).map(k=>opt(k,'varias',FREQ[k])).join('')
 function render(){
   const order={rojo:0,amarillo:1,verde:2};const list=$('list');
   ['verde','amarillo','rojo'].forEach(c=>$('n-'+c).textContent=bots.filter(b=>b.color===c).length);
+  $('onboarding').hidden=isDemo||bots.length>0;
   const aw=$('add-wrap');if(aw&&!bots.length)aw.open=true;
   if(!bots.length){list.innerHTML=`<div class="card empty muted" style="grid-column:1/-1">${T.emptyBots}</div>`;return}
   list.innerHTML=bots.map((b,i)=>({b,i})).sort((a,z)=>order[a.b.color]-order[z.b.color]).map(({b,i})=>`
@@ -40,7 +42,7 @@ function render(){
 }
 $('add').addEventListener('submit',e=>{e.preventDefault();const n=$('name').value.trim();if(!n)return;bots.push({name:n,purpose:$('purpose').value.trim(),color:'verde',status:'',updated:stamp()});e.target.reset();save()});
 $('list').addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target.classList.contains('col')){bots[i].color=e.target.value;bots[i].updated=stamp();save()}});
-$('list').addEventListener('input',e=>{if(!e.target.classList.contains('st'))return;const i=+e.target.dataset.i;bots[i].status=e.target.value;const c=parseStatus(e.target.value);bots[i].updated=stamp();try{localStorage.setItem(KEY,JSON.stringify(bots))}catch(x){}if(c&&c!==bots[i].color){bots[i].color=c;render()}});
+$('list').addEventListener('input',e=>{if(!e.target.classList.contains('st'))return;const i=+e.target.dataset.i;bots[i].status=e.target.value;const c=parseStatus(e.target.value);bots[i].updated=stamp();if(!isDemo)try{localStorage.setItem(KEY,JSON.stringify(bots))}catch(x){}if(c&&c!==bots[i].color){bots[i].color=c;render()}});
 $('list').addEventListener('click',e=>{if(e.target.classList.contains('del')){const i=+e.target.dataset.i;if(confirm(fmt(T.confirmBot,{n:bots[i].name}))){bots.splice(i,1);save()}}});
 $('export').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({version:2,bots,rutinas},null,2)],{type:'application/json'}));a.download='context-bot.json';a.click()};
 $('import').onclick=()=>{const t=prompt(T.importPrompt);if(!t)return;try{const raw=JSON.parse(t);const d=Array.isArray(raw)?raw:raw.bots;if(!Array.isArray(d))throw 0;bots=d.map(b=>({name:String(b.name||'Bot'),purpose:String(b.purpose||''),color:['verde','amarillo','rojo'].includes(b.color)?b.color:({green:'verde',yellow:'amarillo',red:'rojo'})[b.color]||'verde',status:String(b.status||''),updated:String(b.updated||stamp())}));const r=Array.isArray(raw)?null:(raw.rutinas||raw.routines);if(r)rutinas=cleanR(r);save();rsave()}catch(e){alert(T.importError)}};
@@ -71,7 +73,8 @@ $('rlist').addEventListener('change',e=>{const i=+e.target.dataset.i;if(e.target
 $('rlist').addEventListener('click',e=>{if(e.target.classList.contains('rdel')){const i=+e.target.dataset.i;if(confirm(fmt(T.confirmRoutine,{n:rutinas[i].name}))){rutinas.splice(i,1);rsave()}}});
 function cleanR(a){return (Array.isArray(a)?a:[]).map(r=>({name:String(r.name||T.routine),bot:String(r.bot||''),freq:FREQ[r.freq]?r.freq:'varias',need:(r.need==='no'||r.need===false)?'no':'si'}))}
 // Demo: ?demo carga ejemplos sin tocar tus datos guardados
-if(location.search.includes('demo')){bots=T.demo.bots;rutinas=T.demo.routines;save=()=>render();rsave=()=>renderR()}
+if(isDemo){bots=structuredClone(T.demo.bots);rutinas=structuredClone(T.demo.routines);save=()=>render();rsave=()=>renderR();$('demo-notice').hidden=false;$('live').hidden=true}
+$('first-bot').onclick=()=>{$('add-wrap').open=true;$('name').focus()};
 render();renderR();
 
 // ── Traspaso / Handoff ─────────────────────────────────────────────
@@ -120,7 +123,7 @@ function hoGo(){const s=hoCurrent();if(!s)return;hoShow();const run=hoRun,all=[]
 $('ho-pick').addEventListener('change',()=>{if($('ho-pick').value!=='p')hoSrc=null;hoFill()});
 $('ho-go').onclick=hoGo;
 $('ho-edit').addEventListener('input',e=>{const g=e.target.dataset.g;if(!g)return;const s=hoCurrent();s.items[g]=e.target.value.split('\n').map(x=>x.trim()).filter(Boolean);
-  if(!hoSrc&&s.i!=null){bots[s.i].handoff=s.items;try{localStorage.setItem(KEY,JSON.stringify(bots))}catch(x){}}
+  if(!hoSrc&&s.i!=null){bots[s.i].handoff=s.items;if(!isDemo)try{localStorage.setItem(KEY,JSON.stringify(bots))}catch(x){}}
   hoSrc=hoSrc&&{...hoSrc,items:s.items};$('ho-oldgroups').innerHTML=groups(s.items,'old');$('ho-newgroups').innerHTML=groups(s.items,'new');$('ho-md').textContent=hoMd(s);$('ho-new').classList.remove('done')});
 $('ho-copy').onclick=async()=>{try{await navigator.clipboard.writeText($('ho-md').textContent)}catch(e){const r=document.createRange();r.selectNodeContents($('ho-md'));getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy')}$('ho-copy').textContent=H.copied;setTimeout(()=>$('ho-copy').textContent=H.copy,1600)};
 $('ho-dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('ho-md').textContent],{type:'text/markdown'}));a.download='TRASPASO.md';a.click()};

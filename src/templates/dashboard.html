@@ -4,6 +4,7 @@
 {{>_head}}
 {{>_brand}}
 <style>
+[hidden]{display:none!important}
 .wrap{max-width:1040px;margin:0 auto;padding:24px}
 header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 h1{margin:0;font-size:1.6rem}
@@ -143,6 +144,14 @@ footer nav a:hover{text-decoration:underline}
   <div><h1>{{d_h1}}</h1><p class="muted" style="margin:4px 0 0">{{d_sub}}</p></div>
   <div class="row"><button type="button" class="ghost" id="export">{{d_export}}</button><button type="button" class="ghost" id="import">{{d_import}}</button></div>
 </header>
+
+<section class="card" id="onboarding" aria-labelledby="onboarding-h">
+  <h2 id="onboarding-h">{{d_intro_h}}</h2><p>{{d_intro_p}}</p>
+  <div class="row"><a href="?demo">{{d_try_demo}}</a><button type="button" id="first-bot">{{d_first_bot}}</button></div>
+</section>
+<section class="card" id="demo-notice" hidden aria-label="{{d_try_demo}}">
+  <p>{{d_demo_note}}</p><a href="{{L_DASH}}">{{d_exit_demo}}</a>
+</section>
 
 <div class="summary" aria-live="polite">
   <div class="card"><span class="dot" style="background:var(--g)"></span><div><div class="big" id="n-verde">0</div><div class="muted">{{d_sum_g}}</div></div></div>

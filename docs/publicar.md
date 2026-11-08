@@ -1,5 +1,7 @@
 # Publicar Context Bot
 
+> Para actualizar el repositorio existente: rama → pruebas → PR → fusión en `main`. El workflow `Publicar web` necesita GitHub Pages habilitado con fuente GitHub Actions. Comprueba la ejecución y compara `/es/skill.md` con `skills/context-bot/SKILL.md`: una fusión no demuestra que el dominio se haya actualizado. La guía de Cloudflare de abajo es una alternativa de alojamiento, no una confirmación de la configuración actual.
+
 Guía paso a paso para subir el repositorio a GitHub y poner la web en `https://contextbot.app` con Cloudflare Registrar y Cloudflare Pages. Sigue el orden: cada paso depende del anterior.
 
 > Antes de nada, rellena los datos pendientes con `scripts/rellenar-placeholders.sh` (lo explica [`PLACEHOLDERS.md`](../PLACEHOLDERS.md)). El dominio ya está puesto.

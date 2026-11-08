@@ -48,4 +48,6 @@ Acota bien la tarea, mira cuánto gasta y luego amplía. Consulta el uso antes d
 Tu bot apunta cada tarea terminada en una línea, un pequeño script cuenta las repetidas (sin gastar uso del bot) y, más o menos una vez por semana, el bot lee un resumen de 10 líneas. También repasa sus rutinas leyendo solo su texto guardado. Si algo se repite o una rutina es casi toda mecánica, te propone un script que puedes lanzar a demanda o con cron. Di «modo ahorro ya» para mirarlo cuando quieras. Nada cambia sin tu permiso. Son sugerencias; el ahorro depende de cada caso.
 *Se deduce de:* [Plans and billing](https://cursor.com/help/grok-bot/plans) (el uso son pasos y tokens) y [Routines](https://cursor.com/help/grok-bot/routines).
 
+Los informes recurrentes pueden mantenerse en una misma Page, con actualizaciones programadas y avisos breves con enlace, siempre tras tu confirmación. La rutina recupera los datos autorizados y actualiza la Page; la Page no se actualiza sola. Se reutiliza la rutina existente cuando la hay, se avisa también de los fallos y se indica la última actualización correcta con zona horaria. Se verifica una descarga adecuada a los datos y capacidades disponibles. Generar y actualizar el informe sigue consumiendo uso: no se garantiza ahorro.
+
 Los consejos que aún no hemos podido confirmar están en [tips-pendientes.md](tips-pendientes.md).
