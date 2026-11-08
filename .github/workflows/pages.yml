@@ -1,4 +1,4 @@
-# Publica dist/ en el proyecto existente de Cloudflare Pages.
+# Publica en la cuenta controlada por Marc; el cambio de dominio se realiza por separado.
 name: Publicar web
 
 on:
@@ -18,12 +18,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      CLOUDFLARE_ACCOUNT_ID: '260a68d445569ce628932b896c94dbbe'
     steps:
       - uses: actions/checkout@v7
       - name: Comprobar secretos de despliegue
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo "::error::Falta CLOUDFLARE_API_TOKEN"; exit 1; }
           test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "::error::Falta CLOUDFLARE_ACCOUNT_ID"; exit 1; }
@@ -33,22 +34,49 @@ jobs:
         run: |
           python3 tests/site-contract.py
           node --test tests/dashboard-demo.cjs
-      - name: Comprobar proyectos accesibles de Cloudflare Pages
-        uses: cloudflare/wrangler-action@v4
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project list
+      - name: Preparar proyecto en la cuenta actual
+        id: project
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          account = os.environ["CLOUDFLARE_ACCOUNT_ID"]
+          base = "https://api.cloudflare.com/client/v4/accounts/" + account + "/pages/projects"
+          headers = {"Authorization": "Bearer " + os.environ["CLOUDFLARE_API_TOKEN"], "Content-Type": "application/json"}
+          def request(url, data=None):
+              req = urllib.request.Request(url, headers=headers, data=None if data is None else json.dumps(data).encode())
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      result = json.load(response)
+              except urllib.error.HTTPError as exc:
+                  result = json.load(exc)
+              if not result.get("success"):
+                  raise SystemExit("Cloudflare: " + json.dumps(result.get("errors", [])))
+              return result["result"]
+          projects = request(base)
+          project = next((p for p in projects if p["name"] == "context-bot"), None)
+          if project is None:
+              project = request(base, {"name": "context-bot", "production_branch": "main"})
+          if project.get("production_branch") != "main":
+              raise SystemExit("La rama de produccion del proyecto no es main")
+          url = "https://" + project["subdomain"]
+          print("Proyecto preparado: " + url)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write("url=" + url + "\n")
+          PY
       - name: Publicar en Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=context-bot --branch=main
-      - name: Verificar skill publicada
+      - name: Verificar skill en el nuevo alojamiento
+        env:
+          SITE_URL: ${{ steps.project.outputs.url }}
         run: |
           for attempt in 1 2 3 4 5 6; do
-            if curl --fail --silent --show-error --max-time 30 "https://contextbot.app/es/skill.md?deploy=$GITHUB_SHA" -o /tmp/published-skill.md && cmp -s skills/context-bot/SKILL.md /tmp/published-skill.md; then
+            if curl --fail --silent --show-error --max-time 30 "$SITE_URL/es/skill.md?deploy=$GITHUB_SHA" -o /tmp/published-skill.md && cmp -s skills/context-bot/SKILL.md /tmp/published-skill.md; then
               echo "Skill publicada verificada contra el commit $GITHUB_SHA"
               exit 0
             fi
