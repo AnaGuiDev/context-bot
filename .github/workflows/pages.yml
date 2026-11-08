@@ -33,6 +33,12 @@ jobs:
         run: |
           python3 tests/site-contract.py
           node --test tests/dashboard-demo.cjs
+      - name: Comprobar proyectos accesibles de Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project list
       - name: Publicar en Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
         with:
