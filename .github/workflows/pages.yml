@@ -1,5 +1,4 @@
-# Publica la web (dist/) en GitHub Pages en cada push a main.
-# Requisito: Settings → Pages → Source: «GitHub Actions».
+# Publica dist/ en el proyecto existente de Cloudflare Pages.
 name: Publicar web
 
 on:
@@ -9,35 +8,45 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: cloudflare-pages-production
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+      - name: Comprobar secretos de despliegue
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo "::error::Falta CLOUDFLARE_API_TOKEN"; exit 1; }
+          test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "::error::Falta CLOUDFLARE_ACCOUNT_ID"; exit 1; }
       - name: Generar dist/
         run: bash scripts/build-site.sh
       - name: Verificar web y aislamiento de la demo
         run: |
           python3 tests/site-contract.py
           node --test tests/dashboard-demo.cjs
-      - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v5
+      - name: Publicar en Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=context-bot --branch=main
+      - name: Verificar skill publicada
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if curl --fail --silent --show-error --max-time 30 "https://contextbot.app/es/skill.md?deploy=$GITHUB_SHA" -o /tmp/published-skill.md && cmp -s skills/context-bot/SKILL.md /tmp/published-skill.md; then
+              echo "Skill publicada verificada contra el commit $GITHUB_SHA"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::error::El contenido publicado no coincide con la skill del commit"
+          exit 1
