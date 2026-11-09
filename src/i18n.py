@@ -10,6 +10,12 @@ LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública d
 TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(
+  bot_add='Add Context Bot to Grok Bot',
+  bot_note='Opens a bot template with chat monitoring, progress notes and savings mode.',
+  manual_title='Manual installation and source code',
+  manual_note='Optional: use these skills if you prefer manual installation. The buttons above open ready-made Grok Bot templates; GitHub is not required.',
+  choose_note='Choose Context Bot for monitoring and savings suggestions, or Lite for monitoring only. Add Migrator when you want to move to a fresh bot. You do not need all three to get started.',
+
   og_locale="en_US", og_locale_alt="es_ES", og_image="card-road-en.png?v=4",
   og_image_alt="A smiling traffic light and a small Lite bot by a road, under a green highway sign: Exit 1, Context Bot. Keep your Grok Bots in shape. The complete kit, free, contextbot.app.",
   d_intro_h='Try it before adding your bots',
@@ -148,8 +154,8 @@ EN = dict(
   lite1_h='🚦 Traffic light', lite1_p='Green, yellow or red, with one short sentence when it changes.',
   lite2_h='📝 STATUS.md', lite2_p='Your progress in a file, so you can pick up where you left off.',
   lite3_h='🪶 Light by design', lite3_p='Fewer checks, no scripts, no extra routines.',
-  lite_soon='Add Context Bot Lite',
-  lite_note='Want it now? Get the skill on <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-lite">GitHub</a>.',
+  lite_soon='Add Lite to Grok Bot',
+  lite_note='Opens a bot template with the traffic light and progress notes.',
   ben4_h='🪶 Context Bot Lite · just the traffic light',
   ben4_p='The light version: traffic light and STATUS.md only, with fewer checks.',
   ben_eyebrow='The complete kit',
@@ -170,8 +176,8 @@ EN = dict(
   mig4_h='New bot, routines swapped safely', mig4_p='It creates the new bot with routines paused and checks it against a list. The old bot pauses its routines, and the new ones switch on after your second yes.',
   mig5_h='It checks everything matches', mig5_p='It compares counts before and after (memory, skills, routines and schedules) and flags connectors that need signing in again. If a step fails, it tells you what to do and tries again from there.',
   mig6_h='Final message, with a way back', mig6_p='It delivers the result and any outstanding steps so you can resume work. It only hides the old bot with your approval and never deletes it. You keep a way back.',
-  mig_soon='Add Context Bot Migrator',
-  mig_note='Opens the Migrator template in Grok Bot. Prefer the skill? Get it on <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-migrator">GitHub</a>.',
+  mig_soon='Add Migrator to Grok Bot',
+  mig_note='Opens a bot template to prepare, review and carry out your migration with confirmation.',
   sav_try='Try it: tell your bot <em>“Savings mode now”</em>',
   tips_eyebrow="Bonus", tips_h="Tips to make your week last longer",
   tips_sub="Small habits that make your weekly usage go further. Each one links to its source.",
@@ -305,6 +311,12 @@ EN = dict(
 )
 
 ES = dict(
+  bot_add='Añadir Context Bot a Grok Bot',
+  bot_note='Abre una plantilla de bot con control del chat, registro del progreso y modo ahorro.',
+  manual_title='Instalación manual y código',
+  manual_note='Opcional: usa estas skills si prefieres instalarlas manualmente. Los botones de arriba abren plantillas listas para usar en Grok Bot; no necesitas GitHub.',
+  choose_note='Elige Context Bot para controlar el chat y recibir propuestas de ahorro, o Lite si solo quieres el control ligero. Añade Migrator cuando quieras pasar a un bot nuevo. No necesitas los tres para empezar.',
+
   og_locale="es_ES", og_locale_alt="en_US", og_image="card-road-es.png?v=4",
   og_image_alt="Un semáforo sonriente y un pequeño bot Lite junto a una carretera, bajo un cartel verde de autopista: Salida 1, Context Bot. Pon en forma tus Grok Bots. El kit completo, gratis, contextbot.app.",
   d_intro_h='Pruébalo antes de añadir tus bots',
@@ -443,8 +455,8 @@ ES = dict(
   lite1_h='🚦 Semáforo', lite1_p='Verde, amarillo o rojo, con una frase corta cuando cambia.',
   lite2_h='📝 STATUS.md', lite2_p='Tu progreso en un archivo, para que retomes donde lo dejaste.',
   lite3_h='🪶 Ligero a propósito', lite3_p='Menos comprobaciones, sin scripts ni rutinas extra.',
-  lite_soon='Añadir Context Bot Lite',
-  lite_note='¿Lo quieres ya? La skill está en <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-lite">GitHub</a>.',
+  lite_soon='Añadir Lite a Grok Bot',
+  lite_note='Abre una plantilla de bot con el semáforo y el registro de tu progreso.',
   ben4_h='🪶 Context Bot Lite · solo el semáforo',
   ben4_p='La versión ligera: semáforo y STATUS.md, con menos comprobaciones.',
   ben_eyebrow='El kit completo',
@@ -465,8 +477,8 @@ ES = dict(
   mig4_h='Bot nuevo y rutinas cambiadas con cuidado', mig4_p='Crea el bot nuevo con las rutinas en pausa y lo comprueba con una lista. El bot antiguo pausa sus rutinas y las nuevas se activan tras tu segundo sí.',
   mig5_h='Comprueba que todo cuadra', mig5_p='Compara los recuentos de antes y después (memoria, skills, rutinas y horarios) y marca los conectores que hay que volver a conectar. Si un paso falla, te dice qué hacer y vuelve a intentarlo desde ahí.',
   mig6_h='Mensaje final, con vuelta atrás', mig6_p='Te entrega el resultado y lo pendiente para retomar el trabajo. Solo oculta el bot antiguo si lo autorizas; nunca lo borra. Conservas una vía de vuelta atrás.',
-  mig_soon='Añadir Context Bot Migrator',
-  mig_note='Abre la plantilla del Migrator en Grok Bot. ¿Prefieres la skill? Está en <a href="https://github.com/AnaGuiDev/context-bot/tree/main/skills/context-bot-migrator">GitHub</a>.',
+  mig_soon='Añadir Migrator a Grok Bot',
+  mig_note='Abre una plantilla de bot para preparar, revisar y ejecutar tu migración con confirmación.',
   sav_try='Pruébalo: dile a tu bot <em>«Modo ahorro ya»</em>',
   tips_eyebrow="Extra", tips_h="Trucos para que tu semana cunda más",
   tips_sub="Pequeños hábitos que hacen que tu uso semanal dure más. Cada uno enlaza a su fuente.",

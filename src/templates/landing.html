@@ -486,10 +486,11 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   <span class="eyebrow">{{ben_eyebrow}}</span>
   <h2 id="ben-h">{{ben_h}}</h2>
   <p class="sub">{{ben_sub}}</p>
+  <p>{{choose_note}}</p>
   <ul class="clean tips">
-    <li class="tip"><h3>{{ben1_h}}</h3><p>{{ben1_p}}</p></li>
-    <li class="tip"><h3>{{ben2_h}}</h3><p>{{ben2_p}}</p></li>
-    <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p></li>
+    <li class="tip"><h3>{{ben1_h}}</h3><p>{{ben1_p}}</p><a class="btn" href="{{TEMPLATE}}">{{bot_add}}</a><p>{{bot_note}}</p></li>
+    <li class="tip"><h3>{{ben2_h}}</h3><p>{{ben2_p}}</p><a class="btn" href="{{MIGRATOR_TEMPLATE}}">{{mig_soon}}</a><p>{{mig_note}}</p></li>
+    <li class="tip"><h3>{{ben4_h}}</h3><p>{{ben4_p}}</p><a class="btn" href="{{LITE_TEMPLATE}}">{{lite_soon}}</a><p>{{lite_note}}</p></li>
     <li class="tip"><h3>{{ben3_h}}</h3><p>{{ben3_p}}</p></li>
   </ul>
 </section>
@@ -601,6 +602,16 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
   </div>
 </section>
 
+</details>
+
+<details class="wrap optional-tools" id="manual-install">
+  <summary>{{manual_title}}</summary>
+  <p>{{manual_note}}</p>
+  <ul>
+    <li><a href="{{REPO}}/tree/main/skills/context-bot">Context Bot</a></li>
+    <li><a href="{{REPO}}/tree/main/skills/context-bot-lite">Context Bot Lite</a></li>
+    <li><a href="{{REPO}}/tree/main/skills/context-bot-migrator">Context Bot Migrator</a></li>
+  </ul>
 </details>
 
 <section id="faq" class="wrap faq" aria-labelledby="faq-h">
