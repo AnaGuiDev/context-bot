@@ -6,6 +6,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 ## [Sin publicar]
 
 ### Añadido
+- CI sin secretos para web y worker, agrupado en un único job; verificación posterior de las dos skills y del script publicado.
 - Informes recurrentes / modo solo consulta en la skill ES y EN: misma Page, rutina autorizada reutilizable, avisos con enlace, fallos y última actualización correcta, exportación verificada. Bloque ES recibido íntegro; resto de ambas skills conservado.
 - Entrada al panel con ejemplo y primer bot; demo identificada como ilustrativa.
 - Pruebas del contrato de publicación y de persistencia local frente a la demo, ejecutadas también antes de desplegar.

@@ -1,0 +1,37 @@
+name: Verificar cambios
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: worker/package-lock.json
+      - name: Comprobar web sin red
+        env:
+          CB_OFFLINE: '1'
+        run: |
+          bash scripts/build-site.sh
+          python3 tests/site-contract.py
+          node --test tests/*.cjs
+          node --check src/js/dashboard.js
+          node --check src/js/live.js
+          git diff --check
+      - name: Comprobar worker
+        working-directory: worker
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
