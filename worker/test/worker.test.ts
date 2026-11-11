@@ -128,18 +128,42 @@ describe("plan regressions", () => {
     for (const token of [a, b]) for (const bot_name of ["Same", "Keep"]) await call(token, "report_status", { bot_name, colour: "green" });
     expect((await call(a, "delete_bot", { bot_name: "Same", confirm: false })).isError).toBe(true);
     expect((await call(a, "list_bots")).data.bots).toContain("Same");
-    for (let i=0;i<2;i++) expect((await call(a, "delete_bot", { bot_name: "Same", confirm: true })).data.deleted).toBe(true);
+    const gone = await call(a, "delete_bot", { bot_name: "Same", confirm: true });
+    expect(gone.data.deleted).toBe(true);
+    expect(gone.data.existed).toBe(true);
+    const again = await call(a, "delete_bot", { bot_name: "Same", confirm: true });
+    expect(again.data.deleted).toBe(true);
+    expect(again.data.existed).toBe(false);
     expect((await call(a, "list_bots")).data.bots).toEqual(["Keep"]);
     expect((await call(b, "get_status", { bot_name: "Same" })).data.colour).toBe("green");
     expect(await (env as any).LATEST.get("latest:dev_delete-a:Same")).toBeNull();
     const n = await (env as any).DB.prepare("SELECT COUNT(*) n FROM status_history WHERE user_id=? AND bot_name=?").bind("dev_delete-a", "Same").first();
     expect(n.n).toBe(0);
   });
-  it("rate limits registrations independently by IP", async () => {
-    const register=(ip:string)=>SELF.fetch(`${BASE}/oauth/register`, {method:"POST", headers:{"Content-Type":"application/json","CF-Connecting-IP":ip},body:JSON.stringify({client_name:"test",redirect_uris:["http://localhost:9999/cb"]})});
-    for(let i=0;i<10;i++)expect((await register("192.0.2.1")).status).toBe(201);
-    const limited=await register("192.0.2.1");expect(limited.status).toBe(429);expect(limited.headers.get("Retry-After")).toBeTruthy();
+  it("normalizes bot names to NFC and reports whether delete found one", async () => {
+    const { token } = await getToken("nfc");
+    const nfd = "Cafe\u0301";
+    const nfc = "Caf\u00e9";
+    expect((await call(token, "report_status", { bot_name: nfd, colour: "green" })).isError).toBeFalsy();
+    expect((await call(token, "report_status", { bot_name: nfc, colour: "yellow" })).isError).toBeFalsy();
+    expect((await call(token, "list_bots")).data.bots).toEqual([nfc]);
+    expect((await call(token, "get_status", { bot_name: nfd })).data.colour).toBe("yellow");
+    const removed = await call(token, "delete_bot", { bot_name: nfd, confirm: true });
+    expect(removed.data.existed).toBe(true);
+    expect((await call(token, "delete_bot", { bot_name: nfc, confirm: true })).data.existed).toBe(false);
+  });
+  it("rate limits registrations per IP and across every IP", async () => {
+    const { LIMITS, REGISTRATION_GLOBAL_KEY, registrationKey } = await import("../src/store");
+    const db = (env as any).DB;
+    const start = Math.floor(Date.now() / 1000 / 3600) * 3600;
+    const register = (ip: string) => SELF.fetch(`${BASE}/oauth/register`, { method: "POST", headers: { "Content-Type": "application/json", "CF-Connecting-IP": ip }, body: JSON.stringify({ client_name: "test", redirect_uris: ["http://localhost:9999/cb"] }) });
+    await db.prepare("INSERT INTO rate (user_id, bucket, window_start, count) VALUES (?, 'registration', ?, ?)").bind(await registrationKey("192.0.2.1"), start, LIMITS.registration.max).run();
+    const limited = await register("192.0.2.1");
+    expect(limited.status).toBe(429);
+    expect(limited.headers.get("Retry-After")).toBeTruthy();
     expect((await register("192.0.2.2")).status).toBe(201);
+    await db.prepare("INSERT INTO rate (user_id, bucket, window_start, count) VALUES (?, 'registrationGlobal', ?, ?) ON CONFLICT (user_id, bucket, window_start) DO UPDATE SET count = excluded.count").bind(REGISTRATION_GLOBAL_KEY, start, LIMITS.registrationGlobal.max).run();
+    expect((await register("192.0.2.3")).status).toBe(429);
   });
 });
 

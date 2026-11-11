@@ -24,7 +24,7 @@ House rules for everything below:
 ## 1. Positioning
 
 **One line:** A traffic light for long Grok Bot chats.
-**Promise:** Keep your bot fast and cheap.
+**Promise:** Look after usage first. Slowness is the other sign. Do not lead with speed.
 **How:** 🟢 carry on · 🟡 summarize · 🔴 move to a fresh bot, with a handoff file.
 **Why trust it:** free, open source (MIT), no download, no sign-up, unofficial community project.
 
@@ -296,7 +296,7 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 **1/5** (attach `promo-en-9x16.mp4`)
 > Your Grok Bot isn't lazy. Your chat is just too long. 🐢
 >
-> Every reply rereads the whole conversation, so the longer it gets, the slower and pricier each answer is.
+> Every reply rereads the whole conversation, so the longer it gets, the pricier each answer is, and then it gets slower.
 >
 > I built a free, open-source helper for the "when do I start over?" problem 🧵
 
@@ -321,7 +321,7 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 >
 > "Install the skill at https://contextbot.app/skill.md into my skill library, save it exactly as written, then confirm."
 >
-> There's also a free dashboard (data stays in your browser).
+> There's also a free dashboard. It stays in your browser unless you turn on live status.
 
 **5/5**
 > Free, MIT, no ads, no trackers. Unofficial community project, not affiliated with Grok Bot or xAI.
@@ -329,14 +329,14 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 > 🌐 https://contextbot.app
 > ⭐ https://github.com/AnaGuiDev/context-bot
 >
-> If it saves you a slow afternoon, a star or a share helps a lot 💛
+> If it helps you look after your usage, and your time as well, a star or a share helps a lot 💛
 
 ### Español (España)
 
 **1/5** (adjunta `promo-es-9x16.mp4`)
 > Tu Grok Bot no es vago. Es que la charla es demasiado larga. 🐢
 >
-> Cada respuesta relee la conversación entera: cuanto más larga, más lenta y más cara.
+> Cada respuesta relee la conversación entera: cuanto más larga, más cara y después más lenta.
 >
 > He hecho algo gratis y de código abierto para el «¿cuándo empiezo de cero?» 🧵
 
@@ -361,7 +361,7 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 >
 > «Instala la skill de https://contextbot.app/es/skill.md en mi biblioteca de skills, guárdala exactamente como está escrita y confírmamelo.»
 >
-> Y hay un panel gratis (los datos se quedan en tu navegador).
+> Y hay un panel gratis. Se queda en tu navegador, salvo si activas el estado en directo.
 
 **5/5**
 > Gratis, MIT, sin anuncios ni rastreadores. Proyecto comunitario no oficial, sin relación con Grok Bot ni xAI.
@@ -369,7 +369,7 @@ Post from **@SoyAnaDev** (a person converts better than a brand), then quote-pos
 > 🌐 https://contextbot.app/es/
 > ⭐ https://github.com/AnaGuiDev/context-bot
 >
-> Si te ahorra una tarde lenta, una estrella o compartirlo ayuda muchísimo 💛
+> Si te ayuda a cuidar el uso, y también el tiempo, una estrella o compartirlo ayuda muchísimo 💛
 
 **@contextbotapp quote-post (EN):**
 > 🚦 We're live. A traffic light for long Grok Bot chats, made by @SoyAnaDev. Free and open source.

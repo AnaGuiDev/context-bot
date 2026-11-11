@@ -23,7 +23,7 @@
 
 <sub>Pulsa la animación para ver el vídeo de un minuto con sonido.</sub>
 
-Gratis, de código abierto, sin descargas ni registros. Si te ahorra una tarde lenta, **⭐ dale una estrella**: es la forma más fácil de que llegue a más gente.
+Gratis, de código abierto, sin descargas ni registros. Si te ayuda a cuidar el uso, y también el tiempo, **⭐ dale una estrella**: es la forma más fácil de que llegue a más gente.
 
 </div>
 
@@ -31,9 +31,9 @@ Gratis, de código abierto, sin descargas ni registros. Si te ahorra una tarde l
 
 ## 🐢 El problema
 
-Cuanto más larga es la conversación con tu bot, **más tarda en responder y más te cuesta**: en cada respuesta vuelve a leer todo lo anterior ([fuente](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Casi nadie se da cuenta hasta que ya se arrastra, y entonces empezar de cero da miedo: un bot nuevo supone volver a explicarlo todo.
+Cuanto más larga es la conversación con tu bot, **más te cuesta y más tarda en responder**: en cada respuesta vuelve a leer todo lo anterior ([fuente](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Casi nadie se da cuenta hasta que el uso ya es alto, y entonces empezar de cero da miedo: un bot nuevo supone volver a explicarlo todo.
 
-Context Bot te avisa a tiempo y te ayuda a seguir en un bot nuevo **sin empezar de cero**.
+Context Bot te avisa a tiempo y te ayuda a seguir en un bot nuevo **para que retomes donde lo dejaste**.
 
 ## 🚦 Cómo funciona
 
@@ -79,7 +79,7 @@ Cuando el semáforo pasa a amarillo o rojo, el **Context Bot Migrator** opcional
 
 | Sin Context Bot | Con Context Bot |
 |---|---|
-| Te das cuenta de que va lento cuando ya se arrastra. | Un color te avisa a tiempo. |
+| Te das cuenta del uso cuando la charla ya es larga, y luego de la espera. | Un color te avisa a tiempo. |
 | Sigues estirando una charla infinita. | Resumes en amarillo y cambias en rojo, cuando tú decides. |
 | Un bot nuevo supone volver a explicar preferencias, decisiones y archivos. | Un archivo de traspaso lleva memoria, tareas y archivos clave. |
 | Las rutinas se comen tu uso sin que lo veas. | El panel te señala qué rutinas conviene pausar o espaciar. |
@@ -90,7 +90,7 @@ Context Bot no hace más listo a tu bot. Te avisa de cuándo actuar.
 
 - **Skill** para tu bot, en [español](skills/context-bot/SKILL.md) y en [inglés](skills/context-bot/en/SKILL.md) (en <https://contextbot.app/es/skill.md> y <https://contextbot.app/skill.md>): cuándo comprobar, cómo estimar, cuándo avisar y cómo hacer el traspaso.
 - **Skill de bienvenida opcional** [`getting-started-context-bot`](skills/getting-started-context-bot/SKILL.md): guía la primera conversación de un nuevo Context Bot con su dueño.
-- **[Panel](https://contextbot.app/es/dashboard/)** con semáforo: sin servidor ni cuenta, guarda en tu navegador.
+- **[Panel](https://contextbot.app/es/dashboard/)** con semáforo: bots, rutinas y traspasos se quedan en tu navegador. El estado en directo es aparte.
 - **Vista Traspaso** en el panel: elige un bot en amarillo o rojo y mira cómo pasan al bot nuevo su memoria, tareas, archivos y rutinas. Luego copia o descarga el `TRASPASO.md`, o pega uno para revisarlo.
 - **Revisión de rutinas** en el panel: te marca las que conviene pausar o espaciar.
 - **[Prompts](prompts/bot-coordinador.md)**, incluido un bot coordinador que vigila a los demás.
@@ -108,7 +108,7 @@ Context Bot no hace más listo a tu bot. Te avisa de cuándo actuar.
 <img src="assets/dashboard.png" alt="Panel con tres bots en rojo, amarillo y verde, y las secciones de estado en directo y traspaso" width="820">
 </div>
 
-Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Puedes exportar e importar todo en JSON. Nada sale de tu ordenador.
+Apunta tus bots, pega su estado y mira de un vistazo cuál necesita atención. Detecta solo líneas como `semaforo: rojo`. Puedes exportar e importar todo en JSON. La edición local se queda en tu ordenador. El estado en directo, descrito abajo, guarda un ID numérico de GitHub y notas breves en el conector.
 
 ## 💡 Trucos para gastar menos
 
@@ -150,12 +150,12 @@ Al duplicar un bot no se copia su memoria aprendida, así que antes de cambiar, 
 
 <details><summary><b>¿Lee o sube mis conversaciones?</b></summary>
 
-No. La skill funciona dentro de tu propio bot, y la web y el panel lo guardan todo en tu navegador (`localStorage`). El conector opcional de estado en directo (código en [`worker/`](worker/), en pruebas, sin anunciar) solo envía el nombre del bot, su color y unas pocas estimaciones, nunca tu conversación.
+La skill funciona dentro de tu propio bot. La web no recibe tus conversaciones. El panel guarda bots, rutinas y traspasos en tu navegador (`localStorage`). Si conectas el conector opcional de estado en directo (código en [`worker/`](worker/), en pruebas, sin anunciar), guarda tu ID numérico de GitHub y el nombre del bot, su color, unas estimaciones y una nota breve opcional. No recibe la conversación. Esos detalles del conector aplican cuando ese worker está desplegado; publicar la web no lo despliega.
 </details>
 
 <details><summary><b>¿Es exacta la estimación?</b></summary>
 
-No. Es una estimación aproximada según la longitud de la charla. Sirve para avisarte de cuándo actuar, mucho antes de que lo notes lento.
+No. Es una estimación aproximada según la longitud de la charla. Sirve para avisarte de cuándo actuar, antes de que suba el uso y antes de notarlo lento.
 </details>
 
 <details><summary><b>¿Es oficial de Grok Bot?</b></summary>
@@ -189,7 +189,7 @@ Context Bot es y seguirá siendo gratis. Sin anuncios, sin rastreadores, sin ver
 
 ### 💛 Apoya a Ana, la autora
 
-Si Context Bot te ha ahorrado tiempo o uso, puedes darle las gracias a Ana con un café o una propina en X.
+Si Context Bot te ha ayudado con el uso, o también con el tiempo, puedes darle las gracias a Ana con un café o una propina en X.
 
 <div align="center">
 
@@ -209,18 +209,18 @@ Si te ayuda, seguirlo y compartirlo es la mejor forma de que llegue a más gente
 <div align="center">
 
 [![Sigue a @contextbotapp](https://img.shields.io/badge/Sigue%20a%20%40contextbotapp-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/contextbotapp)
-[![Compártelo en X](https://img.shields.io/badge/Comp%C3%A1rtelo%20en%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=Mis%20Grok%20Bots%20siguen%20r%C3%A1pidos%20con%20Context%20Bot%20%F0%9F%9A%A6%20Gratis%20y%20de%20c%C3%B3digo%20abierto%3A%20https%3A%2F%2Fcontextbot.app%2Fes%2F%20v%C3%ADa%20%40contextbotapp)
+[![Compártelo en X](https://img.shields.io/badge/Comp%C3%A1rtelo%20en%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=Las%20charlas%20largas%20gastan%20uso%20primero%2C%20y%20luego%20van%20m%C3%A1s%20lentas.%20Context%20Bot%20las%20vigila.%20Gratis%20y%20de%20c%C3%B3digo%20abierto%3A%20https%3A%2F%2Fcontextbot.app%2Fes%2F%20v%C3%ADa%20%40contextbotapp)
 [![Dale una estrella](https://img.shields.io/badge/%E2%AD%90%20Dale%20una%20estrella-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
 
 </div>
 
 - **Sigue a [@contextbotapp](https://x.com/contextbotapp)** para consejos y novedades.
-- **Compártelo** con quien tenga un bot que sigue escribiendo.
+- **Compártelo** con quien tenga una charla larga que gasta uso.
 - **⭐ Dale una estrella al repositorio:** ayuda a que otros lo encuentren.
 
 ## 🔒 Privacidad
 
-La web no usa cookies ni seguimiento, y la fuente y el vídeo se sirven desde la propia web. El panel guarda tus datos solo en tu navegador. Más detalle en la [página de privacidad](https://contextbot.app/es/privacidad.html). Para avisar de un fallo de seguridad, lee [SECURITY.md](SECURITY.md).
+La web no usa cookies de seguimiento, y la fuente y el vídeo se sirven desde la propia web. El panel guarda bots, rutinas y traspasos en tu navegador. El estado en directo opcional guarda tu ID numérico de GitHub y los nombres, colores, estimaciones y notas breves que comuniquen tus bots. Más detalle en la [página de privacidad](https://contextbot.app/es/privacidad.html). Para avisar de un fallo de seguridad, lee [SECURITY.md](SECURITY.md).
 
 ## 💛 Créditos
 

@@ -32,7 +32,7 @@ You don't have an exact counter, so estimate from what you can see. Rule of thum
 | 40–80 messages, or several long documents/tool outputs, or 1 earlier summary | 50–80 % | 🟡 Yellow |
 | More than ~80 messages, lots of heavy material, 2+ summaries, or replies that already forget details | over 80 % | 🔴 Red |
 
-These thresholds are a guide, not exact. When in doubt, pick the more cautious colour.
+The percentages in the Estimate column orient the colour choice. They do not measure tokens, capacity or usage, and you must not present them as a measurement. These thresholds are a guide, not exact. When in doubt, pick the more cautious colour.
 
 ## Keeping STATUS.md
 

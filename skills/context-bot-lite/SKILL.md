@@ -25,7 +25,7 @@ Es una estimación, no una medida. Cuenta los mensajes desde el inicio (o desde 
 | 40–80 mensajes, o varios documentos/herramientas largas, o 1 resumen previo | 50–80 % | 🟡 Amarillo |
 | Más de ~80 mensajes, mucho material pesado, 2+ resúmenes o ya olvidas detalles | más del 80 % | 🔴 Rojo |
 
-Ante la duda, elige el color más prudente.
+Los porcentajes de la columna Estimación orientan la elección del color. No miden tokens, capacidad ni uso, y no debes presentarlos como una medición. Ante la duda, elige el color más prudente.
 
 ## STATUS.md
 
