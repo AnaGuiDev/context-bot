@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { SELF, env } from "cloudflare:test";
 import { BASE, call, getToken, rpc } from "./helpers";
 
@@ -32,10 +32,10 @@ describe("OAuth", () => {
 });
 
 describe("MCP tools", () => {
-  it("lists the five tools", async () => {
+  it("lists the six tools", async () => {
     const { token } = await getToken("lister");
     const r = await rpc(token, "tools/list");
-    expect(r.body.result.tools.map((t: any) => t.name).sort()).toEqual(["delete_my_data", "get_status", "get_tips", "list_bots", "report_status"]);
+    expect(r.body.result.tools.map((t: any) => t.name).sort()).toEqual(["delete_bot", "delete_my_data", "get_status", "get_tips", "list_bots", "report_status"]);
   });
 
   it("reports, reads, lists and isolates users", async () => {
@@ -111,5 +111,54 @@ describe("cron", () => {
     const { purgeOld } = await import("../src/store");
     await purgeOld(env as any);
     expect((await db.prepare("SELECT COUNT(*) n FROM status_history WHERE user_id='old'").first()).n).toBe(0);
+  });
+});
+
+
+describe("plan regressions", () => {
+  it("accepts practical names and rejects markup and oversized names", async () => {
+    const { token } = await getToken("names");
+    for (const bot_name of ["Viajes · 2", "I+D (web)", "Cafe\u0301 #1"]) {
+      expect((await call(token, "report_status", { bot_name, colour: "green" })).isError).toBeFalsy();
+    }
+    for (const bot_name of ["<script>", "a".repeat(61)]) expect((await call(token, "report_status", { bot_name, colour: "green" })).isError).toBe(true);
+  });
+  it("requires confirmation and deletes only one owner's chosen bot", async () => {
+    const a = (await getToken("delete-a")).token, b = (await getToken("delete-b")).token;
+    for (const token of [a, b]) for (const bot_name of ["Same", "Keep"]) await call(token, "report_status", { bot_name, colour: "green" });
+    expect((await call(a, "delete_bot", { bot_name: "Same", confirm: false })).isError).toBe(true);
+    expect((await call(a, "list_bots")).data.bots).toContain("Same");
+    for (let i=0;i<2;i++) expect((await call(a, "delete_bot", { bot_name: "Same", confirm: true })).data.deleted).toBe(true);
+    expect((await call(a, "list_bots")).data.bots).toEqual(["Keep"]);
+    expect((await call(b, "get_status", { bot_name: "Same" })).data.colour).toBe("green");
+    expect(await (env as any).LATEST.get("latest:dev_delete-a:Same")).toBeNull();
+    const n = await (env as any).DB.prepare("SELECT COUNT(*) n FROM status_history WHERE user_id=? AND bot_name=?").bind("dev_delete-a", "Same").first();
+    expect(n.n).toBe(0);
+  });
+  it("rate limits registrations independently by IP", async () => {
+    const register=(ip:string)=>SELF.fetch(`${BASE}/oauth/register`, {method:"POST", headers:{"Content-Type":"application/json","CF-Connecting-IP":ip},body:JSON.stringify({client_name:"test",redirect_uris:["http://localhost:9999/cb"]})});
+    for(let i=0;i<10;i++)expect((await register("192.0.2.1")).status).toBe(201);
+    const limited=await register("192.0.2.1");expect(limited.status).toBe(429);expect(limited.headers.get("Retry-After")).toBeTruthy();
+    expect((await register("192.0.2.2")).status).toBe(201);
+  });
+});
+
+
+describe("GitHub callback failures", () => {
+  for (const mode of ["network", "http", "json", "user-http"]) it(`returns a safe retry page for ${mode}`, async () => {
+    const { defaultHandler } = await import("../src/auth");
+    const nonce=crypto.randomUUID();
+    await (env as any).OAUTH_KV.put(`pending:${nonce}`, JSON.stringify({clientId:"test"}));
+    const mock=vi.fn();
+    if(mode==="network")mock.mockRejectedValue(new Error("secret upstream detail"));
+    else if(mode==="http")mock.mockResolvedValue(new Response("secret upstream detail",{status:503}));
+    else if(mode==="json")mock.mockResolvedValue(new Response("invalid json"));
+    else mock.mockResolvedValueOnce(Response.json({access_token:"secret"})).mockResolvedValueOnce(new Response("secret",{status:500}));
+    vi.stubGlobal("fetch",mock);
+    try {
+      const r=await defaultHandler.fetch(new Request(`${BASE}/callback?state=${nonce}&code=code`,{headers:{Cookie:`cb_nonce=${nonce}`}}),env as any);
+      expect(r.status).toBe(502);expect(await r.text()).not.toContain("secret");
+      expect(await (env as any).OAUTH_KV.get(`pending:${nonce}`)).toBeNull();
+    } finally {vi.unstubAllGlobals()}
   });
 });

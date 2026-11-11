@@ -41,6 +41,7 @@ Cada informe lleva solo esto:
 | `get_status` | Leer el último estado de uno o de todos |
 | `list_bots` | Ver los bots que han informado |
 | `get_tips` | Consejos para ahorrar contexto (`en` / `es`) |
+| `delete_bot` | Borrar el estado e historial de un bot, conservando los demás y el acceso (`confirm: true`) |
 | `delete_my_data` | Borrar **todo** y revocar el acceso (requiere `confirm: true`) |
 
 También hay una API REST para el panel: `GET /mcp/api/statuses` (con `?history=1` para el historial) y `DELETE /mcp/api/me`. Las dos piden el mismo token OAuth.

@@ -5,7 +5,7 @@ const b64url = (b: ArrayBuffer) => btoa(String.fromCharCode(...new Uint8Array(b)
 /** DCR → authorize → consentimiento → login falso → token. */
 export async function getToken(user = "tester", redirect = "http://localhost:9999/cb") {
   const reg = await SELF.fetch(`${BASE}/oauth/register`, {
-    method: "POST", headers: { "Content-Type": "application/json" },
+    method: "POST", headers: { "Content-Type": "application/json", "CF-Connecting-IP": "test-" + user },
     body: JSON.stringify({ client_name: "Test client", redirect_uris: [redirect], token_endpoint_auth_method: "none" }),
   }).then((r) => r.json<any>());
   const verifier = b64url(crypto.getRandomValues(new Uint8Array(32)).buffer);

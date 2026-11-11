@@ -20,6 +20,7 @@ export const HISTORY_DAYS = 90;
 export const MAX_BOTS = 20;
 
 export const LIMITS = {
+  registration: { max: 10, windowSec: 3600 }, // OAuth client registrations per IP per hour
   report: { max: 30, windowSec: 3600 }, // report_status por hora
   request: { max: 300, windowSec: 3600 }, // cualquier petición autenticada por hora
 } as const;
@@ -48,7 +49,7 @@ export async function reportStatus(env: Env, userId: string, s: StatusInput): Pr
   const known = await env.DB.prepare("SELECT 1 FROM bots WHERE user_id = ? AND name = ?").bind(userId, s.bot_name).first();
   if (!known) {
     const c = await env.DB.prepare("SELECT COUNT(*) AS n FROM bots WHERE user_id = ?").bind(userId).first<{ n: number }>();
-    if ((c?.n ?? 0) >= MAX_BOTS) throw new Error(`Too many bots (max ${MAX_BOTS}). Delete some data first.`);
+    if ((c?.n ?? 0) >= MAX_BOTS) throw new Error(`Too many bots (max ${MAX_BOTS}). Use delete_bot with explicit confirmation to remove an unused bot first.`);
     await env.DB.prepare("INSERT INTO bots (user_id, name, created_at) VALUES (?, ?, ?)").bind(userId, s.bot_name, now()).run();
   }
   const t = now();
@@ -97,6 +98,16 @@ export async function history(env: Env, userId: string, bot: string, limit = 30)
      WHERE user_id = ? AND bot_name = ? ORDER BY created_at DESC LIMIT ?`,
   ).bind(userId, bot, limit).all();
   return r.results.map((x: any) => ({ ...x, compacted: x.compacted == null ? null : !!x.compacted, created_at: new Date(x.created_at).toISOString() }));
+}
+
+/** Delete only this account's bot; retrying also clears a failed KV deletion. */
+export async function deleteBot(env: Env, userId: string, bot: string) {
+  await env.DB.batch([
+    env.DB.prepare("DELETE FROM status_history WHERE user_id = ? AND bot_name = ?").bind(userId, bot),
+    env.DB.prepare("DELETE FROM bots WHERE user_id = ? AND name = ?").bind(userId, bot),
+  ]);
+  await env.LATEST.delete(latestKey(userId, bot));
+  return { access_revoked: false };
 }
 
 /** Borra todo lo del usuario: D1, KV y sus permisos OAuth. */
