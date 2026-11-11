@@ -50,4 +50,6 @@ Your bot notes each finished task in one line, a small script counts the repeats
 
 Recurring reports can stay in a single Page, with scheduled updates and brief notifications linking to it, always after your confirmation. The routine retrieves authorized data and updates the Page; the Page does not update itself. An existing routine is reused where available, failures are reported too, and the last successful update includes its time zone. An export appropriate to the data and available capabilities is verified. Generating and updating the report still uses allowance: savings are not guaranteed.
 
+## More tips
+
 Tips we haven't been able to confirm yet are listed (in Spanish) in [tips-pendientes.md](../tips-pendientes.md).

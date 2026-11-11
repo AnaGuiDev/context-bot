@@ -5,8 +5,8 @@ REPO = "https://github.com/AnaGuiDev/context-bot"
 X = "https://x.com/SoyAnaDev"          # perfil de la autora (propinas de X)
 X_PROJECT = "https://x.com/contextbotapp"  # cuenta del proyecto (novedades)
 BMC = "https://buymeacoffee.com/soyanadev"
-MIGRATOR_TEMPLATE = "https://x.ai/bot/oUJEAr2axANgtedIGrkNS"
-LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública de Context Bot Lite  # plantilla pública de Context Bot Migrator
+MIGRATOR_TEMPLATE = "https://x.ai/bot/oUJEAr2axANgtedIGrkNS"  # plantilla pública de Context Bot Migrator
+LITE_TEMPLATE = "https://x.ai/bot/2O-oiBLKblZGBsfG0SVhG"  # plantilla pública de Context Bot Lite
 TEMPLATE = "https://x.ai/bot/-lByS9XGxzqHgCrOhrrJY"  # enlace público de la plantilla del bot (scripts/rellenar-placeholders.sh --template)
 
 EN = dict(

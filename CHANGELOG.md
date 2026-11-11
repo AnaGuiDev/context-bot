@@ -12,6 +12,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Pruebas del contrato de publicación y de persistencia local frente a la demo, ejecutadas también antes de desplegar.
 
 ### Mejorado
+- Generación de consejos con todos sus párrafos (incluidos informes recurrentes), comprobación de sincronización en CI y registro de decisiones sobre el plan de mejora.
 - Instalación en el bot actual antes de la plantilla, botones táctiles de 44 px, prompt MCP traducido y mensaje para compartir sin garantías de ahorro. Privacidad precisa sobre cookie temporal, tokens y retención del estado en directo.
 - Portada centrada en un traspaso revisable: bot existente primero, demo visible y funciones opcionales plegadas, conservando la identidad visual.
 - Ahorro y velocidad sin garantías; sin porcentajes de contexto en la portada; distinción entre resumen y eliminación del historial.

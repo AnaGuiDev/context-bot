@@ -1,6 +1,6 @@
 # Next steps · Siguientes pasos
 
-Actualizado: 8 de noviembre de 2026. Este documento distingue cambios de código de validación del producto y publicación externa.
+Actualizado: 11 de noviembre de 2026. Este documento distingue cambios de código de validación del producto y publicación externa.
 
 ## Preparado en el repositorio / Prepared in the repository
 
@@ -16,7 +16,8 @@ Actualizado: 8 de noviembre de 2026. Este documento distingue cambios de código
 2. **Validación:** existe un [relato de migración del 5 de noviembre](docs/ejemplo-migracion.md), con datos que el propio relato marca como no comprobables desde fuera. Es experiencia documentada, no validación independiente ni una nueva ejecución en esta entrega. Verificar una migración completa y el ciclo Page → rutina → actualización → aviso de éxito/fallo → descarga con fuentes autorizadas antes de acreditar esos recorridos.
 3. **Tracción:** ejecutar el [experimento de activación](docs/activation-experiment.md). No hay nuevas métricas ni entrevistas atribuidas a esta entrega.
 4. **Estimación de contexto:** la portada ya no equipara mensajes y porcentajes. Por la petición de conservar el resto de ambas skills, su tabla histórica de porcentajes permanece intacta; no está calibrada y no debe interpretarse como medición. Revisar esa tabla en un cambio separado si se autoriza modificar el comportamiento existente.
-5. **Hosting:** el workflow `Publicar web` existe, pero su ejecución anterior al cambio (42256217040) falló en `configure-pages`: GitHub no encontraba un sitio Pages habilitado. Las cabeceras del dominio muestran infraestructura Cloudflare, sin demostrar por sí solas qué servicio lo publica. Comprobar el workflow del commit fusionado y comparar la skill servida con la fuente antes de declarar despliegue completado. No cambiar DNS para resolver esta discrepancia.
+5. **Hosting:** la web se publica con Wrangler en Cloudflare Pages, proyecto `context-bot`, cuenta `260a68d445569ce628932b896c94dbbe`, destino `context-bot-cfv.pages.dev`. `main` activa el workflow `Publicar web`; el worker se despliega por separado. La antigua cuenta/destino `context-bot-dkp.pages.dev` no debe reutilizarse. Esta revisión no modifica DNS ni publica. Tras la futura integración, comprobar ejecución y contenido servido.
+6. **Revisión del plan:** ver [selección, evidencias y pendientes](docs/revision-plan-2026-11.md). Las PRs están encadenadas 7 → 8 → 9 → 10 → 11, sin fusionar. Antes de publicar falta una comprobación visual real y validar el conector con Grok.
 
 English: repository changes do not republish hosted Grok templates or update already-installed skills. The migration narrative is not independent validation. The historical skill percentage table is preserved at the user's request, not calibrated. Verify actual domain bytes and the deployment run separately; do not infer the hosting provider from headers alone.
 
@@ -25,7 +26,9 @@ English: repository changes do not republish hosted Grok templates or update alr
 ```bash
 CB_OFFLINE=1 bash scripts/build-site.sh
 python3 tests/site-contract.py
-node --test tests/dashboard-demo.cjs
+python3 tests/security-headers.py
+python3 worker/gen-tips.py --check
+node --test tests/*.cjs
 node --check src/js/dashboard.js
 node --check src/js/live.js
 git diff --check
