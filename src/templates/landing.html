@@ -20,7 +20,7 @@ h3{font-size:1.24rem;font-weight:900;letter-spacing:-.015em;line-height:1.2}
 /* Header */
 header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0}
 .top-r{display:flex;align-items:center;gap:8px}
-.gh{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:900;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:6px;padding:4px 9px 3px 7px;background:var(--card);line-height:1.2}
+.gh{min-width:44px;min-height:44px;justify-content:center;display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:900;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:6px;padding:4px 9px 3px 7px;background:var(--card);line-height:1.2}
 .gh svg{width:15px;height:15px;fill:var(--y)}.gh svg path{stroke:var(--ink);stroke-width:1.8;stroke-linejoin:round}
 .gh:hover{background:var(--sign)}
 
@@ -386,16 +386,16 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
     <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">2</text></svg><div><h3>{{s2_h}}</h3><p>{{s2_p}}</p></div></li>
     <li class="leg"><svg class="shield" viewBox="0 0 56 60" aria-hidden="true"><path d="M28 3c7 4 16 5 24 2 3 18-1 40-24 52C5 45 1 23 4 5c8 3 17 2 24-2z"/><path class="top" d="M28 3c7 4 16 5 24 2l.6 9C44 16 35 15 28 11 21 15 12 16 3.4 14L4 5c8 3 17 2 24-2z"/><text x="28" y="43" text-anchor="middle">3</text></svg><div><h3>{{s3_h}}</h3><p>{{s3_p}}</p></div></li>
   </ol>
-  {{#TPL}}<div class="add"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a><p class="note">{{cta_add_note}}</p></div>{{/TPL}}
   <div class="ticket">
     <p class="ticket-l" id="install-l">{{install_label}}</p>
     <div class="code"><code id="install-code">{{install_prompt}}</code><button type="button" class="copy-code" data-target="install-code" aria-label="{{copy_prompt_label}}">{{copy_word}}</button></div>
   </div>
+  {{#TPL}}<div class="add"><a class="btn" href="{{TEMPLATE}}">{{cta_add}}</a><p class="note">{{cta_add_note}}</p></div>{{/TPL}}
   <aside class="works" aria-labelledby="soon-h">
     <div class="works-in">
       <p class="works-h" id="soon-h"><span class="badge">{{soon_label}}</span> {{s4_h}}</p>
       <p>{{s4_cmd_label}}</p>
-      <div class="code"><code id="mcp-cmd">Add this MCP server: https://mcp.contextbot.app/mcp</code><button type="button" class="copy-code" data-target="mcp-cmd">{{copy_word}}</button></div>
+      <div class="code"><code id="mcp-cmd">{{mcp_prompt}}</code><button type="button" class="copy-code" data-target="mcp-cmd">{{copy_word}}</button></div>
       <p>{{s4_p}}</p>
     </div>
   </aside>
@@ -587,7 +587,6 @@ footer.foot::before{content:"";display:block;height:5px;max-width:100%;margin:0 
       <p class="sup-note">{{sup_ana_p}}</p>
       <div class="sup-actions">
         <a class="btn alt" href="{{BMC}}">{{coffee}}</a>
-        <a class="btn alt" href="{{X}}">{{tips_x}}</a>
         <a class="btn alt" href="{{X}}">{{follow_ana}}</a>
       </div>
       <p class="sup-note">{{tips_x_note}}</p>
