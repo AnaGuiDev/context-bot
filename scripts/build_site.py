@@ -5,7 +5,7 @@
   /dashboard/       panel en inglés          /es/dashboard/       panel en español
   /privacy.html     privacidad (inglés)      /es/privacidad.html  privacidad (español)
 """
-import json, os, posixpath, re, shutil, sys
+import base64, hashlib, json, os, posixpath, re, shutil, sys
 from html import escape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
@@ -115,6 +115,32 @@ def fill(text, ctx):
 def page_path(url):
     return os.path.join(OUT, url.lstrip("/") + ("index.html" if url.endswith("/") else ""))
 
+def security_headers():
+    """Hash the exact generated scripts, including JSON-LD; never allow arbitrary inline JS."""
+    blocks = []
+    pages = [u for en, es, _ in PAGES.values() for u in (en, es)] + ["/404.html"]
+    for url in pages:
+        html = open(page_path(url)).read()
+        scripts = re.findall(r"<script\b[^>]*>(.*?)</script>", html, flags=re.S | re.I)
+        hashes = sorted({"'sha256-" + base64.b64encode(hashlib.sha256(s.encode()).digest()).decode() + "'" for s in scripts if s})
+        connect = "'self'"
+        if "dashboard" in url:
+            connect += " https://mcp.contextbot.app http://localhost:* http://127.0.0.1:*"
+        policy = ("default-src 'none'; script-src 'self' " + " ".join(hashes) +
+                  "; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; "
+                  "connect-src " + connect + "; form-action 'none'; base-uri 'none'; frame-ancestors 'none'")
+        # Include file/extensionless aliases as well as the canonical Pages URLs.
+        aliases = [url]
+        if url.endswith("/"):
+            aliases.append(url + "index.html")
+            if url != "/": aliases.append(url.rstrip("/"))
+        elif url.endswith(".html"):
+            aliases.append(url[:-5])
+        for alias in aliases:
+            blocks.append(alias + "\n  Content-Security-Policy: " + policy + "\n")
+    with open(os.path.join(OUT, "_headers"), "a") as f:
+        f.write("\n# Generated from the final HTML; do not edit dist/.\n" + "\n".join(blocks))
+
 def main():
     diff = keys(i18n.EN) ^ keys(i18n.ES)
     if diff:
@@ -193,6 +219,7 @@ def main():
     shutil.copy(os.path.join(ROOT, "skills", "context-bot", "SKILL.md"), os.path.join(OUT, "es", "skill.md"))
     # Script del modo ahorro: /savings-scan.sh
     shutil.copy(os.path.join(ROOT, "skills", "context-bot", "scripts", "savings-scan.sh"), os.path.join(OUT, "savings-scan.sh"))
+    security_headers()
     open(os.path.join(OUT, ".nojekyll"), "w").close()
 
 if __name__ == "__main__":

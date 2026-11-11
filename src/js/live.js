@@ -5,10 +5,12 @@ const T=window.CB_I18N.live,CB=window.CB,$=id=>document.getElementById(id);
 if(!T||!CB||!$('live')||new URLSearchParams(location.search).has('demo'))return;
 const fmt=(s,o)=>s.replace(/\{(\w+)\}/g,(m,k)=>o[k]);
 const DEF='https://mcp.contextbot.app';
-const okBase=u=>{try{const x=new URL(u);return x.protocol==='https:'||(x.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(x.hostname))}catch(e){return false}};
+// Only our connector or an explicit loopback development server may receive credentials.
+const okBase=u=>{try{const x=new URL(u);return !x.username&&!x.password&&!x.search&&!x.hash&&x.pathname==='/'&&(x.origin===DEF||(x.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(x.hostname)))}catch(e){return false}};
 const qs=new URLSearchParams(location.search);
-if(qs.get('live')&&okBase(qs.get('live')))localStorage.setItem('cb-live-base',qs.get('live').replace(/\/$/,''));
-const BASE=(()=>{const b=localStorage.getItem('cb-live-base');return b&&okBase(b)?b:DEF})();
+const requested=qs.get('live');
+if(requested&&okBase(requested))localStorage.setItem('cb-live-base',new URL(requested).origin);
+const BASE=(()=>{const b=localStorage.getItem('cb-live-base');if(b&&okBase(b))return new URL(b).origin;if(b)localStorage.removeItem('cb-live-base');return DEF})();
 const RES=BASE+'/mcp',REDIRECT=location.origin+location.pathname;
 const DEMO=location.search.includes('demo');
 const get=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
