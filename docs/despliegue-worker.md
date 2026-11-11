@@ -9,7 +9,7 @@ cd worker
 npm install
 cp .dev.vars.example .dev.vars   # DEV_FAKE_LOGIN=1: inicio de sesión falso, solo en localhost
 npm run db:local                 # aplica las migraciones a la D1 local
-npm test                         # 13 pruebas (OAuth, herramientas, REST, borrado, purga)
+npm test                         # suite del worker (OAuth, herramientas, REST, borrado, purga)
 npm run dev                      # http://localhost:8787
 npm run smoke                    # en otra terminal: cliente MCP real contra wrangler dev
 ```
@@ -46,6 +46,10 @@ Para probar el panel contra tu Worker local:
    - `curl https://mcp.contextbot.app/.well-known/oauth-authorization-server`
 
 En producción, `DEV_FAKE_LOGIN` se queda en `"0"`. Además, el inicio de sesión falso solo se activa si `PUBLIC_URL` es localhost.
+
+## Qué no despliega la web
+
+El workflow de Cloudflare Pages publica el sitio y no este worker. `delete_bot`, el campo `existed`, los nombres en NFC y los límites de registro descritos en [conector.md](conector.md) llegan a `mcp.contextbot.app` solo con `npm run deploy` desde este directorio.
 
 ## Mantenimiento
 

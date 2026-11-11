@@ -4,6 +4,8 @@
 
 > **En pruebas, sin anunciar (v0.3).** El conector funciona y puedes usar esta guía para probarlo, pero todavía no se ha lanzado públicamente.
 
+> **Hay que desplegar el worker.** Publicar la web no actualiza `https://mcp.contextbot.app`. `delete_bot` (con `existed`), los nombres en Unicode NFC y los límites de registro de esta página están en el repositorio y solo llegan al conector en vivo tras el despliegue descrito en [despliegue-worker.md](despliegue-worker.md). Hasta entonces, el servicio publicado puede no tenerlos.
+
 [English](en/connector.md)
 
 ## Cómo se conecta
@@ -19,7 +21,7 @@ Cada informe lleva solo esto:
 
 | Campo | Ejemplo | Notas |
 |---|---|---|
-| `bot_name` | `Viajes` | 1–60 caracteres |
+| `bot_name` | `Viajes` | 1–60 caracteres, guardado en Unicode NFC |
 | `colour` | `green` / `yellow` / `red` | |
 | `turns` | `85` | estimación del bot |
 | `usage_share` | `0.3` | estimación (0–1) |
@@ -41,7 +43,7 @@ Cada informe lleva solo esto:
 | `get_status` | Leer el último estado de uno o de todos |
 | `list_bots` | Ver los bots que han informado |
 | `get_tips` | Consejos para ahorrar contexto (`en` / `es`) |
-| `delete_bot` | Borrar el estado e historial de un bot, conservando los demás y el acceso (`confirm: true`) |
+| `delete_bot` | Borrar el estado e historial de un bot, conservando los demás y el acceso (`confirm: true`). Responde `deleted: true` y `existed` según hubiera fila. Requiere el worker desplegado |
 | `delete_my_data` | Borrar **todo** y revocar el acceso (requiere `confirm: true`) |
 
 También hay una API REST para el panel: `GET /mcp/api/statuses` (con `?history=1` para el historial) y `DELETE /mcp/api/me`. Las dos piden el mismo token OAuth.
@@ -58,4 +60,8 @@ El borrado es inmediato y además revoca todos tus tokens.
 
 ## Protección del registro
 
-El registro de clientes OAuth admite 10 solicitudes por hora y dirección IP. El contador guarda un hash de IP y ventana horaria, no la IP en claro; no equivale a anonimización. Los contadores de más de 24 horas se eliminan en la limpieza diaria. El límite puede compartirse entre personas de una misma red.
+Cada dirección IP puede registrar 120 clientes OAuth por hora. Además hay un tope de 1000 registros por hora entre todas las direcciones, para que cambiar de IP no quite el límite. El cupo por IP sube desde los 10 anteriores porque un mismo egress —por ejemplo el de Grok al dar de alta clientes MCP— puede juntar a muchas personas, y un 429 ahí pararía registros legítimos.
+
+El contador no guarda la IP en claro. Guarda SHA-256 de la ventana horaria y la IP, sin sal. No es anonimización: si la base se filtra, una IPv4 se puede probar fuera de línea para una hora conocida. Un HMAC lo evitaría, pero necesita una clave que no esté en el repositorio. No se añade un secreto nuevo. Reutilizar `GITHUB_CLIENT_SECRET` ataría este contador a la rotación de esa credencial y la usaría en el registro anónimo, así que no se hace. Una clave escrita en el código no sería un secreto.
+
+Los contadores de más de 24 horas se eliminan en la limpieza diaria. Quien comparta red comparte el cupo de esa IP, no el tope global. Este límite también espera al despliegue del worker.

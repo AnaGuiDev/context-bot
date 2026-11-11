@@ -23,7 +23,7 @@
 
 <sub>Click the animation to watch the one-minute video with sound.</sub>
 
-Free, open source, no download, no sign-up. If it saves you a slow afternoon, **⭐ star the repo**: it's the easiest way to help other people find it.
+Free, open source, no download, no sign-up. If it helps you look after your usage, and your time as well, **⭐ star the repo**: it's the easiest way to help other people find it.
 
 </div>
 
@@ -31,9 +31,9 @@ Free, open source, no download, no sign-up. If it saves you a slow afternoon, **
 
 ## 🐢 The problem
 
-The longer your chat with a bot gets, **the slower it replies and the more it costs**, because every reply rereads everything that came before ([source](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Most people only notice once it's already crawling, and by then starting over feels risky: a fresh bot means re-explaining everything.
+The longer your chat with a bot gets, **the more it costs and the slower it replies**, because every reply rereads everything that came before ([source](https://forum.cursor.com/t/grok-bot-context-window-size-and-token-accumulation-logic-in-pro/171540)). Most people only notice once the usage is already high, and by then starting over feels risky: a fresh bot means re-explaining everything.
 
-Context Bot warns you in time and helps you carry on in a fresh bot **without starting from zero**.
+Context Bot warns you in time and helps you continue in a fresh bot **so you can pick up where you left off**.
 
 ## 🚦 How it works
 
@@ -79,7 +79,7 @@ Not sure what colour your bot is? Try the [one-minute check](https://contextbot.
 
 | Without Context Bot | With Context Bot |
 |---|---|
-| You notice it's slow when it's already crawling. | A color warns you early. |
+| You notice the extra usage when the chat is already long, and then the wait. | A color warns you in time. |
 | You keep stretching one endless chat. | You summarize at yellow and switch at red, on your terms. |
 | A new bot means re-explaining preferences, decisions and files. | A handoff file carries memory, tasks and key files across. |
 | Routines quietly use up your allowance. | The dashboard flags routines worth pausing or spacing out. |
@@ -90,7 +90,7 @@ Context Bot doesn't make your bot smarter. It tells you when to act.
 
 - **Skill** for your bot, in [English](skills/context-bot/en/SKILL.md) (served at <https://contextbot.app/skill.md>) and [Spanish](skills/context-bot/SKILL.md): when to check, how to estimate, when to warn you and how to hand off.
 - **Optional welcome skill** [`getting-started-context-bot`](skills/getting-started-context-bot/SKILL.md): guides the first conversation of a new Context Bot with its owner.
-- **[Dashboard](https://contextbot.app/dashboard/)** with a traffic light: no server, no account, data stays in your browser.
+- **[Dashboard](https://contextbot.app/dashboard/)** with a traffic light: bots, routines and handoffs stay in your browser. Optional live status is separate.
 - **Handoff view** in the dashboard: pick a yellow or red bot and watch its memory, tasks, key files and routines move to the new bot. Then copy or download the `TRASPASO.md` handoff file, or paste one in to check it.
 - **Routine review** in the dashboard: flags the routines worth pausing or slowing down.
 - **[Prompts](prompts/bot-coordinador.md)**, including a coordinator bot that keeps an eye on the others.
@@ -108,7 +108,7 @@ Context Bot doesn't make your bot smarter. It tells you when to act.
 <img src="assets/dashboard.png" alt="Dashboard with three bots on red, yellow and green, plus the live status and handoff sections" width="820">
 </div>
 
-Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. Export and import everything as JSON. Nothing leaves your computer.
+Add your bots, paste their status and see at a glance which one needs attention. It picks up lines like `light: red` on its own. Export and import everything as JSON. Local edits stay on your computer. Optional live status, described below, stores a numeric GitHub ID and short notes on the connector.
 
 ## 💡 Tips for using less
 
@@ -150,12 +150,12 @@ Duplicating a bot doesn't copy its learned memory, so before you switch, your bo
 
 <details><summary><b>Does it read or upload my conversations?</b></summary>
 
-No. The skill runs inside your own bot, and the website and dashboard keep everything in your browser (`localStorage`). The optional live status connector (code in [`worker/`](worker/), in testing, not announced) only sends your bot's name, color and a few estimates, never your conversation.
+The skill runs inside your own bot. The website does not receive your conversations. The dashboard keeps bots, routines and handoffs in your browser (`localStorage`). If you connect the optional live status connector (code in [`worker/`](worker/), in testing, not announced), it stores your numeric GitHub ID and the bot name, color, a few estimates and an optional short note. It does not receive the conversation. Those connector details apply after that worker is deployed; publishing the website does not deploy it.
 </details>
 
 <details><summary><b>Is the estimate exact?</b></summary>
 
-No. It's a rough estimate based on how long the chat is. It's meant to tell you when to act, well before things feel slow.
+No. It's a rough estimate based on how long the chat is. It's meant to tell you when to act, before usage climbs and before things feel slow.
 </details>
 
 <details><summary><b>Is this an official Grok Bot project?</b></summary>
@@ -188,7 +188,7 @@ Context Bot is free and will stay that way. No ads, no trackers, no paid tier.
 
 ### 💛 Support Ana, the author
 
-If Context Bot saved you time or usage, you can thank Ana with a coffee or a tip on X.
+If Context Bot helped with your usage, or with your time as well, you can thank Ana with a coffee or a tip on X.
 
 <div align="center">
 
@@ -208,18 +208,18 @@ If it helps you, a follow and a share are the best way to help it reach more peo
 <div align="center">
 
 [![Follow @contextbotapp](https://img.shields.io/badge/Follow%20%40contextbotapp-000000?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/contextbotapp)
-[![Share on X](https://img.shields.io/badge/Share%20on%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=My%20Grok%20Bots%20stay%20fast%20with%20Context%20Bot%20%F0%9F%9A%A6%20Free%20and%20open%20source%3A%20https%3A%2F%2Fcontextbot.app%20via%20%40contextbotapp)
+[![Share on X](https://img.shields.io/badge/Share%20on%20X-2563eb?style=for-the-badge&logo=x&logoColor=fff)](https://x.com/intent/post?text=Long%20chats%20spend%20usage%20first%2C%20and%20then%20get%20slower.%20Context%20Bot%20tracks%20them.%20Free%20and%20open%20source%3A%20https%3A%2F%2Fcontextbot.app%20via%20%40contextbotapp)
 [![Star on GitHub](https://img.shields.io/badge/%E2%AD%90%20Star%20on%20GitHub-facc15?style=for-the-badge&logoColor=000)](https://github.com/AnaGuiDev/context-bot)
 
 </div>
 
 - **Follow [@contextbotapp](https://x.com/contextbotapp)** for tips and updates.
-- **Share it** with someone whose bot is still typing.
+- **Share it** with someone whose long chat is using up their allowance.
 - **⭐ Star the repo:** it helps other people find it.
 
 ## 🔒 Privacy
 
-The website uses no cookies or tracking, and the font and video are served from the site itself. The dashboard keeps your data in your browser only. More on the [privacy page](https://contextbot.app/privacy.html). To report a security issue, read [SECURITY.md](SECURITY.md).
+The website uses no tracking cookies, and the font and video are served from the site itself. The dashboard keeps bots, routines and handoffs in your browser. Optional live status stores your numeric GitHub ID and the bot names, colors, estimates and short notes your bots report. More on the [privacy page](https://contextbot.app/privacy.html). To report a security issue, read [SECURITY.md](SECURITY.md).
 
 ## 💛 Credits
 

@@ -9,7 +9,7 @@ cd worker
 npm install
 cp .dev.vars.example .dev.vars   # DEV_FAKE_LOGIN=1: fake sign-in, localhost only
 npm run db:local                 # apply migrations to the local D1
-npm test                         # 13 tests (OAuth, tools, REST, deletion, purge)
+npm test                         # worker suite (OAuth, tools, REST, deletion, purge)
 npm run dev                      # http://localhost:8787
 npm run smoke                    # in another terminal: real MCP client against wrangler dev
 ```
@@ -46,6 +46,10 @@ To try the dashboard against your local Worker:
    - `curl https://mcp.contextbot.app/.well-known/oauth-authorization-server`
 
 `DEV_FAKE_LOGIN` stays `"0"` in production. On top of that, the fake sign-in only works when `PUBLIC_URL` is localhost.
+
+## What the website deploy does not ship
+
+The Cloudflare Pages workflow publishes the site, not this worker. `delete_bot`, the `existed` field, NFC bot names and the registration limits described in [connector.md](connector.md) reach `mcp.contextbot.app` only after `npm run deploy` from this directory.
 
 ## Maintenance
 

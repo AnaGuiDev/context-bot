@@ -25,7 +25,7 @@ It is an estimate, not a measurement. Count messages since the start (or the las
 | 40–80 messages, or several long documents/tool outputs, or 1 earlier summary | 50–80% | 🟡 Yellow |
 | Over ~80 messages, lots of heavy material, 2+ summaries or you are forgetting details | over 80% | 🔴 Red |
 
-If unsure, pick the more cautious colour.
+The percentages in the Estimate column orient the colour choice. They do not measure tokens, capacity or usage, and you must not present them as a measurement. If unsure, pick the more cautious colour.
 
 ## STATUS.md
 

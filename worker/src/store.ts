@@ -20,10 +20,37 @@ export const HISTORY_DAYS = 90;
 export const MAX_BOTS = 20;
 
 export const LIMITS = {
-  registration: { max: 10, windowSec: 3600 }, // OAuth client registrations per IP per hour
+  registration: { max: 120, windowSec: 3600 }, // registros OAuth por IP y hora
+  registrationGlobal: { max: 1000, windowSec: 3600 }, // tope de registros entre todas las IP
   report: { max: 30, windowSec: 3600 }, // report_status por hora
   request: { max: 300, windowSec: 3600 }, // cualquier petición autenticada por hora
 } as const;
+
+/** Clave del tope global. No es un usuario. */
+export const REGISTRATION_GLOBAL_KEY = "registration:global";
+
+/**
+ * SHA-256 de hora e IP, sin sal. No guarda la IP en claro y no es anonimización:
+ * si D1 se filtra, una IPv4 se puede probar fuera de línea para esa hora.
+ * HMAC exigiría una clave. No se añade un secreto: una clave en el código no lo sería,
+ * y reutilizar GITHUB_CLIENT_SECRET ataría el contador a esa credencial y la usaría
+ * en el registro anónimo.
+ */
+export async function registrationKey(ip: string): Promise<string> {
+  const input = `${Math.floor(Date.now() / 3600000)}:${ip}`;
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input));
+  return "registration:" + Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/** Primero el cupo de la IP; si ya está lleno, no consume el tope global. */
+export async function allowRegistration(env: Env, ip: string): Promise<boolean> {
+  if (!(await hit(env, await registrationKey(ip), "registration"))) return false;
+  return hit(env, REGISTRATION_GLOBAL_KEY, "registrationGlobal");
+}
+
+export function normalizeBotName(name: string): string {
+  return name.normalize("NFC");
+}
 
 const now = () => Date.now();
 const latestKey = (u: string, b: string) => `latest:${u}:${b}`;
@@ -46,6 +73,7 @@ export async function hit(env: Env, userId: string, bucket: keyof typeof LIMITS)
 
 export async function reportStatus(env: Env, userId: string, s: StatusInput): Promise<Status> {
   await ensureUser(env, userId);
+  s = { ...s, bot_name: normalizeBotName(s.bot_name) };
   const known = await env.DB.prepare("SELECT 1 FROM bots WHERE user_id = ? AND name = ?").bind(userId, s.bot_name).first();
   if (!known) {
     const c = await env.DB.prepare("SELECT COUNT(*) AS n FROM bots WHERE user_id = ?").bind(userId).first<{ n: number }>();
@@ -79,7 +107,7 @@ export async function listBots(env: Env, userId: string): Promise<string[]> {
 }
 
 export async function getStatus(env: Env, userId: string, bot: string): Promise<Status | null> {
-  const v = await env.LATEST.get(latestKey(userId, bot));
+  const v = await env.LATEST.get(latestKey(userId, normalizeBotName(bot)));
   return v ? (JSON.parse(v) as Status) : null;
 }
 
@@ -96,18 +124,20 @@ export async function history(env: Env, userId: string, bot: string, limit = 30)
   const r = await env.DB.prepare(
     `SELECT colour, turns, usage_share, routines_per_day, compacted, created_at FROM status_history
      WHERE user_id = ? AND bot_name = ? ORDER BY created_at DESC LIMIT ?`,
-  ).bind(userId, bot, limit).all();
+  ).bind(userId, normalizeBotName(bot), limit).all();
   return r.results.map((x: any) => ({ ...x, compacted: x.compacted == null ? null : !!x.compacted, created_at: new Date(x.created_at).toISOString() }));
 }
 
 /** Delete only this account's bot; retrying also clears a failed KV deletion. */
 export async function deleteBot(env: Env, userId: string, bot: string) {
+  const name = normalizeBotName(bot);
+  const known = await env.DB.prepare("SELECT 1 AS ok FROM bots WHERE user_id = ? AND name = ?").bind(userId, name).first();
   await env.DB.batch([
-    env.DB.prepare("DELETE FROM status_history WHERE user_id = ? AND bot_name = ?").bind(userId, bot),
-    env.DB.prepare("DELETE FROM bots WHERE user_id = ? AND name = ?").bind(userId, bot),
+    env.DB.prepare("DELETE FROM status_history WHERE user_id = ? AND bot_name = ?").bind(userId, name),
+    env.DB.prepare("DELETE FROM bots WHERE user_id = ? AND name = ?").bind(userId, name),
   ]);
-  await env.LATEST.delete(latestKey(userId, bot));
-  return { access_revoked: false };
+  await env.LATEST.delete(latestKey(userId, name));
+  return { existed: known != null, access_revoked: false };
 }
 
 /** Borra todo lo del usuario: D1, KV y sus permisos OAuth. */

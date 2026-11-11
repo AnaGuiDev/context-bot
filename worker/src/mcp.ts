@@ -3,10 +3,12 @@ import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/
 import { z } from "zod";
 import type { Env, Props } from "./env";
 import tips from "./tips.json";
-import { COLOURS, deleteBot, deleteUser, getStatus, hit, listBots, reportStatus } from "./store";
+import { COLOURS, deleteBot, deleteUser, getStatus, hit, listBots, normalizeBotName, reportStatus } from "./store";
 
 export const VERSION = "1.0.0";
-const BOT_NAME = z.string().trim().min(1).max(60).regex(/^[\p{L}\p{M}\p{N} ._'·()+#&-]+$/u, "Use letters, numbers, spaces or . _ ' · ( ) + # & - (max 60 characters)");
+const BOT_NAME = z.string().trim().transform(normalizeBotName).pipe(
+  z.string().min(1).max(60).regex(/^[\p{L}\p{M}\p{N} ._'·()+#&-]+$/u, "Use letters, numbers, spaces or . _ ' · ( ) + # & - (max 60 characters)"),
+);
 
 const text = (o: unknown) => ({ content: [{ type: "text" as const, text: typeof o === "string" ? o : JSON.stringify(o, null, 2) }] });
 const fail = (msg: string) => ({ ...text(msg), isError: true });
@@ -67,7 +69,7 @@ export function buildServer(env: Env, props: Props) {
 
   server.registerTool("delete_bot", {
     title: "Delete one bot",
-    description: "Delete one bot's saved status and history, keeping other bots and account access. Only call when the owner explicitly asks. Requires confirm: true.",
+    description: "Delete one bot's saved status and history, keeping other bots and account access. Names are matched in Unicode NFC. Returns deleted: true and existed: false when that bot was already gone. Only call when the owner explicitly asks. Requires confirm: true.",
     inputSchema: { bot_name: BOT_NAME, confirm: z.literal(true) },
     annotations: { destructiveHint: true, idempotentHint: true },
   }, async ({ bot_name }) => text({ deleted: true, bot_name, ...(await deleteBot(env, uid, bot_name)) }));

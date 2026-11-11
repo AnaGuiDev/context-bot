@@ -12,6 +12,9 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Pruebas del contrato de publicación y de persistencia local frente a la demo, ejecutadas también antes de desplegar.
 
 ### Mejorado
+- Registro OAuth más tolerante: 120 por hora e IP y un tope de 1000 por hora en total. `delete_bot` indica si el bot existía y los nombres se guardan en Unicode NFC. El hash de IP sigue sin sal: un HMAC pediría un secreto nuevo.
+- La publicación en Pages espera a las pruebas de seguridad, consejos y worker, no crea el proyecto si falta y comprueba también `https://contextbot.app/`. `wrangler-action` queda fijado por commit.
+- El uso va antes que la velocidad en los textos de apoyo, la carretera y los README. La FAQ nombra los botones actuales y antepone el bot existente. El semáforo de las skills aclara que el porcentaje es orientación.
 - Generación de consejos con todos sus párrafos (incluidos informes recurrentes), comprobación de sincronización en CI y registro de decisiones sobre el plan de mejora.
 - Instalación en el bot actual antes de la plantilla, botones táctiles de 44 px, prompt MCP traducido y mensaje para compartir sin garantías de ahorro. Privacidad precisa sobre cookie temporal, tokens y retención del estado en directo.
 - Portada centrada en un traspaso revisable: bot existente primero, demo visible y funciones opcionales plegadas, conservando la identidad visual.
@@ -19,6 +22,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Privacidad diferenciada entre modo local y conector opcional; textos de plantilla preparados para publicar en Grok por separado.
 
 ### Corregido
+- Privacidad de la FAQ, del paso de estado en directo y de los README: incluyen el ID numérico de GitHub y las notas breves, y ya no dicen que el panel lo guarda todo en el navegador.
+- Los botones de copiar y de pausa del semáforo, y los botones del panel, miden al menos 44 px. Los controles de quitar siguen siendo texto.
 - Conector: nombres habituales con acentos y puntuación, borrado individual con confirmación, límite de registros OAuth y errores seguros cuando GitHub no responde correctamente.
 - El panel solo acepta el conector oficial o un servidor local; elimina destinos guardados no permitidos. CSP generada por página con hashes de los scripts y cabeceras explícitas para savings-scan.sh.
 - La edición de STATUS y del traspaso en la demo ya no sobrescribe los bots guardados en local.
