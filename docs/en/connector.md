@@ -41,6 +41,7 @@ Your conversations, files and GitHub token are **never** sent. The numbers are t
 | `get_status` | Read the latest status for one bot or all of them |
 | `list_bots` | List the bots that have reported |
 | `get_tips` | Tips for saving context (`en` / `es`) |
+| `delete_bot` | Delete one bot’s status and history, keeping other bots and access (`confirm: true`) |
 | `delete_my_data` | Delete **everything** and revoke access (needs `confirm: true`) |
 
 There's also a REST API for the dashboard: `GET /mcp/api/statuses` (add `?history=1` for history) and `DELETE /mcp/api/me`. Both use the same OAuth token.

@@ -119,18 +119,24 @@ export const defaultHandler = {
       const oauthReq = await takePending(env, nonce);
       const code = url.searchParams.get("code");
       if (!oauthReq || !code) return page("Expired", "<h1>This sign-in expired</h1><p>Start again from your app.</p>", 400);
-      const tok = await fetch("https://github.com/login/oauth/access_token", {
+      let githubId: number;
+      try {
+        const tok = await fetch("https://github.com/login/oauth/access_token", {
         method: "POST",
         headers: { Accept: "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({ client_id: env.GITHUB_CLIENT_ID, client_secret: env.GITHUB_CLIENT_SECRET, code, redirect_uri: `${env.PUBLIC_URL}/callback` }),
-      }).then((r) => r.json<any>());
+      }).then(async (r) => { if (!r.ok) throw new Error("GitHub unavailable"); return r.json<any>(); });
       if (!tok.access_token) return page("Sign-in failed", "<h1>GitHub sign-in failed</h1>", 400);
-      const user = await fetch("https://api.github.com/user", {
+        const user = await fetch("https://api.github.com/user", {
         headers: { Authorization: `Bearer ${tok.access_token}`, "User-Agent": "context-bot-mcp", Accept: "application/vnd.github+json" },
-      }).then((r) => r.json<any>());
+      }).then(async (r) => { if (!r.ok) throw new Error("GitHub unavailable"); return r.json<any>(); });
       // El token de GitHub no se guarda: solo el ID numérico.
-      if (typeof user.id !== "number") return page("Sign-in failed", "<h1>GitHub sign-in failed</h1>", 400);
-      return finish(env, oauthReq, `gh_${user.id}`);
+      if (!Number.isSafeInteger(user.id) || user.id <= 0) return page("Sign-in failed", "<h1>GitHub sign-in failed</h1>", 400);
+        githubId = user.id;
+      } catch {
+        return page("Sign-in unavailable", "<h1>GitHub sign-in is temporarily unavailable</h1><p>Start again from your app in a moment.</p>", 502, { "Set-Cookie": cookie(env, "", 0) });
+      }
+      return finish(env, oauthReq, `gh_${githubId}`);
     }
 
     return new Response("Not found", { status: 404 });

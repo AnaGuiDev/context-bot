@@ -17,6 +17,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y l
 - Privacidad diferenciada entre modo local y conector opcional; textos de plantilla preparados para publicar en Grok por separado.
 
 ### Corregido
+- Conector: nombres habituales con acentos y puntuación, borrado individual con confirmación, límite de registros OAuth y errores seguros cuando GitHub no responde correctamente.
 - El panel solo acepta el conector oficial o un servidor local; elimina destinos guardados no permitidos. CSP generada por página con hashes de los scripts y cabeceras explícitas para savings-scan.sh.
 - La edición de STATUS y del traspaso en la demo ya no sobrescribe los bots guardados en local.
 - El estado en directo no inicializa ni modifica configuración en modo demo.
