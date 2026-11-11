@@ -55,3 +55,7 @@ There are three ways:
 - Message @SoyAnaDev on X.
 
 Deletion is immediate and also revokes all your tokens.
+
+## Registration protection
+
+OAuth client registration allows 10 requests per hour per IP address. Counters store a hash of the IP and hourly window, not the raw IP; this is not anonymization. Counters older than 24 hours are removed by daily cleanup. People on the same network can share this limit.

@@ -55,3 +55,7 @@ Tienes tres formas de hacerlo:
 - Escribe a @SoyAnaDev en X.
 
 El borrado es inmediato y además revoca todos tus tokens.
+
+## Protección del registro
+
+El registro de clientes OAuth admite 10 solicitudes por hora y dirección IP. El contador guarda un hash de IP y ventana horaria, no la IP en claro; no equivale a anonimización. Los contadores de más de 24 horas se eliminan en la limpieza diaria. El límite puede compartirse entre personas de una misma red.

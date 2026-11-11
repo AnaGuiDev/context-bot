@@ -58,6 +58,14 @@
    "sources": [
     "https://cursor.com/help/grok-bot/plans"
    ]
+  },
+  {
+   "title": "🛠️ Savings mode: turn repeated tasks into scripts",
+   "text": "Your bot notes each finished task in one line, a small script counts the repeats (no bot usage), and about once a week the bot reads a 10-line summary. It also reviews its routines by reading only their saved prompt text. If something repeats or a routine is mostly mechanical, it proposes one script you can run on demand or with cron. Say \"savings mode now\" to check anytime. Nothing changes without your OK. These are suggestions; the saving depends on the case.\n\nRecurring reports can stay in a single Page, with scheduled updates and brief notifications linking to it, always after your confirmation. The routine retrieves authorized data and updates the Page; the Page does not update itself. An existing routine is reused where available, failures are reported too, and the last successful update includes its time zone. An export appropriate to the data and available capabilities is verified. Generating and updating the report still uses allowance: savings are not guaranteed.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/plans",
+    "https://cursor.com/help/grok-bot/routines"
+   ]
   }
  ],
  "es": [
@@ -118,6 +126,14 @@
    "text": "Acota bien la tarea, mira cuánto gasta y luego amplía. Consulta el uso antes de trabajos largos.",
    "sources": [
     "https://cursor.com/help/grok-bot/plans"
+   ]
+  },
+  {
+   "title": "🛠️ Modo ahorro: pasa las tareas repetidas a scripts",
+   "text": "Tu bot apunta cada tarea terminada en una línea, un pequeño script cuenta las repetidas (sin gastar uso del bot) y, más o menos una vez por semana, el bot lee un resumen de 10 líneas. También repasa sus rutinas leyendo solo su texto guardado. Si algo se repite o una rutina es casi toda mecánica, te propone un script que puedes lanzar a demanda o con cron. Di «modo ahorro ya» para mirarlo cuando quieras. Nada cambia sin tu permiso. Son sugerencias; el ahorro depende de cada caso.\n\nLos informes recurrentes pueden mantenerse en una misma Page, con actualizaciones programadas y avisos breves con enlace, siempre tras tu confirmación. La rutina recupera los datos autorizados y actualiza la Page; la Page no se actualiza sola. Se reutiliza la rutina existente cuando la hay, se avisa también de los fallos y se indica la última actualización correcta con zona horaria. Se verifica una descarga adecuada a los datos y capacidades disponibles. Generar y actualizar el informe sigue consumiendo uso: no se garantiza ahorro.",
+   "sources": [
+    "https://cursor.com/help/grok-bot/plans",
+    "https://cursor.com/help/grok-bot/routines"
    ]
   }
  ]

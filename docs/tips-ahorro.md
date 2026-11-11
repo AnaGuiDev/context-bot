@@ -50,4 +50,6 @@ Tu bot apunta cada tarea terminada en una línea, un pequeño script cuenta las 
 
 Los informes recurrentes pueden mantenerse en una misma Page, con actualizaciones programadas y avisos breves con enlace, siempre tras tu confirmación. La rutina recupera los datos autorizados y actualiza la Page; la Page no se actualiza sola. Se reutiliza la rutina existente cuando la hay, se avisa también de los fallos y se indica la última actualización correcta con zona horaria. Se verifica una descarga adecuada a los datos y capacidades disponibles. Generar y actualizar el informe sigue consumiendo uso: no se garantiza ahorro.
 
+## Más consejos
+
 Los consejos que aún no hemos podido confirmar están en [tips-pendientes.md](tips-pendientes.md).

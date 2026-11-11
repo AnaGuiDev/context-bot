@@ -26,6 +26,7 @@ jobs:
           bash scripts/build-site.sh
           python3 tests/site-contract.py
           python3 tests/security-headers.py
+          python3 worker/gen-tips.py --check
           node --test tests/*.cjs
           node --check src/js/dashboard.js
           node --check src/js/live.js
